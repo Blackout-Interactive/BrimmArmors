@@ -19,19 +19,38 @@ public class ConcordMaterialSerializer implements JsonDeserializer<ConcordArmorM
 
         int enchantmentValue = obj.has("enchantmentValue") ? obj.get("enchantmentValue").getAsInt() : 0;
 
-        // Deserialize defense array
-        JsonArray defenseArray = Objects.requireNonNull(obj.getAsJsonArray("defense"), "defense is null!");
-        int[] defenseValues = new int[defenseArray.size()];
-        for (int i = 0; i < defenseArray.size(); i++) {
-            defenseValues[i] = defenseArray.get(i).getAsInt();
+        // Deserialize defense
+        int[] defenseValues;
+        JsonElement defenseElement = Objects.requireNonNull(obj.get("defense"), "defense is null!");
+        if (defenseElement.isJsonArray()) {
+            JsonArray defenseArray = defenseElement.getAsJsonArray();
+            defenseValues = new int[defenseArray.size()];
+            for (int i = 0; i < defenseArray.size(); i++) {
+                defenseValues[i] = defenseArray.get(i).getAsInt();
+            }
+        } else if (defenseElement.isJsonPrimitive() && defenseElement.getAsJsonPrimitive().isNumber()) {
+            int uniformDefense = defenseElement.getAsInt();
+            defenseValues = new int[] {uniformDefense, uniformDefense, uniformDefense, uniformDefense};
+        } else {
+            throw new JsonParseException("Invalid 'defense' format: expected array or single number");
         }
 
-        // Deserialize durability array
-        JsonArray durabilityArray = Objects.requireNonNull(obj.getAsJsonArray("durability"), "durability is null!");
-        int[] durabilityValues = new int[durabilityArray.size()];
-        for (int i = 0; i < durabilityArray.size(); i++) {
-            durabilityValues[i] = durabilityArray.get(i).getAsInt();
+        // Deserialize durability
+        int[] durabilityValues;
+        JsonElement durabilityElement = Objects.requireNonNull(obj.get("durability"), "durability is null!");
+        if (durabilityElement.isJsonArray()) {
+            JsonArray durabilityArray = durabilityElement.getAsJsonArray();
+            durabilityValues = new int[durabilityArray.size()];
+            for (int i = 0; i < durabilityArray.size(); i++) {
+                durabilityValues[i] = durabilityArray.get(i).getAsInt();
+            }
+        } else if (durabilityElement.isJsonPrimitive() && durabilityElement.getAsJsonPrimitive().isNumber()) {
+            int uniformDurability = durabilityElement.getAsInt();
+            durabilityValues = new int[] {uniformDurability, uniformDurability, uniformDurability, uniformDurability};
+        } else {
+            throw new JsonParseException("Invalid 'durability' format: expected array or single number");
         }
+
 
         float toughness = obj.has("toughness") ? obj.get("toughness").getAsFloat() : 0.0f;
         float knockbackResistance = obj.has("knockbackResistance") ? obj.get("knockbackResistance").getAsFloat() : 0.0f;

@@ -1,0 +1,12 @@
+# Blender 4.4.3 MTL File: 'None'
+# www.blender.org
+
+newmtl m_b87e144e-7856-83c3-1b70-203c57613728
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd concord:models/obj/armors/chestplates/atleti

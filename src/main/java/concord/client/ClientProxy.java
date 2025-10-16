@@ -15,6 +15,8 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.HashMap;
 
 public class ClientProxy extends CommonProxy {
+	
+	// ECLIPSE GIT SUCKS
 
     private static final HashMap<String, WavefrontObject> hashedModels = new HashMap<>();
 

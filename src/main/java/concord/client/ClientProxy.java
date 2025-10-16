@@ -17,6 +17,7 @@ import java.util.HashMap;
 public class ClientProxy extends CommonProxy {
 	
 	// ECLIPSE GIT SUCKS
+	// LIKE SUCKS ALOT
 
     private static final HashMap<String, WavefrontObject> hashedModels = new HashMap<>();
 

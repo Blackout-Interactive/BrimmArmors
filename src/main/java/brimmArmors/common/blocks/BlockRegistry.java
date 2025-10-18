@@ -1,6 +1,5 @@
 package brimmArmors.common.blocks;
 
-import ema_08_.geom.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -15,6 +14,7 @@ import javax.annotation.Nullable;
 import brimmArmors.BrimmArmors;
 import brimmArmors.common.items.ItemRegistry;
 import brimmArmors.common.recipes.RecipesManager;
+import ema_08_.geom.models.*;
 
 import java.util.function.Function;
 import java.util.function.Supplier;

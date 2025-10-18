@@ -1,7 +1,3 @@
 package ema_08_.misc;
 
-public interface IBuilder<T> {
-	
-	T build();
-
-}
+@FunctionalInterface public interface IBuilder<T>{T build();}

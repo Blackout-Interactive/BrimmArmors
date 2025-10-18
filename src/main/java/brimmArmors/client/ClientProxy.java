@@ -7,22 +7,13 @@ import brimmArmors.common.tile.TileRegistry;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 public class ClientProxy extends CommonProxy {
 
-    @Override
-    public void preInit() {
-        super.preInit();
-    }
-
-    @Override
-    public void init() {
-        super.init();
-    }
-
     @SuppressWarnings("deprecation")
 	@Override
-    public void client() {
+    public void client(final FMLClientSetupEvent event) {
         // Block Entity Renderer registration (formerly TileEntityRenderer)
         BlockEntityRenderers.register(TileRegistry.WORKBENCH_TILE.get(), context -> new WorkbenchRender());
 
@@ -32,4 +23,5 @@ public class ClientProxy extends CommonProxy {
         ItemBlockRenderTypes.setRenderLayer(BlockRegistry.workbench_brf.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(BlockRegistry.workbench_hlmt.get(), RenderType.cutout());
     }
+
 }

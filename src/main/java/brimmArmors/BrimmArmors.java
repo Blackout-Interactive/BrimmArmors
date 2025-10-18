@@ -13,6 +13,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import brimmArmors.client.ClientProxy;
+import brimmArmors.server.ServerProxy;
 import brimmArmors.common.CommonProxy;
 import brimmArmors.common.blocks.BlockRegistry;
 import brimmArmors.common.items.ItemRegistry;
@@ -26,7 +27,7 @@ public class BrimmArmors
 
     public static final String MOD_ID = "brimm";
     public static NetworkDispatcher network;
-    public static CommonProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
+    public static CommonProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> ServerProxy::new);
 
     public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
@@ -48,34 +49,22 @@ public class BrimmArmors
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    /**
-     * @param event Pre Init registry
-     */
     private void preInit(final FMLCommonSetupEvent event) {
         network = new NetworkDispatcher();
         network.register();
-        proxy.preInit();
+        proxy.preInit(event);
     }
 
-    /**
-     * @param event EventBus registry
-     */
-    private void init(FMLLoadCompleteEvent event) {
-        proxy.init();
+    private void init(final FMLLoadCompleteEvent event) {
+        proxy.init(event);
     }
 
-    /**
-     * @param event Only for server.bat
-     */
     private void server(final FMLDedicatedServerSetupEvent event) {
-        proxy.server();
+        proxy.server(event);
     }
 
-    /**
-     * @param event Only for client.bat
-     */
     private void client(final FMLClientSetupEvent event) {
-        proxy.client();
+        proxy.client(event);
     }
 
 }

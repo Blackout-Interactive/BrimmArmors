@@ -11,7 +11,7 @@ import brimmArmors.common.network.packets.RequestCraftItem;
 import brimmArmors.common.recipes.Ingredient;
 import brimmArmors.common.recipes.ItemRecipe;
 import brimmArmors.common.recipes.RecipesManager;
-import ema_08_.geom.RTSMatricesCompound;
+import ema_08_.geom.models.RTSMatricesCompound;
 import ema_08_.trivialForgeObjWrapper.IObjModelProvider;
 import ema_08_.trivialForgeObjWrapper.ObjsManager;
 import net.minecraft.ChatFormatting;

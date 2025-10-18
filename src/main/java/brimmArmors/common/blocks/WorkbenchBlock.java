@@ -1,6 +1,6 @@
 package brimmArmors.common.blocks;
 
-import ema_08_.geom.RTSMatricesCompound;
+import ema_08_.geom.models.RTSMatricesCompound;
 import ema_08_.trivialForgeObjWrapper.IDefaultObjModelProvider;
 import ema_08_.trivialForgeObjWrapper.ModelType;
 import net.minecraft.core.BlockPos;

@@ -4,7 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
 import brimmArmors.common.items.BasicArmor;
-import ema_08_.geom.RTSMatricesCompound;
+import ema_08_.geom.models.RTSMatricesCompound;
 import ema_08_.trivialForgeObjWrapper.ObjsManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;

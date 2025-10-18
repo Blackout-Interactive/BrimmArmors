@@ -1,8 +1,8 @@
 package brimmArmors.resource.dummies;
 
-import ema_08_.geom.*;
-
 import java.util.Arrays;
+
+import ema_08_.geom.models.*;
 
 /**
  * Dummy class, ema_08_ is indeed too lazy to rewrite all serialisation to make it work with the new transform class,
@@ -56,8 +56,8 @@ public class Transform {
     
     // --- Conversion utilities --- \\
 
-    public ema_08_.geom.RTSMatricesCompound toNewCompound() {
-        ema_08_.geom.RTSMatricesCompoundBuilder builder = new ema_08_.geom.RTSMatricesCompoundBuilder();
+    public ema_08_.geom.models.RTSMatricesCompound toNewCompound() {
+        ema_08_.geom.models.RTSMatricesCompoundBuilder builder = new ema_08_.geom.models.RTSMatricesCompoundBuilder();
 
         // Allowed keys
         final String keyArmor = RTSMatricesCompound.key_armor_render;
@@ -73,19 +73,19 @@ public class Transform {
     }
 
     private static void addIfPresent(
-            ema_08_.geom.RTSMatricesCompoundBuilder builder,
+            ema_08_.geom.models.RTSMatricesCompoundBuilder builder,
             String key,
             Matrix matrix
     ) {
         if (matrix != null) {
-            builder.set(key, new ema_08_.geom.MatrixRTSBuilder()
+            builder.set(key, new ema_08_.geom.models.MatrixRTSBuilder()
                     .setTranslate(matrix.translate[0], matrix.translate[1], matrix.translate[2])
                     .setRotate(matrix.rotate[0], matrix.rotate[1], matrix.rotate[2])
                     .setScale(matrix.scale[0], matrix.scale[1], matrix.scale[2]));
         }
     }
 
-    public static Transform fromNewCompound(ema_08_.geom.RTSMatricesCompound compound) {
+    public static Transform fromNewCompound(ema_08_.geom.models.RTSMatricesCompound compound) {
         Transform t = new Transform();
 
         t.ARMOR         = fromNewMatrix(compound.getOrIdentity("ARMOR"));
@@ -95,7 +95,7 @@ public class Transform {
         return t;
     }
 
-    private static Matrix fromNewMatrix(ema_08_.geom.MatrixRTS m) {
+    private static Matrix fromNewMatrix(ema_08_.geom.models.MatrixRTS m) {
     	Matrix mtx = new Matrix();
     	mtx.translate = new float[] {m.trX, m.trY, m.trZ};
     	mtx.rotate = new float[] {m.rtX, m.rtY, m.rtZ};

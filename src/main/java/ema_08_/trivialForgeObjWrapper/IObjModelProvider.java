@@ -1,6 +1,6 @@
 package ema_08_.trivialForgeObjWrapper;
 
-import ema_08_.geom.RTSMatricesCompound;
+import ema_08_.geom.models.RTSMatricesCompound;
 import net.minecraft.resources.ResourceLocation;
 
 public interface IObjModelProvider {

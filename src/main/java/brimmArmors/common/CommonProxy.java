@@ -1,23 +1,22 @@
 package brimmArmors.common;
 
 import brimmArmors.common.recipes.RecipesManager;
+import net.minecraftforge.fml.event.lifecycle.*;
 
-public class CommonProxy {
+public abstract class CommonProxy {
 
-    public void preInit() {
-
+    public void preInit(final FMLCommonSetupEvent event) {
+    	
     }
 
-    public void init() {
+    public void init(final FMLLoadCompleteEvent event) {
         RecipesManager.init();
     }
 
-    public void client() {
+    public void client(final FMLClientSetupEvent event)
+    {throw new IllegalStateException("Wrong side");}
 
-    }
-
-    public void server() {
-
-    }
+    public void server(final FMLDedicatedServerSetupEvent event)
+    {throw new IllegalStateException("Wrong side");}
 
 }

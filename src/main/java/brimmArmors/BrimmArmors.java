@@ -26,7 +26,7 @@ public class BrimmArmors
 
     public static final String MOD_ID = "brimm";
     public static NetworkDispatcher network;
-    public static CommonProxy proxy;
+    public static CommonProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 
     public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
@@ -76,10 +76,6 @@ public class BrimmArmors
      */
     private void client(final FMLClientSetupEvent event) {
         proxy.client();
-    }
-
-    static {
-         BrimmArmors.proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
     }
 
 }

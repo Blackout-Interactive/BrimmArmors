@@ -36,7 +36,8 @@ public class SimplePacket {
         // Client-side handler
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @SuppressWarnings("resource")
+	@OnlyIn(Dist.CLIENT)
     private static LocalPlayer clientPlayer() {
         return Minecraft.getInstance().player;
     }

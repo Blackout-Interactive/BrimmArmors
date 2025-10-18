@@ -33,7 +33,8 @@ public final class JsonConfigLoader {
 
     private static JsonObject createDefaultConfig() throws IOException {
         InputStream stream = BrimmArmors.class.getResourceAsStream("/default-config.json");
-        String jsRaw = IOUtils.toString(stream);
+        @SuppressWarnings("deprecation")
+		String jsRaw = IOUtils.toString(stream);
         return GSON.fromJson(jsRaw, JsonObject.class);
     }
 
@@ -66,8 +67,8 @@ public final class JsonConfigLoader {
             var reg = ItemRegistry.ITEMS.register(armor.getAsJsonObject().get("id").getAsString(), basic);
             registered.add(reg);
         }
-        ItemRegistry.CREATIVE_TABS.register("concord_armors", () -> CreativeModeTab.builder()
-                .title(Component.translatable("itemGroup." + BrimmArmors.MOD_ID + ".concord_armors"))
+        ItemRegistry.CREATIVE_TABS.register("armors", () -> CreativeModeTab.builder()
+                .title(Component.translatable("itemGroup." + BrimmArmors.MOD_ID + ".armors"))
                 .icon(() -> new ItemStack(registered.stream().map(RegistryObject::get).findFirst().orElseThrow()))
                 .displayItems((params, output) -> {
                 	registered.stream().map(RegistryObject::get).forEach(output::accept);

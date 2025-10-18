@@ -39,14 +39,7 @@ public class ObjsManager {
 	
 	public static final class BakedObjModel {
 		
-		private static final ITextureRenderTypeLookup renderType = new ITextureRenderTypeLookup() {
-
-			@Override
-			public RenderType get(ResourceLocation res) {
-				return RenderType.entityCutout(res);
-			}
-			
-		};
+		private static final ITextureRenderTypeLookup renderType = RenderType::entityCutout;
 		
 		private final CompositeRenderable bakedModel;
 		private final String name;

@@ -81,7 +81,7 @@ tasks.named('processResources', ProcessResources).configure {
     ]
     inputs.properties replaceProperties
 
-    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
+    filesMatching(['META-INF/mods.toml', 'pack.mcmeta', "assets/${project.mod_id}/lang/**".toString()]) {
         expand replaceProperties + [project: project]
     }
 }

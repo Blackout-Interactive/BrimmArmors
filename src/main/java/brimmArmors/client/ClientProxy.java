@@ -20,7 +20,8 @@ public class ClientProxy extends CommonProxy {
         super.init();
     }
 
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public void client() {
         // Block Entity Renderer registration (formerly TileEntityRenderer)
         BlockEntityRenderers.register(TileRegistry.WORKBENCH_TILE.get(), context -> new WorkbenchRender());

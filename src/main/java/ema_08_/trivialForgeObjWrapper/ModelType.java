@@ -1,6 +1,7 @@
 package ema_08_.trivialForgeObjWrapper;
 
 public enum ModelType {
+	
 	  ARMOR_HELMET("armors/helmets"),
 	  ARMOR_CHESTPLATE("armors/chestplates"),
 	  ARMOR_LEGGINGS("armors/leggings"),

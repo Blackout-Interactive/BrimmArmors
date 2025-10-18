@@ -1,114 +1,107 @@
 {
-  "itemGroup.helmet": "Concord Helmets",
-  "itemGroup.bulletproof": "Concord Body Armors",
-  "itemGroup.blocks": "Concord Blocks",
-  "itemGroup.items": "Concord Items",
-  "block.concord.workbench": "Workbench",
+	
+  "itemGroup.${mod_id}.armors": "Brimm Armors",
 
-  "block.concord.workbench_plate": "Plate Workbench",
-  "block.concord.workbench_brf": "Body Armor Workbench",
-  "block.concord.workbench_hlmt": "Helmet Workbench",
+  "item.${mod_id}.iron_plate": "Iron Plate",
+  "item.${mod_id}.diamond_plate": "Diamond Plate",
+  "item.${mod_id}.nether_plate": "Nether Plate",
 
-  "item.concord.iron_plate": "Iron Plate",
-  "item.concord.diamond_plate": "Diamond Plate",
-  "item.concord.nether_plate": "Nether Plate",
+  "item.${mod_id}.nato": "Combined Arms Body Armor",
+  "tooltip.${mod_id}.nato": "You're in the army now",
 
-  "item.concord.nato": "Combined Arms Body Armor",
-  "tooltip.nato": "You're in the army now",
+  "item.${mod_id}.nato_ii": "Assault Combined Arms Body Armor",
+  "tooltip.${mod_id}.nato_ii": "Johnny, get your gun",
 
-  "item.concord.nato_ii": "Assault Combined Arms Body Armor",
-  "tooltip.nato_ii": "Johnny, get your gun",
+  "item.${mod_id}.marine": "MarineRaiders Body Armor",
+  "tooltip.${mod_id}.marine": "Gung-ho!",
 
-  "item.concord.marine": "MarineRaiders Body Armor",
-  "tooltip.marine": "Gung-ho!",
+  "item.${mod_id}.guard": "Guard Body Armor",
+  "tooltip.${mod_id}.guard": "Always Ready, Always There!",
 
-  "item.concord.guard": "Guard Body Armor",
-  "tooltip.guard": "Always Ready, Always There!",
+  "item.${mod_id}.saper": "Saper Body Armor",
+  "tooltip.${mod_id}.saper": "The owner of this Body Armor vest really didn't like creepers.",
 
-  "item.concord.saper": "Saper Body Armor",
-  "tooltip.saper": "The owner of this Body Armor vest really didn't like creepers.",
+  "item.${mod_id}.vanderer": "Vanderer Body Armor",
+  "tooltip.${mod_id}.vanderer": "Wandering in the desert...",
 
-  "item.concord.vanderer": "Vanderer Body Armor",
-  "tooltip.vanderer": "Wandering in the desert...",
+  "item.${mod_id}.defender": "Defender Body Armor",
+  "tooltip.${mod_id}.defender": "",
 
-  "item.concord.defender": "Defender Body Armor",
-  "tooltip.defender": "",
+  "item.${mod_id}.defender_ii": "Assault defender Body Armor",
+  "tooltip.${mod_id}.defender_ii": "",
 
-  "item.concord.defender_ii": "Assault defender Body Armor",
-  "tooltip.defender_ii": "",
+  "item.${mod_id}.defender_iii": "Assault defender Body Armor 2",
+  "tooltip.${mod_id}.defender_iii": "",
 
-  "item.concord.defender_iii": "Assault defender Body Armor 2",
-  "tooltip.defender_iii": "",
+  "item.${mod_id}.concord": "Concord's Body Armor",
+  "tooltip.${mod_id}.concord": "",
 
-  "item.concord.concord": "Concord's Body Armor",
-  "tooltip.concord": "",
+  "item.${mod_id}.medic": "Medic Body Armor",
+  "tooltip.${mod_id}.medic": "Heroes never die!",
 
-  "item.concord.medic": "Medic Body Armor",
-  "tooltip.medic": "Heroes never die!",
+  "item.${mod_id}.pmc": "PMC Kinder Body Armor",
+  "tooltip.${mod_id}.pmc": "Temperature +50. Everything we love!",
 
-  "item.concord.pmc": "PMC Kinder Body Armor",
-  "tooltip.pmc": "Temperature +50. Everything we love!",
+  "item.${mod_id}.assault": "Assault Body Armor",
+  "tooltip.${mod_id}.assault": "Stops small talk and small arms fire",
 
-  "item.concord.assault": "Assault Body Armor",
-  "tooltip.assault": "A deadly trick - he took the fort and almost died",
+  "item.${mod_id}.horse": "517 Body Armor",
+  "tooltip.${mod_id}.horse": "If you can still breathe, it’s working",
 
-  "item.concord.horse": "517 Body Armor",
-  "tooltip.horse": "It is better to be able and not need, than to need and not be able",
+  "item.${mod_id}.spn": "Jagdkommando Body Armor",
+  "tooltip.${mod_id}.spn": "Standard Issue",
 
-  "item.concord.spn": "Jagdkommando Body Armor",
-  "tooltip.spn": "Standard Issue",
+  "item.${mod_id}.atleti": "Atleti's Body Armor",
+  "tooltip.${mod_id}.atleti": "Simple Athletes from the Periphery",
 
-  "item.concord.atleti": "Atleti's Body Armor",
-  "tooltip.atleti": "Simple Athletes from the Periphery",
+  "item.${mod_id}.ratnik": "Ratnik Body Armor",
+  "tooltip.${mod_id}.ratnik": "Here I am, hello troops",
 
-  "item.concord.ratnik": "Ratnik Body Armor",
-  "tooltip.ratnik": "Here I am, hello troops",
+  "item.${mod_id}.ratnik_advance": "Ratnik 2 Body Armor",
+  "tooltip.${mod_id}.ratnik_advance": "Built-In Complaints Department",
 
-  "item.concord.ratnik_advance": "Ratnik 2 Body Armor",
-  "tooltip.ratnik_advance": "Built-In Complaints Department",
+  "item.${mod_id}.veteran": "Ratnik Veteran Body Armor",
+  "tooltip.${mod_id}.veteran": "Shut up, I fought",
 
-  "item.concord.veteran": "Ratnik Veteran Body Armor",
-  "tooltip.veteran": "Shut up, I fought",
+  "item.${mod_id}.nyyyaaaa": "Housemaid Body Armor",
+  "tooltip.${mod_id}.nyyyaaaa": "Every militarist is a little girl at heart",
 
-  "item.concord.nyyyaaaa": "Housemaid Body Armor",
-  "tooltip.nyyyaaaa": "Every militarist is a little girl at heart",
+  "item.${mod_id}.base_h": "Special Ops Core",
+  "tooltip.${mod_id}.base_h": "",
 
-  "item.concord.base_h": "Special Ops Core",
-  "tooltip.base_h": "",
+  "item.${mod_id}.assault_h": "Assault Helmet",
+  "tooltip.${mod_id}.assault_h": "Brain Bucket Deluxe",
 
-  "item.concord.assault_h": "Assault Helmet",
-  "tooltip.assault_h": "Brain Bucket Deluxe",
+  "item.${mod_id}.gasmask_h": "Gas Mask Helmet",
+  "tooltip.${mod_id}.gasmask_h": "Poisoning? What is that?",
 
-  "item.concord.gasmask_h": "Gas Mask Helmet",
-  "tooltip.gasmask_h": "Poisoning? What is that?",
+  "item.${mod_id}.medic_h": "Medic Helmet",
+  "tooltip.${mod_id}.medic_h": "This helmet makes you sexier and heals your allies",
 
-  "item.concord.medic_h": "Medic Helmet",
-  "tooltip.medic_h": "This helmet makes you sexier and heals your allies.",
+  "item.${mod_id}.concord_h": "Concord's Helmet",
+  "tooltip.${mod_id}.concord_h": "Specially tanked",
 
-  "item.concord.concord_h": "Concord's Helmet",
-  "tooltip.concord_h": "Specially tanked.",
+  "item.${mod_id}.infantry_h": "Special Ops Core",
+  "tooltip.${mod_id}.infantry_h": "",
 
-  "item.concord.infantry_h": "Special Ops Core",
-  "tooltip.infantry_h": "",
+  "item.${mod_id}.gpnvg_h": "Black Ops Helmet",
+  "tooltip.${mod_id}.gpnvg_h": "I'm not afraid of the dark anymore!",
 
-  "item.concord.gpnvg_h": "Black Ops Helmet",
-  "tooltip.gpnvg_h": "I'm not afraid of the dark anymore!",
+  "item.${mod_id}.ghost_h": "Ghost's Helmet",
+  "tooltip.${mod_id}.ghost_h": "Show my face?",
 
-  "item.concord.ghost_h": "Ghost's Helmet",
-  "tooltip.ghost_h": "Show my face?",
+  "item.${mod_id}.zch_h": "ZSH12",
+  "tooltip.${mod_id}.zch_h": "",
 
-  "item.concord.zch_h": "ZSH12",
-  "tooltip.zch_h": "",
+  "item.${mod_id}.zabralo_h": "ZSH12 w/ Visor",
+  "tooltip.${mod_id}.zabralo_h": "Special Forces. We are working!",
 
-  "item.concord.zabralo_h": "ZSH12 w/ Visor",
-  "tooltip.zabralo_h": "Special Forces. We are working!",
+  "item.${mod_id}.killa_h": "Killa's Helmet",
+  "tooltip.${mod_id}.killa_h": "Forged for endurance. Worn by madness",
 
-  "item.concord.killa_h": "Killa's Helmet",
-  "tooltip.killa_h": "And his helmet is so... you can't miss it.",
+  "item.${mod_id}.mk_ii_h": "МК-2",
+  "tooltip.${mod_id}.mk_ii_h": "",
 
-  "item.concord.mk_ii_h": "МК-2",
-  "tooltip.mk_ii_h": "",
-
-  "item.concord.saper_h": "Saper MK-2",
-  "tooltip.saper_h": "No smoking in the mines"
+  "item.${mod_id}.saper_h": "Saper MK-2",
+  "tooltip.${mod_id}.saper_h": "No smoking in the mines"
 }

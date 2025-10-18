@@ -21,6 +21,7 @@ import javax.annotation.Nullable;
 
 import org.jetbrains.annotations.NotNull;
 
+import brimmArmors.BrimmArmors;
 import brimmArmors.client.render.ConcordArmorRender;
 
 import java.util.ArrayList;
@@ -76,7 +77,7 @@ public class BasicArmor extends ArmorItem implements IRarity, IDefaultObjModelPr
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltipList, TooltipFlag flag) {
-        tooltipList.add(Component.literal(rarity.color + "\u00A7o" + I18n.get("tooltip." + tooltip)));
+        tooltipList.add(Component.literal(rarity.color + "\u00A7o" + I18n.get("tooltip." + BrimmArmors.MOD_ID + "." + tooltip)));
     }
 
     public ConcordRarity getRarity() {

@@ -1,0 +1,79 @@
+BRIMM ARMORS MINECRAFT MOD LICENSE AGREEMENT
+Version 1.0 - October 2025
+Copyright (c) Blackout Interactive
+
+0 - DEFINITIONS
+
+ - The "Software" is hereby defined as the total content of the mod's JAR file,
+   including but not limited to compiled code, assets, and configuration data.
+
+ - The "Licensee" or "User" is hereby defined as any individual or entity that
+   legally obtains a copy of the Software.
+
+ - The "Licensor" is hereby defined as Blackout Interactive group, as a single entity.
+
+ - The "Contributors" are hereby defined as any individuals who have worked on
+   or contributed to the Software, whether compensated or not.
+
+1 - USAGE AND DISTRIBUTION
+
+ - Any User is granted the right to use this Software for both personal and
+   commercial purposes (for example, in public monetized Minecraft servers),
+   provided that the Software itself is not sold or offered for sale.
+
+ - Users are not permitted to redistribute or reupload the Software file itself
+   on any platform or service.
+
+ - Users who wish to share the Software must do so only by providing links to
+   the official download pages as designated by the Licensor (for example,
+   CurseForge or other authorized sources).
+
+2 - MODIFICATIONS AND DERIVATIVE WORKS
+
+ - The User may not modify, decompile, or otherwise alter the Software, in whole
+   or in part, without prior written authorization from the Licensor.
+
+ - The User may create and distribute independent works or mods that depend on
+   or interface with this Software, provided that the above restriction on
+   modification is respected.
+
+ - The User may create artistic or media works (for example videos, screenshots,
+   or reviews) featuring the Software. Attribution to the Licensor is appreciated
+   but not required, however, the User must not claim authorship or ownership of
+   the Software itself.
+
+3 - OWNERSHIP AND RIGHTS
+
+ - All rights, title, and interest in and to the Software, including all
+   intellectual property rights, remain exclusively with the Licensor and its
+   Contributors.
+
+ - Each Contributor retains ownership of their own original work, unless
+   otherwise agreed in writing with the Licensor (Blackout Interactive).
+
+ - By submitting or providing any contribution to the Software, each Contributor
+   grants the Licensor a perpetual, worldwide, non-exclusive, royalty-free right
+   to include, distribute, and use that contribution as part of the Software,
+   in both original and modified forms, for any purpose related to the Software.
+
+ - This License does not grant any rights to trademarks, service marks, or logos
+   of the Licensor.
+
+4 - WARRANTY DISCLAIMER
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS
+ FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. IN NO EVENT SHALL THE LICENSOR
+ OR CONTRIBUTORS BE LIABLE FOR ANY DAMAGES OR LOSSES ARISING FROM THE USE OF, OR
+ INABILITY TO USE, THE SOFTWARE.
+
+5 - TERMINATION
+
+ This License is automatically terminated if the User breaches any of its terms.
+ Upon termination, the User must cease all use and distribution of the Software.
+
+6 - GOVERNING LAW
+
+ This License shall be governed by and interpreted in accordance with the laws
+ of the jurisdiction where the Licensor operates, unless otherwise required by
+ applicable law.

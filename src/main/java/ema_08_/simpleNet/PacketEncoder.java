@@ -1,4 +1,4 @@
-package ema_08_.simpleNet.asbtr;
+package ema_08_.simpleNet;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

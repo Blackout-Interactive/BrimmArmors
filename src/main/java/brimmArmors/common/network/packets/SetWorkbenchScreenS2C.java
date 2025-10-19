@@ -1,34 +1,43 @@
 package brimmArmors.common.network.packets;
 
 import brimmArmors.client.screens.WorkbenchScreen;
-import brimmArmors.common.network.SimplePacket;
 import brimmArmors.common.recipes.RecipesManager;
+import ema_08_.simpleNet.APacket;
+import ema_08_.simpleNet.PacketDecoder;
+import ema_08_.simpleNet.PacketEncoder;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.network.NetworkEvent;
 
-public class SetWorkbenchScreenS2C extends SimplePacket {
-    RecipesManager.CraftType craftType;
+public class SetWorkbenchScreenS2C extends APacket {
+
+    private RecipesManager.CraftType craftType;
 
     public SetWorkbenchScreenS2C(RecipesManager.CraftType type) {
         this.craftType = type;
     }
 
-    // Encoder (write to buffer)
-    public void encode(FriendlyByteBuf buffer) {
-        buffer.writeEnum(craftType);
+    @PacketEncoder(implClassName = "brimmArmors.common.network.packets.SetWorkbenchScreenS2C")
+    private static void encode(SetWorkbenchScreenS2C msg, FriendlyByteBuf buf) {
+        buf.writeEnum(msg.craftType);
     }
 
-    // Decoder (read from buffer)
-    public static SetWorkbenchScreenS2C decode(FriendlyByteBuf buffer) {
-        return new SetWorkbenchScreenS2C(buffer.readEnum(RecipesManager.CraftType.class));
+    @PacketDecoder(implClassName = "brimmArmors.common.network.packets.SetWorkbenchScreenS2C")
+    private static SetWorkbenchScreenS2C decode(FriendlyByteBuf buf) {
+        return new SetWorkbenchScreenS2C(buf.readEnum(RecipesManager.CraftType.class));
     }
 
     @Override
     @OnlyIn(Dist.CLIENT)
-    public void client(LocalPlayer player) {
-        Minecraft.getInstance().setScreen(new WorkbenchScreen(craftType));
+    protected void handleClient(NetworkEvent.Context ctx) {
+        Minecraft mc = Minecraft.getInstance();
+        mc.setScreen(new WorkbenchScreen(craftType));
+    }
+
+    @Override
+    protected void handleServer(NetworkEvent.Context ctx) {
+    	throw new IllegalStateException("This should not end up here");
     }
 }

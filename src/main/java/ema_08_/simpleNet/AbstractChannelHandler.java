@@ -5,9 +5,6 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 import ema_08_.misc.AnnotationsProcessing;
-import ema_08_.simpleNet.asbtr.APacket;
-import ema_08_.simpleNet.asbtr.PacketDecoder;
-import ema_08_.simpleNet.asbtr.PacketEncoder;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -15,12 +12,12 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 
-public abstract class CommonChannelHandler {
+public abstract class AbstractChannelHandler {
 	
 	protected final SimpleChannel channel;
 	protected volatile byte pid = 0;
 	
-	protected CommonChannelHandler(String modid, String channelName, String protVersion) {
+	protected AbstractChannelHandler(String modid, String channelName, String protVersion) {
 		this.channel = NetworkRegistry.newSimpleChannel(
                 new ResourceLocation(modid, channelName),
                 protVersion::toString,

@@ -1,9 +1,13 @@
 package ema_08_.simpleNet;
 
+import java.lang.invoke.MethodHandle;
+import java.lang.invoke.MethodHandles;
+import java.lang.invoke.WrongMethodTypeException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
+import brimmArmors.BrimmArmors;
 import ema_08_.misc.AnnotationsProcessing;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -15,7 +19,7 @@ import net.minecraftforge.network.simple.SimpleChannel;
 public abstract class AbstractChannelHandler {
 	
 	protected final SimpleChannel channel;
-	protected volatile byte pid = 0;
+	protected volatile int pid = 0;
 	
 	protected AbstractChannelHandler(String modid, String channelName, String protVersion) {
 		this.channel = NetworkRegistry.newSimpleChannel(
@@ -33,11 +37,45 @@ public abstract class AbstractChannelHandler {
 		return method;
 	}
 	
+	private static void handleReflectionEx(Throwable t, boolean coreApi) {
+		if (coreApi) {
+			if (t instanceof IllegalAccessException ||
+					t instanceof IllegalArgumentException ||
+					t instanceof InvocationTargetException ||
+					t instanceof ExceptionInInitializerError) {
+					BrimmArmors.LOGGER.error("A reflection exception has occurred handling a packet via "+
+									"an abstract channel handler. CoreApi="+coreApi+".");
+					t.printStackTrace();
+					throw new RuntimeException("Reflection exception in packet handling");
+				} else if (t instanceof RuntimeException re) {
+					throw re;
+				} else {
+					BrimmArmors.LOGGER.error("An unexpected checked exception has occurred handling a packet via "+
+									"an abstract channel handler. Propagating.");
+					throw new RuntimeException("Unexpected checked exception", t);
+				}
+		} else {
+			if (t instanceof WrongMethodTypeException ||
+				t instanceof ClassCastException) {
+				BrimmArmors.LOGGER.error("A reflection exception has occurred handling a packet via "+
+								"an abstract channel handler. CoreApi="+coreApi+".");
+				t.printStackTrace();
+				throw new RuntimeException("Reflection exception in packet handling");
+			} else if (t instanceof RuntimeException re) {
+				throw re;
+			} else {
+				BrimmArmors.LOGGER.error("An unexpected checked exception has occurred handling a packet via "+
+								"an abstract channel handler. Propagating.");
+				throw new RuntimeException("Unexpected checked exception", t);
+			}
+		}
+	}
+	
 	private static void invokestaticV(Method m, Object... params) {
 		try {
 			m.invoke(null, params);
-		} catch (IllegalAccessException | InvocationTargetException e) {
-			throw new RuntimeException("Reflection exception", e);
+		} catch (Throwable t) {
+			handleReflectionEx(t, true);
 		}
 	}
 	
@@ -46,8 +84,28 @@ public abstract class AbstractChannelHandler {
 		try {
 			Object ret = m.invoke(null, params);
 			return ret == null ? null : (T)ret;
-		} catch (IllegalAccessException | InvocationTargetException e) {
-			throw new RuntimeException("Reflection exception", e);
+		} catch (Throwable t) {
+			handleReflectionEx(t, true);
+			throw new Error("How did i even got here?"); /*unreachable*/
+		}
+	}
+	
+	private static void invokestaticV(MethodHandle m, Object... params) {
+		try {
+			m.invokeWithArguments(params);
+		} catch (Throwable t) {
+			handleReflectionEx(t, false);
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	private static <T> T invokestaticR(MethodHandle m, Object... params) {
+		try {
+			Object ret = m.invokeWithArguments(params);
+			return ret == null ? null : (T)ret;
+		} catch (Throwable t) {
+			handleReflectionEx(t, false);
+			throw new Error("How did i even got here?"); /*unreachable*/
 		}
 	}
 	
@@ -79,10 +137,22 @@ public abstract class AbstractChannelHandler {
 			throw new IllegalArgumentException("Packet "+implName+" decoder method shall throw no exceptions");
 		enc.setAccessible(true);
 		dec.setAccessible(true);
-		this.channel.registerMessage(this.pid++, packet,
-				(p, b)->invokestaticV(enc, p, b),
-				(b)->invokestaticR(dec, b),
-				(p, ctx)->p.handle(ctx));
+		try {
+			MethodHandles.Lookup privateLookup =
+		            MethodHandles.privateLookupIn(packet, MethodHandles.lookup());
+			MethodHandle encHandle = privateLookup.unreflect(enc);
+			MethodHandle decHandle = privateLookup.unreflect(dec);
+			this.channel.registerMessage(this.pid++, packet,
+					(p, b)->invokestaticV(encHandle, p, b),
+					(b)->invokestaticR(decHandle, b),
+					(p, ctx)->p.handle(ctx));
+		} catch (Exception e) {
+			BrimmArmors.LOGGER.warn("Falling back to core reflection api for packet " + packet.getName(), e);
+			this.channel.registerMessage(this.pid++, packet,
+					(p, b)->invokestaticV(enc, p, b),
+					(b)->invokestaticR(dec, b),
+					(p, ctx)->p.handle(ctx));
+		}
 	}
 	
     public <MSG extends APacket> void sendTo(MSG message, ServerPlayer player) {

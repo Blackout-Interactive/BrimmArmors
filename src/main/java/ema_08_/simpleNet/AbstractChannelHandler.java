@@ -6,6 +6,8 @@ import java.lang.invoke.WrongMethodTypeException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.util.List;
+import java.util.stream.Stream;
 
 import brimmArmors.BrimmArmors;
 import ema_08_.misc.AnnotationsProcessing;
@@ -37,37 +39,27 @@ public abstract class AbstractChannelHandler {
 		return method;
 	}
 	
+	private static final Stream<? extends Class<? extends Throwable>> coreApiEx = List.of(
+			IllegalAccessException.class, IllegalArgumentException.class,
+			InvocationTargetException.class, ExceptionInInitializerError.class
+			).stream();
+	
+	private static final Stream<? extends Class<? extends Throwable>> handleApiEx = List.of(
+			WrongMethodTypeException.class, ClassCastException.class
+			).stream();
+	
 	private static void handleReflectionEx(Throwable t, boolean coreApi) {
-		if (coreApi) {
-			if (t instanceof IllegalAccessException ||
-					t instanceof IllegalArgumentException ||
-					t instanceof InvocationTargetException ||
-					t instanceof ExceptionInInitializerError) {
-					BrimmArmors.LOGGER.error("A reflection exception has occurred handling a packet via "+
-									"an abstract channel handler. CoreApi="+coreApi+".");
-					t.printStackTrace();
-					throw new RuntimeException("Reflection exception in packet handling");
-				} else if (t instanceof RuntimeException re) {
-					throw re;
-				} else {
-					BrimmArmors.LOGGER.error("An unexpected checked exception has occurred handling a packet via "+
-									"an abstract channel handler. Propagating.");
-					throw new RuntimeException("Unexpected checked exception", t);
-				}
+		if ((coreApi ? coreApiEx : handleApiEx).anyMatch(t.getClass()::equals)) {
+			BrimmArmors.LOGGER.error("A reflection exception has occurred handling a packet via "+
+					"an abstract channel handler. CoreApi="+coreApi+".");
+			t.printStackTrace();
+			throw new RuntimeException("Reflection exception in packet handling");
+		} else if (t instanceof RuntimeException re) {
+			throw re;
 		} else {
-			if (t instanceof WrongMethodTypeException ||
-				t instanceof ClassCastException) {
-				BrimmArmors.LOGGER.error("A reflection exception has occurred handling a packet via "+
-								"an abstract channel handler. CoreApi="+coreApi+".");
-				t.printStackTrace();
-				throw new RuntimeException("Reflection exception in packet handling");
-			} else if (t instanceof RuntimeException re) {
-				throw re;
-			} else {
-				BrimmArmors.LOGGER.error("An unexpected checked exception has occurred handling a packet via "+
-								"an abstract channel handler. Propagating.");
-				throw new RuntimeException("Unexpected checked exception", t);
-			}
+			BrimmArmors.LOGGER.error("An unexpected checked exception has occurred handling a packet via "+
+							"an abstract channel handler. Propagating.");
+			throw new RuntimeException("Unexpected checked exception", t);
 		}
 	}
 	

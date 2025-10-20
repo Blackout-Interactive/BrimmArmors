@@ -1,6 +1,7 @@
 package brimmArmors.common.items;
 
 import ema_08_.geom.models.RTSMatricesCompound;
+import ema_08_.items.SimpleArmorMaterial;
 import ema_08_.trivialForgeObjWrapper.IDefaultObjModelProvider;
 import ema_08_.trivialForgeObjWrapper.ModelType;
 import net.minecraft.client.model.HumanoidModel;
@@ -41,7 +42,7 @@ public class BasicArmor extends ArmorItem implements IRarity, IDefaultObjModelPr
     /**
      * Defense and durability must be passed explicitly now, since ArmorMaterial no longer provides them per slot.
      */
-    public BasicArmor(String unlocName, EquipmentSlot type, ConcordRarity rarity, ConcordArmorMaterial material,
+    public BasicArmor(String unlocName, EquipmentSlot type, ConcordRarity rarity, SimpleArmorMaterial material,
                       int defense, int durability, RTSMatricesCompound transformations) {
         // Create ArmorItem.Properties with durability manually set per item
         super(material, equipmentSlotToArmorType(type), new Properties().durability(durability));

@@ -24,7 +24,6 @@ import brimmArmors.common.items.ItemRegistry;
 import brimmArmors.common.network.packets.RequestCraftItem;
 import brimmArmors.common.network.packets.SetWorkbenchScreenS2C;
 import brimmArmors.common.tile.TileRegistry;
-import brimmArmors.resource.JsonConfigLoader;
 
 @Mod(BrimmArmors.MOD_ID)
 public class BrimmArmors
@@ -38,7 +37,6 @@ public class BrimmArmors
 
     public BrimmArmors() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        JsonConfigLoader.init();
 
         ItemRegistry.register(eventBus);
 

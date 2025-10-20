@@ -20,6 +20,7 @@ import brimmArmors.server.ServerProxy;
 import ema_08_.simpleNet.SimpleChannelHandler;
 import brimmArmors.common.CommonProxy;
 import brimmArmors.common.blocks.BlockRegistry;
+import brimmArmors.common.configurations.ConfigsManager;
 import brimmArmors.common.items.ItemRegistry;
 import brimmArmors.common.network.packets.RequestCraftItem;
 import brimmArmors.common.network.packets.SetWorkbenchScreenS2C;
@@ -37,6 +38,8 @@ public class BrimmArmors
 
     public BrimmArmors() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        
+        ConfigsManager.init();
 
         ItemRegistry.register(eventBus);
 

@@ -38,7 +38,7 @@ public class BasicArmor extends ArmorItem implements IRarity, IDefaultObjModelPr
     private final RTSMatricesCompound transformations;
 
     public BasicArmor(String unlocName, ArmorItem.Type type, ConcordRarity rarity, SimpleArmorMaterial material,
-                      RTSMatricesCompound transformations) {
+    		RTSMatricesCompound transformations) {
         super(material, type, new Properties().durability(material.durabilityValue()));
         this.rarity = rarity;
         this.unlocName = unlocName;
@@ -61,6 +61,7 @@ public class BasicArmor extends ArmorItem implements IRarity, IDefaultObjModelPr
     }
     
     @OnlyIn(Dist.CLIENT)
+    @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
       consumer.accept(new IClientItemExtensions() {
             @NotNull

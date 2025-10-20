@@ -18,9 +18,9 @@ public record SimpleArmorMaterial(
     ArmorItem.Type type
 ) implements ArmorMaterial {
 	
-	public static SimpleArmorMaterial basic(String name, int enchantmentValue, float toughness,
+	public static SimpleArmorMaterial basic(String name, float toughness,
 			float knockbackResistance, int defenseValue, int durabilityValue, ArmorItem.Type type) {
-		return new SimpleArmorMaterial(name, enchantmentValue, SoundEvents.ARMOR_EQUIP_GENERIC, null,
+		return new SimpleArmorMaterial(name, 0, SoundEvents.ARMOR_EQUIP_GENERIC, null,
 				toughness, knockbackResistance, defenseValue, durabilityValue, type);
 	}
 

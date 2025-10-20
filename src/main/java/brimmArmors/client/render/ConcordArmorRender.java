@@ -5,11 +5,11 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 
 import brimmArmors.common.items.BasicArmor;
 import ema_08_.geom.models.RTSMatricesCompound;
+import ema_08_.trivialForgeObjWrapper.ModelType;
 import ema_08_.trivialForgeObjWrapper.ObjsManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 
 public class ConcordArmorRender extends HumanoidModel<LivingEntity> {
@@ -27,10 +27,10 @@ public class ConcordArmorRender extends HumanoidModel<LivingEntity> {
                                float red, float green, float blue, float alpha) {
         poseStack.pushPose();
 
-        if (armor.type == EquipmentSlot.CHEST) {
+        if (armor.getModelType() == ModelType.ARMOR_CHESTPLATE) {
             this.body.translateAndRotate(poseStack);
         }
-        if (armor.type == EquipmentSlot.HEAD) {
+        if (armor.getModelType() == ModelType.ARMOR_HELMET) {
             this.head.translateAndRotate(poseStack);
         }
 

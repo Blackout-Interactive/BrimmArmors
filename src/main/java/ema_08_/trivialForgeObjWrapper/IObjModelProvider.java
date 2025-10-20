@@ -14,5 +14,7 @@ public interface IObjModelProvider {
 	String getModelName();
 	
 	RTSMatricesCompound getTransformations();
+	
+	ModelType getModelType();
 
 }

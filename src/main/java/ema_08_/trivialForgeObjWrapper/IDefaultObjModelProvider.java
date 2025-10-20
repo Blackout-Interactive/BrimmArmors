@@ -5,8 +5,6 @@ import net.minecraft.resources.ResourceLocation;
 
 public interface IDefaultObjModelProvider extends IObjModelProvider {
 	
-	ModelType getModelType();
-	
 	@Override
 	default ResourceLocation getObj() {
 		return new ResourceLocation(BrimmArmors.MOD_ID, getModelType().non_namespaced_resloc_obj_base+getModelName()+".obj");

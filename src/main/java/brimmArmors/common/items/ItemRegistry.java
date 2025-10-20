@@ -11,7 +11,6 @@ import ema_08_.geom.models.RTSMatricesCompoundBuilder;
 import ema_08_.items.SimpleArmorMaterial;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -52,11 +51,9 @@ public class ItemRegistry {
     	    "nato",
     	    () -> new BasicArmor(
     	        "nato",
-    	        EquipmentSlot.CHEST,
+    	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.COMMON,
     	        SimpleArmorMaterial.basic("common", 0, 0f, 0f, 8, 240, ArmorItem.Type.CHESTPLATE),
-    	        8,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -77,11 +74,9 @@ public class ItemRegistry {
     	    "nato_ii",
     	    () -> new BasicArmor(
     	        "nato_ii",
-    	        EquipmentSlot.CHEST,
+    	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.UNCOMMON,
     	        SimpleArmorMaterial.basic("heavy", 0, 5f, 1f, 9, 240, ArmorItem.Type.CHESTPLATE),
-    	        9,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -102,11 +97,9 @@ public class ItemRegistry {
     	    "marine",
     	    () -> new BasicArmor(
     	        "marine",
-    	        EquipmentSlot.CHEST,
+    	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.RARE,
     	        SimpleArmorMaterial.basic("heavy", 0, 5f, 1f, 9, 240, ArmorItem.Type.CHESTPLATE),
-    	        9,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -127,11 +120,9 @@ public class ItemRegistry {
     	    "vanderer",
     	    () -> new BasicArmor(
     	        "vanderer",
-    	        EquipmentSlot.CHEST,
+    	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.EPIC,
     	        SimpleArmorMaterial.basic("heavy", 0, 5f, 1f, 9, 240, ArmorItem.Type.CHESTPLATE),
-    	        9,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -152,11 +143,9 @@ public class ItemRegistry {
     	    "guard",
     	    () -> new BasicArmor(
     	        "guard",
-    	        EquipmentSlot.CHEST,
+    	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.RARE,
     	        SimpleArmorMaterial.basic("heavy", 0, 5f, 1f, 9, 240, ArmorItem.Type.CHESTPLATE),
-    	        9,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -177,11 +166,9 @@ public class ItemRegistry {
     	    "saper",
     	    () -> new BasicArmor(
     	        "saper",
-    	        EquipmentSlot.CHEST,
+    	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.EPIC,
     	        SimpleArmorMaterial.basic("heavy", 0, 5f, 1f, 9, 240, ArmorItem.Type.CHESTPLATE),
-    	        9,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -202,11 +189,9 @@ public class ItemRegistry {
     	    "defender",
     	    () -> new BasicArmor(
     	        "defender",
-    	        EquipmentSlot.CHEST,
+    	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.COMMON,
     	        SimpleArmorMaterial.basic("common", 0, 0f, 0f, 8, 240, ArmorItem.Type.CHESTPLATE),
-    	        8,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -227,11 +212,9 @@ public class ItemRegistry {
     	    "defender_ii",
     	    () -> new BasicArmor(
     	        "defender_ii",
-    	        EquipmentSlot.CHEST,
+    	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.UNCOMMON,
     	        SimpleArmorMaterial.basic("heavy", 0, 5f, 1f, 9, 240, ArmorItem.Type.CHESTPLATE),
-    	        9,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -252,11 +235,9 @@ public class ItemRegistry {
     	    "defender_iii",
     	    () -> new BasicArmor(
     	        "defender_iii",
-    	        EquipmentSlot.CHEST,
+    	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.RARE,
     	        SimpleArmorMaterial.basic("hard", 0, 10f, 1f, 10, 240, ArmorItem.Type.CHESTPLATE),
-    	        10,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -277,11 +258,9 @@ public class ItemRegistry {
     	    "concord",
     	    () -> new BasicArmor(
     	        "concord",
-    	        EquipmentSlot.CHEST,
+    	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.EPIC,
     	        SimpleArmorMaterial.basic("hard", 0, 10f, 1f, 10, 240, ArmorItem.Type.CHESTPLATE),
-    	        10,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -302,11 +281,9 @@ public class ItemRegistry {
     	    "medic",
     	    () -> new BasicArmor(
     	        "medic",
-    	        EquipmentSlot.CHEST,
+    	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.EPIC,
     	        SimpleArmorMaterial.basic("hard", 0, 10f, 1f, 10, 240, ArmorItem.Type.CHESTPLATE),
-    	        10,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -327,11 +304,9 @@ public class ItemRegistry {
     	    "pmc",
     	    () -> new BasicArmor(
     	        "pmc",
-    	        EquipmentSlot.CHEST,
+    	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.COMMON,
     	        SimpleArmorMaterial.basic("common", 0, 0f, 0f, 8, 240, ArmorItem.Type.CHESTPLATE),
-    	        8,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -352,11 +327,9 @@ public class ItemRegistry {
     	    "assault",
     	    () -> new BasicArmor(
     	        "assault",
-    	        EquipmentSlot.CHEST,
+    	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.UNCOMMON,
     	        SimpleArmorMaterial.basic("heavy", 0, 5f, 1f, 9, 240, ArmorItem.Type.CHESTPLATE),
-    	        9,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -377,11 +350,9 @@ public class ItemRegistry {
     	    "spn",
     	    () -> new BasicArmor(
     	        "spn",
-    	        EquipmentSlot.CHEST,
+    	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.RARE,
     	        SimpleArmorMaterial.basic("heavy", 0, 5f, 1f, 9, 240, ArmorItem.Type.CHESTPLATE),
-    	        9,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -402,11 +373,9 @@ public class ItemRegistry {
     	    "horse",
     	    () -> new BasicArmor(
     	        "horse",
-    	        EquipmentSlot.CHEST,
+    	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.RARE,
     	        SimpleArmorMaterial.basic("hard", 0, 10f, 1f, 10, 240, ArmorItem.Type.CHESTPLATE),
-    	        10,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -427,11 +396,9 @@ public class ItemRegistry {
     	    "atleti",
     	    () -> new BasicArmor(
     	        "atleti",
-    	        EquipmentSlot.CHEST,
+    	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.EPIC,
     	        SimpleArmorMaterial.basic("hard", 0, 10f, 1f, 10, 240, ArmorItem.Type.CHESTPLATE),
-    	        10,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -452,11 +419,9 @@ public class ItemRegistry {
     	    "ratnik",
     	    () -> new BasicArmor(
     	        "ratnik",
-    	        EquipmentSlot.CHEST,
+    	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.COMMON,
     	        SimpleArmorMaterial.basic("common", 0, 0f, 0f, 8, 240, ArmorItem.Type.CHESTPLATE),
-    	        8,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -477,11 +442,9 @@ public class ItemRegistry {
     	    "ratnik_advance",
     	    () -> new BasicArmor(
     	        "ratnik_advance",
-    	        EquipmentSlot.CHEST,
+    	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.UNCOMMON,
     	        SimpleArmorMaterial.basic("heavy", 0, 5f, 1f, 9, 240, ArmorItem.Type.CHESTPLATE),
-    	        9,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -502,11 +465,9 @@ public class ItemRegistry {
     	    "veteran",
     	    () -> new BasicArmor(
     	        "veteran",
-    	        EquipmentSlot.CHEST,
+    	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.RARE,
     	        SimpleArmorMaterial.basic("hard", 0, 10f, 1f, 10, 240, ArmorItem.Type.CHESTPLATE),
-    	        10,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -527,11 +488,9 @@ public class ItemRegistry {
     	    "nyyyaaaa",
     	    () -> new BasicArmor(
     	        "nyyyaaaa",
-    	        EquipmentSlot.CHEST,
+    	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.EPIC,
     	        SimpleArmorMaterial.basic("hard", 0, 10f, 1f, 10, 240, ArmorItem.Type.CHESTPLATE),
-    	        10,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -552,11 +511,9 @@ public class ItemRegistry {
     	    "base_h",
     	    () -> new BasicArmor(
     	        "base_h",
-    	        EquipmentSlot.HEAD,
+    	        ArmorItem.Type.HELMET,
     	        ConcordRarity.COMMON,
     	        SimpleArmorMaterial.basic("common", 0, 0f, 0f, 8, 240, ArmorItem.Type.HELMET),
-    	        8,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -577,11 +534,9 @@ public class ItemRegistry {
     	    "gasmask_h",
     	    () -> new BasicArmor(
     	        "gasmask_h",
-    	        EquipmentSlot.HEAD,
+    	        ArmorItem.Type.HELMET,
     	        ConcordRarity.UNCOMMON,
     	        SimpleArmorMaterial.basic("heavy", 0, 5f, 1f, 9, 240, ArmorItem.Type.HELMET),
-    	        9,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -602,11 +557,9 @@ public class ItemRegistry {
     	    "assault_h",
     	    () -> new BasicArmor(
     	        "assault_h",
-    	        EquipmentSlot.HEAD,
+    	        ArmorItem.Type.HELMET,
     	        ConcordRarity.UNCOMMON,
     	        SimpleArmorMaterial.basic("heavy", 0, 5f, 1f, 9, 240, ArmorItem.Type.HELMET),
-    	        9,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -627,11 +580,9 @@ public class ItemRegistry {
     	    "medic_h",
     	    () -> new BasicArmor(
     	        "medic_h",
-    	        EquipmentSlot.HEAD,
+    	        ArmorItem.Type.HELMET,
     	        ConcordRarity.RARE,
     	        SimpleArmorMaterial.basic("hard", 0, 10f, 1f, 10, 240, ArmorItem.Type.HELMET),
-    	        10,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -652,11 +603,9 @@ public class ItemRegistry {
     	    "concord_h",
     	    () -> new BasicArmor(
     	        "concord_h",
-    	        EquipmentSlot.HEAD,
+    	        ArmorItem.Type.HELMET,
     	        ConcordRarity.EPIC,
     	        SimpleArmorMaterial.basic("hard", 0, 10f, 1f, 10, 240, ArmorItem.Type.HELMET),
-    	        10,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -677,11 +626,9 @@ public class ItemRegistry {
     	    "infantry_h",
     	    () -> new BasicArmor(
     	        "infantry_h",
-    	        EquipmentSlot.HEAD,
+    	        ArmorItem.Type.HELMET,
     	        ConcordRarity.COMMON,
     	        SimpleArmorMaterial.basic("common", 0, 0f, 0f, 8, 240, ArmorItem.Type.HELMET),
-    	        8,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -702,11 +649,9 @@ public class ItemRegistry {
     	    "gpnvg_h",
     	    () -> new BasicArmor(
     	        "gpnvg_h",
-    	        EquipmentSlot.HEAD,
+    	        ArmorItem.Type.HELMET,
     	        ConcordRarity.RARE,
     	        SimpleArmorMaterial.basic("heavy", 0, 5f, 1f, 9, 240, ArmorItem.Type.HELMET),
-    	        9,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -727,11 +672,9 @@ public class ItemRegistry {
     	    "ghost_h",
     	    () -> new BasicArmor(
     	        "ghost_h",
-    	        EquipmentSlot.HEAD,
+    	        ArmorItem.Type.HELMET,
     	        ConcordRarity.EPIC,
     	        SimpleArmorMaterial.basic("hard", 0, 10f, 1f, 10, 240, ArmorItem.Type.HELMET),
-    	        10,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -752,11 +695,9 @@ public class ItemRegistry {
     	    "zch_h",
     	    () -> new BasicArmor(
     	        "zch_h",
-    	        EquipmentSlot.HEAD,
+    	        ArmorItem.Type.HELMET,
     	        ConcordRarity.COMMON,
     	        SimpleArmorMaterial.basic("common", 0, 0f, 0f, 8, 240, ArmorItem.Type.HELMET),
-    	        8,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -777,11 +718,9 @@ public class ItemRegistry {
     	    "zabralo_h",
     	    () -> new BasicArmor(
     	        "zabralo_h",
-    	        EquipmentSlot.HEAD,
+    	        ArmorItem.Type.HELMET,
     	        ConcordRarity.RARE,
     	        SimpleArmorMaterial.basic("heavy", 0, 5f, 1f, 9, 240, ArmorItem.Type.HELMET),
-    	        9,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -802,11 +741,9 @@ public class ItemRegistry {
     	    "killa_h",
     	    () -> new BasicArmor(
     	        "killa_h",
-    	        EquipmentSlot.HEAD,
+    	        ArmorItem.Type.HELMET,
     	        ConcordRarity.EPIC,
     	        SimpleArmorMaterial.basic("hard", 0, 10f, 1f, 10, 240, ArmorItem.Type.HELMET),
-    	        10,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -827,11 +764,9 @@ public class ItemRegistry {
     	    "mk_ii_h",
     	    () -> new BasicArmor(
     	        "mk_ii_h",
-    	        EquipmentSlot.HEAD,
+    	        ArmorItem.Type.HELMET,
     	        ConcordRarity.COMMON,
     	        SimpleArmorMaterial.basic("common", 0, 0f, 0f, 8, 240, ArmorItem.Type.HELMET),
-    	        8,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -852,11 +787,9 @@ public class ItemRegistry {
     	    "saper_h",
     	    () -> new BasicArmor(
     	        "saper_h",
-    	        EquipmentSlot.HEAD,
+    	        ArmorItem.Type.HELMET,
     	        ConcordRarity.UNCOMMON,
     	        SimpleArmorMaterial.basic("heavy", 0, 5f, 1f, 9, 240, ArmorItem.Type.HELMET),
-    	        9,
-    	        240,
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)

@@ -13,6 +13,7 @@ import brimmArmors.common.recipes.ItemRecipe;
 import brimmArmors.common.recipes.RecipesManager;
 import ema_08_.geom.models.RTSMatricesCompound;
 import ema_08_.trivialForgeObjWrapper.IObjModelProvider;
+import ema_08_.trivialForgeObjWrapper.ModelType;
 import ema_08_.trivialForgeObjWrapper.ObjsManager;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
@@ -23,7 +24,6 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
@@ -138,8 +138,8 @@ public class WorkbenchScreen extends Screen {
             this.craft.active = flag;
 
             if (itemRecipe.result instanceof BasicArmor basicArmor) {
-                EquipmentSlot type = basicArmor.type;
-                if (type == EquipmentSlot.CHEST) {
+                ModelType type = basicArmor.getModelType();
+                if (type == ModelType.ARMOR_CHESTPLATE) {
                     updateRotation(0, 90, 180, 270);
                 } else {
                     updateRotation(0, 90, 225, 0);

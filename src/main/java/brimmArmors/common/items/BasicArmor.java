@@ -32,53 +32,28 @@ import java.util.function.Consumer;
 
 public class BasicArmor extends ArmorItem implements IRarity, IDefaultObjModelProvider {
 
-    public final EquipmentSlot type;
     private final ConcordRarity rarity;
-    private final String tooltip;
     private final String unlocName;
     private final ModelType modelType;
     private final RTSMatricesCompound transformations;
 
-    /**
-     * Defense and durability must be passed explicitly now, since ArmorMaterial no longer provides them per slot.
-     */
-    public BasicArmor(String unlocName, EquipmentSlot type, ConcordRarity rarity, SimpleArmorMaterial material,
-                      int defense, int durability, RTSMatricesCompound transformations) {
-        // Create ArmorItem.Properties with durability manually set per item
-        super(material, equipmentSlotToArmorType(type), new Properties().durability(durability));
-        this.type = type;
+    public BasicArmor(String unlocName, ArmorItem.Type type, ConcordRarity rarity, SimpleArmorMaterial material,
+                      RTSMatricesCompound transformations) {
+        super(material, type, new Properties().durability(material.durabilityValue()));
         this.rarity = rarity;
-        this.tooltip = unlocName;
         this.unlocName = unlocName;
-        if (type == EquipmentSlot.CHEST) {
-            this.modelType = ModelType.ARMOR_CHESTPLATE;
-        } else if (type == EquipmentSlot.HEAD) {
-        	this.modelType = ModelType.ARMOR_HELMET;
-        } else {
-            throw new IllegalArgumentException("Unsupported equipment slot "+type);
-        }
+        this.modelType = ModelType.ofArmor(type);
         this.transformations = transformations;
-    }
-
-    public static ArmorItem.Type equipmentSlotToArmorType(EquipmentSlot slot) {
-        return switch (slot) {
-            case HEAD -> ArmorItem.Type.HELMET;
-            case CHEST -> ArmorItem.Type.CHESTPLATE;
-            case LEGS -> ArmorItem.Type.LEGGINGS;
-            case FEET -> ArmorItem.Type.BOOTS;
-            default -> throw new IllegalArgumentException("Invalid EquipmentSlot: " + slot);
-        };
     }
 
     @Override
     public Component getName(ItemStack stack) {
-        // Apply rarity color to the name
         return Component.literal(rarity.color + super.getName(stack).getString());
     }
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltipList, TooltipFlag flag) {
-        tooltipList.add(Component.literal(rarity.color + "\u00A7o" + I18n.get("tooltip." + BrimmArmors.MOD_ID + "." + tooltip)));
+        tooltipList.add(Component.literal(rarity.color + "\u00A7o" + I18n.get("tooltip." + BrimmArmors.MOD_ID + "." + unlocName)));
     }
 
     public ConcordRarity getRarity() {

@@ -18,4 +18,26 @@ public abstract class APacket {
 	
 	protected abstract void handleServer(NetworkEvent.Context ctx);
 	
+	public static abstract class AC2SPacket extends APacket {
+		
+		public AC2SPacket() { super(); }
+		
+		@Override
+		protected final void handleClient(NetworkEvent.Context ctx) {
+			throw new UnsupportedOperationException(getClass().getName()+" is a c2s packet only");
+		}
+		
+	}
+	
+	public static abstract class AS2CPacket extends APacket {
+		
+		public AS2CPacket() { super(); }
+		
+		@Override
+		protected final void handleServer(NetworkEvent.Context ctx) {
+			throw new UnsupportedOperationException(getClass().getName()+" is a s2c packet only");
+		}
+		
+	}
+	
 }

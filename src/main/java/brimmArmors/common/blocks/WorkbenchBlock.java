@@ -3,6 +3,7 @@ package brimmArmors.common.blocks;
 import ema_08_.geom.models.RTSMatricesCompound;
 import ema_08_.trivialForgeObjWrapper.IDefaultObjModelProvider;
 import ema_08_.trivialForgeObjWrapper.ModelType;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
@@ -21,9 +22,9 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.BlockHitResult;
 
-
 import java.util.List;
 
+import brimmArmors.client.screens.WorkbenchScreen;
 import brimmArmors.common.tile.WorkbenchTileEntity;
 
 public class WorkbenchBlock extends Block implements IDefaultObjModelProvider, EntityBlock {
@@ -53,8 +54,12 @@ public class WorkbenchBlock extends Block implements IDefaultObjModelProvider, E
 
     @Override
     public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        //TODO
-        return InteractionResult.SUCCESS;
+    	if (world.isClientSide) {
+    		Minecraft.getInstance().setScreen(new WorkbenchScreen());
+    	    return InteractionResult.CONSUME;
+        } else {
+        	return InteractionResult.SUCCESS;
+        }
     }
 
     @Override

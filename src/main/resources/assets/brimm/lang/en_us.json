@@ -105,5 +105,9 @@
   "item.${mod_id}.saper_h": "Saper MK-2",
   "tooltip.${mod_id}.saper_h": "No smoking in the mines",
   
-  "block.${mod_id}.workbench": "Workbench"
+  "block.${mod_id}.workbench": "Workbench",
+  "screen.${mod_id}.workbench.title": "Brimm Workbench",
+  "screen.${mod_id}.workbench.craft": "CRAFT",
+  "screen.${mod_id}.workbench.scroll_end": "No more receipes.",
+  "screen.${mod_id}.workbench.not_enough_items": "Not enough items."
 }

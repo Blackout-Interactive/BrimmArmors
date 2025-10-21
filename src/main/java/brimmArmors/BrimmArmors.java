@@ -1,5 +1,6 @@
 package brimmArmors;
 
+import net.minecraft.world.item.Items;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -22,7 +23,11 @@ import brimmArmors.common.CommonProxy;
 import brimmArmors.common.blocks.BlockRegistry;
 import brimmArmors.common.configurations.ConfigsManager;
 import brimmArmors.common.items.ItemRegistry;
+import brimmArmors.common.packets.CraftPacket;
 import brimmArmors.common.tile.TileRegistry;
+import brimmArmors.common.workbench.CraftBuilder;
+import brimmArmors.common.workbench.CraftsManager;
+import brimmArmors.common.workbench.IngredientBuilder;
 
 @Mod(BrimmArmors.MOD_ID)
 public class BrimmArmors
@@ -37,12 +42,24 @@ public class BrimmArmors
     public BrimmArmors() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         
+        /*
+         * Requires: N/A.
+         */
         ConfigsManager.init();
 
+        /*
+         * Requires: configurations being loaded.
+         */
         ItemRegistry.register(eventBus);
-
+        
+        /*
+         * Requires: N/A.
+         */
         BlockRegistry.register(eventBus);
 
+        /*
+         * Requires: blocks being initialised.
+         */
         TileRegistry.register(eventBus);
 
         eventBus.addListener(this::preInit);
@@ -55,13 +72,14 @@ public class BrimmArmors
 
 	private void preInit(final FMLCommonSetupEvent event) {
         network = new SimpleChannelHandler(MOD_ID, "main", "1", List.of(
-        		
+        		CraftPacket.class
         	));
         proxy.preInit(event);
     }
 
     private void init(final FMLLoadCompleteEvent event) {
         proxy.init(event);
+        CraftsManager.buildAll();
     }
 
     private void server(final FMLDedicatedServerSetupEvent event) {

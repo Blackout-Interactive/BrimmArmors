@@ -2,6 +2,7 @@ package brimmArmors.common.configurations;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Optional;
 
 import brimmArmors.BrimmArmors;
@@ -11,6 +12,7 @@ import net.minecraftforge.fml.loading.FMLPaths;
 public class ConfigsManager {
 	
 	private static final HashMap<String, MaterialOverrides> materialConfigs = new HashMap<>();
+	private static final HashSet<String> evictedMaterialConfigs = new HashSet<>();
 	
 	private static final String[]
 			TAGS_TOUGHNESS = new String[] {"config", "toughness"},
@@ -109,6 +111,7 @@ public class ConfigsManager {
 	}
 	
 	public static MaterialOverrides getAndEvictMaterial(String name) {
+		if (!evictedMaterialConfigs.add(name)) throw new IllegalStateException("Material config for "+name+" had been already evicted");
 		return materialConfigs.remove(name);
 	}
 

@@ -10,6 +10,7 @@ import brimmArmors.common.configurations.ConfigsManager;
 import ema_08_.geom.models.MatrixRTSBuilder;
 import ema_08_.geom.models.RTSMatricesCompound;
 import ema_08_.geom.models.RTSMatricesCompoundBuilder;
+import ema_08_.items.SimpleArmorMaterial;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ArmorItem;
@@ -50,11 +51,10 @@ public class ItemRegistry {
     
     public static final RegistryObject<BasicArmor> NATO = registerItemAndExecute(armors_tab_content::add,
     	    "nato",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "nato",
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.COMMON,
-    	        ConfigMergers.mergeBasic("common", 0f, 0f, 8, 240, ArmorItem.Type.CHESTPLATE, ConfigsManager.getAndEvictMaterial("nato")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -67,17 +67,17 @@ public class ItemRegistry {
     	    .setTranslate(-0.6f, -0.5f, 0f)
     	    .setRotate(0f, 180f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    0f, 0f, 8, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> NATO_II = registerItemAndExecute(armors_tab_content::add,
     	    "nato_ii",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "nato_ii",
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.UNCOMMON,
-    	        ConfigMergers.mergeBasic("heavy", 5f, 1f, 9, 240, ArmorItem.Type.CHESTPLATE, ConfigsManager.getAndEvictMaterial("nato_ii")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -90,17 +90,17 @@ public class ItemRegistry {
     	    .setTranslate(-0.6f, -0.5f, 0f)
     	    .setRotate(0f, 180f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    5f, 1f, 9, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> MARINE = registerItemAndExecute(armors_tab_content::add,
     	    "marine",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "marine",
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.RARE,
-    	        ConfigMergers.mergeBasic("heavy", 5f, 1f, 9, 240, ArmorItem.Type.CHESTPLATE, ConfigsManager.getAndEvictMaterial("marine")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -113,17 +113,17 @@ public class ItemRegistry {
     	    .setTranslate(-0.6f, -0.5f, 0f)
     	    .setRotate(0f, 180f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    5f, 1f, 9, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> VANDERER = registerItemAndExecute(armors_tab_content::add,
     	    "vanderer",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "vanderer",
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.EPIC,
-    	        ConfigMergers.mergeBasic("heavy" , 5f, 1f, 9, 240, ArmorItem.Type.CHESTPLATE, ConfigsManager.getAndEvictMaterial("vanderer")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -136,17 +136,17 @@ public class ItemRegistry {
     	    .setTranslate(-0.6f, -0.5f, 0f)
     	    .setRotate(0f, 180f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    5f, 1f, 9, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> GUARD = registerItemAndExecute(armors_tab_content::add,
     	    "guard",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "guard",
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.RARE,
-    	        ConfigMergers.mergeBasic("heavy" , 5f, 1f, 9, 240, ArmorItem.Type.CHESTPLATE, ConfigsManager.getAndEvictMaterial("guard")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -159,17 +159,17 @@ public class ItemRegistry {
     	    .setTranslate(-0.6f, -0.5f, 0f)
     	    .setRotate(0f, 180f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    5f, 1f, 9, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> SAPER = registerItemAndExecute(armors_tab_content::add,
     	    "saper",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "saper",
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.EPIC,
-    	        ConfigMergers.mergeBasic("heavy" , 5f, 1f, 9, 240, ArmorItem.Type.CHESTPLATE, ConfigsManager.getAndEvictMaterial("saper")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -182,17 +182,17 @@ public class ItemRegistry {
     	    .setTranslate(-0.6f, -0.5f, 0f)
     	    .setRotate(0f, 180f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    5f, 1f, 9, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> DEFENDER = registerItemAndExecute(armors_tab_content::add,
     	    "defender",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "defender",
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.COMMON,
-    	        ConfigMergers.mergeBasic("common" , 0f, 0f, 8, 240, ArmorItem.Type.CHESTPLATE, ConfigsManager.getAndEvictMaterial("defender")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -205,17 +205,17 @@ public class ItemRegistry {
     	    .setTranslate(-0.6f, -0.5f, 0f)
     	    .setRotate(0f, 180f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    0f, 0f, 8, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> DEFENDER_II = registerItemAndExecute(armors_tab_content::add,
     	    "defender_ii",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "defender_ii",
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.UNCOMMON,
-    	        ConfigMergers.mergeBasic("heavy" , 5f, 1f, 9, 240, ArmorItem.Type.CHESTPLATE, ConfigsManager.getAndEvictMaterial("defender_ii")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -228,17 +228,17 @@ public class ItemRegistry {
     	    .setTranslate(-0.6f, -0.5f, 0f)
     	    .setRotate(0f, 180f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    5f, 1f, 9, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> DEFENDER_III = registerItemAndExecute(armors_tab_content::add,
     	    "defender_iii",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "defender_iii",
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.RARE,
-    	        ConfigMergers.mergeBasic("hard" , 10f, 1f, 10, 240, ArmorItem.Type.CHESTPLATE, ConfigsManager.getAndEvictMaterial("defender_iii")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -251,17 +251,17 @@ public class ItemRegistry {
     	    .setTranslate(-0.6f, -0.5f, 0f)
     	    .setRotate(0f, 180f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    10f, 1f, 10, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> CONCORD = registerItemAndExecute(armors_tab_content::add,
     	    "concord",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "concord",
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.EPIC,
-    	        ConfigMergers.mergeBasic("hard" , 10f, 1f, 10, 240, ArmorItem.Type.CHESTPLATE, ConfigsManager.getAndEvictMaterial("concord")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -274,17 +274,17 @@ public class ItemRegistry {
     	    .setTranslate(-0.6f, -0.5f, 0f)
     	    .setRotate(0f, 180f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    10f, 1f, 10, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> MEDIC = registerItemAndExecute(armors_tab_content::add,
     	    "medic",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "medic",
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.EPIC,
-    	        ConfigMergers.mergeBasic("hard" , 10f, 1f, 10, 240, ArmorItem.Type.CHESTPLATE, ConfigsManager.getAndEvictMaterial("medic")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -297,17 +297,17 @@ public class ItemRegistry {
     	    .setTranslate(-0.6f, -0.5f, 0f)
     	    .setRotate(0f, 180f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    10f, 1f, 10, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> PMC = registerItemAndExecute(armors_tab_content::add,
     	    "pmc",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "pmc",
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.COMMON,
-    	        ConfigMergers.mergeBasic("common" , 0f, 0f, 8, 240, ArmorItem.Type.CHESTPLATE, ConfigsManager.getAndEvictMaterial("pmc")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -320,17 +320,17 @@ public class ItemRegistry {
     	    .setTranslate(-0.6f, -0.5f, 0f)
     	    .setRotate(0f, 180f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    0f, 0f, 8, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> ASSAULT = registerItemAndExecute(armors_tab_content::add,
     	    "assault",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "assault",
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.UNCOMMON,
-    	        ConfigMergers.mergeBasic("heavy" , 5f, 1f, 9, 240, ArmorItem.Type.CHESTPLATE, ConfigsManager.getAndEvictMaterial("assault")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -343,17 +343,17 @@ public class ItemRegistry {
     	    .setTranslate(-0.6f, -0.5f, 0f)
     	    .setRotate(0f, 180f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    5f, 1f, 9, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> SPN = registerItemAndExecute(armors_tab_content::add,
     	    "spn",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "spn",
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.RARE,
-    	        ConfigMergers.mergeBasic("heavy" , 5f, 1f, 9, 240, ArmorItem.Type.CHESTPLATE, ConfigsManager.getAndEvictMaterial("spn")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -366,17 +366,17 @@ public class ItemRegistry {
     	    .setTranslate(-0.6f, -0.5f, 0f)
     	    .setRotate(0f, 180f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    5f, 1f, 9, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> HORSE = registerItemAndExecute(armors_tab_content::add,
     	    "horse",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "horse",
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.RARE,
-    	        ConfigMergers.mergeBasic("hard" , 10f, 1f, 10, 240, ArmorItem.Type.CHESTPLATE, ConfigsManager.getAndEvictMaterial("horse")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -389,17 +389,17 @@ public class ItemRegistry {
     	    .setTranslate(-0.6f, -0.5f, 0f)
     	    .setRotate(0f, 180f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    10f, 1f, 10, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> ATLETI = registerItemAndExecute(armors_tab_content::add,
     	    "atleti",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "atleti",
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.EPIC,
-    	        ConfigMergers.mergeBasic("hard" , 10f, 1f, 10, 240, ArmorItem.Type.CHESTPLATE, ConfigsManager.getAndEvictMaterial("atleti")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -412,17 +412,17 @@ public class ItemRegistry {
     	    .setTranslate(-0.6f, -0.5f, 0f)
     	    .setRotate(0f, 180f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    10f, 1f, 10, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> RATNIK = registerItemAndExecute(armors_tab_content::add,
     	    "ratnik",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "ratnik",
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.COMMON,
-    	        ConfigMergers.mergeBasic("common" , 0f, 0f, 8, 240, ArmorItem.Type.CHESTPLATE, ConfigsManager.getAndEvictMaterial("ratnik")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -435,17 +435,17 @@ public class ItemRegistry {
     	    .setTranslate(-0.6f, -0.5f, 0f)
     	    .setRotate(0f, 180f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    0f, 0f, 8, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> RATNIK_ADVANCE = registerItemAndExecute(armors_tab_content::add,
     	    "ratnik_advance",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "ratnik_advance",
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.UNCOMMON,
-    	        ConfigMergers.mergeBasic("heavy" , 5f, 1f, 9, 240, ArmorItem.Type.CHESTPLATE, ConfigsManager.getAndEvictMaterial("ratnik_advance")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -458,17 +458,17 @@ public class ItemRegistry {
     	    .setTranslate(-0.6f, -0.5f, 0f)
     	    .setRotate(0f, 180f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    5f, 1f, 9, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> VETERAN = registerItemAndExecute(armors_tab_content::add,
     	    "veteran",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "veteran",
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.RARE,
-    	        ConfigMergers.mergeBasic("hard" , 10f, 1f, 10, 240, ArmorItem.Type.CHESTPLATE, ConfigsManager.getAndEvictMaterial("veteran")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -481,17 +481,17 @@ public class ItemRegistry {
     	    .setTranslate(-0.6f, -0.5f, 0f)
     	    .setRotate(0f, 180f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    10f, 1f, 10, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> NYYYAAAA = registerItemAndExecute(armors_tab_content::add,
     	    "nyyyaaaa",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "nyyyaaaa",
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.EPIC,
-    	        ConfigMergers.mergeBasic("hard" , 10f, 1f, 10, 240, ArmorItem.Type.CHESTPLATE, ConfigsManager.getAndEvictMaterial("nyyyaaaa")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -504,17 +504,17 @@ public class ItemRegistry {
     	    .setTranslate(-0.6f, -0.5f, 0f)
     	    .setRotate(0f, 180f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    10f, 1f, 10, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> BASE_H = registerItemAndExecute(armors_tab_content::add,
     	    "base_h",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "base_h",
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.COMMON,
-    	        ConfigMergers.mergeBasic("common" , 0f, 0f, 8, 240, ArmorItem.Type.HELMET, ConfigsManager.getAndEvictMaterial("base_h")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -527,17 +527,17 @@ public class ItemRegistry {
     	    .setTranslate(0f, -1.3f, 0.7f)
     	    .setRotate(0f, 90f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    0f, 0f, 8, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> GASMASK_H = registerItemAndExecute(armors_tab_content::add,
     	    "gasmask_h",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "gasmask_h",
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.UNCOMMON,
-    	        ConfigMergers.mergeBasic("heavy" , 5f, 1f, 9, 240, ArmorItem.Type.HELMET, ConfigsManager.getAndEvictMaterial("gasmask_h")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -550,17 +550,17 @@ public class ItemRegistry {
     	    .setTranslate(0f, -1.3f, 0.7f)
     	    .setRotate(0f, 90f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    5f, 1f, 9, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> ASSAULT_H = registerItemAndExecute(armors_tab_content::add,
     	    "assault_h",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "assault_h",
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.UNCOMMON,
-    	        ConfigMergers.mergeBasic("heavy" , 5f, 1f, 9, 240, ArmorItem.Type.HELMET, ConfigsManager.getAndEvictMaterial("assault_h")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -573,17 +573,17 @@ public class ItemRegistry {
     	    .setTranslate(0f, -1.3f, 0.7f)
     	    .setRotate(0f, 90f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    5f, 1f, 9, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> MEDIC_H = registerItemAndExecute(armors_tab_content::add,
     	    "medic_h",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "medic_h",
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.RARE,
-    	        ConfigMergers.mergeBasic("hard" , 10f, 1f, 10, 240, ArmorItem.Type.HELMET, ConfigsManager.getAndEvictMaterial("medic_h")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -596,17 +596,17 @@ public class ItemRegistry {
     	    .setTranslate(0f, -1.3f, 0.7f)
     	    .setRotate(0f, 90f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    10f, 1f, 10, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> CONCORD_H = registerItemAndExecute(armors_tab_content::add,
     	    "concord_h",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "concord_h",
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.EPIC,
-    	        ConfigMergers.mergeBasic("hard" , 10f, 1f, 10, 240, ArmorItem.Type.HELMET, ConfigsManager.getAndEvictMaterial("concord_h")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -619,17 +619,17 @@ public class ItemRegistry {
     	    .setTranslate(0f, -1.3f, 0.7f)
     	    .setRotate(0f, 90f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    10f, 1f, 10, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> INFANTRY_H = registerItemAndExecute(armors_tab_content::add,
     	    "infantry_h",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "infantry_h",
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.COMMON,
-    	        ConfigMergers.mergeBasic("common" , 0f, 0f, 8, 240, ArmorItem.Type.HELMET, ConfigsManager.getAndEvictMaterial("infantry_h")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -642,17 +642,17 @@ public class ItemRegistry {
     	    .setTranslate(0f, -1.3f, 0.7f)
     	    .setRotate(0f, 90f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    0f, 0f, 8, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> GPNVG_H = registerItemAndExecute(armors_tab_content::add,
     	    "gpnvg_h",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "gpnvg_h",
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.RARE,
-    	        ConfigMergers.mergeBasic("heavy" , 5f, 1f, 9, 240, ArmorItem.Type.HELMET, ConfigsManager.getAndEvictMaterial("gpnvg_h")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -665,17 +665,17 @@ public class ItemRegistry {
     	    .setTranslate(0f, -1.3f, 0.7f)
     	    .setRotate(0f, 90f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    5f, 1f, 9, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> GHOST_H = registerItemAndExecute(armors_tab_content::add,
     	    "ghost_h",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "ghost_h",
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.EPIC,
-    	        ConfigMergers.mergeBasic("hard" , 10f, 1f, 10, 240, ArmorItem.Type.HELMET, ConfigsManager.getAndEvictMaterial("ghost_h")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -688,17 +688,17 @@ public class ItemRegistry {
     	    .setTranslate(0f, -1.3f, 0.7f)
     	    .setRotate(0f, 90f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    10f, 1f, 10, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> ZCH_H = registerItemAndExecute(armors_tab_content::add,
     	    "zch_h",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "zch_h",
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.COMMON,
-    	        ConfigMergers.mergeBasic("common" , 0f, 0f, 8, 240, ArmorItem.Type.HELMET, ConfigsManager.getAndEvictMaterial("zch_h")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -711,17 +711,17 @@ public class ItemRegistry {
     	    .setTranslate(0f, -1.3f, 0.7f)
     	    .setRotate(0f, 90f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    0f, 0f, 8, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> ZABRALO_H = registerItemAndExecute(armors_tab_content::add,
     	    "zabralo_h",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "zabralo_h",
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.RARE,
-    	        ConfigMergers.mergeBasic("heavy" , 5f, 1f, 9, 240, ArmorItem.Type.HELMET, ConfigsManager.getAndEvictMaterial("zabralo_h")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -734,17 +734,17 @@ public class ItemRegistry {
     	    .setTranslate(0f, -1.3f, 0.7f)
     	    .setRotate(0f, 90f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    5f, 1f, 9, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> KILLA_H = registerItemAndExecute(armors_tab_content::add,
     	    "killa_h",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "killa_h",
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.EPIC,
-    	        ConfigMergers.mergeBasic("hard" , 10f, 1f, 10, 240, ArmorItem.Type.HELMET, ConfigsManager.getAndEvictMaterial("killa_h")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -757,17 +757,17 @@ public class ItemRegistry {
     	    .setTranslate(0f, -1.3f, 0.7f)
     	    .setRotate(0f, 90f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    10f, 1f, 10, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> MK_II_H = registerItemAndExecute(armors_tab_content::add,
     	    "mk_ii_h",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "mk_ii_h",
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.COMMON,
-    	        ConfigMergers.mergeBasic("common" , 0f, 0f, 8, 240, ArmorItem.Type.HELMET, ConfigsManager.getAndEvictMaterial("mk_ii_h")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -780,17 +780,17 @@ public class ItemRegistry {
     	    .setTranslate(0f, -1.3f, 0.7f)
     	    .setRotate(0f, 90f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    0f, 0f, 8, 240
     	    )
     	);
 
     	public static final RegistryObject<BasicArmor> SAPER_H = registerItemAndExecute(armors_tab_content::add,
     	    "saper_h",
-    	    () -> new BasicArmor(
+    	    generateArmorSupplier(
     	        "saper_h",
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.UNCOMMON,
-    	        ConfigMergers.mergeBasic("heavy", 5f, 1f, 9, 240, ArmorItem.Type.HELMET, ConfigsManager.getAndEvictMaterial("saper_h")),
     	        new RTSMatricesCompoundBuilder()
     	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
     	    .setTranslate(0f, -1.54f, 0f)
@@ -803,7 +803,8 @@ public class ItemRegistry {
     	    .setTranslate(0f, -1.3f, 0.7f)
     	    .setRotate(0f, 90f, 0f)
     	    .setScale(0.8f, 0.8f, 0.8f))
-    	    .build()
+    	    .build(),
+    	    5f, 1f, 9, 240
     	    )
     	);
     	
@@ -816,6 +817,18 @@ public class ItemRegistry {
             })
             .build()
         );
+    
+    private static Supplier<BasicArmor> generateArmorSupplier(
+    		final String unlocName, final ArmorItem.Type type, final ConcordRarity rarity,
+    		final RTSMatricesCompound transform,
+    		final float toughness, final float knockbackResistance, final int defenseValue,
+    		final int durabilityValue
+    		) {
+    	final SimpleArmorMaterial material = ConfigMergers.mergeBasic("brimm_armor_material",
+    			toughness, knockbackResistance, defenseValue, durabilityValue,
+    			type, ConfigsManager.getAndEvictMaterial(unlocName));
+    	return ()->new BasicArmor(unlocName, type, rarity, material, transform);
+    }
     	
     private static <T extends Item> RegistryObject<T> registerItemAndExecute(Consumer<RegistryObject<T>> consumer,
     		String name, Supplier <? extends T> sup) {

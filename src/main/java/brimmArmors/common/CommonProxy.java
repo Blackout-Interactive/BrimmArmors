@@ -1,6 +1,5 @@
 package brimmArmors.common;
 
-import brimmArmors.common.recipes.RecipesManager;
 import net.minecraftforge.fml.event.lifecycle.*;
 
 public abstract class CommonProxy {
@@ -10,7 +9,7 @@ public abstract class CommonProxy {
     }
 
     public void init(final FMLLoadCompleteEvent event) {
-        RecipesManager.init();
+        
     }
 
     public void client(final FMLClientSetupEvent event)

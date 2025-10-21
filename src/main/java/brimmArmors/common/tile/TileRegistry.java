@@ -14,11 +14,8 @@ public class TileRegistry {
 
     public static final RegistryObject<BlockEntityType<WorkbenchTileEntity>> WORKBENCH_TILE = BLOCK_ENTITIES.register("workbench_tile", () ->
             BlockEntityType.Builder.of(WorkbenchTileEntity::new,
-                            BlockRegistry.workbench.get(),
-                            BlockRegistry.workbench_brf.get(),
-                            BlockRegistry.workbench_plate.get(),
-                            BlockRegistry.workbench_hlmt.get())
-                    .build(null));
+                            BlockRegistry.workbench.get()
+                    ).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

@@ -22,8 +22,6 @@ import brimmArmors.common.CommonProxy;
 import brimmArmors.common.blocks.BlockRegistry;
 import brimmArmors.common.configurations.ConfigsManager;
 import brimmArmors.common.items.ItemRegistry;
-import brimmArmors.common.network.packets.RequestCraftItem;
-import brimmArmors.common.network.packets.SetWorkbenchScreenS2C;
 import brimmArmors.common.tile.TileRegistry;
 
 @Mod(BrimmArmors.MOD_ID)
@@ -57,8 +55,8 @@ public class BrimmArmors
 
 	private void preInit(final FMLCommonSetupEvent event) {
         network = new SimpleChannelHandler(MOD_ID, "main", "1", List.of(
-        		RequestCraftItem.class, SetWorkbenchScreenS2C.class)
-        	);
+        		
+        	));
         proxy.preInit(event);
     }
 

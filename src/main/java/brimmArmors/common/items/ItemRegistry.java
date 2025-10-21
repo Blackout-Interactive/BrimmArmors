@@ -820,9 +820,8 @@ public class ItemRegistry {
     
     private static Supplier<BasicArmor> generateArmorSupplier(
     		final String unlocName, final ArmorItem.Type type, final ConcordRarity rarity,
-    		final RTSMatricesCompound transform,
-    		final float toughness, final float knockbackResistance, final int defenseValue,
-    		final int durabilityValue
+    		final RTSMatricesCompound transform, final float toughness,
+    		final float knockbackResistance, final int defenseValue, final int durabilityValue
     		) {
     	final SimpleArmorMaterial material = ConfigMergers.mergeBasic("brimm_armor_material",
     			toughness, knockbackResistance, defenseValue, durabilityValue,

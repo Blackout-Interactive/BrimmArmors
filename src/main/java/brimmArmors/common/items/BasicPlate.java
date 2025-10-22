@@ -4,7 +4,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-public class BasicPlate extends Item{
+public class BasicPlate extends Item {
 
     private final ConcordRarity rarity;
 
@@ -15,7 +15,7 @@ public class BasicPlate extends Item{
 
     @Override
     public Component getName(ItemStack stack) {
-        return Component.literal(rarity.color + super.getName(stack).getString());
+        return Component.literal(rarity.applyFormatting(super.getName(stack).getString()));
     }
 
 }

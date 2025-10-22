@@ -48,12 +48,12 @@ public class BasicArmor extends ArmorItem implements IDefaultObjModelProvider {
 
     @Override
     public Component getName(ItemStack stack) {
-        return Component.literal(rarity.color + super.getName(stack).getString());
+        return Component.literal(rarity.applyFormatting(super.getName(stack).getString()));
     }
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltipList, TooltipFlag flag) {
-        tooltipList.add(Component.literal(rarity.color + "\u00A7o" + I18n.get("tooltip." + BrimmArmors.MOD_ID + "." + unlocName)));
+        tooltipList.add(Component.literal(rarity.applyFormatting("\u00A7o" + I18n.get("tooltip." + BrimmArmors.MOD_ID + "." + unlocName))));
     }
     
     @OnlyIn(Dist.CLIENT)

@@ -1,13 +1,13 @@
 package brimmArmors.common.workbench;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class CraftsManager {
 	
-	private static final HashSet<CraftBuilder> builders = new HashSet<>();
+	private static final List<CraftBuilder> builders = new ArrayList<>();
 	
 	private static List<Craft> built;
 	

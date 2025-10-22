@@ -1,6 +1,5 @@
 package brimmArmors;
 
-import net.minecraft.world.item.Items;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -25,9 +24,7 @@ import brimmArmors.common.configurations.ConfigsManager;
 import brimmArmors.common.items.ItemRegistry;
 import brimmArmors.common.packets.CraftPacket;
 import brimmArmors.common.tile.TileRegistry;
-import brimmArmors.common.workbench.CraftBuilder;
 import brimmArmors.common.workbench.CraftsManager;
-import brimmArmors.common.workbench.IngredientBuilder;
 
 @Mod(BrimmArmors.MOD_ID)
 public class BrimmArmors

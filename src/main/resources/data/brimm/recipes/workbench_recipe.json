@@ -1,29 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "000",
-    "121",
-    "434"
+    "III",
+    "WWW",
+    "S S"
   ],
   "key": {
-    "0": {
-      "item": "minecraft:spruce_slab"
-    },
-    "1": {
-      "item": "minecraft:spruce_fence"
-    },
-    "2": {
-      "item": "minecraft:iron_axe"
-    },
-    "3": {
-      "item": "minecraft:anvil"
-    },
-    "4": {
-      "item": "minecraft:stripped_spruce_log"
-    }
+    "I": { "item": "minecraft:iron_ingot" },
+    "W": { "item": "minecraft:oak_planks" },
+    "S": { "item": "minecraft:stick" }
   },
   "result": {
-    "item": "concord:workbench",
+    "item": "brimm:workbench",
     "count": 1
   }
 }

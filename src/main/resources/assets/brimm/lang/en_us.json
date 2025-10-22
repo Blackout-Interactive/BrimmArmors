@@ -4,7 +4,7 @@
 
   "item.${mod_id}.iron_plate": "Iron Plate",
   "item.${mod_id}.diamond_plate": "Diamond Plate",
-  "item.${mod_id}.nether_plate": "Nether Plate",
+  "item.${mod_id}.nether_plate": "Netherite Plate",
 
   "item.${mod_id}.nato": "Combined Arms Body Armor",
   "tooltip.${mod_id}.nato": "You're in the army now",
@@ -81,7 +81,7 @@
   "item.${mod_id}.concord_h": "Concord's Helmet",
   "tooltip.${mod_id}.concord_h": "Specially tanked",
 
-  "item.${mod_id}.infantry_h": "Special Ops Core",
+  "item.${mod_id}.infantry_h": "Infantry Helmet",
   "tooltip.${mod_id}.infantry_h": "",
 
   "item.${mod_id}.gpnvg_h": "Black Ops Helmet",

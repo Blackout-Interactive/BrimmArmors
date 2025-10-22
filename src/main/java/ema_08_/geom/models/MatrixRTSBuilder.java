@@ -34,6 +34,51 @@ public final class MatrixRTSBuilder implements IBuilder<MatrixRTS> {
         return this;
     }
     
+    public MatrixRTSBuilder setTranslateX(float value) {
+    	this.translate[0] = value;
+    	return this;
+    }
+    
+    public MatrixRTSBuilder setTranslateY(float value) {
+    	this.translate[1] = value;
+    	return this;
+    }
+    
+    public MatrixRTSBuilder setTranslateZ(float value) {
+    	this.translate[2] = value;
+    	return this;
+    }
+    
+    public MatrixRTSBuilder setRotateX(float value) {
+    	this.rotate[0] = value;
+    	return this;
+    }
+    
+    public MatrixRTSBuilder setRotateY(float value) {
+    	this.rotate[1] = value;
+    	return this;
+    }
+    
+    public MatrixRTSBuilder setRotateZ(float value) {
+    	this.rotate[2] = value;
+    	return this;
+    }
+    
+    public MatrixRTSBuilder setScaleX(float value) {
+    	this.scale[0] = value;
+    	return this;
+    }
+    
+    public MatrixRTSBuilder setScaleY(float value) {
+    	this.scale[1] = value;
+    	return this;
+    }
+    
+    public MatrixRTSBuilder setScaleZ(float value) {
+    	this.scale[2] = value;
+    	return this;
+    }
+    
     @Override
     public MatrixRTS build() {
     	return new MatrixRTS(

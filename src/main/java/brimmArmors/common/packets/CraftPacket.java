@@ -12,10 +12,6 @@ import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 
-/**
- * Sent from client → server when the player clicks the "Craft" button
- * on the WorkbenchScreen. The server validates and performs the craft.
- */
 public final class CraftPacket extends APacket.AC2SPacket {
 
     private final int craftIndex;

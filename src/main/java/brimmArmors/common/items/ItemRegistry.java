@@ -12,9 +12,7 @@ import brimmArmors.common.configurations.ConfigsManager;
 import brimmArmors.common.workbench.CraftBuilder;
 import brimmArmors.common.workbench.CraftsManager;
 import brimmArmors.common.workbench.IngredientBuilder;
-import ema_08_.geom.models.MatrixRTSBuilder;
-import ema_08_.geom.models.RTSMatricesCompound;
-import ema_08_.geom.models.RTSMatricesCompoundBuilder;
+import ema_08_.geom.models.*;
 import ema_08_.items.SimpleArmorMaterial;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -79,17 +77,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.COMMON,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-1f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(-0.6f, -0.5f, 0f)
-    	    .setRotate(0f, 180f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    0f, 0f, 8, 240
     	    )
@@ -102,17 +95,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.UNCOMMON,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-1f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(-0.6f, -0.5f, 0f)
-    	    .setRotate(0f, 180f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -125,17 +113,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.RARE,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-1f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(-0.6f, -0.5f, 0f)
-    	    .setRotate(0f, 180f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -148,17 +131,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.EPIC,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-1f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(-0.6f, -0.5f, 0f)
-    	    .setRotate(0f, 180f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -171,17 +149,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.RARE,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-1f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(-0.6f, -0.5f, 0f)
-    	    .setRotate(0f, 180f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -194,17 +167,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.EPIC,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-1f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(-0.6f, -0.5f, 0f)
-    	    .setRotate(0f, 180f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -217,17 +185,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.COMMON,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-1f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(-0.6f, -0.5f, 0f)
-    	    .setRotate(0f, 180f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    0f, 0f, 8, 240
     	    )
@@ -240,17 +203,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.UNCOMMON,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-1f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(-0.6f, -0.5f, 0f)
-    	    .setRotate(0f, 180f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -263,17 +221,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.RARE,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-1f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(-0.6f, -0.5f, 0f)
-    	    .setRotate(0f, 180f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -286,17 +239,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.EPIC,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-1f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(-0.6f, -0.5f, 0f)
-    	    .setRotate(0f, 180f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -309,17 +257,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.EPIC,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-1f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(-0.6f, -0.5f, 0f)
-    	    .setRotate(0f, 180f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -332,17 +275,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.COMMON,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-1f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(-0.6f, -0.5f, 0f)
-    	    .setRotate(0f, 180f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    0f, 0f, 8, 240
     	    )
@@ -355,17 +293,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.UNCOMMON,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-1f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(-0.6f, -0.5f, 0f)
-    	    .setRotate(0f, 180f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -378,17 +311,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.RARE,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-1f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(-0.6f, -0.5f, 0f)
-    	    .setRotate(0f, 180f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -401,17 +329,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.RARE,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-1f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(-0.6f, -0.5f, 0f)
-    	    .setRotate(0f, 180f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -424,17 +347,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.EPIC,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-1f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(-0.6f, -0.5f, 0f)
-    	    .setRotate(0f, 180f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -447,17 +365,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.COMMON,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-1f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(-0.6f, -0.5f, 0f)
-    	    .setRotate(0f, 180f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    0f, 0f, 8, 240
     	    )
@@ -470,17 +383,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.UNCOMMON,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-1f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(-0.6f, -0.5f, 0f)
-    	    .setRotate(0f, 180f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -493,17 +401,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.RARE,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-1f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(-0.6f, -0.5f, 0f)
-    	    .setRotate(0f, 180f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -516,17 +419,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.CHESTPLATE,
     	        ConcordRarity.EPIC,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-1f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(-0.6f, -0.5f, 0f)
-    	    .setRotate(0f, 180f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -543,17 +441,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.COMMON,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -2f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-2f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.3f, 0.7f)
-    	    .setRotate(0f, 90f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    0f, 0f, 8, 240
     	    )
@@ -572,17 +465,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.UNCOMMON,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -2f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-2f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.3f, 0.7f)
-    	    .setRotate(0f, 90f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -601,17 +489,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.UNCOMMON,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -2f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-2f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.3f, 0.7f)
-    	    .setRotate(0f, 90f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -629,17 +512,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.RARE,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -2f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-2f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.3f, 0.7f)
-    	    .setRotate(0f, 90f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -652,17 +530,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.EPIC,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -2f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-2f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.3f, 0.7f)
-    	    .setRotate(0f, 90f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -681,17 +554,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.COMMON,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -2f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-2f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.3f, 0.7f)
-    	    .setRotate(0f, 90f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    0f, 0f, 8, 240
     	    )
@@ -704,17 +572,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.RARE,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -2f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-2f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.3f, 0.7f)
-    	    .setRotate(0f, 90f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -727,17 +590,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.EPIC,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -2f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-2f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.3f, 0.7f)
-    	    .setRotate(0f, 90f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -754,17 +612,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.COMMON,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -2f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-2f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.3f, 0.7f)
-    	    .setRotate(0f, 90f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    0f, 0f, 8, 240
     	    )
@@ -781,17 +634,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.RARE,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -2f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-2f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.3f, 0.7f)
-    	    .setRotate(0f, 90f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -810,17 +658,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.EPIC,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -2f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-2f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.3f, 0.7f)
-    	    .setRotate(0f, 90f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -837,17 +680,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.COMMON,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -2f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-2f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.3f, 0.7f)
-    	    .setRotate(0f, 90f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    0f, 0f, 8, 240
     	    )
@@ -865,17 +703,12 @@ public class ItemRegistry {
     	        ArmorItem.Type.HELMET,
     	        ConcordRarity.UNCOMMON,
     	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.54f, 0f)
-    	    .setRotate(0f, 0f, 180f)
-    	    .setScale(1f, 1f, 1f))
-    	    .set(RTSMatricesCompound.key_workbench_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -2f, 0f)
+    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f))
+    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+    	    .setTranslateY(-2f)
     	    .setScale(50f, -50f, 50f))
-    	    .set(RTSMatricesCompound.key_gui_render, new MatrixRTSBuilder()
-    	    .setTranslate(0f, -1.3f, 0.7f)
-    	    .setRotate(0f, 90f, 0f)
-    	    .setScale(0.8f, 0.8f, 0.8f))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -890,6 +723,8 @@ public class ItemRegistry {
             })
             .build()
         );
+    
+    private static MatrixRTSBuilder newmatrix() { return new MatrixRTSBuilder().identify(); }
     
     private static Consumer<RegistryObject<BasicArmor>> addArmorsTabAndSetCraft(IngredientBuilder... ingredients) {
     	return (obj)->{

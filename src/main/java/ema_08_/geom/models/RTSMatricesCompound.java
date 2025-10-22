@@ -12,7 +12,6 @@ public final class RTSMatricesCompound {
 	
 	public static final String
 		key_armor_render = "ARMOR",
-		key_gui_render = "GUI",
 		key_workbench_render = "WORKBENCH";
 	
 	private final Map<String, MatrixRTS> matrices;

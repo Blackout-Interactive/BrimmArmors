@@ -1,10 +1,12 @@
 package brimmArmors.common.items;
 
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 import brimmArmors.BrimmArmors;
+import brimmArmors.common.configurations.ArmorConfig;
 import brimmArmors.common.configurations.ConfigMergers;
 import brimmArmors.common.configurations.ConfigsManager;
 import brimmArmors.common.workbench.CraftBuilder;
@@ -919,10 +921,12 @@ public class ItemRegistry {
     		final RTSMatricesCompound transform, final float toughness,
     		final float knockbackResistance, final int defenseValue, final int durabilityValue
     		) {
-    	final SimpleArmorMaterial material = ConfigMergers.mergeBasic("brimm_armor_material",
+    	ArmorConfig cfg = Optional.ofNullable(ConfigsManager.getAndEvict(unlocName)).orElse(ArmorConfig.EMPTY);
+    	final SimpleArmorMaterial material = ConfigMergers.mergeBasicMaterial("brimm_armor_material",
     			toughness, knockbackResistance, defenseValue, durabilityValue,
-    			type, ConfigsManager.getAndEvictMaterial(unlocName));
-    	return ()->new BasicArmor(unlocName, type, rarity, material, transform);
+    			type, cfg.materialOverrides());
+    	final ConcordRarity mergedRarity = ConfigMergers.mergeRarity(rarity, cfg.rarityOverride());
+    	return ()->new BasicArmor(unlocName, type, mergedRarity, material, transform);
     }
     	
     private static <T extends Item> RegistryObject<T> registerItemAndExecute(Consumer<RegistryObject<T>> consumer,

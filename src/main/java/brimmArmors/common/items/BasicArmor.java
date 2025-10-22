@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
-public class BasicArmor extends ArmorItem implements IRarity, IDefaultObjModelProvider {
+public class BasicArmor extends ArmorItem implements IDefaultObjModelProvider {
 
     private final ConcordRarity rarity;
     private final String unlocName;
@@ -54,10 +54,6 @@ public class BasicArmor extends ArmorItem implements IRarity, IDefaultObjModelPr
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltipList, TooltipFlag flag) {
         tooltipList.add(Component.literal(rarity.color + "\u00A7o" + I18n.get("tooltip." + BrimmArmors.MOD_ID + "." + unlocName)));
-    }
-
-    public ConcordRarity getRarity() {
-        return rarity;
     }
     
     @OnlyIn(Dist.CLIENT)

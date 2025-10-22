@@ -4,21 +4,24 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Optional;
+import java.util.function.Function;
 
 import brimmArmors.BrimmArmors;
+import brimmArmors.common.items.ConcordRarity;
 import ema_08_.parsing.TrivialDomReader;
 import net.minecraftforge.fml.loading.FMLPaths;
 
 public class ConfigsManager {
 	
-	private static final HashMap<String, MaterialOverrides> materialConfigs = new HashMap<>();
-	private static final HashSet<String> evictedMaterialConfigs = new HashSet<>();
+	private static final HashMap<String, ArmorConfig> configs = new HashMap<>();
+	private static final HashSet<String> evictedConfigs = new HashSet<>();
 	
 	private static final String[]
 			TAGS_TOUGHNESS = new String[] {"config", "toughness"},
 			TAGS_KNOCKBACK_RESISTANCE = new String[] {"config", "knockback-resistance"},
 			TAGS_DEFENSE = new String[] {"config", "defense"},
-			TAGS_DURABILITY = new String[] {"config", "durability"};
+			TAGS_DURABILITY = new String[] {"config", "durability"},
+			TAGS_RARITY = new String[] {"config", "rarity"};
 	
 	public static void init() {
 		File configFolder = new File(FMLPaths.CONFIGDIR.get().toFile(), "brimm/overrides");
@@ -34,14 +37,22 @@ public class ConfigsManager {
 					try {
 						TrivialDomReader xml = new TrivialDomReader(file);
 						if (xml.getRootTag().equals("config")) {
-							MaterialOverrides config = new MaterialOverrides(
+							MaterialOverrides materialOverride = new MaterialOverrides(
 									parseFloatFromXml(xml, TAGS_TOUGHNESS, 0.0f, 5.0f, false),
 									parseFloatFromXml(xml, TAGS_KNOCKBACK_RESISTANCE, 0.0f, 1.0f, false),
 									parseIntFromXml(xml, TAGS_DEFENSE, 0, 20, false),
 									parseIntFromXml(xml, TAGS_DURABILITY, 0, 5001, true)
 								);
+							Optional<ConcordRarity> rarityOverride = mapOptional(
+									parseStringFromXml(xml, TAGS_RARITY, (s)->{
+										if (ConcordRarity.fromName(s) == null)
+											return "no such rarity as '"+s+"'";
+										else
+											return null;
+									}),
+									ConcordRarity::fromName);
 							String name = file.getName().replace(".xml", "");
-							materialConfigs.put(name, config);
+							configs.put(name, new ArmorConfig(materialOverride, rarityOverride));
 							BrimmArmors.LOGGER.info("Loaded config file "+file.getName()+".");
 						} else {
 							BrimmArmors.LOGGER.error("Failed to load config file "+file.getName()+": invalid document tag. "
@@ -56,9 +67,29 @@ public class ConfigsManager {
 		}
 	}
 	
+	private static <I, F> Optional<F> mapOptional(Optional<I> initial, Function<I, F> transformer) {
+		return initial.isEmpty() ? Optional.empty() : Optional.of(transformer.apply(initial.get()));
+	}
+	
 	private static String last(String[] arr) { return arr[arr.length-1]; }
 	
 	private static String filename(TrivialDomReader xml) { return new File(xml.getLoadedFilePath()).getName(); }
+	
+	private static Optional<String> parseStringFromXml(TrivialDomReader xml, String[] tagspath, Function<String, String> tester) {
+		if (xml.elementExists(tagspath)) {
+			String value = xml.getElementValue(tagspath);
+			String error = tester.apply(value);
+			if (error != null) {
+				BrimmArmors.LOGGER.warn("Invalid "+last(tagspath)+" config value in "+filename(xml)+" config file: "+error+". "
+						+ "This config file's entry will be skipped, although the rest of the file will be parsed.");
+				return Optional.empty();
+			} else {
+				return Optional.of(value);
+			}
+		} else {
+			return Optional.empty();
+		}
+	}
 	
 	private static Optional<Integer> parseIntFromXml(TrivialDomReader xml, String[] tagspath, int min, int max, boolean exclusive) {
 		try {
@@ -110,9 +141,9 @@ public class ConfigsManager {
 		}
 	}
 	
-	public static MaterialOverrides getAndEvictMaterial(String name) {
-		if (!evictedMaterialConfigs.add(name)) throw new IllegalStateException("Material config for "+name+" had been already evicted");
-		return materialConfigs.remove(name);
+	public static ArmorConfig getAndEvict(String name) {
+		if (!evictedConfigs.add(name)) throw new IllegalStateException("Material config for "+name+" had been already evicted");
+		return configs.remove(name);
 	}
 
 }

@@ -170,7 +170,15 @@ public class WorkbenchScreen extends Screen {
     public boolean mouseReleased(double mouseX, double mouseY, int button) {
         if (super.mouseReleased(mouseX, mouseY, button)) return true;
         dragging = false;
+        rotationX = 0;
+        rotationY = 0;
         return true;
+    }
+    
+    @Override
+    public void tick() {
+        super.tick();
+        if (!dragging) rotationY += 0.04f;
     }
 
 }

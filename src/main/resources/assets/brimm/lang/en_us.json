@@ -108,6 +108,7 @@
   "block.${mod_id}.workbench": "Workbench",
   "screen.${mod_id}.workbench.title": "Brimm Workbench",
   "screen.${mod_id}.workbench.craft": "CRAFT",
-  "screen.${mod_id}.workbench.not_enough_items": "Not enough items."
+  "screen.${mod_id}.workbench.not_enough_items": "Not enough items.",
+  "screen.${mod_id}.workbench.tooltip": "Drag to move"
   
 }

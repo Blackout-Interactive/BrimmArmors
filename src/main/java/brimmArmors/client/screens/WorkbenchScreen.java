@@ -1,5 +1,6 @@
 package brimmArmors.client.screens;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.joml.Vector3f;
@@ -39,6 +40,8 @@ public class WorkbenchScreen extends Screen {
 	private static final Vector3f lightDir = new Vector3f(0.0F, 0.0F, 1.0F);
 
 	private final Minecraft mc = Minecraft.getInstance();
+	private final List<Component> tooltip = List.of(
+			Component.literal(I18n.get("screen." + BrimmArmors.MOD_ID + ".workbench.tooltip")));
     private float rotationX = 0;
     private float rotationY = 0;
     private Craft currentReceipe = CraftsManager.first();
@@ -118,6 +121,20 @@ public class WorkbenchScreen extends Screen {
             guig.drawString(mc.font, ingText, ingX, ingY, 0xAAAAAA, false);
             ingY += mc.font.lineHeight + 2;
         }
+        
+        if (!dragging && this.currentReceipe.result() instanceof IObjModelProvider &&
+                mouseX >= guiLeft && mouseX <= guiLeft + BG_XSIZE &&
+                mouseY >= guiTop && mouseY <= guiTop + BG_YSIZE) {
+
+                guig.renderTooltip(
+                    mc.font,
+                    tooltip,
+                    Optional.empty(),
+                    mouseX,
+                    mouseY
+                );
+            }
+        
     }
 
     private void renderItem(GuiGraphics guig, PoseStack poseStack, int x, int y) {

@@ -1,5 +1,5 @@
 BRIMM ARMORS MINECRAFT MOD LICENSE AGREEMENT
-Version 1.0 - October 2025
+Version 1.1 - October 2025
 Copyright (c) Blackout Interactive
 
 0 - DEFINITIONS
@@ -69,8 +69,19 @@ Copyright (c) Blackout Interactive
 
 5 - TERMINATION
 
- This License is automatically terminated if the User breaches any of its terms.
- Upon termination, the User must cease all use and distribution of the Software.
+ - This License is automatically terminated if the User breaches any of its terms.
+   Upon termination, the User must cease all use and distribution of the Software.
+
+ - The Licensor reserves the right to terminate this License, in whole or in part,
+   at its discretion, including discontinuation of licensing or distribution of the
+   Software. In such cases, the Licensor will provide reasonable notice through the
+   official Software distribution channels.
+
+ - Termination by the Licensor under this clause shall not require any refund or
+   compensation to the User, except where required by applicable law.
+
+ - Upon termination by the Licensor, the User must immediately cease all use and
+   distribution of the Software and destroy all copies in their possession.
 
 6 - GOVERNING LAW
 

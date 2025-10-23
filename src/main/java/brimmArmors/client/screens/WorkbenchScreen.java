@@ -2,6 +2,8 @@ package brimmArmors.client.screens;
 
 import java.util.Optional;
 
+import org.joml.Vector3f;
+
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
@@ -34,6 +36,7 @@ public class WorkbenchScreen extends Screen {
 	        new ResourceLocation(BrimmArmors.MOD_ID, "textures/gui/workbench_bg.png");
 	private static final int BG_XSIZE = 192, BG_YSIZE = 129;
 	private static final float ITEMICONS_SCALE = 4.0f;
+	private static final Vector3f lightDir = new Vector3f(0.0F, 0.0F, 1.0F);
 
 	private final Minecraft mc = Minecraft.getInstance();
     private float rotationX = 0;
@@ -123,7 +126,10 @@ public class WorkbenchScreen extends Screen {
         Item current = this.currentReceipe.result();
         
         if (current instanceof IObjModelProvider model) {
-            RenderSystem.disableDepthTest();
+        	RenderSystem.enableBlend();
+        	RenderSystem.defaultBlendFunc();
+        	RenderSystem.enableDepthTest();
+        	RenderSystem.setShaderLights(lightDir, lightDir);
             poseStack.translate(x, y, 150);
             poseStack.mulPose(Axis.YP.rotation(rotationY));
             poseStack.mulPose(Axis.XP.rotation(rotationX));
@@ -132,7 +138,6 @@ public class WorkbenchScreen extends Screen {
                 Minecraft.getInstance().renderBuffers().bufferSource(),
                 LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY
             );
-            RenderSystem.enableDepthTest();
         } else {
             ItemStack itemStack = new ItemStack(current);
             poseStack.translate(x, y, 100);

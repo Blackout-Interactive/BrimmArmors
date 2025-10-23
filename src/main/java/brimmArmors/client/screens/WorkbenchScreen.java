@@ -1,5 +1,7 @@
 package brimmArmors.client.screens;
 
+import java.util.Optional;
+
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 
@@ -61,15 +63,10 @@ public class WorkbenchScreen extends Screen {
         addRenderableWidget(Button.builder(
                 Component.literal(ChatFormatting.BOLD + "<"),
                 button -> {
-                	Craft prev = CraftsManager.prev(currentReceipe);
-                	if (prev != null) {
-                		currentReceipe = prev;
-                		rotationX = 0;
-                	    rotationY = 0;
-                	} else {
-                		mc.player.sendSystemMessage(
-                				Component.literal(I18n.get("screen." + BrimmArmors.MOD_ID + ".workbench.scroll_end")));
-                	}
+                	currentReceipe =
+                			Optional.ofNullable(CraftsManager.prev(currentReceipe)).orElse(CraftsManager.last());
+            		rotationX = 0;
+            	    rotationY = 0;
                 	mc.player.level().playSound(null, mc.player.blockPosition(),
                 		    SoundEvents.UI_BUTTON_CLICK.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
                 })
@@ -80,15 +77,10 @@ public class WorkbenchScreen extends Screen {
         addRenderableWidget(Button.builder(
                 Component.literal(ChatFormatting.BOLD + ">"),
                 button -> {
-                	Craft next = CraftsManager.next(currentReceipe);
-                	if (next != null) {
-                		currentReceipe = next;
-                		rotationX = 0;
-                	    rotationY = 0;
-                	} else {
-                		mc.player.sendSystemMessage(
-                				Component.literal(I18n.get("screen." + BrimmArmors.MOD_ID + ".workbench.scroll_end")));
-                	}
+                	currentReceipe =
+            				Optional.ofNullable(CraftsManager.next(currentReceipe)).orElse(CraftsManager.first());
+            		rotationX = 0;
+            	    rotationY = 0;
                 	mc.player.level().playSound(null, mc.player.blockPosition(),
                 		    SoundEvents.UI_BUTTON_CLICK.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
                 })

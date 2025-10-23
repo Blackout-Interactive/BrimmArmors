@@ -41,6 +41,11 @@ public class CraftsManager {
 		return built.isEmpty() ? null : built.get(0);
 	}
 	
+	public static Craft last() {
+		if (built == null) throw new IllegalStateException("Crafts have not been built yet");
+		return built.isEmpty() ? null : built.get(built.size()-1);
+	}
+	
 	public static Craft byUid(int uid) {
 		if (built == null) throw new IllegalStateException("Crafts have not been built yet");
 		return built.stream().filter((c)->uid == c.getUid()).findFirst().orElse(null);

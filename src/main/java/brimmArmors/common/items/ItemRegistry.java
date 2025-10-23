@@ -82,7 +82,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-1f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    0f, 0f, 8, 240
     	    )
@@ -100,7 +101,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-1f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -118,7 +120,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-1f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -136,7 +139,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-1f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -154,7 +158,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-1f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -172,7 +177,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-1f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -190,7 +196,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-1f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    0f, 0f, 8, 240
     	    )
@@ -208,7 +215,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-1f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -226,7 +234,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-1f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -244,7 +253,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-1f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -262,7 +272,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-1f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -280,7 +291,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-1f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    0f, 0f, 8, 240
     	    )
@@ -298,7 +310,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-1f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -316,7 +329,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-1f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -334,7 +348,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-1f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -352,7 +367,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-1f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -370,7 +386,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-1f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    0f, 0f, 8, 240
     	    )
@@ -388,7 +405,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-1f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -406,7 +424,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-1f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -424,7 +443,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-1f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -446,7 +466,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-2f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    0f, 0f, 8, 240
     	    )
@@ -470,7 +491,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-2f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -494,7 +516,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-2f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -517,7 +540,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-2f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -535,7 +559,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-2f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -559,7 +584,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-2f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    0f, 0f, 8, 240
     	    )
@@ -577,7 +603,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-2f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -595,7 +622,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-2f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -617,7 +645,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-2f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    0f, 0f, 8, 240
     	    )
@@ -639,7 +668,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-2f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )
@@ -663,7 +693,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-2f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    10f, 1f, 10, 240
     	    )
@@ -685,7 +716,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-2f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    0f, 0f, 8, 240
     	    )
@@ -708,7 +740,8 @@ public class ItemRegistry {
     	    .setRotateZ(180f))
     	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
     	    .setTranslateY(-2f)
-    	    .setScale(50f, -50f, 50f))
+    	    .setScale(50f, -50f, 50f)
+    	    .setRotateY(180))
     	    .build(),
     	    5f, 1f, 9, 240
     	    )

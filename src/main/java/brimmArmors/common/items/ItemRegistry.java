@@ -546,8 +546,39 @@ public class ItemRegistry {
     	    10f, 1f, 10, 240
     	    )
     	);
+    	
+    	public static final RegistryObject<BasicArmor> INFANTRY_H = registerItemAndExecute(
+        		addArmorsTabAndSetCraft(
+                        ig(BASE_H, 1),
+                        ig(Items.IRON_INGOT, 30),
+                        ig(Items.LEATHER, 10),
+                        ig(Items.PAPER, 10)
+                    ),
+        	    "infantry_h",
+        	    generateArmorSupplier(
+        	        "infantry_h",
+        	        ArmorItem.Type.HELMET,
+        	        ConcordRarity.COMMON,
+        	        new RTSMatricesCompoundBuilder()
+        	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
+        	    .setTranslateY(-1.54f)
+        	    .setRotateZ(180f))
+        	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
+        	    .setTranslateY(-2f)
+        	    .setScale(50f, -50f, 50f)
+        	    .setRotateY(180))
+        	    .build(),
+        	    0f, 0f, 8, 240
+        	    )
+        	);
 
-    	public static final RegistryObject<BasicArmor> CONCORD_H = registerItemAndExecute(addArmorsTabAndSetCraft(),//TODO missing ingredients
+    	public static final RegistryObject<BasicArmor> CONCORD_H = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+                    ig(INFANTRY_H, 1),
+                    ig(Items.IRON_INGOT, 10),
+                    ig(Items.DIAMOND, 10),
+                    ig(Items.BLAZE_ROD, 50)
+                ),
     	    "concord_h",
     	    generateArmorSupplier(
     	        "concord_h",
@@ -566,32 +597,14 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> INFANTRY_H = registerItemAndExecute(
+    	public static final RegistryObject<BasicArmor> GPNVG_H = registerItemAndExecute(
     		addArmorsTabAndSetCraft(
-                    ig(BASE_H, 1),
-                    ig(Items.IRON_INGOT, 30),
+                    ig(ASSAULT_H, 1),
+                    ig(Items.IRON_INGOT, 15),
                     ig(Items.LEATHER, 10),
-                    ig(Items.PAPER, 10)
+                    ig(Items.SPIDER_EYE, 10),
+                    ig(Items.DIAMOND, 10)
                 ),
-    	    "infantry_h",
-    	    generateArmorSupplier(
-    	        "infantry_h",
-    	        ArmorItem.Type.HELMET,
-    	        ConcordRarity.COMMON,
-    	        new RTSMatricesCompoundBuilder()
-    	    .set(RTSMatricesCompound.key_armor_render, newmatrix()
-    	    .setTranslateY(-1.54f)
-    	    .setRotateZ(180f))
-    	    .set(RTSMatricesCompound.key_workbench_render, newmatrix()
-    	    .setTranslateY(-2f)
-    	    .setScale(50f, -50f, 50f)
-    	    .setRotateY(180))
-    	    .build(),
-    	    0f, 0f, 8, 240
-    	    )
-    	);
-
-    	public static final RegistryObject<BasicArmor> GPNVG_H = registerItemAndExecute(addArmorsTabAndSetCraft(),//TODO missing ingredients
     	    "gpnvg_h",
     	    generateArmorSupplier(
     	        "gpnvg_h",
@@ -610,7 +623,12 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> GHOST_H = registerItemAndExecute(addArmorsTabAndSetCraft(),//TODO missing ingredients
+    	public static final RegistryObject<BasicArmor> GHOST_H = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+                    ig(GPNVG_H, 1),
+                    ig(Items.SKELETON_SKULL, 1),
+                    ig(Items.INK_SAC, 5)
+                ),
     	    "ghost_h",
     	    generateArmorSupplier(
     	        "ghost_h",

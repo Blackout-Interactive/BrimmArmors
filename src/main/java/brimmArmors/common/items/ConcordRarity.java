@@ -1,6 +1,5 @@
 package brimmArmors.common.items;
 
-
 import java.util.Arrays;
 
 import net.minecraft.ChatFormatting;

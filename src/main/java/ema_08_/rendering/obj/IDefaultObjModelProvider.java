@@ -1,4 +1,4 @@
-package ema_08_.trivialForgeObjWrapper;
+package ema_08_.rendering.obj;
 
 import brimmArmors.BrimmArmors;
 import net.minecraft.resources.ResourceLocation;

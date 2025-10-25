@@ -5,7 +5,7 @@ import com.mojang.math.Axis;
 
 import brimmArmors.common.blocks.WorkbenchBlock;
 import brimmArmors.common.tile.WorkbenchTileEntity;
-import ema_08_.trivialForgeObjWrapper.ObjsManager;
+import ema_08_.rendering.obj.ObjsManager;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.core.Direction;

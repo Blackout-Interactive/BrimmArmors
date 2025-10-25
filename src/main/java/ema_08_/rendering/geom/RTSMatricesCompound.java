@@ -1,8 +1,6 @@
-package ema_08_.geom.models;
+package ema_08_.rendering.geom;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 

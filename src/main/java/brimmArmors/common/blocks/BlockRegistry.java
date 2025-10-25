@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 
 import brimmArmors.BrimmArmors;
 import brimmArmors.common.items.ItemRegistry;
-import ema_08_.geom.models.*;
+import ema_08_.rendering.geom.RTSMatricesCompound;
 
 import java.util.function.Function;
 import java.util.function.Supplier;

@@ -1,9 +1,9 @@
 package brimmArmors.common.items;
 
-import ema_08_.geom.models.RTSMatricesCompound;
 import ema_08_.items.SimpleArmorMaterial;
-import ema_08_.trivialForgeObjWrapper.IDefaultObjModelProvider;
-import ema_08_.trivialForgeObjWrapper.ModelType;
+import ema_08_.rendering.geom.RTSMatricesCompound;
+import ema_08_.rendering.obj.IDefaultObjModelProvider;
+import ema_08_.rendering.obj.ModelType;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.resources.language.I18n;

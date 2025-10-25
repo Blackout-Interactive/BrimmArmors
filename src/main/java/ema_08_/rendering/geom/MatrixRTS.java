@@ -1,4 +1,4 @@
-package ema_08_.geom.models;
+package ema_08_.rendering.geom;
 
 import java.util.Objects;
 

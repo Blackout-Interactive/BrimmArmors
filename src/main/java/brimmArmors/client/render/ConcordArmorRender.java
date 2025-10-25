@@ -4,9 +4,9 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
 import brimmArmors.common.items.BasicArmor;
-import ema_08_.geom.models.RTSMatricesCompound;
-import ema_08_.trivialForgeObjWrapper.ModelType;
-import ema_08_.trivialForgeObjWrapper.ObjsManager;
+import ema_08_.rendering.geom.RTSMatricesCompound;
+import ema_08_.rendering.obj.ModelType;
+import ema_08_.rendering.obj.ObjsManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
@@ -40,4 +40,5 @@ public class ConcordArmorRender extends HumanoidModel<LivingEntity> {
         
         poseStack.popPose();
     }
+    
 }

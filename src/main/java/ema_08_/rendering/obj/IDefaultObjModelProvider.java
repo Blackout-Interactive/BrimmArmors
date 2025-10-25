@@ -16,7 +16,7 @@ public interface IDefaultObjModelProvider extends IObjModelProvider {
 	}
 	
 	@Override
-	default ResourceLocation getTexturePng() {
+	default ResourceLocation getPng() {
 		return new ResourceLocation(BrimmArmors.MOD_ID, getModelType().non_namespaced_resloc_png_base+getModelName()+".png");
 	}
 

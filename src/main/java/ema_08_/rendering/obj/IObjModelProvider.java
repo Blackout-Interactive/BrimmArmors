@@ -9,7 +9,7 @@ public interface IObjModelProvider {
 	
 	ResourceLocation getMtl();
 	
-	ResourceLocation getTexturePng();
+	ResourceLocation getPng();
 	
 	String getModelName();
 	

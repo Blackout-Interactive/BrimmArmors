@@ -4,7 +4,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
@@ -34,10 +33,14 @@ public class ObjsManager {
 	}
 	
 	public static BakedObjModel getModel(IObjModelProvider provider) {
-		return getModel(provider.getModelName(), provider.getObj(), provider.getMtl(), provider.getTexturePng());
+		return getModel(provider.getModelName(), provider.getObj(), provider.getMtl(), provider.getPng());
 	}
 	
 	public static final class BakedObjModel {
+		
+		public static CompositeRenderable getRaw(BakedObjModel model) {
+			return model.bakedModel;
+		}
 		
 		private static final ITextureRenderTypeLookup renderType = RenderType::entityTranslucent;
 		
@@ -54,17 +57,18 @@ public class ObjsManager {
 			return "objModel:"+this.name;
 		}
 		
-		public void render(PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int combinedOverlay) {
+		public void render(PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int combinedOverlay, float partialTicks) {
 			this.bakedModel.render(
 					poseStack,
 					bufferSource,
 					renderType,
 					combinedLight,
 					combinedOverlay,
-					Minecraft.getInstance().getPartialTick(),
+					partialTicks,
 					Transforms.EMPTY
 				);
 		}
+		
 	}
 
 }

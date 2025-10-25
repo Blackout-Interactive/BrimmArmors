@@ -153,7 +153,7 @@ public class WorkbenchScreen extends Screen {
             model.getTransformations().applyIfPresent(RTSMatricesCompound.key_workbench_render, poseStack);
             ObjsManager.getModel(model).render(poseStack,
                 Minecraft.getInstance().renderBuffers().bufferSource(),
-                LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY
+                LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, mc.getPartialTick()
             );
         } else {
             ItemStack itemStack = new ItemStack(current);

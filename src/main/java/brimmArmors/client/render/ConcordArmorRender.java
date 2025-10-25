@@ -36,9 +36,11 @@ public class ConcordArmorRender extends HumanoidModel<LivingEntity> {
 
         armor.getTransformations().applyIfPresent(RTSMatricesCompound.key_armor_render, poseStack);
         ObjsManager.getModel(armor)
-        	.render(poseStack, Minecraft.getInstance().renderBuffers().bufferSource(), packedLight, packedOverlay);
+        	.render(poseStack, Minecraft.getInstance().renderBuffers().bufferSource(), packedLight, packedOverlay,
+        			Minecraft.getInstance().getPartialTick());
         
         poseStack.popPose();
+        
     }
     
 }

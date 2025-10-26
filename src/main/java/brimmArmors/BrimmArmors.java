@@ -23,6 +23,7 @@ import brimmArmors.common.blocks.BlockRegistry;
 import brimmArmors.common.configurations.ConfigsManager;
 import brimmArmors.common.items.ItemRegistry;
 import brimmArmors.common.packets.CraftPacket;
+import brimmArmors.common.recipes.RecipeSerializers;
 import brimmArmors.common.tile.TileRegistry;
 import brimmArmors.common.workbench.CraftsManager;
 
@@ -58,6 +59,8 @@ public class BrimmArmors
          * Requires: blocks being initialised.
          */
         TileRegistry.register(eventBus);
+        
+        RecipeSerializers.register(eventBus);
 
         eventBus.addListener(this::preInit);
         eventBus.addListener(this::init);

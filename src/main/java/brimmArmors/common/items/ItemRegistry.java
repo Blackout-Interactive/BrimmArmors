@@ -1,6 +1,7 @@
 package brimmArmors.common.items;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -16,6 +17,7 @@ import ema_08_.items.SimpleArmorMaterial;
 import ema_08_.rendering.geom.MatrixRTSBuilder;
 import ema_08_.rendering.geom.RTSMatricesCompound;
 import ema_08_.rendering.geom.RTSMatricesCompoundBuilder;
+import ema_08_.rendering.overlay.OverlayLocation;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ArmorItem;
@@ -85,7 +87,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-    	    0f, 0f, 8, 240
+    	    0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -102,7 +104,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-    	    5f, 1f, 9, 240
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
     	
@@ -119,7 +121,7 @@ public class ItemRegistry {
         	    newRTSMComp()
         	.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
         	.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-        	0f, 0f, 8, 240
+        	0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
         	)
         );
 
@@ -136,7 +138,7 @@ public class ItemRegistry {
         	    newRTSMComp()
         	.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
         	.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-        	5f, 1f, 9, 240
+        	5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
         	)
         );
 
@@ -153,7 +155,7 @@ public class ItemRegistry {
         	    newRTSMComp()
         	.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
         	.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-        	10f, 1f, 10, 240
+        	10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
         	)
         );
     
@@ -172,7 +174,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-    	    0f, 0f, 8, 240
+    	    0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -189,7 +191,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-    	    5f, 1f, 9, 240
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -207,7 +209,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-    	    5f, 1f, 9, 240
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -225,7 +227,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-    	    5f, 1f, 9, 240
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -243,7 +245,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-    	    5f, 1f, 9, 240
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -261,7 +263,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-    	    5f, 1f, 9, 240
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -279,7 +281,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-    	    10f, 1f, 10, 240
+    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -292,7 +294,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-    	    10f, 1f, 10, 240
+    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -310,7 +312,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-    	    0f, 0f, 8, 240
+    	    0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -328,7 +330,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-    	    5f, 1f, 9, 240
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -346,7 +348,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-    	    5f, 1f, 9, 240
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -364,7 +366,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-    	    10f, 1f, 10, 240
+    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -382,7 +384,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-    	    10f, 1f, 10, 240
+    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -399,7 +401,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-    	    10f, 1f, 10, 240
+    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -412,7 +414,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-    	    10f, 1f, 10, 240
+    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -429,7 +431,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
-    	    0f, 0f, 8, 240
+    	    0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -448,7 +450,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
-    	    5f, 1f, 9, 240
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -467,7 +469,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
-    	    5f, 1f, 9, 240
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -485,7 +487,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
-    	    10f, 1f, 10, 240
+    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
     	
@@ -504,7 +506,7 @@ public class ItemRegistry {
         	    newRTSMComp()
         	.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
-        	0f, 0f, 8, 240
+        	0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
         	)
         );
 
@@ -523,7 +525,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
-    	    10f, 1f, 10, 240
+    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -543,7 +545,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
-    	    5f, 1f, 9, 240
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -561,7 +563,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
-    	    10f, 1f, 10, 240
+    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -578,7 +580,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
-    	    0f, 0f, 8, 240
+    	    0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -595,7 +597,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
-    	    5f, 1f, 9, 240
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -614,7 +616,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
-    	    10f, 1f, 10, 240
+    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -631,7 +633,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
-    	    0f, 0f, 8, 240
+    	    0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -649,7 +651,7 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
-    	    5f, 1f, 9, 240
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
     	
@@ -710,7 +712,8 @@ public class ItemRegistry {
     private static Supplier<BasicArmor> generateArmorSupplier(
     		final String unlocName, final ArmorItem.Type type, final ConcordRarity rarity,
     		final RTSMatricesCompoundBuilder transformB, final float toughness,
-    		final float knockbackResistance, final int defenseValue, final int durabilityValue
+    		final float knockbackResistance, final int defenseValue, final int durabilityValue,
+    		final Collection<OverlayLocation> patchesPositions
     		) {
     	ArmorConfig cfg = Optional.ofNullable(ConfigsManager.getAndEvict(unlocName)).orElse(ArmorConfig.EMPTY);
     	final SimpleArmorMaterial material = ConfigMergers.mergeBasicMaterial("brimm_armor_material",
@@ -718,7 +721,7 @@ public class ItemRegistry {
     			type, cfg.materialOverrides());
     	final ConcordRarity mergedRarity = ConfigMergers.mergeRarity(rarity, cfg.rarityOverride());
     	final RTSMatricesCompound transform = transformB.build();
-    	return ()->new BasicArmor(unlocName, type, mergedRarity, material, transform);
+    	return ()->new BasicArmor(unlocName, type, mergedRarity, material, transform, patchesPositions);
     }
     	
     private static <T extends Item> RegistryObject<T> registerItemAndExecute(Consumer<RegistryObject<T>> consumer,

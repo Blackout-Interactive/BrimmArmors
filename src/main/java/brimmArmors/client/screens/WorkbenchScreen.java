@@ -150,7 +150,7 @@ public class WorkbenchScreen extends Screen {
             poseStack.translate(x, y, 150);
             poseStack.mulPose(Axis.YP.rotation(rotationY));
             poseStack.mulPose(Axis.XP.rotation(rotationX));
-            model.getTransformations().applyIfPresent(RTSMatricesCompound.key_workbench_render, poseStack);
+            model.getModelTransformations().applyIfPresent(RTSMatricesCompound.key_workbench_render, poseStack);
             ObjsManager.getModel(model).render(poseStack,
                 Minecraft.getInstance().renderBuffers().bufferSource(),
                 LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, mc.getPartialTick()

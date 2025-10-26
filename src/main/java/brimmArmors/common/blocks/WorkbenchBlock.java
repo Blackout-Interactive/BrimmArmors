@@ -93,7 +93,7 @@ public class WorkbenchBlock extends Block implements IDefaultObjModelProvider, E
 	}
 
 	@Override
-	public RTSMatricesCompound getTransformations() {
+	public RTSMatricesCompound getModelTransformations() {
 		return this.transformations;
 	}
 	

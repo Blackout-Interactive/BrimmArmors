@@ -38,6 +38,7 @@ public class ItemRegistry {
     		Registries.CREATIVE_MODE_TAB, BrimmArmors.MOD_ID);
     
     private static final ArrayList<RegistryObject<BasicArmor>> armors_tab_content = new ArrayList<>();
+    private static final ArrayList<RegistryObject<? extends Item>> misc_tab_content = new ArrayList<>();
 
     public static RegistryObject<Item> getr(String id) {
         return ITEMS.getEntries().stream()
@@ -54,24 +55,24 @@ public class ItemRegistry {
     }
 
     	public static final RegistryObject<BasicPlate> IRON_PLATE = registerItemAndExecute(
-    		(res)->CraftsManager.register(new CraftBuilder(res::get)
+    		(res)->{CraftsManager.register(new CraftBuilder(res::get)
     				.addIngredient(ig(Items.IRON_INGOT, 5))
-    			),
+    			); misc_tab_content.add(res);},
     		"iron_plate", () -> new BasicPlate(ConcordRarity.COMMON));
     
     	public static final RegistryObject<BasicPlate> DIAMOND_PLATE = registerItemAndExecute(
-    		(res)->CraftsManager.register(new CraftBuilder(res::get)
+    		(res)->{CraftsManager.register(new CraftBuilder(res::get)
     				.addIngredient(ig(Items.IRON_INGOT, 10))
     				.addIngredient(ig(Items.DIAMOND, 5))
-    			),
+    			); misc_tab_content.add(res);},
     		"diamond_plate", () -> new BasicPlate(ConcordRarity.RARE));
     
     	public static final RegistryObject<BasicPlate> NETHER_PLATE = registerItemAndExecute(
-    		(res)->CraftsManager.register(new CraftBuilder(res::get)
+    		(res)->{CraftsManager.register(new CraftBuilder(res::get)
     				.addIngredient(ig(Items.IRON_INGOT, 10))
     				.addIngredient(ig(Items.DIAMOND, 10))
     				.addIngredient(ig(Items.NETHERITE_INGOT, 1))
-    			),
+    			); misc_tab_content.add(res);},
     		"nether_plate", () -> new BasicPlate(ConcordRarity.EPIC));
     
 		public static final RegistryObject<BasicArmor> RATNIK = registerItemAndExecute(
@@ -665,6 +666,16 @@ public class ItemRegistry {
             .build()
         );
     
+    public static final RegistryObject <CreativeModeTab> MISC_CREATIVE_TAB = CREATIVE_TABS.register(
+    		"brimm_misc", () -> CreativeModeTab.builder()
+            .title(Component.translatable("itemGroup." + BrimmArmors.MOD_ID + ".brimm_misc"))
+            .icon(() -> new ItemStack(IRON_PLATE.get()))
+            .displayItems((params, output) -> {
+            	misc_tab_content.stream().map(RegistryObject::get).forEach(output::accept);
+            })
+            .build()
+        );
+    
     private static RTSMatricesCompoundBuilder newRTSMComp() {
     	return new RTSMatricesCompoundBuilder();
     }
@@ -729,6 +740,12 @@ public class ItemRegistry {
     	RegistryObject<T> registered = ITEMS.register(name, sup);
     	consumer.accept(registered);
     	return registered;
+    }
+    
+    public static <T extends Item> RegistryObject<T> registerAndAddToMiscTab(String name, Supplier <? extends T> sup) {
+    	RegistryObject<T> reg = ITEMS.register(name, sup);
+    	misc_tab_content.add(reg);
+    	return reg;
     }
 
     public static void register(IEventBus eventBus) {

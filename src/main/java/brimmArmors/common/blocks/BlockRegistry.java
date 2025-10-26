@@ -32,7 +32,7 @@ public class BlockRegistry {
     private static <T extends Block> RegistryObject<T> register(String id, Supplier<T> blockSupplier, @Nullable Function<T, BlockItem> supplier) {
         RegistryObject<T> registryObject = BLOCKS.register(id, blockSupplier);
         if (supplier != null) {
-            ItemRegistry.ITEMS.register(id, () -> supplier.apply(registryObject.get()));
+            ItemRegistry.registerAndAddToMiscTab(id, () -> supplier.apply(registryObject.get()));
         }
         return registryObject;
     }

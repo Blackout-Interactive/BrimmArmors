@@ -1,6 +1,7 @@
 {
 	
   "itemGroup.${mod_id}.armors": "Brimm Armors",
+  "itemGroup.${mod_id}.brimm_misc": "Brimm Misc",
 
   "item.${mod_id}.iron_plate": "Iron Plate",
   "item.${mod_id}.diamond_plate": "Diamond Plate",

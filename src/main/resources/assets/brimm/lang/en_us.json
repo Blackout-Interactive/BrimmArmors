@@ -112,6 +112,6 @@
   "screen.${mod_id}.workbench.not_enough_items": "Not enough items.",
   "screen.${mod_id}.workbench.tooltip": "Drag to move",
   
-  "tooltip.${mod_id}.armors.current_patch": "Current patch",
+  "tooltip.${mod_id}.armors.current_patch": "Current patch"
   
 }

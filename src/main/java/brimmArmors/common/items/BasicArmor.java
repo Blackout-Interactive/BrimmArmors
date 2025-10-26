@@ -69,7 +69,9 @@ public class BasicArmor extends ArmorItem implements IDefaultObjModelProvider {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltipList, TooltipFlag flag) {
-        tooltipList.add(Component.literal(rarity.applyFormatting("\u00A7o" + I18n.get("tooltip." + BrimmArmors.MOD_ID + "." + unlocName))));
+    	String tooltipRaw = I18n.get("tooltip." + BrimmArmors.MOD_ID + "." + unlocName);
+    	if (!tooltipRaw.isBlank())
+    		tooltipList.add(Component.literal(rarity.applyFormatting("\u00A7o" + tooltipRaw)));
         ArmorPatch patch = getPatch(stack);
         if (patch != null)
         	tooltipList.add(Component.literal(I18n.get("tooltip." + BrimmArmors.MOD_ID + ".armors.current_patch")+": "+

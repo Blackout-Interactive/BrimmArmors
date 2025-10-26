@@ -18,6 +18,7 @@ import ema_08_.rendering.geom.MatrixRTSBuilder;
 import ema_08_.rendering.geom.RTSMatricesCompound;
 import ema_08_.rendering.geom.RTSMatricesCompoundBuilder;
 import ema_08_.rendering.overlay.OverlayLocation;
+import ema_08_.rendering.overlay.OverlayPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ArmorItem;
@@ -88,7 +89,8 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-    	    0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
+    	    0f, 0f, 8, 240, patches(OverlayPos.HUMANOID_TORSO,
+    	    	newStandardFrontTorsoPatchMatrix(0.2345f))
     	    )
     	);
 
@@ -656,7 +658,10 @@ public class ItemRegistry {
     	    )
     	);
     	
-    public static final RegistryObject <CreativeModeTab> ARMORS_CREATIVE_TAB = CREATIVE_TABS.register(
+    	public static final RegistryObject<ArmorPatch> TEST_PATCH = registerItemAndExecute(misc_tab_content::add, "patch_test", //TOREMOVE is a test
+    			()->new ArmorPatch("patch_test"));
+    	
+    public static final RegistryObject<CreativeModeTab> ARMORS_CREATIVE_TAB = CREATIVE_TABS.register(
     		"armors", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup." + BrimmArmors.MOD_ID + ".armors"))
             .icon(() -> new ItemStack(ASSAULT.get()))
@@ -666,7 +671,7 @@ public class ItemRegistry {
             .build()
         );
     
-    public static final RegistryObject <CreativeModeTab> MISC_CREATIVE_TAB = CREATIVE_TABS.register(
+    public static final RegistryObject<CreativeModeTab> MISC_CREATIVE_TAB = CREATIVE_TABS.register(
     		"brimm_misc", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup." + BrimmArmors.MOD_ID + ".brimm_misc"))
             .icon(() -> new ItemStack(IRON_PLATE.get()))
@@ -695,6 +700,12 @@ public class ItemRegistry {
         	.setRotateY(180);
     }
     
+    private static MatrixRTSBuilder newStandardFrontTorsoPatchMatrix(float absoluteTRZ) {
+    	return newmatrix()
+    			.setTranslate(-0.5f, 1.45f, -absoluteTRZ)
+    			.setScale(0.2f, 0.2f, 1f);
+    }
+        
     private static Consumer<RegistryObject<BasicArmor>> addArmorsTabAndSetCraft(IngredientBuilder... ingredients) {
     	return (obj)->{
     		armors_tab_content.add(obj);
@@ -718,6 +729,13 @@ public class ItemRegistry {
     
     private static IngredientBuilder ig(Item i, int amt) {
     	return ig(()->i, amt);
+    }
+    
+    private static ArrayList<OverlayLocation> patches(OverlayPos where, MatrixRTSBuilder... transforms) {
+		ArrayList<OverlayLocation> list = new ArrayList<>();
+    	for (MatrixRTSBuilder transform : transforms)
+    		list.add(new OverlayLocation(where, transform.build()));
+    	return list;
     }
     
     private static Supplier<BasicArmor> generateArmorSupplier(

@@ -8,8 +8,6 @@ public enum ModelType {
 	
 	  ARMOR_HELMET("armors/helmets"),
 	  ARMOR_CHESTPLATE("armors/chestplates"),
-	  ARMOR_LEGGINGS("armors/leggings"),
-	  ARMOR_BOOTS("armors/boots"),
 	  BLOCKS("blocks");
 	    
 	  public final String
@@ -28,8 +26,6 @@ public enum ModelType {
 		  switch (type){
 		  case HELMET: return ARMOR_HELMET;
 		  case CHESTPLATE: return ARMOR_CHESTPLATE;
-		  case LEGGINGS: return ARMOR_LEGGINGS;
-		  case BOOTS: return ARMOR_BOOTS;
 		  default: {
 			  throw new IllegalArgumentException("Unexpected armor type "+type);
 		  }

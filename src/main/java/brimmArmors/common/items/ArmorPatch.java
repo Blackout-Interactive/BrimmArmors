@@ -20,5 +20,5 @@ public class ArmorPatch extends Item implements IDefaultPatchesRenderablePngProv
 	public String getTextureName() {
 		return this.unlocName;
 	}
-
+	
 }

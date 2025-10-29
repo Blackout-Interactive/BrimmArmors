@@ -292,7 +292,12 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> MEDIC = registerItemAndExecute(addArmorsTabAndSetCraft(),//TODO missing ingredients
+    	public static final RegistryObject<BasicArmor> MEDIC = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+                    ig(DEFENDER, 1),
+                    ig(DIAMOND_PLATE, 2),
+                    ig(Items.GOLDEN_APPLE, 2)
+               ),
     	    "medic",
     	    generateArmorSupplier(
     	        "medic",
@@ -412,7 +417,14 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> NYYYAAAA = registerItemAndExecute(addArmorsTabAndSetCraft(),//TODO missing ingredients
+    	public static final RegistryObject<BasicArmor> NYYYAAAA = registerItemAndExecute(
+    	    addArmorsTabAndSetCraft(
+                    ig(DEFENDER, 1),
+                    ig(NETHER_PLATE, 5),
+                    ig(Items.BLACK_DYE, 10),
+                    ig(Items.WHITE_DYE, 5),
+                    ig(Items.WITHER_ROSE, 1)
+                ),
     	    "nyyyaaaa",
     	    generateArmorSupplier(
     	        "nyyyaaaa",

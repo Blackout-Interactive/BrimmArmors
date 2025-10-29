@@ -24,12 +24,12 @@ public final class CraftPacket extends APacket.AC2SPacket {
         this.craftIndex = buf.readVarInt();
     }
 
-    @PacketEncoder(implClassName = "brimmArmors.common.packets.CraftPacket")
+    @PacketEncoder(implClassName = "blackoutInteractive.brimmArmors.common.packets.CraftPacket")
     private static void encode(CraftPacket msg, FriendlyByteBuf buf) {
         buf.writeVarInt(msg.craftIndex);
     }
 
-    @PacketDecoder(implClassName = "brimmArmors.common.packets.CraftPacket")
+    @PacketDecoder(implClassName = "blackoutInteractive.brimmArmors.common.packets.CraftPacket")
     private static CraftPacket decode(FriendlyByteBuf buf) {
         return new CraftPacket(buf);
     }

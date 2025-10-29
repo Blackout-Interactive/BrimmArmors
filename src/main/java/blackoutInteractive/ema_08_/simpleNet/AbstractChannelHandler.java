@@ -147,19 +147,19 @@ public abstract class AbstractChannelHandler {
 		}
 	}
 	
-    public <MSG extends APacket> void sendTo(MSG message, ServerPlayer player) {
+    public void sendTo(APacket message, ServerPlayer player) {
         throw new UnsupportedOperationException(getClass().getSimpleName()+" channel handler does not support this function");
     }
 
-    public <MSG extends APacket> void sendToAll(MSG message) {
+    public void sendToAll(APacket message) {
     	throw new UnsupportedOperationException(getClass().getSimpleName()+" channel handler does not support this function");
     }
 
-    public <MSG extends APacket> void sendToAllAround(MSG message, PacketDistributor.TargetPoint point) {
+    public void sendToAllAround(APacket message, PacketDistributor.TargetPoint point) {
     	throw new UnsupportedOperationException(getClass().getSimpleName()+" channel handler does not support this function");
     }
 
-    public <MSG extends APacket> void sendToServer(MSG message) {
+    public void sendToServer(APacket message) {
     	throw new UnsupportedOperationException(getClass().getSimpleName()+" channel handler does not support this function");
     }
 

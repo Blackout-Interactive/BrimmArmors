@@ -14,25 +14,25 @@ public class SimpleChannelHandler extends AbstractChannelHandler {
 	}
 	
 	@Override
-	public <MSG extends APacket> void sendTo(MSG message, ServerPlayer player) {
+	public void sendTo(APacket message, ServerPlayer player) {
 		if (message instanceof APacket.AC2SPacket) throw new IllegalArgumentException("Cannot send to client a c2s only packet");
 		this.channel.send(PacketDistributor.PLAYER.with(() -> player), message);
     }
 
 	@Override
-    public <MSG extends APacket> void sendToAll(MSG message) {
+    public void sendToAll(APacket message) {
 		if (message instanceof APacket.AC2SPacket) throw new IllegalArgumentException("Cannot send to client a c2s only packet");
 		this.channel.send(PacketDistributor.ALL.noArg(), message);
     }
 
 	@Override
-    public <MSG extends APacket> void sendToAllAround(MSG message, PacketDistributor.TargetPoint point) {
+    public void sendToAllAround(APacket message, PacketDistributor.TargetPoint point) {
 		if (message instanceof APacket.AC2SPacket) throw new IllegalArgumentException("Cannot send to client a c2s only packet");
 		this.channel.send(PacketDistributor.NEAR.with(() -> point), message);
     }
 
 	@Override
-    public <MSG extends APacket> void sendToServer(MSG message) {
+    public void sendToServer(APacket message) {
 		if (message instanceof APacket.AS2CPacket) throw new IllegalArgumentException("Cannot send to server a s2c only packet");
 		this.channel.send(PacketDistributor.SERVER.noArg(), message);
     }

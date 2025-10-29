@@ -17,12 +17,12 @@ import org.apache.logging.log4j.Logger;
 
 import blackoutInteractive.brimmArmors.client.ClientProxy;
 import blackoutInteractive.brimmArmors.common.CommonProxy;
-import blackoutInteractive.brimmArmors.common.blocks.BlockRegistry;
 import blackoutInteractive.brimmArmors.common.configurations.ConfigsManager;
-import blackoutInteractive.brimmArmors.common.items.ItemRegistry;
 import blackoutInteractive.brimmArmors.common.packets.CraftPacket;
 import blackoutInteractive.brimmArmors.common.recipes.RecipeSerializers;
-import blackoutInteractive.brimmArmors.common.tile.TileRegistry;
+import blackoutInteractive.brimmArmors.common.registries.BlockRegistry;
+import blackoutInteractive.brimmArmors.common.registries.ItemRegistry;
+import blackoutInteractive.brimmArmors.common.registries.TileRegistry;
 import blackoutInteractive.brimmArmors.common.workbench.CraftsManager;
 import blackoutInteractive.brimmArmors.server.ServerProxy;
 import blackoutInteractive.ema_08_.simpleNet.SimpleChannelHandler;

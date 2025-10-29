@@ -1,7 +1,7 @@
-package blackoutInteractive.brimmArmors.common.tile;
+package blackoutInteractive.brimmArmors.common.registries;
 
 import blackoutInteractive.brimmArmors.BrimmArmors;
-import blackoutInteractive.brimmArmors.common.blocks.BlockRegistry;
+import blackoutInteractive.brimmArmors.common.tile.WorkbenchTileEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

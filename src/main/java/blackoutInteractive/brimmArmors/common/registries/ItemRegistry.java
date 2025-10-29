@@ -1,4 +1,4 @@
-package blackoutInteractive.brimmArmors.common.items;
+package blackoutInteractive.brimmArmors.common.registries;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,6 +10,10 @@ import blackoutInteractive.brimmArmors.BrimmArmors;
 import blackoutInteractive.brimmArmors.common.configurations.ArmorConfig;
 import blackoutInteractive.brimmArmors.common.configurations.ConfigMergers;
 import blackoutInteractive.brimmArmors.common.configurations.ConfigsManager;
+import blackoutInteractive.brimmArmors.common.items.ArmorPatch;
+import blackoutInteractive.brimmArmors.common.items.BasicArmor;
+import blackoutInteractive.brimmArmors.common.items.BasicPlate;
+import blackoutInteractive.brimmArmors.common.items.ConcordRarity;
 import blackoutInteractive.brimmArmors.common.workbench.CraftBuilder;
 import blackoutInteractive.brimmArmors.common.workbench.CraftsManager;
 import blackoutInteractive.brimmArmors.common.workbench.IngredientBuilder;

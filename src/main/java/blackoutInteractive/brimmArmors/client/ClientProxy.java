@@ -2,7 +2,7 @@ package blackoutInteractive.brimmArmors.client;
 
 import blackoutInteractive.brimmArmors.client.render.WorkbenchRender;
 import blackoutInteractive.brimmArmors.common.CommonProxy;
-import blackoutInteractive.brimmArmors.common.tile.TileRegistry;
+import blackoutInteractive.brimmArmors.common.registries.TileRegistry;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 

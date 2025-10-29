@@ -20,6 +20,7 @@ import org.jetbrains.annotations.NotNull;
 
 import blackoutInteractive.brimmArmors.BrimmArmors;
 import blackoutInteractive.brimmArmors.client.render.ConcordArmorRender;
+import blackoutInteractive.brimmArmors.common.registries.ItemRegistry;
 import blackoutInteractive.ema_08_.items.SimpleArmorMaterial;
 import blackoutInteractive.ema_08_.rendering.geom.RTSMatricesCompound;
 import blackoutInteractive.ema_08_.rendering.obj.IDefaultObjModelProvider;

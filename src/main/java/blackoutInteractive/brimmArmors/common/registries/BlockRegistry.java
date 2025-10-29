@@ -1,4 +1,4 @@
-package blackoutInteractive.brimmArmors.common.blocks;
+package blackoutInteractive.brimmArmors.common.registries;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -12,7 +12,7 @@ import net.minecraftforge.registries.RegistryObject;
 import javax.annotation.Nullable;
 
 import blackoutInteractive.brimmArmors.BrimmArmors;
-import blackoutInteractive.brimmArmors.common.items.ItemRegistry;
+import blackoutInteractive.brimmArmors.common.blocks.WorkbenchBlock;
 import blackoutInteractive.ema_08_.rendering.geom.RTSMatricesCompound;
 
 import java.util.function.Function;

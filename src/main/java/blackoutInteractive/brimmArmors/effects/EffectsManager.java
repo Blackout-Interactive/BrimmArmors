@@ -14,7 +14,7 @@ import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import static blackoutInteractive.brimmArmors.common.items.ItemRegistry.get;
+import static blackoutInteractive.brimmArmors.common.registries.ItemRegistry.get;
 
 import java.util.List;
 import java.util.Map;

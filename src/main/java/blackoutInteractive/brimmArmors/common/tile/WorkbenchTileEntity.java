@@ -1,5 +1,6 @@
 package blackoutInteractive.brimmArmors.common.tile;
 
+import blackoutInteractive.brimmArmors.common.registries.TileRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;

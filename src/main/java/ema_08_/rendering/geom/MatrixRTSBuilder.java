@@ -81,11 +81,9 @@ public final class MatrixRTSBuilder implements IBuilder<MatrixRTS> {
     
     @Override
     public MatrixRTS build() {
-    	return new MatrixRTS(
-    			this.translate[0], this.translate[1], this.translate[2],
+    	return MatrixRTS.getMatrix(this.translate[0], this.translate[1], this.translate[2],
     			this.rotate[0], this.rotate[1], this.rotate[2],
-    			this.scale[0], this.scale[1], this.scale[2]
-    		);
+    			this.scale[0], this.scale[1], this.scale[2]);
     }
     
 }

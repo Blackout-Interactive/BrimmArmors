@@ -77,7 +77,7 @@ public class ItemRegistry {
     		"nether_plate", () -> new BasicPlate(ConcordRarity.EPIC));
     
 		public static final RegistryObject<BasicArmor> RATNIK = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft( 
         			ig(IRON_PLATE, 3),
         			ig(Items.LEATHER, 1)
         		),

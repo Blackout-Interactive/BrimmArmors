@@ -1,0 +1,774 @@
+package blackoutInteractive.brimmArmors.common.items;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Optional;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+
+import blackoutInteractive.brimmArmors.BrimmArmors;
+import blackoutInteractive.brimmArmors.common.configurations.ArmorConfig;
+import blackoutInteractive.brimmArmors.common.configurations.ConfigMergers;
+import blackoutInteractive.brimmArmors.common.configurations.ConfigsManager;
+import blackoutInteractive.brimmArmors.common.workbench.CraftBuilder;
+import blackoutInteractive.brimmArmors.common.workbench.CraftsManager;
+import blackoutInteractive.brimmArmors.common.workbench.IngredientBuilder;
+import blackoutInteractive.ema_08_.items.SimpleArmorMaterial;
+import blackoutInteractive.ema_08_.rendering.geom.MatrixRTSBuilder;
+import blackoutInteractive.ema_08_.rendering.geom.RTSMatricesCompound;
+import blackoutInteractive.ema_08_.rendering.geom.RTSMatricesCompoundBuilder;
+import blackoutInteractive.ema_08_.rendering.overlay.OverlayLocation;
+import blackoutInteractive.ema_08_.rendering.overlay.OverlayPos;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
+
+public class ItemRegistry {
+
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, BrimmArmors.MOD_ID);
+    
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(
+    		Registries.CREATIVE_MODE_TAB, BrimmArmors.MOD_ID);
+    
+    private static final ArrayList<RegistryObject<BasicArmor>> armors_tab_content = new ArrayList<>();
+    private static final ArrayList<RegistryObject<? extends Item>> misc_tab_content = new ArrayList<>();
+
+    public static RegistryObject<Item> getr(String id) {
+        return ITEMS.getEntries().stream()
+                .filter(entry -> entry.getId().getPath().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("No armor found with id: " + id));
+    }
+    public static Item get(String id) {
+        return ITEMS.getEntries().stream()
+                .filter(entry -> entry.getId().getPath().equals(id))
+                .map(RegistryObject::get)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("No armor found with id: " + id));
+    }
+
+    	public static final RegistryObject<BasicPlate> IRON_PLATE = registerItemAndExecute(
+    		(res)->{CraftsManager.register(new CraftBuilder(res::get)
+    				.addIngredient(ig(Items.IRON_INGOT, 5))
+    			); misc_tab_content.add(res);},
+    		"iron_plate", () -> new BasicPlate(ConcordRarity.COMMON));
+    
+    	public static final RegistryObject<BasicPlate> DIAMOND_PLATE = registerItemAndExecute(
+    		(res)->{CraftsManager.register(new CraftBuilder(res::get)
+    				.addIngredient(ig(Items.IRON_INGOT, 10))
+    				.addIngredient(ig(Items.DIAMOND, 5))
+    			); misc_tab_content.add(res);},
+    		"diamond_plate", () -> new BasicPlate(ConcordRarity.RARE));
+    
+    	public static final RegistryObject<BasicPlate> NETHER_PLATE = registerItemAndExecute(
+    		(res)->{CraftsManager.register(new CraftBuilder(res::get)
+    				.addIngredient(ig(Items.IRON_INGOT, 10))
+    				.addIngredient(ig(Items.DIAMOND, 10))
+    				.addIngredient(ig(Items.NETHERITE_INGOT, 1))
+    			); misc_tab_content.add(res);},
+    		"nether_plate", () -> new BasicPlate(ConcordRarity.EPIC));
+    
+		public static final RegistryObject<BasicArmor> RATNIK = registerItemAndExecute(
+    		addArmorsTabAndSetCraft( 
+        			ig(IRON_PLATE, 3),
+        			ig(Items.LEATHER, 1)
+        		),
+    	    "ratnik",
+    	    generateArmorSupplier(
+    	        "ratnik",
+    	        ArmorItem.Type.CHESTPLATE,
+    	        ConcordRarity.COMMON,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    0f, 0f, 8, 240, patches(OverlayPos.HUMANOID_TORSO,
+    	    	newStandardFrontTorsoPatchMatrix(0.2345f))
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> RATNIK_ADVANCE = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+            		ig(RATNIK, 1),
+            		ig(Items.LEATHER, 5)
+            	),
+    	    "ratnik_advance",
+    	    generateArmorSupplier(
+    	        "ratnik_advance",
+    	        ArmorItem.Type.CHESTPLATE,
+    	        ConcordRarity.UNCOMMON,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+    	
+    	public static final RegistryObject<BasicArmor> DEFENDER = registerItemAndExecute(
+        	addArmorsTabAndSetCraft(
+                	ig(IRON_PLATE, 2),
+                	ig(Items.LEATHER, 5)
+                ),
+        	"defender",
+        	generateArmorSupplier(
+        	    "defender",
+        	    ArmorItem.Type.CHESTPLATE,
+        	    ConcordRarity.COMMON,
+        	    newRTSMComp()
+        	.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+        	.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+        	0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
+        	)
+        );
+
+        public static final RegistryObject<BasicArmor> DEFENDER_II = registerItemAndExecute(
+        	addArmorsTabAndSetCraft(
+                	ig(DEFENDER, 1),
+                	ig(Items.LEATHER, 5)
+                ),
+        	"defender_ii",
+        	generateArmorSupplier(
+        	    "defender_ii",
+        	    ArmorItem.Type.CHESTPLATE,
+        	    ConcordRarity.UNCOMMON,
+        	    newRTSMComp()
+        	.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+        	.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+        	5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
+        	)
+        );
+
+        public static final RegistryObject<BasicArmor> DEFENDER_III = registerItemAndExecute(
+        	addArmorsTabAndSetCraft(
+                    ig(DEFENDER_II, 1),
+                    ig(Items.LEATHER, 5)
+                ),
+        	"defender_iii",
+        	generateArmorSupplier(
+        	    "defender_iii",
+        	    ArmorItem.Type.CHESTPLATE,
+        	    ConcordRarity.RARE,
+        	    newRTSMComp()
+        	.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+        	.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+        	10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
+        	)
+        );
+    
+        public static final RegistryObject<BasicArmor> NATO = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+            		ig(RATNIK, 1),
+            		ig(DIAMOND_PLATE, 2),
+            		ig(Items.LEATHER, 5),
+            		ig(Items.WHITE_DYE, 5)
+            	),
+    	    "nato",
+    	    generateArmorSupplier(
+    	        "nato",
+    	        ArmorItem.Type.CHESTPLATE,
+    	        ConcordRarity.COMMON,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> NATO_II = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+                	ig(NATO, 1),
+                	ig(Items.LEATHER, 5)
+                ),
+    	    "nato_ii",
+    	    generateArmorSupplier(
+    	        "nato_ii",
+    	        ArmorItem.Type.CHESTPLATE,
+    	        ConcordRarity.UNCOMMON,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> MARINE = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+                    ig(DEFENDER, 1),
+                    ig(NETHER_PLATE, 3),
+                    ig(Items.SALMON, 5)
+                ),
+    	    "marine",
+    	    generateArmorSupplier(
+    	        "marine",
+    	        ArmorItem.Type.CHESTPLATE,
+    	        ConcordRarity.RARE,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> VANDERER = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+                    ig(DEFENDER, 1),
+                    ig(DIAMOND_PLATE, 2),
+                    ig(Items.CACTUS, 3)
+                ),
+    	    "vanderer",
+    	    generateArmorSupplier(
+    	        "vanderer",
+    	        ArmorItem.Type.CHESTPLATE,
+    	        ConcordRarity.EPIC,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> GUARD = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+                    ig(DEFENDER, 1),
+                    ig(NETHER_PLATE, 3),
+                    ig(Items.LEATHER, 10)
+                ),
+    	    "guard",
+    	    generateArmorSupplier(
+    	        "guard",
+    	        ArmorItem.Type.CHESTPLATE,
+    	        ConcordRarity.RARE,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> SAPER = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+                    ig(RATNIK, 1),
+                    ig(DIAMOND_PLATE, 2),
+                    ig(Items.TNT, 3)
+                ),
+    	    "saper",
+    	    generateArmorSupplier(
+    	        "saper",
+    	        ArmorItem.Type.CHESTPLATE,
+    	        ConcordRarity.EPIC,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> CONCORD = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+                    ig(DEFENDER, 1),
+                    ig(NETHER_PLATE, 3),
+                    ig(Items.TNT, 3)
+                ),
+    	    "concord",
+    	    generateArmorSupplier(
+    	        "concord",
+    	        ArmorItem.Type.CHESTPLATE,
+    	        ConcordRarity.EPIC,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> MEDIC = registerItemAndExecute(addArmorsTabAndSetCraft(),//TODO missing ingredients
+    	    "medic",
+    	    generateArmorSupplier(
+    	        "medic",
+    	        ArmorItem.Type.CHESTPLATE,
+    	        ConcordRarity.EPIC,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> PMC = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+                	ig(RATNIK, 1),
+                	ig(DIAMOND_PLATE, 2),
+                	ig(IRON_PLATE, 1)
+                ),
+    	    "pmc",
+    	    generateArmorSupplier(
+    	        "pmc",
+    	        ArmorItem.Type.CHESTPLATE,
+    	        ConcordRarity.COMMON,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> ASSAULT = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+                    ig(PMC, 1),
+                    ig(NETHER_PLATE, 2),
+                    ig(Items.LEATHER, 15)
+                ),
+    	    "assault",
+    	    generateArmorSupplier(
+    	        "assault",
+    	        ArmorItem.Type.CHESTPLATE,
+    	        ConcordRarity.UNCOMMON,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> SPN = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+                    ig(PMC, 1),
+                    ig(NETHER_PLATE, 2),
+                    ig(Items.LEATHER, 15)
+                ),
+    	    "spn",
+    	    generateArmorSupplier(
+    	        "spn",
+    	        ArmorItem.Type.CHESTPLATE,
+    	        ConcordRarity.RARE,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> HORSE = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+                    ig(PMC, 1),
+                    ig(NETHER_PLATE, 2),
+                    ig(Items.LEATHER, 15)
+                ),
+    	    "horse",
+    	    generateArmorSupplier(
+    	        "horse",
+    	        ArmorItem.Type.CHESTPLATE,
+    	        ConcordRarity.RARE,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> ATLETI = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+                    ig(RATNIK, 1),
+                    ig(DIAMOND_PLATE, 1),
+                    ig(IRON_PLATE, 3)
+                ),
+    	    "atleti",
+    	    generateArmorSupplier(
+    	        "atleti",
+    	        ArmorItem.Type.CHESTPLATE,
+    	        ConcordRarity.EPIC,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> VETERAN = registerItemAndExecute(
+    	    addArmorsTabAndSetCraft(
+                    ig(RATNIK_ADVANCE, 1),
+                    ig(DIAMOND_PLATE, 2)
+                ),
+    	    "veteran",
+    	    generateArmorSupplier(
+    	        "veteran",
+    	        ArmorItem.Type.CHESTPLATE,
+    	        ConcordRarity.RARE,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> NYYYAAAA = registerItemAndExecute(addArmorsTabAndSetCraft(),//TODO missing ingredients
+    	    "nyyyaaaa",
+    	    generateArmorSupplier(
+    	        "nyyyaaaa",
+    	        ArmorItem.Type.CHESTPLATE,
+    	        ConcordRarity.EPIC,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> BASE_H = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+    				ig(Items.IRON_INGOT, 20),
+    				ig(Items.LEATHER, 10)
+    			),
+    	    "base_h",
+    	    generateArmorSupplier(
+    	        "base_h",
+    	        ArmorItem.Type.HELMET,
+    	        ConcordRarity.COMMON,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> GASMASK_H = registerItemAndExecute(
+        	addArmorsTabAndSetCraft(
+                	ig(BASE_H, 1),
+                	ig(Items.IRON_INGOT, 30),
+                	ig(Items.COAL, 30),
+                	ig(Items.GLASS, 15)
+                ),
+    	    "gasmask_h",
+    	    generateArmorSupplier(
+    	        "gasmask_h",
+    	        ArmorItem.Type.HELMET,
+    	        ConcordRarity.UNCOMMON,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> ASSAULT_H = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+            		ig(BASE_H, 1),
+            		ig(Items.IRON_INGOT, 30),
+            		ig(Items.REDSTONE, 10),
+            		ig(Items.LAPIS_LAZULI, 10)
+            	),
+    	    "assault_h",
+    	    generateArmorSupplier(
+    	        "assault_h",
+    	        ArmorItem.Type.HELMET,
+    	        ConcordRarity.UNCOMMON,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> MEDIC_H = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+                    ig(ASSAULT_H, 1),
+                    ig(Items.LEATHER, 5),
+                    ig(Items.GOLDEN_APPLE, 1)
+                ),
+    	    "medic_h",
+    	    generateArmorSupplier(
+    	        "medic_h",
+    	        ArmorItem.Type.HELMET,
+    	        ConcordRarity.RARE,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+    	
+    	public static final RegistryObject<BasicArmor> INFANTRY_H = registerItemAndExecute(
+        	addArmorsTabAndSetCraft(
+                    ig(BASE_H, 1),
+                    ig(Items.IRON_INGOT, 30),
+                    ig(Items.LEATHER, 10),
+                    ig(Items.PAPER, 10)
+                ),
+        	"infantry_h",
+        	generateArmorSupplier(
+        	    "infantry_h",
+        	    ArmorItem.Type.HELMET,
+        	    ConcordRarity.COMMON,
+        	    newRTSMComp()
+        	.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+        	0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
+        	)
+        );
+
+    	public static final RegistryObject<BasicArmor> CONCORD_H = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+                    ig(INFANTRY_H, 1),
+                    ig(Items.IRON_INGOT, 10),
+                    ig(Items.DIAMOND, 10),
+                    ig(Items.BLAZE_ROD, 50)
+                ),
+    	    "concord_h",
+    	    generateArmorSupplier(
+    	        "concord_h",
+    	        ArmorItem.Type.HELMET,
+    	        ConcordRarity.EPIC,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> GPNVG_H = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+                    ig(ASSAULT_H, 1),
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 10),
+                    ig(Items.SPIDER_EYE, 10),
+                    ig(Items.DIAMOND, 10)
+                ),
+    	    "gpnvg_h",
+    	    generateArmorSupplier(
+    	        "gpnvg_h",
+    	        ArmorItem.Type.HELMET,
+    	        ConcordRarity.RARE,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> GHOST_H = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+                    ig(GPNVG_H, 1),
+                    ig(Items.SKELETON_SKULL, 1),
+                    ig(Items.INK_SAC, 5)
+                ),
+    	    "ghost_h",
+    	    generateArmorSupplier(
+    	        "ghost_h",
+    	        ArmorItem.Type.HELMET,
+    	        ConcordRarity.EPIC,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> ZCH_H = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+        			ig(Items.IRON_INGOT, 15),
+        			ig(Items.LEATHER, 15)
+        		),
+    	    "zch_h",
+    	    generateArmorSupplier(
+    	        "zch_h",
+    	        ArmorItem.Type.HELMET,
+    	        ConcordRarity.COMMON,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> ZABRALO_H = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+            		ig(ZCH_H, 1),
+            		ig(Items.GLASS_PANE, 10)
+            	),
+    	    "zabralo_h",
+    	    generateArmorSupplier(
+    	        "zabralo_h",
+    	        ArmorItem.Type.HELMET,
+    	        ConcordRarity.RARE,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> KILLA_H = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+                	ig(ZCH_H, 1),
+                	ig(Items.IRON_INGOT, 30),
+                	ig(Items.GLASS_PANE, 5),
+                	ig(Items.INK_SAC, 5)
+                ),
+    	    "killa_h",
+    	    generateArmorSupplier(
+    	        "killa_h",
+    	        ArmorItem.Type.HELMET,
+    	        ConcordRarity.EPIC,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> MK_II_H = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+            		ig(Items.IRON_INGOT, 15),
+            		ig(Items.LEATHER, 5)
+            	),
+    	    "mk_ii_h",
+    	    generateArmorSupplier(
+    	        "mk_ii_h",
+    	        ArmorItem.Type.HELMET,
+    	        ConcordRarity.COMMON,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+
+    	public static final RegistryObject<BasicArmor> SAPER_H = registerItemAndExecute(
+    		addArmorsTabAndSetCraft(
+                	ig(MK_II_H, 1),
+                	ig(Items.REDSTONE, 10),
+                	ig(Items.LEATHER, 5)
+                ),
+    	    "saper_h",
+    	    generateArmorSupplier(
+    	        "saper_h",
+    	        ArmorItem.Type.HELMET,
+    	        ConcordRarity.UNCOMMON,
+    	        newRTSMComp()
+    	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
+    	    )
+    	);
+    	
+    	public static final RegistryObject<ArmorPatch> TEST_PATCH = registerItemAndExecute(misc_tab_content::add, "patch_test", //TOREMOVE is a test
+    			()->new ArmorPatch("patch_test"));
+    	
+    public static final RegistryObject<CreativeModeTab> ARMORS_CREATIVE_TAB = CREATIVE_TABS.register(
+    		"armors", () -> CreativeModeTab.builder()
+            .title(Component.translatable("itemGroup." + BrimmArmors.MOD_ID + ".armors"))
+            .icon(() -> new ItemStack(ASSAULT.get()))
+            .displayItems((params, output) -> {
+            	armors_tab_content.stream().map(RegistryObject::get).forEach(output::accept);
+            })
+            .build()
+        );
+    
+    public static final RegistryObject<CreativeModeTab> MISC_CREATIVE_TAB = CREATIVE_TABS.register(
+    		"brimm_misc", () -> CreativeModeTab.builder()
+            .title(Component.translatable("itemGroup." + BrimmArmors.MOD_ID + ".brimm_misc"))
+            .icon(() -> new ItemStack(IRON_PLATE.get()))
+            .displayItems((params, output) -> {
+            	misc_tab_content.stream().map(RegistryObject::get).forEach(output::accept);
+            })
+            .build()
+        );
+    
+    private static RTSMatricesCompoundBuilder newRTSMComp() {
+    	return new RTSMatricesCompoundBuilder();
+    }
+    
+    private static MatrixRTSBuilder newmatrix() { return new MatrixRTSBuilder().identify(); }
+    
+    private static MatrixRTSBuilder newStandardArmorRenderMatrix() {
+    	return newmatrix()
+    	    .setTranslateY(-1.54f)
+    	    .setRotateZ(180f);
+    }
+    
+    private static MatrixRTSBuilder newStandardWorkbenchRenderMatrix(float trY) {
+    	return newmatrix()
+        	.setTranslateY(trY)
+        	.setScale(50f, -50f, 50f)
+        	.setRotateY(180);
+    }
+    
+    private static MatrixRTSBuilder newStandardFrontTorsoPatchMatrix(float absoluteTRZ) {
+    	return newmatrix()
+    			.setTranslate(-0.5f, 1.45f, -absoluteTRZ)
+    			.setScale(0.2f, 0.2f, 1f);
+    }
+        
+    private static Consumer<RegistryObject<BasicArmor>> addArmorsTabAndSetCraft(IngredientBuilder... ingredients) {
+    	return (obj)->{
+    		armors_tab_content.add(obj);
+    		if (ingredients.length > 0) {
+    			CraftBuilder craft = new CraftBuilder(obj::get);
+        		for (IngredientBuilder ingredient : ingredients) craft.addIngredient(ingredient);
+        		CraftsManager.register(craft);
+    		} else {
+    			BrimmArmors.LOGGER.warn("Registering without workbench craft: "+obj.getKey().toString()+".");
+    		}
+    	};
+    }
+    
+    private static IngredientBuilder ig(Supplier<Item> sup, int amt) {
+    	return new IngredientBuilder(sup, amt);
+    }
+    
+    private static IngredientBuilder ig(RegistryObject<? extends Item> ro, int amt) {
+    	return ig(ro::get, amt);
+    }
+    
+    private static IngredientBuilder ig(Item i, int amt) {
+    	return ig(()->i, amt);
+    }
+    
+    private static ArrayList<OverlayLocation> patches(OverlayPos where, MatrixRTSBuilder... transforms) {
+		ArrayList<OverlayLocation> list = new ArrayList<>();
+    	for (MatrixRTSBuilder transform : transforms)
+    		list.add(new OverlayLocation(where, transform.build()));
+    	return list;
+    }
+    
+    private static Supplier<BasicArmor> generateArmorSupplier(
+    		final String unlocName, final ArmorItem.Type type, final ConcordRarity rarity,
+    		final RTSMatricesCompoundBuilder transformB, final float toughness,
+    		final float knockbackResistance, final int defenseValue, final int durabilityValue,
+    		final Collection<OverlayLocation> patchesPositions
+    		) {
+    	ArmorConfig cfg = Optional.ofNullable(ConfigsManager.getAndEvict(unlocName)).orElse(ArmorConfig.EMPTY);
+    	final SimpleArmorMaterial material = ConfigMergers.mergeBasicMaterial("brimm_armor_material",
+    			toughness, knockbackResistance, defenseValue, durabilityValue,
+    			type, cfg.materialOverrides());
+    	final ConcordRarity mergedRarity = ConfigMergers.mergeRarity(rarity, cfg.rarityOverride());
+    	final RTSMatricesCompound transform = transformB.build();
+    	return ()->new BasicArmor(unlocName, type, mergedRarity, material, transform, patchesPositions);
+    }
+    	
+    private static <T extends Item> RegistryObject<T> registerItemAndExecute(Consumer<RegistryObject<T>> consumer,
+    		String name, Supplier <? extends T> sup) {
+    	RegistryObject<T> registered = ITEMS.register(name, sup);
+    	consumer.accept(registered);
+    	return registered;
+    }
+    
+    public static <T extends Item> RegistryObject<T> registerAndAddToMiscTab(String name, Supplier <? extends T> sup) {
+    	RegistryObject<T> reg = ITEMS.register(name, sup);
+    	misc_tab_content.add(reg);
+    	return reg;
+    }
+
+    public static void register(IEventBus eventBus) {
+        ITEMS.register(eventBus);
+        CREATIVE_TABS.register(eventBus);
+    }
+
+}

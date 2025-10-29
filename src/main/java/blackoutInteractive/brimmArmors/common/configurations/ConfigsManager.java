@@ -1,0 +1,149 @@
+package blackoutInteractive.brimmArmors.common.configurations;
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.function.Function;
+
+import blackoutInteractive.brimmArmors.BrimmArmors;
+import blackoutInteractive.brimmArmors.common.items.ConcordRarity;
+import blackoutInteractive.ema_08_.parsing.TrivialDomReader;
+import net.minecraftforge.fml.loading.FMLPaths;
+
+public class ConfigsManager {
+	
+	private static final HashMap<String, ArmorConfig> configs = new HashMap<>();
+	private static final HashSet<String> evictedConfigs = new HashSet<>();
+	
+	private static final String[]
+			TAGS_TOUGHNESS = new String[] {"config", "toughness"},
+			TAGS_KNOCKBACK_RESISTANCE = new String[] {"config", "knockback-resistance"},
+			TAGS_DEFENSE = new String[] {"config", "defense"},
+			TAGS_DURABILITY = new String[] {"config", "durability"},
+			TAGS_RARITY = new String[] {"config", "rarity"};
+	
+	public static void init() {
+		File configFolder = new File(FMLPaths.CONFIGDIR.get().toFile(), "brimm/overrides");
+		if (!configFolder.isDirectory() && !configFolder.mkdirs()) {
+			BrimmArmors.LOGGER.error("Failed to generate configs folder. No configurations will be loaded.");
+		} else {
+			for (File file : configFolder.listFiles()) {
+				if (!file.isFile()) {
+					BrimmArmors.LOGGER.warn("Found unexpected subdir in configs folder ("+file.getName()+"), ignoring.");
+				} else if (!file.getName().endsWith(".xml")) {
+					BrimmArmors.LOGGER.warn("Found unexpected file in configs folder ("+file.getName()+"), ignoring.");
+				} else {
+					try {
+						TrivialDomReader xml = new TrivialDomReader(file);
+						if (xml.getRootTag().equals("config")) {
+							MaterialOverrides materialOverride = new MaterialOverrides(
+									parseFloatFromXml(xml, TAGS_TOUGHNESS, 0.0f, 5.0f, false),
+									parseFloatFromXml(xml, TAGS_KNOCKBACK_RESISTANCE, 0.0f, 1.0f, false),
+									parseIntFromXml(xml, TAGS_DEFENSE, 0, 20, false),
+									parseIntFromXml(xml, TAGS_DURABILITY, 0, 5001, true)
+								);
+							Optional<ConcordRarity> rarityOverride = mapOptional(
+									parseStringFromXml(xml, TAGS_RARITY, (s)->{
+										if (ConcordRarity.fromName(s) == null)
+											return "no such rarity as '"+s+"'";
+										else
+											return null;
+									}),
+									ConcordRarity::fromName);
+							String name = file.getName().replace(".xml", "");
+							configs.put(name, new ArmorConfig(materialOverride, rarityOverride));
+							BrimmArmors.LOGGER.info("Loaded config file "+file.getName()+".");
+						} else {
+							BrimmArmors.LOGGER.error("Failed to load config file "+file.getName()+": invalid document tag. "
+									+ "That configuration will not be loaded.");
+						}
+					} catch (Exception e) {
+						BrimmArmors.LOGGER.error("Failed to load config file "+file.getName()+" due to an exception. "
+								+ "That configuration will not be loaded.", e);
+					}
+				}
+			}
+		}
+	}
+	
+	private static <I, F> Optional<F> mapOptional(Optional<I> initial, Function<I, F> transformer) {
+		return initial.isEmpty() ? Optional.empty() : Optional.of(transformer.apply(initial.get()));
+	}
+	
+	private static String last(String[] arr) { return arr[arr.length-1]; }
+	
+	private static String filename(TrivialDomReader xml) { return new File(xml.getLoadedFilePath()).getName(); }
+	
+	private static Optional<String> parseStringFromXml(TrivialDomReader xml, String[] tagspath, Function<String, String> tester) {
+		if (xml.elementExists(tagspath)) {
+			String value = xml.getElementValue(tagspath);
+			String error = tester.apply(value);
+			if (error != null) {
+				BrimmArmors.LOGGER.warn("Invalid "+last(tagspath)+" config value in "+filename(xml)+" config file: "+error+". "
+						+ "This config file's entry will be skipped, although the rest of the file will be parsed.");
+				return Optional.empty();
+			} else {
+				return Optional.of(value);
+			}
+		} else {
+			return Optional.empty();
+		}
+	}
+	
+	private static Optional<Integer> parseIntFromXml(TrivialDomReader xml, String[] tagspath, int min, int max, boolean exclusive) {
+		try {
+			if (xml.elementExists(tagspath)) {
+				int value = xml.getElementValueCastInt(tagspath);
+				if (exclusive ? (value <= min) : (value < min)) {
+					BrimmArmors.LOGGER.warn("Invalid "+last(tagspath)+" config value in "+filename(xml)+" config file: too little number. "
+							+ "This config file's entry will be skipped, although the rest of the file will be parsed.");
+					return Optional.empty();
+				}
+				if (exclusive ? (value >= max) : (value > max)) {
+					BrimmArmors.LOGGER.warn("Invalid "+last(tagspath)+" config value in "+filename(xml)+" config file: too large number. "
+							+ "This config file's entry will be skipped, although the rest of the file will be parsed.");
+					return Optional.empty();
+				}
+				return Optional.of(value);
+			} else {
+				return Optional.empty();
+			}				
+		} catch (NumberFormatException e) {
+			BrimmArmors.LOGGER.warn("Invalid "+last(tagspath)+" config value in "+filename(xml)+" config file: not an integer. "
+					+ "This config file's entry will be skipped, although the rest of the file will be parsed.");
+			return Optional.empty();
+		}
+	}
+	
+	private static Optional<Float> parseFloatFromXml(TrivialDomReader xml, String[] tagspath, float min, float max, boolean exclusive) {
+		try {
+			if (xml.elementExists(tagspath)) {
+				float value = (float)xml.getElementValueCastDouble(tagspath);
+				if (exclusive ? (value <= min) : (value < min)) {
+					BrimmArmors.LOGGER.warn("Invalid "+last(tagspath)+" config value in "+filename(xml)+" config file: too little number. "
+							+ "This config file's entry will be skipped, although the rest of the file will be parsed.");
+					return Optional.empty();
+				}
+				if (exclusive ? (value >= max) : (value > max)) {
+					BrimmArmors.LOGGER.warn("Invalid "+last(tagspath)+" config value in "+filename(xml)+" config file: too large number. "
+							+ "This config file's entry will be skipped, although the rest of the file will be parsed.");
+					return Optional.empty();
+				}
+				return Optional.of(value);
+			} else {
+				return Optional.empty();
+			}				
+		} catch (NumberFormatException e) {
+			BrimmArmors.LOGGER.warn("Invalid "+last(tagspath)+" config value in "+filename(xml)+" config file: not a number. "
+					+ "This config file's entry will be skipped, although the rest of the file will be parsed.");
+			return Optional.empty();
+		}
+	}
+	
+	public static ArmorConfig getAndEvict(String name) {
+		if (!evictedConfigs.add(name)) throw new IllegalStateException("Material config for "+name+" had been already evicted");
+		return configs.remove(name);
+	}
+
+}

@@ -1,14 +1,18 @@
 package blackoutInteractive.brimmArmors.common.packets;
 
 import blackoutInteractive.brimmArmors.BrimmArmors;
+import blackoutInteractive.brimmArmors.common.registries.BlockRegistry;
 import blackoutInteractive.brimmArmors.common.workbench.Craft;
 import blackoutInteractive.brimmArmors.common.workbench.CraftsManager;
 import blackoutInteractive.ema_08_.simpleNet.*;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.resources.language.I18n;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 
@@ -34,14 +38,17 @@ public class CraftPacket extends APacket.AC2SPacket {
         return new CraftPacket(buf);
     }
 
-    /*
-     * NOTE: Malicious users may send packets from everywhere in the world claiming to be near
-     * a workbench. It should be of use to validate the player's distance to the nearest workbench.
-     */
     @Override
     protected void handleServer(NetworkEvent.Context ctx) {
         ServerPlayer player = ctx.getSender();
         if (player == null) return;
+        BlockPos nearestWorkbench = findNearestBlock(player, BlockRegistry.workbench.get(), 3);
+        if (nearestWorkbench == null || nearestWorkbench.distSqr(player.blockPosition()) > 9) {
+        	BrimmArmors.LOGGER.warn("Received too distant craft packet sent by "+ctx.getSender()+" Distance : "+
+        			(nearestWorkbench == null ? "unknown" : Math.sqrt(nearestWorkbench.distSqr(player.blockPosition())))+".");
+            player.sendSystemMessage(Component.literal(ChatFormatting.RED + "You are too far from a workbench!"));
+            return;
+        }
 
         Craft craft = CraftsManager.byUid(this.craftIndex);
         if (craft == null) {
@@ -73,6 +80,28 @@ public class CraftPacket extends APacket.AC2SPacket {
             player.drop(result, false);
         }
         player.inventoryMenu.broadcastChanges();
+    }
+    
+    public BlockPos findNearestBlock(ServerPlayer player, Block targetBlock, int searchRadius) {
+        ServerLevel world = (ServerLevel)player.level();
+        BlockPos playerPos = player.blockPosition();
+        BlockPos nearestPos = null;
+        double nearestDistance = Double.MAX_VALUE;
+        for (int x = -searchRadius; x <= searchRadius; x++) {
+            for (int y = -searchRadius; y <= searchRadius; y++) {
+                for (int z = -searchRadius; z <= searchRadius; z++) {
+                    BlockPos checkPos = playerPos.offset(x, y, z);
+                    if (world.getBlockState(checkPos).is(targetBlock)) {
+                        double distance = checkPos.distSqr(playerPos);
+                        if (distance < nearestDistance) {
+                            nearestDistance = distance;
+                            nearestPos = checkPos;
+                        }
+                    }
+                }
+            }
+        }
+        return nearestPos;
     }
 
 }

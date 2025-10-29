@@ -18,6 +18,8 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
 
@@ -55,11 +57,16 @@ public class WorkbenchBlock extends Block implements IDefaultObjModelProvider, E
     @Override
     public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
     	if (world.isClientSide) {
-    		Minecraft.getInstance().setScreen(new WorkbenchScreen());
+    		openScreen();
     	    return InteractionResult.CONSUME;
         } else {
         	return InteractionResult.SUCCESS;
         }
+    }
+    
+    @OnlyIn(Dist.CLIENT)
+    private static void openScreen() {
+    	Minecraft.getInstance().setScreen(new WorkbenchScreen());
     }
 
     @Override

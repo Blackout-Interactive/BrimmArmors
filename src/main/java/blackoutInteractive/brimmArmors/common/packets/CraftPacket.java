@@ -12,7 +12,7 @@ import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 
-public final class CraftPacket extends APacket.AC2SPacket {
+public class CraftPacket extends APacket.AC2SPacket {
 
     private final int craftIndex;
 

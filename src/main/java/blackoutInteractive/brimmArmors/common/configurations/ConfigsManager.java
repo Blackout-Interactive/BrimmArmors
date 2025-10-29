@@ -1,6 +1,9 @@
 package blackoutInteractive.brimmArmors.common.configurations;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Optional;
@@ -15,6 +18,7 @@ public class ConfigsManager {
 	
 	private static final HashMap<String, ArmorConfig> configs = new HashMap<>();
 	private static final HashSet<String> evictedConfigs = new HashSet<>();
+	private static String hash;
 	
 	private static final String[]
 			TAGS_TOUGHNESS = new String[] {"config", "toughness"},
@@ -24,10 +28,12 @@ public class ConfigsManager {
 			TAGS_RARITY = new String[] {"config", "rarity"};
 	
 	public static void init() {
+		if (hash != null) throw new IllegalStateException("Configs manager already initialised");
 		File configFolder = new File(FMLPaths.CONFIGDIR.get().toFile(), "brimm/overrides");
 		if (!configFolder.isDirectory() && !configFolder.mkdirs()) {
 			BrimmArmors.LOGGER.error("Failed to generate configs folder. No configurations will be loaded.");
 		} else {
+			MessageDigest digest = sha256();
 			for (File file : configFolder.listFiles()) {
 				if (!file.isFile()) {
 					BrimmArmors.LOGGER.warn("Found unexpected subdir in configs folder ("+file.getName()+"), ignoring.");
@@ -52,7 +58,9 @@ public class ConfigsManager {
 									}),
 									ConcordRarity::fromName);
 							String name = file.getName().replace(".xml", "");
-							configs.put(name, new ArmorConfig(materialOverride, rarityOverride));
+							ArmorConfig config = new ArmorConfig(materialOverride, rarityOverride);
+							digest.update(hashTrailOf(config));
+							configs.put(name, config);
 							BrimmArmors.LOGGER.info("Loaded config file "+file.getName()+".");
 						} else {
 							BrimmArmors.LOGGER.error("Failed to load config file "+file.getName()+": invalid document tag. "
@@ -64,6 +72,12 @@ public class ConfigsManager {
 					}
 				}
 			}
+			byte[] hashBytes = digest.digest();
+			StringBuilder hex = new StringBuilder();
+			for (byte b : hashBytes) {
+			    hex.append(String.format("%02x", b));
+			}
+			hash = hex.toString();
 		}
 	}
 	
@@ -141,7 +155,50 @@ public class ConfigsManager {
 		}
 	}
 	
+	private static MessageDigest sha256() {
+	    try {
+	        return MessageDigest.getInstance("SHA-256");
+	    } catch (NoSuchAlgorithmException e) {
+	        throw new RuntimeException("SHA-256 algorithm not available", e);
+	    }
+	}
+	
+	private static byte[] hashTrailOf(ArmorConfig config) {
+	    if (config == null) return new byte[0];
+	    StringBuilder sb = new StringBuilder();
+	    MaterialOverrides mo = config.materialOverrides();
+	    if (mo == null) {
+	        sb.append("null|null|null|null|");
+	    } else {
+	        sb.append(mo.toughness()
+	                .map(v -> Integer.toString(Float.floatToIntBits(v)))
+	                .orElse("null")).append('|');
+	        sb.append(mo.knockbackResistance()
+	                .map(v -> Integer.toString(Float.floatToIntBits(v)))
+	                .orElse("null")).append('|');
+	        sb.append(mo.defenseValue()
+	                .map(Object::toString)
+	                .orElse("null")).append('|');
+	        sb.append(mo.durabilityValue()
+	                .map(Object::toString)
+	                .orElse("null")).append('|');
+	    }
+	    Optional<ConcordRarity> rarityOpt = config.rarityOverride();
+	    if (rarityOpt == null || rarityOpt.isEmpty()) {
+	        sb.append("null");
+	    } else {
+	        sb.append(rarityOpt.get().name());
+	    }
+	    return sb.toString().getBytes(StandardCharsets.UTF_8);
+	}
+	
+	public static String configHash() {
+		if (hash == null) throw new IllegalStateException("Configs manager not yet initialised");
+		return hash;
+	}
+
 	public static ArmorConfig getAndEvict(String name) {
+		if (hash == null) throw new IllegalStateException("Configs manager not yet initialised");
 		if (!evictedConfigs.add(name)) throw new IllegalStateException("Material config for "+name+" had been already evicted");
 		return configs.remove(name);
 	}

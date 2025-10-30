@@ -9,7 +9,8 @@ import com.mojang.blaze3d.vertex.PoseStack;
 
 public abstract class MatrixRTS {
 	
-	public static final MatrixRTS IDENTITY = new IdentityMatrixRTS();
+	public static final MatrixRTS IDENTITY =
+			new MatrixRTS(0, 0, 0, 0, 0, 0, 1, 1, 1) {@Override public void apply(@NonNull PoseStack poseStack) {}};
 	
 	public static MatrixRTS getMatrix(float translateX, float translateY, float translateZ,
     			float rotateX, float rotateY, float rotateZ, float scaleX, float scaleY, float scaleZ) {
@@ -20,19 +21,19 @@ public abstract class MatrixRTS {
 		if (!translates && !rotates && !scales)
 			return IDENTITY;
 		else if (translates && rotates && scales)
-			return new CompleteMatrixRTS(translateX, translateY, translateZ, rotateX, rotateY, rotateZ, scaleX, scaleY, scaleZ);
+			return new M_RTS(translateX, translateY, translateZ, rotateX, rotateY, rotateZ, scaleX, scaleY, scaleZ);
 		else if (translates && !rotates && !scales)
-			return new TranslOnlyMatrixRTS(translateX, translateY, translateZ);
+			return new M_T(translateX, translateY, translateZ);
 		else if (rotates && !translates && !scales)
-			return new RotOnlyMatrixRTS(rotateX, rotateY, rotateZ);
+			return new M_R(rotateX, rotateY, rotateZ);
 		else if (scales && !translates && !rotates)
-			return new ScalOnlyMatrixRTS(scaleX, scaleY, scaleZ);
+			return new M_S(scaleX, scaleY, scaleZ);
 		else if (!translates)
-			return new NoTranslMatrixRTS(rotateX, rotateY, rotateZ, scaleX, scaleY, scaleZ);
+			return new M_RS(rotateX, rotateY, rotateZ, scaleX, scaleY, scaleZ);
 		else if (!rotates)
-			return new NoRotMatrixRTS(translateX, translateY, translateZ, scaleX, scaleY, scaleZ);
+			return new M_TS(translateX, translateY, translateZ, scaleX, scaleY, scaleZ);
 		else if (!scales)
-			return new NoScalMatrixRTS(translateX, translateY, translateZ, rotateX, rotateY, rotateZ);
+			return new M_RT(translateX, translateY, translateZ, rotateX, rotateY, rotateZ);
 		else throw new IllegalStateException("Could not resolve matrix ["+
 			String.join("; ", new String[]
 					{Float.toString(translateX), Float.toString(translateY), Float.toString(translateZ),
@@ -88,26 +89,22 @@ public abstract class MatrixRTS {
     	return sb.toString();
     }
     
-    private static abstract class RotMatrixRTS extends MatrixRTS {
+    private static abstract class M_ABS_R extends MatrixRTS {
     	
         protected final Quaternionf rot;
 
-        protected RotMatrixRTS(float trX, float trY, float trZ,
+        protected M_ABS_R(float trX, float trY, float trZ,
                                float rtX, float rtY, float rtZ,
                                float scX, float scY, float scZ) {
             super(trX, trY, trZ, rtX, rtY, rtZ, scX, scY, scZ);
-            this.rot = new Quaternionf().rotateXYZ(
-                    (float)Math.toRadians(rtX),
-                    (float)Math.toRadians(rtY),
-                    (float)Math.toRadians(rtZ)
-                );
+            this.rot = RotQuaternionPool.retrieve(rtX, rtY, rtZ);
         }
     }
 
     
-    private static class CompleteMatrixRTS extends RotMatrixRTS {
+    private static class M_RTS extends M_ABS_R {
     	
-    	protected CompleteMatrixRTS(float translateX, float translateY, float translateZ,
+    	protected M_RTS(float translateX, float translateY, float translateZ,
     			float rotateX, float rotateY, float rotateZ, float scaleX, float scaleY, float scaleZ) {
     		super(translateX, translateY, translateZ, rotateX, rotateY, rotateZ, scaleX, scaleY, scaleZ);
     	}
@@ -121,20 +118,9 @@ public abstract class MatrixRTS {
     	
     }
     
-    private static class IdentityMatrixRTS extends MatrixRTS {
+    private static class M_TS extends MatrixRTS {
     	
-    	protected IdentityMatrixRTS() {
-    		super(0, 0, 0, 0, 0, 0, 1, 1, 1);
-    	}
-	
-    	@Override
-    	public void apply(@NonNull PoseStack poseStack) {}
-    	
-    }
-    
-    private static class NoRotMatrixRTS extends MatrixRTS {
-    	
-    	protected NoRotMatrixRTS(float translateX, float translateY, float translateZ,
+    	protected M_TS(float translateX, float translateY, float translateZ,
     			float scaleX, float scaleY, float scaleZ) {
     		super(translateX, translateY, translateZ, 0, 0, 0, scaleX, scaleY, scaleZ);
     	}
@@ -147,9 +133,9 @@ public abstract class MatrixRTS {
     	
     }
     
-    private static class NoTranslMatrixRTS extends RotMatrixRTS {
+    private static class M_RS extends M_ABS_R {
     	
-    	protected NoTranslMatrixRTS(float rotateX, float rotateY, float rotateZ, float scaleX,
+    	protected M_RS(float rotateX, float rotateY, float rotateZ, float scaleX,
     			float scaleY, float scaleZ) {
     		super(0, 0, 0, rotateX, rotateY, rotateZ, scaleX, scaleY, scaleZ);
     	}
@@ -162,9 +148,9 @@ public abstract class MatrixRTS {
     	
     }
     
-    private static class NoScalMatrixRTS extends RotMatrixRTS {
+    private static class M_RT extends M_ABS_R {
     	
-    	protected NoScalMatrixRTS(float translateX, float translateY, float translateZ,
+    	protected M_RT(float translateX, float translateY, float translateZ,
     			float rotateX, float rotateY, float rotateZ) {
     		super(translateX, translateY, translateZ, rotateX, rotateY, rotateZ, 1, 1, 1);
     	}
@@ -177,9 +163,9 @@ public abstract class MatrixRTS {
     	
     }
     
-    private static class ScalOnlyMatrixRTS extends MatrixRTS {
+    private static class M_S extends MatrixRTS {
     	
-    	protected ScalOnlyMatrixRTS(float scaleX, float scaleY, float scaleZ) {
+    	protected M_S(float scaleX, float scaleY, float scaleZ) {
     		super(0, 0, 0, 0, 0, 0, scaleX, scaleY, scaleZ);
     	}
 	
@@ -190,9 +176,9 @@ public abstract class MatrixRTS {
     	
     }
     
-    private static class TranslOnlyMatrixRTS extends MatrixRTS {
+    private static class M_T extends MatrixRTS {
     	
-    	protected TranslOnlyMatrixRTS(float translateX, float translateY, float translateZ) {
+    	protected M_T(float translateX, float translateY, float translateZ) {
     		super(translateX, translateY, translateZ, 0, 0, 0, 1, 1, 1);
     	}
 	
@@ -203,9 +189,9 @@ public abstract class MatrixRTS {
     	
     }
     
-    private static class RotOnlyMatrixRTS extends RotMatrixRTS {
+    private static class M_R extends M_ABS_R {
     	
-    	protected RotOnlyMatrixRTS(float rotateX, float rotateY, float rotateZ) {
+    	protected M_R(float rotateX, float rotateY, float rotateZ) {
     		super(0, 0, 0, rotateX, rotateY, rotateZ, 1, 1, 1);
     	}
 	

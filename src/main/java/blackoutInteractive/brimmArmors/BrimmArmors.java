@@ -26,6 +26,7 @@ import blackoutInteractive.brimmArmors.common.registries.ItemRegistry;
 import blackoutInteractive.brimmArmors.common.registries.TileRegistry;
 import blackoutInteractive.brimmArmors.common.workbench.CraftsManager;
 import blackoutInteractive.brimmArmors.server.ServerProxy;
+import blackoutInteractive.ema_08_.rendering.geom.RotQuaternionPool;
 import blackoutInteractive.ema_08_.simpleNet.SimpleChannelHandler;
 
 @Mod(BrimmArmors.MOD_ID)
@@ -86,6 +87,7 @@ public class BrimmArmors
     private void init(final FMLLoadCompleteEvent event) {
         proxy.init(event);
         CraftsManager.buildAll();
+        RotQuaternionPool.freeAll();
     }
 
     private void server(final FMLDedicatedServerSetupEvent event) {

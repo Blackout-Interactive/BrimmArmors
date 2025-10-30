@@ -45,12 +45,14 @@ public class WorkbenchScreen extends Screen {
     private float rotationX = 0;
     private float rotationY = 0;
     private CraftsManager.CraftsSectionAccessor section = CraftsManager.accessor(CraftsManager.firstSection());
+    private String localisedSectionName;
     private Craft currentReceipe;
     private boolean dragging = false;
 
     public WorkbenchScreen() {
         super(Component.literal(I18n.get("screen." + BrimmArmors.MOD_ID + ".workbench.title")));
         currentReceipe = section.first();
+        localisedSectionName = "\u00A7l"+section.section().localisedName();
     }
     
     @Override
@@ -103,12 +105,13 @@ public class WorkbenchScreen extends Screen {
                 	section = CraftsManager.accessor(
                 			Optional.ofNullable(CraftsManager.prevSection(section.section())).orElse(CraftsManager.lastSection()));
                 	currentReceipe = section.first();
+                	localisedSectionName = "\u00A7l"+section.section().localisedName();
             		rotationX = 0;
             	    rotationY = 0;
                     mc.player.level().playSound(null, mc.player.blockPosition(),
                             SoundEvents.UI_BUTTON_CLICK.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
                 })
-                .pos(centerX - 70 - 20, bottomY)
+                .pos(centerX - 70 - 20, bottomY + 22)
                 .size(20, 20)
                 .build()
         );
@@ -118,12 +121,13 @@ public class WorkbenchScreen extends Screen {
                 	section = CraftsManager.accessor(
                 			Optional.ofNullable(CraftsManager.nextSection(section.section())).orElse(CraftsManager.firstSection()));
                 	currentReceipe = section.first();
+                	localisedSectionName = "\u00A7l"+section.section().localisedName();
             		rotationX = 0;
             	    rotationY = 0;
                     mc.player.level().playSound(null, mc.player.blockPosition(),
                             SoundEvents.UI_BUTTON_CLICK.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
                 })
-                .pos(centerX + 50 + 20, bottomY)
+                .pos(centerX + 50 + 20, bottomY + 22)
                 .size(20, 20)
                 .build()
         );
@@ -136,15 +140,16 @@ public class WorkbenchScreen extends Screen {
 
         int guiLeft = (width - BG_XSIZE) / 2;
         int guiTop = (height - BG_YSIZE) / 2;
+        int darkColor = 0xC0101010;
+        guig.fill(0, 0, width, height, darkColor);
 
         guig.blit(BACKGROUND_TEXTURE, guiLeft, guiTop, 0, 0, BG_XSIZE, BG_YSIZE, BG_XSIZE, BG_YSIZE);
 
         renderItem(guig, guig.pose(), guiLeft + BG_XSIZE / 2, guiTop + BG_YSIZE / 2);
         
-        String sectionName = section.section().localisedName();
-        int sectionX = guiLeft + BG_XSIZE / 2 - mc.font.width(sectionName) / 2;
-        int sectionY = (height + BG_YSIZE) / 2 + 10 + 24;
-        guig.drawString(mc.font, sectionName, sectionX, sectionY, 0x555555, false);
+        int sectionX = guiLeft + BG_XSIZE / 2 - mc.font.width(localisedSectionName) / 2;
+        int sectionY = (height + BG_YSIZE) / 2 + 10 + 30;
+        guig.drawString(mc.font, localisedSectionName, sectionX, sectionY, 0x555555, false);
 
         String itemName = currentReceipe.result().getName(new ItemStack(currentReceipe.result())).getString();
         int nameX = guiLeft + BG_XSIZE / 2 - mc.font.width(itemName) / 2;

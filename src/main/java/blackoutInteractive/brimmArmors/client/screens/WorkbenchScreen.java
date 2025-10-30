@@ -44,11 +44,13 @@ public class WorkbenchScreen extends Screen {
 			Component.literal(I18n.get("screen." + BrimmArmors.MOD_ID + ".workbench.tooltip")));
     private float rotationX = 0;
     private float rotationY = 0;
-    private Craft currentReceipe = CraftsManager.first();
+    private CraftsManager.CraftsSectionAccessor section = CraftsManager.accessor(CraftsManager.firstSection());
+    private Craft currentReceipe;
     private boolean dragging = false;
 
     public WorkbenchScreen() {
         super(Component.literal(I18n.get("screen." + BrimmArmors.MOD_ID + ".workbench.title")));
+        currentReceipe = section.first();
     }
     
     @Override
@@ -71,7 +73,7 @@ public class WorkbenchScreen extends Screen {
                 Component.literal(ChatFormatting.BOLD + "<"),
                 button -> {
                 	currentReceipe =
-                			Optional.ofNullable(CraftsManager.prev(currentReceipe)).orElse(CraftsManager.last());
+                			Optional.ofNullable(section.prev(currentReceipe)).orElse(section.last());
             		rotationX = 0;
             	    rotationY = 0;
                 	mc.player.level().playSound(null, mc.player.blockPosition(),
@@ -85,13 +87,43 @@ public class WorkbenchScreen extends Screen {
                 Component.literal(ChatFormatting.BOLD + ">"),
                 button -> {
                 	currentReceipe =
-            				Optional.ofNullable(CraftsManager.next(currentReceipe)).orElse(CraftsManager.first());
+            				Optional.ofNullable(section.next(currentReceipe)).orElse(section.first());
             		rotationX = 0;
             	    rotationY = 0;
                 	mc.player.level().playSound(null, mc.player.blockPosition(),
                 		    SoundEvents.UI_BUTTON_CLICK.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
                 })
                 .pos(centerX + 50, bottomY)
+                .size(20, 20)
+                .build()
+        );
+        addRenderableWidget(Button.builder(
+                Component.literal(ChatFormatting.BOLD + "<<<"),
+                button -> {
+                	section = CraftsManager.accessor(
+                			Optional.ofNullable(CraftsManager.prevSection(section.section())).orElse(CraftsManager.lastSection()));
+                	currentReceipe = section.first();
+            		rotationX = 0;
+            	    rotationY = 0;
+                    mc.player.level().playSound(null, mc.player.blockPosition(),
+                            SoundEvents.UI_BUTTON_CLICK.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
+                })
+                .pos(centerX - 70 - 20, bottomY)
+                .size(20, 20)
+                .build()
+        );
+        addRenderableWidget(Button.builder(
+                Component.literal(ChatFormatting.BOLD + ">>>"),
+                button -> {
+                	section = CraftsManager.accessor(
+                			Optional.ofNullable(CraftsManager.nextSection(section.section())).orElse(CraftsManager.firstSection()));
+                	currentReceipe = section.first();
+            		rotationX = 0;
+            	    rotationY = 0;
+                    mc.player.level().playSound(null, mc.player.blockPosition(),
+                            SoundEvents.UI_BUTTON_CLICK.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
+                })
+                .pos(centerX + 50 + 20, bottomY)
                 .size(20, 20)
                 .build()
         );
@@ -108,6 +140,11 @@ public class WorkbenchScreen extends Screen {
         guig.blit(BACKGROUND_TEXTURE, guiLeft, guiTop, 0, 0, BG_XSIZE, BG_YSIZE, BG_XSIZE, BG_YSIZE);
 
         renderItem(guig, guig.pose(), guiLeft + BG_XSIZE / 2, guiTop + BG_YSIZE / 2);
+        
+        String sectionName = section.section().localisedName();
+        int sectionX = guiLeft + BG_XSIZE / 2 - mc.font.width(sectionName) / 2;
+        int sectionY = (height + BG_YSIZE) / 2 + 10 + 24;
+        guig.drawString(mc.font, sectionName, sectionX, sectionY, 0x555555, false);
 
         String itemName = currentReceipe.result().getName(new ItemStack(currentReceipe.result())).getString();
         int nameX = guiLeft + BG_XSIZE / 2 - mc.font.width(itemName) / 2;

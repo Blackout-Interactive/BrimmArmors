@@ -15,6 +15,7 @@ import blackoutInteractive.brimmArmors.common.items.BasicArmor;
 import blackoutInteractive.brimmArmors.common.items.BasicPlate;
 import blackoutInteractive.brimmArmors.common.items.ConcordRarity;
 import blackoutInteractive.brimmArmors.common.workbench.CraftBuilder;
+import blackoutInteractive.brimmArmors.common.workbench.CraftSection;
 import blackoutInteractive.brimmArmors.common.workbench.CraftsManager;
 import blackoutInteractive.brimmArmors.common.workbench.IngredientBuilder;
 import blackoutInteractive.ema_08_.items.SimpleArmorMaterial;
@@ -61,14 +62,16 @@ public class ItemRegistry {
 
     	public static final RegistryObject<BasicPlate> IRON_PLATE = registerItemAndExecute(
     		(res)->{CraftsManager.register(new CraftBuilder(res::get)
-    				.addIngredient(ig(Items.IRON_INGOT, 5))
+    				.addIngredient(ig(Items.IRON_INGOT, 5)),
+    				CraftSection.PLATES
     			); misc_tab_content.add(res);},
     		"iron_plate", () -> new BasicPlate(ConcordRarity.COMMON));
     
     	public static final RegistryObject<BasicPlate> DIAMOND_PLATE = registerItemAndExecute(
     		(res)->{CraftsManager.register(new CraftBuilder(res::get)
     				.addIngredient(ig(Items.IRON_INGOT, 10))
-    				.addIngredient(ig(Items.DIAMOND, 5))
+    				.addIngredient(ig(Items.DIAMOND, 5)),
+    				CraftSection.PLATES
     			); misc_tab_content.add(res);},
     		"diamond_plate", () -> new BasicPlate(ConcordRarity.RARE));
     
@@ -76,12 +79,13 @@ public class ItemRegistry {
     		(res)->{CraftsManager.register(new CraftBuilder(res::get)
     				.addIngredient(ig(Items.IRON_INGOT, 10))
     				.addIngredient(ig(Items.DIAMOND, 10))
-    				.addIngredient(ig(Items.NETHERITE_INGOT, 1))
+    				.addIngredient(ig(Items.NETHERITE_INGOT, 1)),
+    				CraftSection.PLATES
     			); misc_tab_content.add(res);},
     		"nether_plate", () -> new BasicPlate(ConcordRarity.EPIC));
     
 		public static final RegistryObject<BasicArmor> RATNIK = registerItemAndExecute(
-    		addArmorsTabAndSetCraft( 
+    		addArmorsTabAndSetCraft(ArmorItem.Type.CHESTPLATE,
         			ig(IRON_PLATE, 3),
         			ig(Items.LEATHER, 1)
         		),
@@ -99,7 +103,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> RATNIK_ADVANCE = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.CHESTPLATE,
             		ig(RATNIK, 1),
             		ig(Items.LEATHER, 5)
             	),
@@ -116,7 +120,7 @@ public class ItemRegistry {
     	);
     	
     	public static final RegistryObject<BasicArmor> DEFENDER = registerItemAndExecute(
-        	addArmorsTabAndSetCraft(
+        	addArmorsTabAndSetCraft(ArmorItem.Type.CHESTPLATE,
                 	ig(IRON_PLATE, 2),
                 	ig(Items.LEATHER, 5)
                 ),
@@ -133,7 +137,7 @@ public class ItemRegistry {
         );
 
         public static final RegistryObject<BasicArmor> DEFENDER_II = registerItemAndExecute(
-        	addArmorsTabAndSetCraft(
+        	addArmorsTabAndSetCraft(ArmorItem.Type.CHESTPLATE,
                 	ig(DEFENDER, 1),
                 	ig(Items.LEATHER, 5)
                 ),
@@ -150,7 +154,7 @@ public class ItemRegistry {
         );
 
         public static final RegistryObject<BasicArmor> DEFENDER_III = registerItemAndExecute(
-        	addArmorsTabAndSetCraft(
+        	addArmorsTabAndSetCraft(ArmorItem.Type.CHESTPLATE,
                     ig(DEFENDER_II, 1),
                     ig(Items.LEATHER, 5)
                 ),
@@ -167,7 +171,7 @@ public class ItemRegistry {
         );
     
         public static final RegistryObject<BasicArmor> NATO = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.CHESTPLATE,
             		ig(RATNIK, 1),
             		ig(DIAMOND_PLATE, 2),
             		ig(Items.LEATHER, 5),
@@ -186,7 +190,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> NATO_II = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.CHESTPLATE,
                 	ig(NATO, 1),
                 	ig(Items.LEATHER, 5)
                 ),
@@ -203,7 +207,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> MARINE = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.CHESTPLATE,
                     ig(DEFENDER, 1),
                     ig(NETHER_PLATE, 3),
                     ig(Items.SALMON, 5)
@@ -221,7 +225,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> VANDERER = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.CHESTPLATE,
                     ig(DEFENDER, 1),
                     ig(DIAMOND_PLATE, 2),
                     ig(Items.CACTUS, 3)
@@ -239,7 +243,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> GUARD = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.CHESTPLATE,
                     ig(DEFENDER, 1),
                     ig(NETHER_PLATE, 3),
                     ig(Items.LEATHER, 10)
@@ -257,7 +261,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> SAPER = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.CHESTPLATE,
                     ig(RATNIK, 1),
                     ig(DIAMOND_PLATE, 2),
                     ig(Items.TNT, 3)
@@ -275,7 +279,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> CONCORD = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.CHESTPLATE,
                     ig(DEFENDER, 1),
                     ig(NETHER_PLATE, 3),
                     ig(Items.TNT, 3)
@@ -293,7 +297,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> MEDIC = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.CHESTPLATE,
                     ig(DEFENDER, 1),
                     ig(DIAMOND_PLATE, 2),
                     ig(Items.GOLDEN_APPLE, 2)
@@ -311,7 +315,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> PMC = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.CHESTPLATE,
                 	ig(RATNIK, 1),
                 	ig(DIAMOND_PLATE, 2),
                 	ig(IRON_PLATE, 1)
@@ -329,7 +333,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> ASSAULT = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.CHESTPLATE,
                     ig(PMC, 1),
                     ig(NETHER_PLATE, 2),
                     ig(Items.LEATHER, 15)
@@ -347,7 +351,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> SPN = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.CHESTPLATE,
                     ig(PMC, 1),
                     ig(NETHER_PLATE, 2),
                     ig(Items.LEATHER, 15)
@@ -365,7 +369,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> HORSE = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.CHESTPLATE,
                     ig(PMC, 1),
                     ig(NETHER_PLATE, 2),
                     ig(Items.LEATHER, 15)
@@ -383,7 +387,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> ATLETI = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.CHESTPLATE,
                     ig(RATNIK, 1),
                     ig(DIAMOND_PLATE, 1),
                     ig(IRON_PLATE, 3)
@@ -401,7 +405,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> VETERAN = registerItemAndExecute(
-    	    addArmorsTabAndSetCraft(
+    	    addArmorsTabAndSetCraft(ArmorItem.Type.CHESTPLATE,
                     ig(RATNIK_ADVANCE, 1),
                     ig(DIAMOND_PLATE, 2)
                 ),
@@ -418,7 +422,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> NYYYAAAA = registerItemAndExecute(
-    	    addArmorsTabAndSetCraft(
+    	    addArmorsTabAndSetCraft(ArmorItem.Type.CHESTPLATE,
                     ig(DEFENDER, 1),
                     ig(NETHER_PLATE, 5),
                     ig(Items.BLACK_DYE, 10),
@@ -438,7 +442,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> BASE_H = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.HELMET,
     				ig(Items.IRON_INGOT, 20),
     				ig(Items.LEATHER, 10)
     			),
@@ -455,7 +459,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> GASMASK_H = registerItemAndExecute(
-        	addArmorsTabAndSetCraft(
+        	addArmorsTabAndSetCraft(ArmorItem.Type.HELMET,
                 	ig(BASE_H, 1),
                 	ig(Items.IRON_INGOT, 30),
                 	ig(Items.COAL, 30),
@@ -474,7 +478,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> ASSAULT_H = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.HELMET,
             		ig(BASE_H, 1),
             		ig(Items.IRON_INGOT, 30),
             		ig(Items.REDSTONE, 10),
@@ -493,7 +497,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> MEDIC_H = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.HELMET,
                     ig(ASSAULT_H, 1),
                     ig(Items.LEATHER, 5),
                     ig(Items.GOLDEN_APPLE, 1)
@@ -511,7 +515,7 @@ public class ItemRegistry {
     	);
     	
     	public static final RegistryObject<BasicArmor> INFANTRY_H = registerItemAndExecute(
-        	addArmorsTabAndSetCraft(
+        	addArmorsTabAndSetCraft(ArmorItem.Type.HELMET,
                     ig(BASE_H, 1),
                     ig(Items.IRON_INGOT, 30),
                     ig(Items.LEATHER, 10),
@@ -530,7 +534,7 @@ public class ItemRegistry {
         );
 
     	public static final RegistryObject<BasicArmor> CONCORD_H = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.HELMET,
                     ig(INFANTRY_H, 1),
                     ig(Items.IRON_INGOT, 10),
                     ig(Items.DIAMOND, 10),
@@ -549,7 +553,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> GPNVG_H = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.HELMET,
                     ig(ASSAULT_H, 1),
                     ig(Items.IRON_INGOT, 15),
                     ig(Items.LEATHER, 10),
@@ -569,7 +573,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> GHOST_H = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.HELMET,
                     ig(GPNVG_H, 1),
                     ig(Items.SKELETON_SKULL, 1),
                     ig(Items.INK_SAC, 5)
@@ -587,7 +591,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> ZCH_H = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.HELMET,
         			ig(Items.IRON_INGOT, 15),
         			ig(Items.LEATHER, 15)
         		),
@@ -604,7 +608,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> ZABRALO_H = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.HELMET,
             		ig(ZCH_H, 1),
             		ig(Items.GLASS_PANE, 10)
             	),
@@ -621,7 +625,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> KILLA_H = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.HELMET,
                 	ig(ZCH_H, 1),
                 	ig(Items.IRON_INGOT, 30),
                 	ig(Items.GLASS_PANE, 5),
@@ -640,7 +644,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> MK_II_H = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.HELMET,
             		ig(Items.IRON_INGOT, 15),
             		ig(Items.LEATHER, 5)
             	),
@@ -657,7 +661,7 @@ public class ItemRegistry {
     	);
 
     	public static final RegistryObject<BasicArmor> SAPER_H = registerItemAndExecute(
-    		addArmorsTabAndSetCraft(
+    		addArmorsTabAndSetCraft(ArmorItem.Type.HELMET,
                 	ig(MK_II_H, 1),
                 	ig(Items.REDSTONE, 10),
                 	ig(Items.LEATHER, 5)
@@ -722,13 +726,13 @@ public class ItemRegistry {
     			.setScale(0.2f, 0.2f, 1f);
     }
         
-    private static Consumer<RegistryObject<BasicArmor>> addArmorsTabAndSetCraft(IngredientBuilder... ingredients) {
+    private static Consumer<RegistryObject<BasicArmor>> addArmorsTabAndSetCraft(ArmorItem.Type type, IngredientBuilder... ingredients) {
     	return (obj)->{
     		armors_tab_content.add(obj);
     		if (ingredients.length > 0) {
     			CraftBuilder craft = new CraftBuilder(obj::get);
         		for (IngredientBuilder ingredient : ingredients) craft.addIngredient(ingredient);
-        		CraftsManager.register(craft);
+        		CraftsManager.register(craft, CraftSection.ofArmor(type));
     		} else {
     			BrimmArmors.LOGGER.warn("Registering without workbench craft: "+obj.getKey().toString()+".");
     		}

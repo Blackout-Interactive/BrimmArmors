@@ -111,6 +111,9 @@
   "screen.${mod_id}.workbench.craft": "CRAFT",
   "screen.${mod_id}.workbench.not_enough_items": "Not enough items.",
   "screen.${mod_id}.workbench.tooltip": "Drag to move",
+  "screen.${mod_id}.workbench.section.plates": "Armor Plates",
+  "screen.${mod_id}.workbench.section.chestplates": "Chestplates",
+  "screen.${mod_id}.workbench.section.helmets": "Helmets",
   
   "tooltip.${mod_id}.armors.current_patch": "Current patch"
   

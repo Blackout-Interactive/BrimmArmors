@@ -1,54 +1,120 @@
 package blackoutInteractive.brimmArmors.common.workbench;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class CraftsManager {
 	
-	private static final List<CraftBuilder> builders = new ArrayList<>();
+	private static final Map<CraftSection, List<CraftBuilder>> builders = new HashMap<>();
+	private static final List<CraftSection> orderedSections = List.of(
+			CraftSection.PLATES, CraftSection.CHESTPLATES, CraftSection.HELMETS
+		);
 	
-	private static List<Craft> built;
+	static {
+		for (CraftSection section : orderedSections) builders.put(section, new ArrayList<>());
+	}
 	
-	public static void register(CraftBuilder builder) {
+	private static Map<CraftSection, List<Craft>> built;
+	private static final Map<CraftSection, CraftsSectionAccessor> accessors = new HashMap<>();
+	
+	public static void register(CraftBuilder builder, CraftSection section) {
 		if (built != null) throw new IllegalStateException("Crafts already built");
-		builders.add(Objects.requireNonNull(builder));
+		builders.get(Objects.requireNonNull(section)).add(Objects.requireNonNull(builder));
 	}
 	
 	public static void buildAll() {
 		if (built != null) throw new IllegalStateException("Crafts already built");
-		built = builders.stream().map(CraftBuilder::build).collect(Collectors.toUnmodifiableList());
+		Map<CraftSection, List<Craft>> mutableBuilt = new HashMap<>();
+		for (Entry<CraftSection, List<CraftBuilder>> sectionData : builders.entrySet())
+			mutableBuilt.put(sectionData.getKey(),
+				sectionData.getValue().stream().map(CraftBuilder::build).collect(Collectors.toUnmodifiableList()));
+		built = Collections.unmodifiableMap(mutableBuilt);
+		for (CraftSection section : built.keySet()) accessors.put(section, new CraftsSectionAccessor(section));
 		builders.clear();
 	}
 	
-	public static Craft next(Craft craft) {
-		if (built == null) throw new IllegalStateException("Crafts have not been built yet");
-		int idx = built.indexOf(craft);
-		if (idx == -1) throw new IllegalArgumentException("Unregistered craft");
-		return idx == built.size()-1 ? null : built.get(idx+1);
-	}
-	
-	public static Craft prev(Craft craft) {
-		if (built == null) throw new IllegalStateException("Crafts have not been built yet");
-		int idx = built.indexOf(craft);
-		if (idx == -1) throw new IllegalArgumentException("Unregistered craft");
-		return idx == 0 ? null : built.get(idx-1);
-	}
-	
-	public static Craft first() {
-		if (built == null) throw new IllegalStateException("Crafts have not been built yet");
-		return built.isEmpty() ? null : built.get(0);
-	}
-	
-	public static Craft last() {
-		if (built == null) throw new IllegalStateException("Crafts have not been built yet");
-		return built.isEmpty() ? null : built.get(built.size()-1);
+	public static final class CraftsSectionAccessor {
+		
+		private final CraftSection section;
+		private final List<Craft> cached;
+		
+		private CraftsSectionAccessor(CraftSection section) {
+			this.section = section;
+			this.cached = Objects.requireNonNull(built.get(section), "No data to access for "+section);
+		}
+		
+		public Craft next(Craft craft) {
+			if (built == null) throw new IllegalStateException("Crafts have not been built yet");
+			int idx = this.cached.indexOf(craft);
+			if (idx == -1) throw new IllegalArgumentException("Unregistered craft");
+			return idx == this.cached.size()-1 ? null : this.cached.get(idx+1);
+		}
+		
+		public Craft prev(Craft craft) {
+			if (built == null) throw new IllegalStateException("Crafts have not been built yet");
+			int idx = this.cached.indexOf(craft);
+			if (idx == -1) throw new IllegalArgumentException("Unregistered craft");
+			return idx == 0 ? null : this.cached.get(idx-1);
+		}
+		
+		public Craft first() {
+			if (built == null) throw new IllegalStateException("Crafts have not been built yet");
+			return this.cached.isEmpty() ? null : this.cached.get(0);
+		}
+		
+		public Craft last() {
+			if (built == null) throw new IllegalStateException("Crafts have not been built yet");
+			return this.cached.isEmpty() ? null : this.cached.get(built.size()-1);
+		}
+		
+		public CraftSection section() {
+			return this.section;
+		}
+		
 	}
 	
 	public static Craft byUid(int uid) {
 		if (built == null) throw new IllegalStateException("Crafts have not been built yet");
-		return built.stream().filter((c)->uid == c.getUid()).findFirst().orElse(null);
+		for (List<Craft> crafts : built.values()) {
+			Craft match = crafts.stream().filter((c)->uid == c.getUid()).findFirst().orElse(null);
+			if (match != null) return match;
+		}
+		return null;
+	}
+	
+	public static CraftSection firstSection() {
+		if (built == null) throw new IllegalStateException("Crafts have not been built yet");
+		return orderedSections.get(0);
+	}
+	
+	public static CraftSection lastSection() {
+		if (built == null) throw new IllegalStateException("Crafts have not been built yet");
+		return orderedSections.get(orderedSections.size()-1);
+	}
+	
+	public static CraftSection nextSection(CraftSection current) {
+		if (built == null) throw new IllegalStateException("Crafts have not been built yet");
+		int idx = orderedSections.indexOf(current);
+		if (idx == -1) throw new IllegalArgumentException("Invalid section");
+		return idx == orderedSections.size()-1 ? null : orderedSections.get(idx+1);
+	}
+	
+	public static CraftSection prevSection(CraftSection current) {
+		if (built == null) throw new IllegalStateException("Crafts have not been built yet");
+		int idx = orderedSections.indexOf(current);
+		if (idx == -1) throw new IllegalArgumentException("Invalid section");
+		return idx == 0 ? null : orderedSections.get(idx-1);
+	}
+	
+	public static CraftsSectionAccessor accessor(CraftSection section) {
+		if (built == null) throw new IllegalStateException("Crafts have not been built yet");
+		return Objects.requireNonNull(accessors.get(section), "Invalid section");
 	}
 
 }

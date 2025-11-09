@@ -19,7 +19,7 @@ public class RenderablePngsManager {
 	
 	public static RenderablePng transform(String textureName, ResourceLocation texture) {
 		int[] wh = wh(texture);
-		return new RenderablePng(texture, textureName, wh[0], wh[1], 1);
+		return new RenderablePng(texture, textureName, wh[0], wh[1]);
 	}
 	
 	public static RenderablePng transformOrGet(String textureName, ResourceLocation texture) {

@@ -11,17 +11,16 @@ import net.minecraft.resources.ResourceLocation;
 public class RenderablePng {
 
     private static final float Z = 0.001f;
+    private static final int W = 1;
 
     private final ResourceLocation texture;
     private final String name;
-    private final float width;
     private final float height;
 
-    public RenderablePng(ResourceLocation texture, String name, int texWidth, int texHeight, float worldWidth) {
+    public RenderablePng(ResourceLocation texture, String name, int texWidth, int texHeight) {
         this.texture = texture;
         this.name = name;
-        this.width = worldWidth;
-        this.height = worldWidth * ((float)texHeight / texWidth);
+        this.height = ((float)texHeight / texWidth);
     }
 
     public void render(PoseStack poseStack, MultiBufferSource bufferSource,
@@ -32,20 +31,20 @@ public class RenderablePng {
 
         builder.vertex(matrix, 0f, 0f, Z).color(255,255,255,255)
         	.uv(0,0).overlayCoords(overlay).uv2(packedLight).normal(0,0,1).endVertex();
-        builder.vertex(matrix, width, 0f, Z).color(255,255,255,255)
+        builder.vertex(matrix, W, 0f, Z).color(255,255,255,255)
         	.uv(1,0).overlayCoords(overlay).uv2(packedLight).normal(0,0,1).endVertex();
-        builder.vertex(matrix, width, height, Z).color(255,255,255,255)
+        builder.vertex(matrix, W, this.height, Z).color(255,255,255,255)
         	.uv(1,1).overlayCoords(overlay).uv2(packedLight).normal(0,0,1).endVertex();
-        builder.vertex(matrix, 0f, height, Z).color(255,255,255,255)
+        builder.vertex(matrix, 0f, this.height, Z).color(255,255,255,255)
         	.uv(0,1).overlayCoords(overlay).uv2(packedLight).normal(0,0,1).endVertex();
 
         builder.vertex(matrix, 0f, 0f, Z).color(255,255,255,255)
         	.uv(0,0).overlayCoords(overlay).uv2(packedLight).normal(0,0,-1).endVertex();
-        builder.vertex(matrix, 0f, height, Z).color(255,255,255,255)
+        builder.vertex(matrix, 0f, this.height, Z).color(255,255,255,255)
         	.uv(0,1).overlayCoords(overlay).uv2(packedLight).normal(0,0,-1).endVertex();
-        builder.vertex(matrix, width, height, Z).color(255,255,255,255)
+        builder.vertex(matrix, W, this.height, Z).color(255,255,255,255)
         	.uv(1,1).overlayCoords(overlay).uv2(packedLight).normal(0,0,-1).endVertex();
-        builder.vertex(matrix, width, 0f, Z).color(255,255,255,255)
+        builder.vertex(matrix, W, 0f, Z).color(255,255,255,255)
         	.uv(1,0).overlayCoords(overlay).uv2(packedLight).normal(0,0,-1).endVertex();
     }
     

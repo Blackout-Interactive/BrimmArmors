@@ -37,11 +37,6 @@ public final class RTSMatricesCompound {
 		return matrix;
 	}
 	
-	public MatrixRTS getOrIdentity(String key) {
-		MatrixRTS matrix = this.matrices.get(validateKey(key));
-		return matrix == null ? MatrixRTS.IDENTITY : matrix;
-	}
-	
 	public void applyIfPresent(String key, PoseStack poseStack) {
 		MatrixRTS matrix = this.matrices.get(validateKey(key));
 		if (matrix != null) matrix.apply(poseStack);

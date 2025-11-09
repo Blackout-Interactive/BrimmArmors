@@ -30,10 +30,10 @@ public class WorkbenchRender implements BlockEntityRenderer<WorkbenchTileEntity>
             matrix.translate(0.5, 0.0, 0.5);
             float yRot = switch (facing) {
             case NORTH -> 180f;
-            case SOUTH -> 0f;
+            case SOUTH ->   0f;
             case EAST  -> -90f;
-            case WEST  -> 90f;
-            default -> 0f;
+            case WEST  ->  90f;
+            default    ->   0f;
             };
             if (yRot != 0) matrix.mulPose(Axis.YP.rotationDegrees(yRot));
 

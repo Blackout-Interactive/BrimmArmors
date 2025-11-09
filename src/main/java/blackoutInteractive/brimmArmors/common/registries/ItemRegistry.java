@@ -98,7 +98,7 @@ public class ItemRegistry {
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
     	    0f, 0f, 8, 240, patches(OverlayPos.HUMANOID_TORSO,
-    	    	newStandardFrontTorsoPatchMatrix(0.2345f))
+    	    	newStandardFrontTorsoPatchMatrix((float)(3.7247*0.06295809)))
     	    )
     	);
 

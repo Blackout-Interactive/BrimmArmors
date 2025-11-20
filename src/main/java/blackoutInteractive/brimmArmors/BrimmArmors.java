@@ -1,7 +1,10 @@
 package blackoutInteractive.brimmArmors;
 
+import net.minecraft.commands.CommandSourceStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -10,22 +13,29 @@ import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import com.mojang.brigadier.CommandDispatcher;
 
 import blackoutInteractive.brimmArmors.client.ClientProxy;
 import blackoutInteractive.brimmArmors.common.CommonProxy;
 import blackoutInteractive.brimmArmors.common.configurations.ConfigsManager;
 import blackoutInteractive.brimmArmors.common.packets.ConfigCheckPacket;
 import blackoutInteractive.brimmArmors.common.packets.CraftPacket;
+import blackoutInteractive.brimmArmors.common.packets.PatchesAdjusterDebugPacket;
 import blackoutInteractive.brimmArmors.common.recipes.RecipeSerializers;
 import blackoutInteractive.brimmArmors.common.registries.BlockRegistry;
 import blackoutInteractive.brimmArmors.common.registries.ItemRegistry;
 import blackoutInteractive.brimmArmors.common.registries.TileRegistry;
 import blackoutInteractive.brimmArmors.common.workbench.CraftsManager;
 import blackoutInteractive.brimmArmors.server.ServerProxy;
+import blackoutInteractive.brimmArmors.server.commands.BrimmDebugCommand;
+import blackoutInteractive.ema_08_.birgadierWrapper.CommandBuilder;
+import blackoutInteractive.ema_08_.birgadierWrapper.IRegistrableCommand;
 import blackoutInteractive.ema_08_.rendering.geom.RotQuaternionPool;
 import blackoutInteractive.ema_08_.simpleNet.SimpleChannelHandler;
 
@@ -79,7 +89,7 @@ public class BrimmArmors
 
 	private void preInit(final FMLCommonSetupEvent event) {
         network = new SimpleChannelHandler(MOD_ID, "main", "1", List.of(
-        		CraftPacket.class, ConfigCheckPacket.class
+        		CraftPacket.class, ConfigCheckPacket.class, PatchesAdjusterDebugPacket.class
         	));
         proxy.preInit(event);
     }
@@ -96,6 +106,17 @@ public class BrimmArmors
 
     private void client(final FMLClientSetupEvent event) {
         proxy.client(event);
+    }
+    
+    @SubscribeEvent
+    public void onRegisterCommands(RegisterCommandsEvent event) {
+        CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
+        final List<IRegistrableCommand> COMMANDS = Arrays.asList(new IRegistrableCommand[] {
+        		new BrimmDebugCommand()
+    	});
+        for (IRegistrableCommand cmd : COMMANDS) {
+        	dispatcher.register(CommandBuilder.build(cmd.getBuilt()));
+        }
     }
 
 }

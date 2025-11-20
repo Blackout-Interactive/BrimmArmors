@@ -9,9 +9,9 @@ import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import static blackoutInteractive.brimmArmors.common.registries.ItemRegistry.get;
-
 import java.util.*;
+
+import blackoutInteractive.brimmArmors.common.registries.ItemRegistry;
 
 @Mod.EventBusSubscriber
 public class LootTableEventHandler {
@@ -73,7 +73,7 @@ public class LootTableEventHandler {
         if (entries != null) {
             LootPool.Builder poolBuilder = LootPool.lootPool();
             for (LootEntryData entry : entries) {
-                poolBuilder.add(LootItem.lootTableItem(get(entry.itemName))
+                poolBuilder.add(LootItem.lootTableItem(ItemRegistry.getOrThrow(entry.itemName))
                         .setWeight(entry.weight)
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(entry.minCount, entry.maxCount))));
             }

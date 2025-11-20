@@ -56,11 +56,11 @@ public class ConcordArmorRender extends HumanoidModel<LivingEntity> {
         armor.getModelTransformations().applyIfPresent(RTSMatricesCompound.key_armor_render, poseStack);
         ObjsManager.getModel(armor)
         	.render(poseStack, buff, packedLight, packedOverlay, ticks);
-        
+  
         poseStack.popPose();
         
         ArmorPatch patch = armor.getPatch(is);
-        Collection<OverlayLocation> locations = armor.patchesPositions();
+        Collection<OverlayLocation> locations = armor.patchesPositions(this.is);
         if (patch == null || locations.isEmpty()) return;
         
         for (OverlayLocation loc : locations) {

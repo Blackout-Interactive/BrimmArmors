@@ -14,12 +14,12 @@ import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import static blackoutInteractive.brimmArmors.common.registries.ItemRegistry.get;
 
 import java.util.List;
 import java.util.Map;
 
 import blackoutInteractive.brimmArmors.common.items.BasicArmor;
+import blackoutInteractive.brimmArmors.common.registries.ItemRegistry;
 
 @Mod.EventBusSubscriber
 public class EffectsManager {
@@ -40,90 +40,90 @@ public class EffectsManager {
     }
 
     public static void onAddHelmet(Player player, ItemStack to) {
-        if (to.getItem() == get("concord_h")) {
+        if (to.getItem() == ItemRegistry.getOrThrow("concord_h")) {
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, Integer.MAX_VALUE, 2, false, false));
             player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, Integer.MAX_VALUE, 0, false, false));
         }
-        if (to.getItem() == get("gpnvg_h")) {
+        if (to.getItem() == ItemRegistry.getOrThrow("gpnvg_h")) {
             player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, Integer.MAX_VALUE, 0, false, false));
         }
-        if (to.getItem() == get("ghost_h")) {
+        if (to.getItem() == ItemRegistry.getOrThrow("ghost_h")) {
             player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, Integer.MAX_VALUE, 0, false, false));
             player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, Integer.MAX_VALUE, 0, false, false));
         }
-        if (to.getItem() == get("killa_h")) {
+        if (to.getItem() == ItemRegistry.getOrThrow("killa_h")) {
             player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, Integer.MAX_VALUE, 0, false, false));
         }
     }
 
     public static void onAddChest(Player player, ItemStack to) {
-        if (to.getItem() == get("marine")) {
+        if (to.getItem() == ItemRegistry.getOrThrow("marine")) {
             player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, Integer.MAX_VALUE, 0, false, false));
             player.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, Integer.MAX_VALUE, 0, false, false));
         }
-        if (to.getItem() == get("saper")) {
+        if (to.getItem() == ItemRegistry.getOrThrow("saper")) {
             enchant(to, net.minecraft.world.item.enchantment.Enchantments.BLAST_PROTECTION, 10);
         }
-        if (to.getItem() == get("medic")) {
+        if (to.getItem() == ItemRegistry.getOrThrow("medic")) {
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, Integer.MAX_VALUE, 3, false, false));
         }
-        if (to.getItem() == get("defender_iii")) {
+        if (to.getItem() == ItemRegistry.getOrThrow("defender_iii")) {
             player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, Integer.MAX_VALUE, 0, false, false));
         }
-        if (to.getItem() == get("concord")) {
+        if (to.getItem() == ItemRegistry.getOrThrow("concord")) {
             player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, Integer.MAX_VALUE, 0, false, false));
         }
-        if (to.getItem() == get("horse")) {
+        if (to.getItem() == ItemRegistry.getOrThrow("horse")) {
             player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, Integer.MAX_VALUE, 0, false, false));
         }
-        if (to.getItem() == get("spn")) {
+        if (to.getItem() == ItemRegistry.getOrThrow("spn")) {
             player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, Integer.MAX_VALUE, 0, false, false));
         }
-        if (to.getItem() == get("atleti")) {
+        if (to.getItem() == ItemRegistry.getOrThrow("atleti")) {
             player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, Integer.MAX_VALUE, 3, false, false));
             player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, Integer.MAX_VALUE, 0, false, false));
         }
-        if (to.getItem() == get("nyyyaaaa")) {
+        if (to.getItem() == ItemRegistry.getOrThrow("nyyyaaaa")) {
             enchant(to, net.minecraft.world.item.enchantment.Enchantments.THORNS, 10);
         }
     }
 
     public static void onRemove(Player player, ItemStack from) {
-        if (from.getItem() == get("marine")) {
+        if (from.getItem() == ItemRegistry.getOrThrow("marine")) {
             player.removeEffect(MobEffects.WATER_BREATHING);
             player.removeEffect(MobEffects.DOLPHINS_GRACE);
         }
-        if (from.getItem() == get("medic")) {
+        if (from.getItem() == ItemRegistry.getOrThrow("medic")) {
             player.removeEffect(MobEffects.REGENERATION);
         }
-        if (from.getItem() == get("defender_iii")) {
+        if (from.getItem() == ItemRegistry.getOrThrow("defender_iii")) {
             player.removeEffect(MobEffects.FIRE_RESISTANCE);
         }
-        if (from.getItem() == get("concord")) {
+        if (from.getItem() == ItemRegistry.getOrThrow("concord")) {
             player.removeEffect(MobEffects.FIRE_RESISTANCE);
         }
-        if (from.getItem() == get("horse")) {
+        if (from.getItem() == ItemRegistry.getOrThrow("horse")) {
             player.removeEffect(MobEffects.FIRE_RESISTANCE);
         }
-        if (from.getItem() == get("spn")) {
+        if (from.getItem() == ItemRegistry.getOrThrow("spn")) {
             player.removeEffect(MobEffects.FIRE_RESISTANCE);
         }
-        if (from.getItem() == get("atleti")) {
+        if (from.getItem() == ItemRegistry.getOrThrow("atleti")) {
             player.removeEffect(MobEffects.MOVEMENT_SPEED);
             player.removeEffect(MobEffects.FIRE_RESISTANCE);
         }
-        if (from.getItem() == get("concord_h")) {
+        if (from.getItem() == ItemRegistry.getOrThrow("concord_h")) {
             player.removeEffect(MobEffects.REGENERATION);
             player.removeEffect(MobEffects.FIRE_RESISTANCE);
         }
-        if (from.getItem() == get("gpnvg_h")) {
+        if (from.getItem() == ItemRegistry.getOrThrow("gpnvg_h")) {
             player.removeEffect(MobEffects.NIGHT_VISION);
         }
-        if (from.getItem() == get("ghost_h")) {
+        if (from.getItem() == ItemRegistry.getOrThrow("ghost_h")) {
             player.removeEffect(MobEffects.NIGHT_VISION);
             player.removeEffect(MobEffects.FIRE_RESISTANCE);
         }
-        if (from.getItem() == get("killa_h")) {
+        if (from.getItem() == ItemRegistry.getOrThrow("killa_h")) {
             player.removeEffect(MobEffects.FIRE_RESISTANCE);
         }
     }
@@ -161,7 +161,7 @@ public class EffectsManager {
             }
         }
 
-        if (helmet.getItem() == get("gasmask_h")) {
+        if (helmet.getItem() == ItemRegistry.getOrThrow("gasmask_h")) {
             player.removeEffect(MobEffects.POISON);
             player.removeEffect(MobEffects.BLINDNESS);
             player.removeEffect(MobEffects.HUNGER);
@@ -172,9 +172,9 @@ public class EffectsManager {
         }
 
         if (event.side.isServer()) {
-            if (helmet.getItem() == get("medic_h")) {
+            if (helmet.getItem() == ItemRegistry.getOrThrow("medic_h")) {
                 List<Entity> entities = player.level().getEntities(player, player.getBoundingBox().inflate(5));
-                boolean flag = chest.getItem() == get("medic");
+                boolean flag = chest.getItem() == ItemRegistry.getOrThrow("medic");
 
                 for (Entity entity : entities) {
                     if (entity instanceof Player nearbyPlayer) {

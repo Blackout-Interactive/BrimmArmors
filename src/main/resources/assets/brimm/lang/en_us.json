@@ -115,6 +115,8 @@
   "screen.${mod_id}.workbench.section.chestplates": "Chestplates",
   "screen.${mod_id}.workbench.section.helmets": "Helmets",
   
-  "tooltip.${mod_id}.armors.current_patch": "Current patch"
+  "tooltip.${mod_id}.armors.current_patch": "Current patch",
+  
+  "item.${mod_id}.patches_adjuster_debug_patch": "Debug Patch"
   
 }

@@ -46,18 +46,20 @@ public class ItemRegistry {
     private static final ArrayList<RegistryObject<BasicArmor>> armors_tab_content = new ArrayList<>();
     private static final ArrayList<RegistryObject<? extends Item>> misc_tab_content = new ArrayList<>();
 
-    public static RegistryObject<Item> getr(String id) {
+    public static Optional<RegistryObject<Item>> getr(String id) {
         return ITEMS.getEntries().stream()
                 .filter(entry -> entry.getId().getPath().equals(id))
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("No armor found with id: " + id));
+                .findFirst();
     }
-    public static Item get(String id) {
-        return ITEMS.getEntries().stream()
-                .filter(entry -> entry.getId().getPath().equals(id))
-                .map(RegistryObject::get)
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("No armor found with id: " + id));
+    public static Optional<Item> get(String id) {
+    	return getr(id).map(RegistryObject::get);
+    }
+    
+    public static RegistryObject<Item> getrOrThrow(String id) {
+    	return getr(id).orElseThrow(()->new IllegalArgumentException("No registered brimm item with name "+id));
+    }
+    public static Item getOrThrow(String id) {
+    	return get(id).orElseThrow(()->new IllegalArgumentException("No registered brimm item with name "+id));
     }
 
     	public static final RegistryObject<BasicPlate> IRON_PLATE = registerItemAndExecute(
@@ -678,8 +680,9 @@ public class ItemRegistry {
     	    )
     	);
     	
-    	public static final RegistryObject<ArmorPatch> TEST_PATCH = registerItemAndExecute(misc_tab_content::add, "patch_test", //TOREMOVE is a test
-    			()->new ArmorPatch("patch_test"));
+    	public static final RegistryObject<ArmorPatch> DEBUG_PATCH =
+    			registerItemAndExecute(misc_tab_content::add, "patches_adjuster_debug_patch",
+    			()->new ArmorPatch("patches_adjuster_debug_patch"));
     	
     public static final RegistryObject<CreativeModeTab> ARMORS_CREATIVE_TAB = CREATIVE_TABS.register(
     		"armors", () -> CreativeModeTab.builder()

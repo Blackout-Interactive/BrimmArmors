@@ -13,6 +13,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 
@@ -22,10 +23,12 @@ import blackoutInteractive.brimmArmors.BrimmArmors;
 import blackoutInteractive.brimmArmors.client.render.ConcordArmorRender;
 import blackoutInteractive.brimmArmors.common.registries.ItemRegistry;
 import blackoutInteractive.ema_08_.items.SimpleArmorMaterial;
+import blackoutInteractive.ema_08_.rendering.geom.MatrixRTS;
 import blackoutInteractive.ema_08_.rendering.geom.RTSMatricesCompound;
 import blackoutInteractive.ema_08_.rendering.obj.IDefaultObjModelProvider;
 import blackoutInteractive.ema_08_.rendering.obj.ModelType;
 import blackoutInteractive.ema_08_.rendering.overlay.OverlayLocation;
+import blackoutInteractive.ema_08_.rendering.overlay.OverlayPos;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -41,10 +44,12 @@ public class BasicArmor extends ArmorItem implements IDefaultObjModelProvider {
 	private static final ConcurrentHashMap<String, ArmorPatch> patch_cache = new ConcurrentHashMap<>();
 	private static final Function<String, ArmorPatch> cache_computator = (key) -> {
 		var result = ItemRegistry.get(key);
-		if (!(result instanceof ArmorPatch))
-			throw new IllegalArgumentException(key+" is the name of a "+result.getClass().getName()+", not of an armor patch");
+		if (result.isEmpty()) return null;
+		var item = result.get();
+		if (!(item instanceof ArmorPatch))
+			throw new IllegalArgumentException(key+" is the name of a "+item.getClass().getName()+", not of an armor patch");
 		else
-			return (ArmorPatch)result;
+			return (ArmorPatch)item;
 	};
 
     private final ConcordRarity rarity;
@@ -115,8 +120,18 @@ public class BasicArmor extends ArmorItem implements IDefaultObjModelProvider {
 		return this.transformations;
 	}
 	
-	public Collection<OverlayLocation> patchesPositions() {
-		return this.patchesPositions;
+	public Collection<OverlayLocation> patchesPositions(ItemStack is) {
+		if (is.hasTag() && is.getTag().contains("debug-patchPosOverride") && is.getTag().contains("debug-overlayPosOverride")) {
+			int[] matrixSer = is.getTag().getIntArray("debug-patchPosOverride");
+			OverlayPos pos = OverlayPos.values()[is.getTag().getInt("debug-overlayPosOverride")];
+			return List.of(new OverlayLocation(pos, MatrixRTS
+					.getMatrix(Float.intBitsToFloat(matrixSer[0]), Float.intBitsToFloat(matrixSer[1]), Float.intBitsToFloat(matrixSer[2]),
+							   Float.intBitsToFloat(matrixSer[3]), Float.intBitsToFloat(matrixSer[4]), Float.intBitsToFloat(matrixSer[5]),
+							   Float.intBitsToFloat(matrixSer[6]), Float.intBitsToFloat(matrixSer[7]), Float.intBitsToFloat(matrixSer[8]),
+							   false)));
+		} else {
+			return this.patchesPositions;
+		}
 	}
 	
 	public void setPatch(ItemStack is, ArmorPatch patch) {
@@ -129,8 +144,32 @@ public class BasicArmor extends ArmorItem implements IDefaultObjModelProvider {
 	
 	public ArmorPatch getPatch(ItemStack is) {
 		var tag = is.getOrCreateTag();
-		return tag.contains("patch") ?
-				patch_cache.computeIfAbsent(tag.getString("patch"), cache_computator) : null;
+		if (!tag.contains("patch")) return null;
+		var patch = patch_cache.computeIfAbsent(tag.getString("patch"), cache_computator);
+		if (patch == null) {
+			BrimmArmors.LOGGER.warn("Could not retrieve currently set patch named "+tag.getString("patch")+" for "+
+					ForgeRegistries.ITEMS.getKey(is.getItem())+", resetting patch tag.");
+			removePatch(is);
+			return null;
+		} else {
+			return patch;
+		}
+	}
+	
+	public void setPatchesDebugOverride(ItemStack is, MatrixRTS matrix, OverlayPos pos) {
+		int[] matrixSer = new int[] {
+				Float.floatToIntBits(matrix.trX), Float.floatToIntBits(matrix.trY), Float.floatToIntBits(matrix.trZ),
+				Float.floatToIntBits(matrix.rtX), Float.floatToIntBits(matrix.rtY), Float.floatToIntBits(matrix.rtZ),
+				Float.floatToIntBits(matrix.scX), Float.floatToIntBits(matrix.scY), Float.floatToIntBits(matrix.scZ)
+				
+		};
+		is.getOrCreateTag().putIntArray("debug-patchPosOverride", matrixSer);
+		is.getOrCreateTag().putInt("debug-overlayPosOverride", pos.ordinal());
+	}
+	
+	public void removePatchesDebugOverride(ItemStack is) {
+		is.getOrCreateTag().remove("debug-patchPosOverride");
+		is.getOrCreateTag().remove("debug-overlayPosOverride");
 	}
 	
 }

@@ -28,7 +28,8 @@ import net.minecraft.world.item.ItemStack;
 public class PatchesAdjusterScreen extends Screen {
 
     private static final Vector3f lightDir = new Vector3f(0.0F, 0.0F, 1.0F);
-
+    private static final float TRANSLATE_BOUND = 500f;
+    
     private final String armorItemName;
     private final OverlayPos op;
     private LivingEntity dummyEntity;
@@ -43,9 +44,6 @@ public class PatchesAdjusterScreen extends Screen {
 
     private float translateX = 0f;
     private float translateY = 0f;
-
-    private final float TRANSLATE_BOUND_X = 500f;
-    private final float TRANSLATE_BOUND_Y = 500f;
 
     private final float[] matrix = new float[9];
     private EditBox[] matrixFields = new EditBox[9];
@@ -189,15 +187,16 @@ public class PatchesAdjusterScreen extends Screen {
         if (!this.dragging) return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
 
         if (button == 0) {
-            this.rotationY += dragX * 0.1f;
-            this.rotationX += dragY * 0.1f;
+            this.rotationY += dragX * 0.125f;
+            this.rotationX += dragY * 0.125f;
             this.rotationX = Mth.clamp(this.rotationX, -90, 90);
             return true;
         } else if (button == 1) {
             this.translateX += dragX;
             this.translateY += dragY;
-            this.translateX = Mth.clamp(this.translateX, -this.TRANSLATE_BOUND_X, this.TRANSLATE_BOUND_X);
-            this.translateY = Mth.clamp(this.translateY, -this.TRANSLATE_BOUND_Y, this.TRANSLATE_BOUND_Y);
+            double bound = translBound();
+            this.translateX = (float) Mth.clamp(this.translateX, -bound, bound);
+            this.translateY = (float) Mth.clamp(this.translateY, -bound, bound);
             return true;
         }
 
@@ -232,6 +231,10 @@ public class PatchesAdjusterScreen extends Screen {
         guig.pose().popPose();
 
         super.render(guig, mouseX, mouseY, partialTicks);
+    }
+    
+    private double translBound() {
+    	return TRANSLATE_BOUND * this.scale * 0.5;
     }
 
     private static void renderEntityOnScreen(PoseStack poseStack, int posX, int posY, float scale,

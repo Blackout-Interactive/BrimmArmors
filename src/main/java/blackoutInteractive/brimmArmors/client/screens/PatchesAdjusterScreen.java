@@ -138,7 +138,12 @@ public class PatchesAdjusterScreen extends Screen {
         try {
             this.matrix[index] = Float.parseFloat(value);
             this.isMatrixUpToDate = false;
-        } catch (NumberFormatException ignored) {}
+        } catch (NumberFormatException ignored) {
+        	if (value != null && !value.isEmpty() && !value.equals(":"))
+        		this.mc.player.sendSystemMessage(
+        			Component.literal("Invalid value '"+value+"': not a number.")	
+        		);
+        }
     }
 
     private void updatePatchMatrix() {
@@ -286,5 +291,7 @@ public class PatchesAdjusterScreen extends Screen {
             int color = isMatrixUpToDate ? 0xFF00FF00 : 0xFFFF0000;
             guig.drawCenteredString(font, this.getMessage(), this.x + this.width / 2, this.y + (this.height - 8) / 2, color);
         }
+        
     }
+    
 }

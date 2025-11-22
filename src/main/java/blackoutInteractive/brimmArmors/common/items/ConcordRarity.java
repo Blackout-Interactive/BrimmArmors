@@ -19,7 +19,8 @@ public enum ConcordRarity {
         this.name = name;
     }
     
-    public String applyFormatting(String in) { return this.color+in; }   
+    public String applyFormatting(String in) { return this.color+in; }
+    
     public static ConcordRarity fromName(String name) {
     	return Arrays.stream(values()).filter((v)->v.name.equals(name)).findFirst().orElse(null);
     }

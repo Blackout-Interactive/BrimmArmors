@@ -13,7 +13,9 @@ public enum CraftSection {
 	
 	CHESTPLATES("chestplates"),
 	
-	PLATES("plates");
+	PLATES("plates"),
+	
+	PATCHES("patches");
 	
 	public static CraftSection ofArmor(ArmorItem.Type type) {
 		  Objects.requireNonNull(type);

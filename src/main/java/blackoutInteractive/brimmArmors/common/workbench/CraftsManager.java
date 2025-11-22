@@ -13,7 +13,7 @@ public class CraftsManager {
 	
 	private static final Map<CraftSection, List<CraftBuilder>> builders = new HashMap<>();
 	private static final List<CraftSection> orderedSections = List.of(
-			CraftSection.PLATES, CraftSection.CHESTPLATES, CraftSection.HELMETS
+			CraftSection.PLATES, CraftSection.CHESTPLATES, CraftSection.HELMETS, CraftSection.PATCHES
 		);
 	
 	static {
@@ -25,7 +25,8 @@ public class CraftsManager {
 	
 	public static void register(CraftBuilder builder, CraftSection section) {
 		if (built != null) throw new IllegalStateException("Crafts already built");
-		builders.get(Objects.requireNonNull(section)).add(Objects.requireNonNull(builder));
+		Objects.requireNonNull(builders.get(Objects.requireNonNull(section)), "Missing section list: "+section)
+			.add(Objects.requireNonNull(builder));
 	}
 	
 	public static void buildAll() {

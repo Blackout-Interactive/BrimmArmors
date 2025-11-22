@@ -61,7 +61,7 @@ public class ItemRegistry {
     }
     
     @Deprecated
-    public static Item getOrThrow(String id) {
+    public static Item getOrThrow(String id) { 
     	return get(id).orElseThrow(()->new IllegalArgumentException("No registered brimm item with name "+id));
     }
 

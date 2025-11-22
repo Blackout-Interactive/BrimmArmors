@@ -55,35 +55,35 @@ public class ItemRegistry {
     	return getr(id).map(RegistryObject::get);
     }
     
+    @Deprecated
     public static RegistryObject<Item> getrOrThrow(String id) {
     	return getr(id).orElseThrow(()->new IllegalArgumentException("No registered brimm item with name "+id));
     }
+    
+    @Deprecated
     public static Item getOrThrow(String id) {
     	return get(id).orElseThrow(()->new IllegalArgumentException("No registered brimm item with name "+id));
     }
 
     	public static final RegistryObject<BasicPlate> IRON_PLATE = registerItemAndExecute(
-    		(res)->{CraftsManager.register(new CraftBuilder(res::get)
-    				.addIngredient(ig(Items.IRON_INGOT, 5)),
-    				CraftSection.PLATES
-    			); misc_tab_content.add(res);},
+    		addTabAndSetCraft(misc_tab_content, CraftSection.PLATES,
+    			ig(Items.IRON_INGOT, 5)
+    		),
     		"iron_plate", () -> new BasicPlate(ConcordRarity.COMMON));
     
     	public static final RegistryObject<BasicPlate> DIAMOND_PLATE = registerItemAndExecute(
-    		(res)->{CraftsManager.register(new CraftBuilder(res::get)
-    				.addIngredient(ig(Items.IRON_INGOT, 10))
-    				.addIngredient(ig(Items.DIAMOND, 5)),
-    				CraftSection.PLATES
-    			); misc_tab_content.add(res);},
+    		addTabAndSetCraft(misc_tab_content, CraftSection.PLATES,
+    			ig(Items.IRON_INGOT, 10),
+    			ig(Items.DIAMOND, 5)
+    		),
     		"diamond_plate", () -> new BasicPlate(ConcordRarity.RARE));
     
     	public static final RegistryObject<BasicPlate> NETHER_PLATE = registerItemAndExecute(
-    		(res)->{CraftsManager.register(new CraftBuilder(res::get)
-    				.addIngredient(ig(Items.IRON_INGOT, 10))
-    				.addIngredient(ig(Items.DIAMOND, 10))
-    				.addIngredient(ig(Items.NETHERITE_INGOT, 1)),
-    				CraftSection.PLATES
-    			); misc_tab_content.add(res);},
+    		addTabAndSetCraft(misc_tab_content, CraftSection.PLATES,
+    			ig(Items.IRON_INGOT, 10),
+    			ig(Items.DIAMOND, 10),
+    			ig(Items.NETHERITE_INGOT, 1)
+    		),
     		"nether_plate", () -> new BasicPlate(ConcordRarity.EPIC));
     
 		public static final RegistryObject<BasicArmor> RATNIK = registerItemAndExecute(

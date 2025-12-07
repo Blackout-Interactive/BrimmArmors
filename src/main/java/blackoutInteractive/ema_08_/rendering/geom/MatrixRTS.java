@@ -114,11 +114,7 @@ public abstract class MatrixRTS {
                                boolean pooled) {
             super(trX, trY, trZ, rtX, rtY, rtZ, scX, scY, scZ);
             this.rot = pooled ? RotQuaternionPool.retrieve(rtX, rtY, rtZ) : 
-            	new Quaternionf().rotateXYZ(
-                        (float)Math.toRadians(rtX),
-                        (float)Math.toRadians(rtY),
-                        (float)Math.toRadians(rtZ)
-                    );
+            	RotQuaternionPool.computeIndependent0(rtX, rtY, rtZ);
         }
     }
 

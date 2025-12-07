@@ -9,7 +9,7 @@ public class RotQuaternionPool {
 	private static final ConcurrentHashMap<Long, Quaternionf> CACHE_POOL = new ConcurrentHashMap<>();
 	
 	private static float roundf(float f) {
-		return Math.round(f * 1000f) / 1000f;
+		return Math.round(f * 10000f) / 10000f;
 	}
 	
 	private static long hash(float rrotX,  float rrotY, float rrotZ) {
@@ -32,11 +32,14 @@ public class RotQuaternionPool {
 			rrotX = roundf(rotX),
 			rrotY = roundf(rotY),
 			rrotZ = roundf(rotZ);
-		return CACHE_POOL.computeIfAbsent(hash(rrotX, rrotY, rrotZ), (key)->new Quaternionf().rotateXYZ(
-                (float)Math.toRadians(rrotX),
-                (float)Math.toRadians(rrotY),
-                (float)Math.toRadians(rrotZ)
-            ));
+		return CACHE_POOL.computeIfAbsent(hash(rrotX, rrotY, rrotZ), (key)->computeIndependent0(rrotX, rrotY, rrotZ));
+	}
+	
+	protected static Quaternionf computeIndependent0(float rotX, float rotY, float rotZ) {
+		Quaternionf qy = new Quaternionf().rotationY((float)Math.toRadians(rotY));
+		Quaternionf qx = new Quaternionf().rotationX((float)Math.toRadians(rotX));
+		Quaternionf qz = new Quaternionf().rotationZ((float)Math.toRadians(rotZ));
+		return new Quaternionf(qz).mul(qx).mul(qy);
 	}
 	
 	public static void freeAll() {

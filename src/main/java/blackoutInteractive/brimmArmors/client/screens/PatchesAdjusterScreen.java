@@ -7,7 +7,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 
-import blackoutInteractive.brimmArmors.common.items.BasicArmor;
+import blackoutInteractive.brimmArmors.common.items.BrimmArmor;
 import blackoutInteractive.brimmArmors.common.registries.ItemRegistry;
 import blackoutInteractive.ema_08_.rendering.geom.MatrixRTS;
 import blackoutInteractive.ema_08_.rendering.overlay.OverlayPos;
@@ -68,7 +68,7 @@ public class PatchesAdjusterScreen extends Screen {
         this.dummyEntity.setNoGravity(true);
 
         var item = ItemRegistry.getOrThrow(this.armorItemName);
-        if (!(item instanceof BasicArmor armorItem)) return;
+        if (!(item instanceof BrimmArmor armorItem)) return;
 
         this.wornArmor = new ItemStack(item);
         armorItem.setPatch(this.wornArmor, ItemRegistry.DEBUG_PATCH.get());
@@ -145,7 +145,7 @@ public class PatchesAdjusterScreen extends Screen {
     }
 
     private void updatePatchMatrix() {
-        if (!(this.wornArmor.getItem() instanceof BasicArmor armor))
+        if (!(this.wornArmor.getItem() instanceof BrimmArmor armor))
             throw new IllegalStateException("Expected BasicArmor, got " + this.wornArmor.getItem().getClass().getSimpleName());
 
         MatrixRTS mat = MatrixRTS.getMatrix(

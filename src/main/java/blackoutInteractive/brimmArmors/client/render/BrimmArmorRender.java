@@ -6,7 +6,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
 import blackoutInteractive.brimmArmors.common.items.ArmorPatch;
-import blackoutInteractive.brimmArmors.common.items.BasicArmor;
+import blackoutInteractive.brimmArmors.common.items.BrimmArmor;
 import blackoutInteractive.ema_08_.rendering.geom.RTSMatricesCompound;
 import blackoutInteractive.ema_08_.rendering.obj.ModelType;
 import blackoutInteractive.ema_08_.rendering.obj.ObjsManager;
@@ -19,14 +19,14 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 
-public class ConcordArmorRender extends HumanoidModel<LivingEntity> {
+public class BrimmArmorRender extends HumanoidModel<LivingEntity> {
 
-    protected final BasicArmor armor;
+    protected final BrimmArmor armor;
     protected final ItemStack is;
 
-    public ConcordArmorRender(ModelPart root, ItemStack stack) {
+    public BrimmArmorRender(ModelPart root, ItemStack stack) {
         super(root);
-        this.armor = (BasicArmor) stack.getItem();
+        this.armor = (BrimmArmor) stack.getItem();
         this.is = stack;
     }
 

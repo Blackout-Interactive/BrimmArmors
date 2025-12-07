@@ -10,7 +10,7 @@ import java.util.Optional;
 import java.util.function.Function;
 
 import blackoutInteractive.brimmArmors.BrimmArmors;
-import blackoutInteractive.brimmArmors.common.items.ConcordRarity;
+import blackoutInteractive.brimmArmors.common.items.BrimmRarity;
 import blackoutInteractive.ema_08_.parsing.TrivialDomReader;
 import net.minecraftforge.fml.loading.FMLPaths;
 
@@ -49,14 +49,14 @@ public class ConfigsManager {
 									parseIntFromXml(xml, TAGS_DEFENSE, 0, 20, false),
 									parseIntFromXml(xml, TAGS_DURABILITY, 0, 5001, true)
 								);
-							Optional<ConcordRarity> rarityOverride = mapOptional(
+							Optional<BrimmRarity> rarityOverride = mapOptional(
 									parseStringFromXml(xml, TAGS_RARITY, (s)->{
-										if (ConcordRarity.fromName(s) == null)
+										if (BrimmRarity.fromName(s) == null)
 											return "no such rarity as '"+s+"'";
 										else
 											return null;
 									}),
-									ConcordRarity::fromName);
+									BrimmRarity::fromName);
 							String name = file.getName().replace(".xml", "");
 							ArmorConfig config = new ArmorConfig(materialOverride, rarityOverride);
 							digest.update(hashTrailOf(config));
@@ -183,7 +183,7 @@ public class ConfigsManager {
 	                .map(Object::toString)
 	                .orElse("null")).append('|');
 	    }
-	    Optional<ConcordRarity> rarityOpt = config.rarityOverride();
+	    Optional<BrimmRarity> rarityOpt = config.rarityOverride();
 	    if (rarityOpt == null || rarityOpt.isEmpty()) {
 	        sb.append("null");
 	    } else {

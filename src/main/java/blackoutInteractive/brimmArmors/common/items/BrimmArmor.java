@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 import org.jetbrains.annotations.NotNull;
 
 import blackoutInteractive.brimmArmors.BrimmArmors;
-import blackoutInteractive.brimmArmors.client.render.ConcordArmorRender;
+import blackoutInteractive.brimmArmors.client.render.BrimmArmorRender;
 import blackoutInteractive.brimmArmors.common.registries.ItemRegistry;
 import blackoutInteractive.ema_08_.items.SimpleArmorMaterial;
 import blackoutInteractive.ema_08_.rendering.geom.MatrixRTS;
@@ -39,7 +39,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public class BasicArmor extends ArmorItem implements IDefaultObjModelProvider {
+public class BrimmArmor extends ArmorItem implements IDefaultObjModelProvider {
 	
 	private static final ConcurrentHashMap<String, ArmorPatch> patch_cache = new ConcurrentHashMap<>();
 	private static final Function<String, ArmorPatch> cache_computator = (key) -> {
@@ -52,13 +52,13 @@ public class BasicArmor extends ArmorItem implements IDefaultObjModelProvider {
 			return (ArmorPatch)item;
 	};
 
-    private final ConcordRarity rarity;
+    private final BrimmRarity rarity;
     private final String unlocName;
     private final ModelType modelType;
     private final RTSMatricesCompound transformations;
     private final Collection<OverlayLocation> patchesPositions;
 
-    public BasicArmor(String unlocName, ArmorItem.Type type, ConcordRarity rarity, SimpleArmorMaterial material,
+    public BrimmArmor(String unlocName, ArmorItem.Type type, BrimmRarity rarity, SimpleArmorMaterial material,
     		RTSMatricesCompound transformations, Collection<OverlayLocation> patchesPositions) {
         super(material, type, new Properties().durability(material.durabilityValue()));
         this.rarity = rarity;
@@ -99,7 +99,7 @@ public class BasicArmor extends ArmorItem implements IDefaultObjModelProvider {
             				 "left_arm", defaultModel.leftArm,
             				 "right_leg", defaultModel.rightLeg,
             				 "left_leg", defaultModel.leftLeg));
-              return new ConcordArmorRender(root, stack);
+              return new BrimmArmorRender(root, stack);
             }
           }
       );

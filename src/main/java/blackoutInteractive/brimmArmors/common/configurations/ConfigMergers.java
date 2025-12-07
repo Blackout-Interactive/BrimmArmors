@@ -2,7 +2,7 @@ package blackoutInteractive.brimmArmors.common.configurations;
 
 import java.util.Optional;
 
-import blackoutInteractive.brimmArmors.common.items.ConcordRarity;
+import blackoutInteractive.brimmArmors.common.items.BrimmRarity;
 import blackoutInteractive.ema_08_.items.SimpleArmorMaterial;
 import net.minecraft.world.item.ArmorItem;
 
@@ -23,7 +23,7 @@ public class ConfigMergers {
 			);
 	}
 	
-	public static ConcordRarity mergeRarity(ConcordRarity rarity, Optional<ConcordRarity> override) {
+	public static BrimmRarity mergeRarity(BrimmRarity rarity, Optional<BrimmRarity> override) {
 		override = override == null ? Optional.empty() : override;
 		return override.orElse(rarity);
 	}

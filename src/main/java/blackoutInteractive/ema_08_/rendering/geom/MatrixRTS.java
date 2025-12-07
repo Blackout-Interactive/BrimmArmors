@@ -11,16 +11,19 @@ public abstract class MatrixRTS {
 	
 	/*
 	 * Note:
-	 * up to commit BlackoutInteractive/BrimmArmors/1.20.1 07a6d7e the
-	 * matrices stack operations oder was:
+	 * Up to commit BlackoutInteractive/BrimmArmors/1.20.1 07a6d7e the
+	 * matrices stack operations order was:
 	 * - ROT;
 	 * - SCA;
 	 * - TRA.
-	 * Since the next commit it will be
+	 * Since the next commit it is:
 	 * - TRA;
 	 * - ROT;
 	 * - SCA.
 	 * Thus, older matrices indeed need to be adjusted.
+	 * 
+	 * Since commit BlackoutInteractive/BrimmArmors/1.20.1 244583e all
+	 * previous matrices should have been adjusted properly.
 	 */
 	
 	public static final MatrixRTS IDENTITY =

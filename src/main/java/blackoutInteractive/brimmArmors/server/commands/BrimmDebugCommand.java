@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import com.mojang.brigadier.arguments.StringArgumentType;
 
 import blackoutInteractive.brimmArmors.BrimmArmors;
-import blackoutInteractive.brimmArmors.common.items.BasicArmor;
+import blackoutInteractive.brimmArmors.common.items.BrimmArmor;
 import blackoutInteractive.brimmArmors.common.packets.PatchesAdjusterDebugPacket;
 import blackoutInteractive.brimmArmors.common.registries.ItemRegistry;
 import blackoutInteractive.ema_08_.birgadierWrapper.CommandBuilder;
@@ -45,7 +45,7 @@ public static final String LITERAL = "brimmDebug";
 							return 0;
 						}
 						Item armor = ItemRegistry.get(armorItemName).orElse(null);
-						if (armor != null && armor instanceof BasicArmor) {
+						if (armor != null && armor instanceof BrimmArmor) {
 							ctx.getSource().sendSuccess(
 									()->Component.literal("Intialising patch adjuster for "+armorItemName+" armor."), false);
 							BrimmArmors.network.sendTo(new PatchesAdjusterDebugPacket(armorItemName, op),

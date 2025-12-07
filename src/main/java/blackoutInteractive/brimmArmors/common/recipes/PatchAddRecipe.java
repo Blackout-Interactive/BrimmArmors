@@ -1,7 +1,8 @@
 package blackoutInteractive.brimmArmors.common.recipes;
 
 import blackoutInteractive.brimmArmors.common.items.ArmorPatch;
-import blackoutInteractive.brimmArmors.common.items.BasicArmor;
+import blackoutInteractive.brimmArmors.common.items.BrimmArmor;
+import blackoutInteractive.brimmArmors.common.registries.RecipeSerializersRegistry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.CraftingContainer;
@@ -25,7 +26,7 @@ public class PatchAddRecipe extends CustomRecipe {
         for (int i = 0; i < inv.getContainerSize(); i++) {
             ItemStack stack = inv.getItem(i);
             if (stack.isEmpty()) continue;
-            if (stack.getItem() instanceof BasicArmor basic) {
+            if (stack.getItem() instanceof BrimmArmor basic) {
                 if (!armor.isEmpty()) return false;
                 if (basic.getPatch(stack) != null) return false;
                 armor = stack;
@@ -47,14 +48,14 @@ public class PatchAddRecipe extends CustomRecipe {
 
         for (int i = 0; i < inv.getContainerSize(); i++) {
             ItemStack stack = inv.getItem(i);
-            if (stack.getItem() instanceof BasicArmor) armor = stack;
+            if (stack.getItem() instanceof BrimmArmor) armor = stack;
             if (stack.getItem() instanceof ArmorPatch) patchItem = (ArmorPatch) stack.getItem();
         }
 
         if (armor.isEmpty() || patchItem == null) return ItemStack.EMPTY;
 
         ItemStack result = armor.copy();
-        ((BasicArmor) armor.getItem()).setPatch(result, patchItem);
+        ((BrimmArmor) armor.getItem()).setPatch(result, patchItem);
         return result;
     }
 
@@ -65,6 +66,6 @@ public class PatchAddRecipe extends CustomRecipe {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return RecipeSerializers.PATCH_ADD.get();
+        return RecipeSerializersRegistry.PATCH_ADD.get();
     }
 }

@@ -27,9 +27,9 @@ import blackoutInteractive.brimmArmors.common.configurations.ConfigsManager;
 import blackoutInteractive.brimmArmors.common.packets.ConfigCheckPacket;
 import blackoutInteractive.brimmArmors.common.packets.CraftPacket;
 import blackoutInteractive.brimmArmors.common.packets.PatchesAdjusterDebugPacket;
-import blackoutInteractive.brimmArmors.common.recipes.RecipeSerializers;
 import blackoutInteractive.brimmArmors.common.registries.BlockRegistry;
 import blackoutInteractive.brimmArmors.common.registries.ItemRegistry;
+import blackoutInteractive.brimmArmors.common.registries.RecipeSerializersRegistry;
 import blackoutInteractive.brimmArmors.common.registries.TileRegistry;
 import blackoutInteractive.brimmArmors.common.workbench.CraftsManager;
 import blackoutInteractive.brimmArmors.server.ServerProxy;
@@ -77,7 +77,7 @@ public class BrimmArmors
          */
         TileRegistry.register(eventBus);
         
-        RecipeSerializers.register(eventBus);
+        RecipeSerializersRegistry.register(eventBus);
 
         eventBus.addListener(this::preInit);
         eventBus.addListener(this::init);

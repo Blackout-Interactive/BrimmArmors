@@ -4,11 +4,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-public class BasicPlate extends Item {
+public class BrimmPlate extends Item {
 
-    private final ConcordRarity rarity;
+    private final BrimmRarity rarity;
 
-    public BasicPlate(ConcordRarity rarity) {
+    public BrimmPlate(BrimmRarity rarity) {
         super(new Properties());
         this.rarity = rarity;
     }

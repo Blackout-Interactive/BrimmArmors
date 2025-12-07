@@ -18,7 +18,7 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.List;
 import java.util.Map;
 
-import blackoutInteractive.brimmArmors.common.items.BasicArmor;
+import blackoutInteractive.brimmArmors.common.items.BrimmArmor;
 import blackoutInteractive.brimmArmors.common.registries.ItemRegistry;
 
 @Mod.EventBusSubscriber
@@ -143,7 +143,7 @@ public class EffectsManager {
         ItemStack chest = inventory.armor.get(2);
         ItemStack carried = player.containerMenu.getCarried();
 
-        if (carried.getItem() instanceof BasicArmor) {
+        if (carried.getItem() instanceof BrimmArmor) {
             Map<Enchantment, Integer> enchants = EnchantmentHelper.getEnchantments(carried);
             if (!enchants.isEmpty()) {
                 enchants.clear();
@@ -152,7 +152,7 @@ public class EffectsManager {
         }
 
         for (ItemStack item : inventory.items) {
-            if (item.getItem() instanceof BasicArmor) {
+            if (item.getItem() instanceof BrimmArmor) {
                 Map<Enchantment, Integer> enchants = EnchantmentHelper.getEnchantments(item);
                 if (!enchants.isEmpty()) {
                     enchants.clear();

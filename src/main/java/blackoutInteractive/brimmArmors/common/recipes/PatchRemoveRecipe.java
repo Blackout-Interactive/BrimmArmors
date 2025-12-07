@@ -1,7 +1,8 @@
 package blackoutInteractive.brimmArmors.common.recipes;
 
 import blackoutInteractive.brimmArmors.common.items.ArmorPatch;
-import blackoutInteractive.brimmArmors.common.items.BasicArmor;
+import blackoutInteractive.brimmArmors.common.items.BrimmArmor;
+import blackoutInteractive.brimmArmors.common.registries.RecipeSerializersRegistry;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
@@ -26,7 +27,7 @@ public class PatchRemoveRecipe extends CustomRecipe {
             ItemStack stack = inv.getItem(i);
             if (stack.isEmpty()) continue;
 
-            if (stack.getItem() instanceof BasicArmor basic) {
+            if (stack.getItem() instanceof BrimmArmor basic) {
                 if (!armor.isEmpty()) return false;
                 if (basic.getPatch(stack) == null) return false;
                 armor = stack;
@@ -45,7 +46,7 @@ public class PatchRemoveRecipe extends CustomRecipe {
 
         for (int i = 0; i < inv.getContainerSize(); i++) {
             ItemStack stack = inv.getItem(i);
-            if (stack.getItem() instanceof BasicArmor basic) {
+            if (stack.getItem() instanceof BrimmArmor basic) {
                 armor = stack;
                 patch = basic.getPatch(stack);
             }
@@ -54,7 +55,7 @@ public class PatchRemoveRecipe extends CustomRecipe {
         if (armor.isEmpty() || patch == null) return ItemStack.EMPTY;
 
         ItemStack resultArmor = armor.copy();
-        ((BasicArmor) armor.getItem()).removePatch(resultArmor);
+        ((BrimmArmor) armor.getItem()).removePatch(resultArmor);
 
         return resultArmor;
     }
@@ -65,7 +66,7 @@ public class PatchRemoveRecipe extends CustomRecipe {
 
         for (int i = 0; i < inv.getContainerSize(); i++) {
             ItemStack stack = inv.getItem(i);
-            if (stack.getItem() instanceof BasicArmor basic) {
+            if (stack.getItem() instanceof BrimmArmor basic) {
                 ArmorPatch patch = basic.getPatch(stack);
                 if (patch != null) {
                     remaining.set(i, new ItemStack(patch));
@@ -83,6 +84,6 @@ public class PatchRemoveRecipe extends CustomRecipe {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return RecipeSerializers.PATCH_REMOVE.get();
+        return RecipeSerializersRegistry.PATCH_REMOVE.get();
     }
 }

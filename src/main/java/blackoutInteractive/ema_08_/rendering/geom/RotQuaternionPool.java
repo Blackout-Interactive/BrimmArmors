@@ -36,10 +36,9 @@ public class RotQuaternionPool {
 	}
 	
 	protected static Quaternionf computeIndependent0(float rotX, float rotY, float rotZ) {
-		Quaternionf qy = new Quaternionf().rotationY((float)Math.toRadians(rotY));
-		Quaternionf qx = new Quaternionf().rotationX((float)Math.toRadians(rotX));
-		Quaternionf qz = new Quaternionf().rotationZ((float)Math.toRadians(rotZ));
-		return new Quaternionf(qz).mul(qx).mul(qy);
+		return new Quaternionf(new Quaternionf().rotationZ((float)Math.toRadians(rotZ)))
+				.mul(new Quaternionf().rotationX((float)Math.toRadians(rotX)))
+				.mul(new Quaternionf().rotationY((float)Math.toRadians(rotY)));
 	}
 	
 	public static void freeAll() {

@@ -11,9 +11,9 @@ import blackoutInteractive.brimmArmors.common.configurations.ArmorConfig;
 import blackoutInteractive.brimmArmors.common.configurations.ConfigMergers;
 import blackoutInteractive.brimmArmors.common.configurations.ConfigsManager;
 import blackoutInteractive.brimmArmors.common.items.ArmorPatch;
-import blackoutInteractive.brimmArmors.common.items.BasicArmor;
-import blackoutInteractive.brimmArmors.common.items.BasicPlate;
-import blackoutInteractive.brimmArmors.common.items.ConcordRarity;
+import blackoutInteractive.brimmArmors.common.items.BrimmArmor;
+import blackoutInteractive.brimmArmors.common.items.BrimmPlate;
+import blackoutInteractive.brimmArmors.common.items.BrimmRarity;
 import blackoutInteractive.brimmArmors.common.workbench.CraftBuilder;
 import blackoutInteractive.brimmArmors.common.workbench.CraftSection;
 import blackoutInteractive.brimmArmors.common.workbench.CraftsManager;
@@ -63,28 +63,28 @@ public class ItemRegistry {
     	return get(id).orElseThrow(()->new IllegalArgumentException("No registered brimm item with name "+id));
     }
 
-    	public static final RegistryObject<BasicPlate> IRON_PLATE = registerItemAndExecute(
+    	public static final RegistryObject<BrimmPlate> IRON_PLATE = registerItemAndExecute(
     		addTabAndSetCraft(misc_tab_content, CraftSection.PLATES,
     			ig(Items.IRON_INGOT, 5)
     		),
-    		"iron_plate", () -> new BasicPlate(ConcordRarity.COMMON));
+    		"iron_plate", () -> new BrimmPlate(BrimmRarity.COMMON));
     
-    	public static final RegistryObject<BasicPlate> DIAMOND_PLATE = registerItemAndExecute(
+    	public static final RegistryObject<BrimmPlate> DIAMOND_PLATE = registerItemAndExecute(
     		addTabAndSetCraft(misc_tab_content, CraftSection.PLATES,
     			ig(Items.IRON_INGOT, 10),
     			ig(Items.DIAMOND, 5)
     		),
-    		"diamond_plate", () -> new BasicPlate(ConcordRarity.RARE));
+    		"diamond_plate", () -> new BrimmPlate(BrimmRarity.RARE));
     
-    	public static final RegistryObject<BasicPlate> NETHER_PLATE = registerItemAndExecute(
+    	public static final RegistryObject<BrimmPlate> NETHER_PLATE = registerItemAndExecute(
     		addTabAndSetCraft(misc_tab_content, CraftSection.PLATES,
     			ig(Items.IRON_INGOT, 10),
     			ig(Items.DIAMOND, 10),
     			ig(Items.NETHERITE_INGOT, 1)
     		),
-    		"nether_plate", () -> new BasicPlate(ConcordRarity.EPIC));
+    		"nether_plate", () -> new BrimmPlate(BrimmRarity.EPIC));
     
-		public static final RegistryObject<BasicArmor> RATNIK = registerItemAndExecute(
+		public static final RegistryObject<BrimmArmor> RATNIK = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
         			ig(IRON_PLATE, 3),
         			ig(Items.LEATHER, 1)
@@ -93,7 +93,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "ratnik",
     	        ArmorItem.Type.CHESTPLATE,
-    	        ConcordRarity.COMMON,
+    	        BrimmRarity.COMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -101,7 +101,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> RATNIK_ADVANCE = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> RATNIK_ADVANCE = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
             		ig(RATNIK, 1),
             		ig(Items.LEATHER, 5)
@@ -110,7 +110,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "ratnik_advance",
     	        ArmorItem.Type.CHESTPLATE,
-    	        ConcordRarity.UNCOMMON,
+    	        BrimmRarity.UNCOMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -118,7 +118,7 @@ public class ItemRegistry {
     	    )
     	);
     	
-    	public static final RegistryObject<BasicArmor> DEFENDER = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> DEFENDER = registerItemAndExecute(
         	addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
                 	ig(IRON_PLATE, 2),
                 	ig(Items.LEATHER, 5)
@@ -127,7 +127,7 @@ public class ItemRegistry {
         	generateArmorSupplier(
         	    "defender",
         	    ArmorItem.Type.CHESTPLATE,
-        	    ConcordRarity.COMMON,
+        	    BrimmRarity.COMMON,
         	    newRTSMComp()
         	.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
         	.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -135,7 +135,7 @@ public class ItemRegistry {
         	)
         );
 
-        public static final RegistryObject<BasicArmor> DEFENDER_II = registerItemAndExecute(
+        public static final RegistryObject<BrimmArmor> DEFENDER_II = registerItemAndExecute(
         	addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
                 	ig(DEFENDER, 1),
                 	ig(Items.LEATHER, 5)
@@ -144,7 +144,7 @@ public class ItemRegistry {
         	generateArmorSupplier(
         	    "defender_ii",
         	    ArmorItem.Type.CHESTPLATE,
-        	    ConcordRarity.UNCOMMON,
+        	    BrimmRarity.UNCOMMON,
         	    newRTSMComp()
         	.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
         	.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -152,7 +152,7 @@ public class ItemRegistry {
         	)
         );
 
-        public static final RegistryObject<BasicArmor> DEFENDER_III = registerItemAndExecute(
+        public static final RegistryObject<BrimmArmor> DEFENDER_III = registerItemAndExecute(
         	addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
                     ig(DEFENDER_II, 1),
                     ig(Items.LEATHER, 5)
@@ -161,7 +161,7 @@ public class ItemRegistry {
         	generateArmorSupplier(
         	    "defender_iii",
         	    ArmorItem.Type.CHESTPLATE,
-        	    ConcordRarity.RARE,
+        	    BrimmRarity.RARE,
         	    newRTSMComp()
         	.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
         	.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -169,7 +169,7 @@ public class ItemRegistry {
         	)
         );
     
-        public static final RegistryObject<BasicArmor> NATO = registerItemAndExecute(
+        public static final RegistryObject<BrimmArmor> NATO = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
             		ig(RATNIK, 1),
             		ig(DIAMOND_PLATE, 2),
@@ -180,7 +180,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "nato",
     	        ArmorItem.Type.CHESTPLATE,
-    	        ConcordRarity.COMMON,
+    	        BrimmRarity.COMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -188,7 +188,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> NATO_II = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> NATO_II = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
                 	ig(NATO, 1),
                 	ig(Items.LEATHER, 5)
@@ -197,7 +197,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "nato_ii",
     	        ArmorItem.Type.CHESTPLATE,
-    	        ConcordRarity.UNCOMMON,
+    	        BrimmRarity.UNCOMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -205,7 +205,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> MARINE = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> MARINE = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
                     ig(DEFENDER, 1),
                     ig(NETHER_PLATE, 3),
@@ -215,7 +215,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "marine",
     	        ArmorItem.Type.CHESTPLATE,
-    	        ConcordRarity.RARE,
+    	        BrimmRarity.RARE,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -223,7 +223,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> VANDERER = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> VANDERER = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
                     ig(DEFENDER, 1),
                     ig(DIAMOND_PLATE, 2),
@@ -233,7 +233,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "vanderer",
     	        ArmorItem.Type.CHESTPLATE,
-    	        ConcordRarity.EPIC,
+    	        BrimmRarity.EPIC,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -241,7 +241,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> GUARD = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> GUARD = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
                     ig(DEFENDER, 1),
                     ig(NETHER_PLATE, 3),
@@ -251,7 +251,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "guard",
     	        ArmorItem.Type.CHESTPLATE,
-    	        ConcordRarity.RARE,
+    	        BrimmRarity.RARE,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -259,7 +259,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> SAPER = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> SAPER = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
                     ig(RATNIK, 1),
                     ig(DIAMOND_PLATE, 2),
@@ -269,7 +269,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "saper",
     	        ArmorItem.Type.CHESTPLATE,
-    	        ConcordRarity.EPIC,
+    	        BrimmRarity.EPIC,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -277,7 +277,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> CONCORD = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> CONCORD = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
                     ig(DEFENDER, 1),
                     ig(NETHER_PLATE, 3),
@@ -287,7 +287,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "concord",
     	        ArmorItem.Type.CHESTPLATE,
-    	        ConcordRarity.EPIC,
+    	        BrimmRarity.EPIC,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -295,7 +295,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> MEDIC = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> MEDIC = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
                     ig(DEFENDER, 1),
                     ig(DIAMOND_PLATE, 2),
@@ -305,7 +305,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "medic",
     	        ArmorItem.Type.CHESTPLATE,
-    	        ConcordRarity.EPIC,
+    	        BrimmRarity.EPIC,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -313,7 +313,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> PMC = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> PMC = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
                 	ig(RATNIK, 1),
                 	ig(DIAMOND_PLATE, 2),
@@ -323,7 +323,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "pmc",
     	        ArmorItem.Type.CHESTPLATE,
-    	        ConcordRarity.COMMON,
+    	        BrimmRarity.COMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -331,7 +331,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> ASSAULT = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> ASSAULT = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
                     ig(PMC, 1),
                     ig(NETHER_PLATE, 2),
@@ -341,7 +341,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "assault",
     	        ArmorItem.Type.CHESTPLATE,
-    	        ConcordRarity.UNCOMMON,
+    	        BrimmRarity.UNCOMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -349,7 +349,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> SPN = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> SPN = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
                     ig(PMC, 1),
                     ig(NETHER_PLATE, 2),
@@ -359,7 +359,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "spn",
     	        ArmorItem.Type.CHESTPLATE,
-    	        ConcordRarity.RARE,
+    	        BrimmRarity.RARE,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -367,7 +367,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> HORSE = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> HORSE = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
                     ig(PMC, 1),
                     ig(NETHER_PLATE, 2),
@@ -377,7 +377,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "horse",
     	        ArmorItem.Type.CHESTPLATE,
-    	        ConcordRarity.RARE,
+    	        BrimmRarity.RARE,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -385,7 +385,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> ATLETI = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> ATLETI = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
                     ig(RATNIK, 1),
                     ig(DIAMOND_PLATE, 1),
@@ -395,7 +395,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "atleti",
     	        ArmorItem.Type.CHESTPLATE,
-    	        ConcordRarity.EPIC,
+    	        BrimmRarity.EPIC,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -403,7 +403,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> VETERAN = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> VETERAN = registerItemAndExecute(
     	    addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
                     ig(RATNIK_ADVANCE, 1),
                     ig(DIAMOND_PLATE, 2)
@@ -412,7 +412,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "veteran",
     	        ArmorItem.Type.CHESTPLATE,
-    	        ConcordRarity.RARE,
+    	        BrimmRarity.RARE,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -420,7 +420,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> NYYYAAAA = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> NYYYAAAA = registerItemAndExecute(
     	    addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
                     ig(DEFENDER, 1),
                     ig(NETHER_PLATE, 5),
@@ -432,7 +432,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "nyyyaaaa",
     	        ArmorItem.Type.CHESTPLATE,
-    	        ConcordRarity.EPIC,
+    	        BrimmRarity.EPIC,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -440,7 +440,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> BASE_H = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> BASE_H = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
     				ig(Items.IRON_INGOT, 20),
     				ig(Items.LEATHER, 10)
@@ -449,7 +449,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "base_h",
     	        ArmorItem.Type.HELMET,
-    	        ConcordRarity.COMMON,
+    	        BrimmRarity.COMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -457,7 +457,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> GASMASK_H = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> GASMASK_H = registerItemAndExecute(
         	addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
                 	ig(BASE_H, 1),
                 	ig(Items.IRON_INGOT, 30),
@@ -468,7 +468,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "gasmask_h",
     	        ArmorItem.Type.HELMET,
-    	        ConcordRarity.UNCOMMON,
+    	        BrimmRarity.UNCOMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -476,7 +476,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> ASSAULT_H = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> ASSAULT_H = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
             		ig(BASE_H, 1),
             		ig(Items.IRON_INGOT, 30),
@@ -487,7 +487,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "assault_h",
     	        ArmorItem.Type.HELMET,
-    	        ConcordRarity.UNCOMMON,
+    	        BrimmRarity.UNCOMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -495,7 +495,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> MEDIC_H = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> MEDIC_H = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
                     ig(ASSAULT_H, 1),
                     ig(Items.LEATHER, 5),
@@ -505,7 +505,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "medic_h",
     	        ArmorItem.Type.HELMET,
-    	        ConcordRarity.RARE,
+    	        BrimmRarity.RARE,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -513,7 +513,7 @@ public class ItemRegistry {
     	    )
     	);
     	
-    	public static final RegistryObject<BasicArmor> INFANTRY_H = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> INFANTRY_H = registerItemAndExecute(
         	addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
                     ig(BASE_H, 1),
                     ig(Items.IRON_INGOT, 30),
@@ -524,7 +524,7 @@ public class ItemRegistry {
         	generateArmorSupplier(
         	    "infantry_h",
         	    ArmorItem.Type.HELMET,
-        	    ConcordRarity.COMMON,
+        	    BrimmRarity.COMMON,
         	    newRTSMComp()
         	.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -532,7 +532,7 @@ public class ItemRegistry {
         	)
         );
 
-    	public static final RegistryObject<BasicArmor> CONCORD_H = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> CONCORD_H = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
                     ig(INFANTRY_H, 1),
                     ig(Items.IRON_INGOT, 10),
@@ -543,7 +543,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "concord_h",
     	        ArmorItem.Type.HELMET,
-    	        ConcordRarity.EPIC,
+    	        BrimmRarity.EPIC,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -551,7 +551,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> GPNVG_H = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> GPNVG_H = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
                     ig(ASSAULT_H, 1),
                     ig(Items.IRON_INGOT, 15),
@@ -563,7 +563,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "gpnvg_h",
     	        ArmorItem.Type.HELMET,
-    	        ConcordRarity.RARE,
+    	        BrimmRarity.RARE,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -571,7 +571,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> GHOST_H = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> GHOST_H = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
                     ig(GPNVG_H, 1),
                     ig(Items.SKELETON_SKULL, 1),
@@ -581,7 +581,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "ghost_h",
     	        ArmorItem.Type.HELMET,
-    	        ConcordRarity.EPIC,
+    	        BrimmRarity.EPIC,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -589,7 +589,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> ZCH_H = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> ZCH_H = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
         			ig(Items.IRON_INGOT, 15),
         			ig(Items.LEATHER, 15)
@@ -598,7 +598,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "zch_h",
     	        ArmorItem.Type.HELMET,
-    	        ConcordRarity.COMMON,
+    	        BrimmRarity.COMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -606,7 +606,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> ZABRALO_H = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> ZABRALO_H = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
             		ig(ZCH_H, 1),
             		ig(Items.GLASS_PANE, 10)
@@ -615,7 +615,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "zabralo_h",
     	        ArmorItem.Type.HELMET,
-    	        ConcordRarity.RARE,
+    	        BrimmRarity.RARE,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -623,7 +623,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> KILLA_H = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> KILLA_H = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
                 	ig(ZCH_H, 1),
                 	ig(Items.IRON_INGOT, 30),
@@ -634,7 +634,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "killa_h",
     	        ArmorItem.Type.HELMET,
-    	        ConcordRarity.EPIC,
+    	        BrimmRarity.EPIC,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -642,7 +642,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> MK_II_H = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> MK_II_H = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
             		ig(Items.IRON_INGOT, 15),
             		ig(Items.LEATHER, 5)
@@ -651,7 +651,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "mk_ii_h",
     	        ArmorItem.Type.HELMET,
-    	        ConcordRarity.COMMON,
+    	        BrimmRarity.COMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -659,7 +659,7 @@ public class ItemRegistry {
     	    )
     	);
 
-    	public static final RegistryObject<BasicArmor> SAPER_H = registerItemAndExecute(
+    	public static final RegistryObject<BrimmArmor> SAPER_H = registerItemAndExecute(
     		addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
                 	ig(MK_II_H, 1),
                 	ig(Items.REDSTONE, 10),
@@ -669,7 +669,7 @@ public class ItemRegistry {
     	    generateArmorSupplier(
     	        "saper_h",
     	        ArmorItem.Type.HELMET,
-    	        ConcordRarity.UNCOMMON,
+    	        BrimmRarity.UNCOMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -761,8 +761,8 @@ public class ItemRegistry {
     	return list;
     }
     
-    private static Supplier<BasicArmor> generateArmorSupplier(
-    		final String unlocName, final ArmorItem.Type type, final ConcordRarity rarity,
+    private static Supplier<BrimmArmor> generateArmorSupplier(
+    		final String unlocName, final ArmorItem.Type type, final BrimmRarity rarity,
     		final RTSMatricesCompoundBuilder transformB, final float toughness,
     		final float knockbackResistance, final int defenseValue, final int durabilityValue,
     		final Collection<OverlayLocation> patchesPositions
@@ -771,9 +771,9 @@ public class ItemRegistry {
     	final SimpleArmorMaterial material = ConfigMergers.mergeBasicMaterial("brimm_armor_material",
     			toughness, knockbackResistance, defenseValue, durabilityValue,
     			type, cfg.materialOverrides());
-    	final ConcordRarity mergedRarity = ConfigMergers.mergeRarity(rarity, cfg.rarityOverride());
+    	final BrimmRarity mergedRarity = ConfigMergers.mergeRarity(rarity, cfg.rarityOverride());
     	final RTSMatricesCompound transform = transformB.build();
-    	return ()->new BasicArmor(unlocName, type, mergedRarity, material, transform, patchesPositions);
+    	return ()->new BrimmArmor(unlocName, type, mergedRarity, material, transform, patchesPositions);
     }
     	
     private static <T extends Item> RegistryObject<T> registerItemAndExecute(Consumer<RegistryObject<T>> consumer,

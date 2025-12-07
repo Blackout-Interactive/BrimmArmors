@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import net.minecraft.ChatFormatting;
 
-public enum ConcordRarity {
+public enum BrimmRarity {
 
     COMMON(ChatFormatting.GREEN, "common"),
     UNCOMMON(ChatFormatting.BLUE, "uncommon"),
@@ -14,14 +14,14 @@ public enum ConcordRarity {
     private final ChatFormatting color;
     private final String name;
 
-    ConcordRarity(ChatFormatting color, String name) {
+    BrimmRarity(ChatFormatting color, String name) {
         this.color = color;
         this.name = name;
     }
     
     public String applyFormatting(String in) { return this.color+in; }
     
-    public static ConcordRarity fromName(String name) {
+    public static BrimmRarity fromName(String name) {
     	return Arrays.stream(values()).filter((v)->v.name.equals(name)).findFirst().orElse(null);
     }
 

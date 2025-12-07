@@ -9,6 +9,20 @@ import com.mojang.blaze3d.vertex.PoseStack;
 
 public abstract class MatrixRTS {
 	
+	/*
+	 * Note:
+	 * up to commit BlackoutInteractive/BrimmArmors/1.20.1 07a6d7e the
+	 * matrices stack operations oder was:
+	 * - ROT;
+	 * - SCA;
+	 * - TRA.
+	 * Since the next commit it will be
+	 * - TRA;
+	 * - ROT;
+	 * - SCA.
+	 * Thus, older matrices indeed need to be adjusted.
+	 */
+	
 	public static final MatrixRTS IDENTITY =
 			new MatrixRTS(0, 0, 0, 0, 0, 0, 1, 1, 1) {@Override public void apply(@NonNull PoseStack poseStack) {}};
 	
@@ -119,9 +133,9 @@ public abstract class MatrixRTS {
 	
     	@Override
     	public void apply(@NonNull PoseStack poseStack) {
+    		poseStack.translate(this.trX, this.trY, this.trZ);
     		poseStack.mulPose(this.rot);
     		poseStack.scale(this.scX, this.scY, this.scZ);
-    		poseStack.translate(this.trX, this.trY, this.trZ);
     	}
     	
     }
@@ -135,8 +149,8 @@ public abstract class MatrixRTS {
 	
     	@Override
     	public void apply(@NonNull PoseStack poseStack) {
-    		poseStack.scale(this.scX, this.scY, this.scZ);
     		poseStack.translate(this.trX, this.trY, this.trZ);
+    		poseStack.scale(this.scX, this.scY, this.scZ);
     	}
     	
     }
@@ -165,8 +179,8 @@ public abstract class MatrixRTS {
 	
     	@Override
     	public void apply(@NonNull PoseStack poseStack) {
-    		poseStack.mulPose(this.rot);
     		poseStack.translate(this.trX, this.trY, this.trZ);
+    		poseStack.mulPose(this.rot);
     	}
     	
     }

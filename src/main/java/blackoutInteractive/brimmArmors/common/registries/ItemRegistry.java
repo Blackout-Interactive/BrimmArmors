@@ -55,12 +55,10 @@ public class ItemRegistry {
     	return getr(id).map(RegistryObject::get);
     }
     
-    @Deprecated
     public static RegistryObject<Item> getrOrThrow(String id) {
     	return getr(id).orElseThrow(()->new IllegalArgumentException("No registered brimm item with name "+id));
     }
     
-    @Deprecated
     public static Item getOrThrow(String id) { 
     	return get(id).orElseThrow(()->new IllegalArgumentException("No registered brimm item with name "+id));
     }
@@ -98,9 +96,8 @@ public class ItemRegistry {
     	        ConcordRarity.COMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
-    	    0f, 0f, 8, 240, patches(OverlayPos.HUMANOID_TORSO,
-    	    	newStandardFrontTorsoPatchMatrix((float)(3.7247*0.06295809)))
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
+    	    0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
 
@@ -116,7 +113,7 @@ public class ItemRegistry {
     	        ConcordRarity.UNCOMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
     	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -133,7 +130,7 @@ public class ItemRegistry {
         	    ConcordRarity.COMMON,
         	    newRTSMComp()
         	.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-        	.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+        	.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
         	0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
         	)
         );
@@ -150,7 +147,7 @@ public class ItemRegistry {
         	    ConcordRarity.UNCOMMON,
         	    newRTSMComp()
         	.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-        	.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+        	.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
         	5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
         	)
         );
@@ -167,7 +164,7 @@ public class ItemRegistry {
         	    ConcordRarity.RARE,
         	    newRTSMComp()
         	.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-        	.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+        	.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
         	10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
         	)
         );
@@ -186,7 +183,7 @@ public class ItemRegistry {
     	        ConcordRarity.COMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
     	    0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -203,7 +200,7 @@ public class ItemRegistry {
     	        ConcordRarity.UNCOMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
     	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -221,7 +218,7 @@ public class ItemRegistry {
     	        ConcordRarity.RARE,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
     	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -239,7 +236,7 @@ public class ItemRegistry {
     	        ConcordRarity.EPIC,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
     	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -257,7 +254,7 @@ public class ItemRegistry {
     	        ConcordRarity.RARE,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
     	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -275,7 +272,7 @@ public class ItemRegistry {
     	        ConcordRarity.EPIC,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
     	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -293,7 +290,7 @@ public class ItemRegistry {
     	        ConcordRarity.EPIC,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
     	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -311,7 +308,7 @@ public class ItemRegistry {
     	        ConcordRarity.EPIC,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
     	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -329,7 +326,7 @@ public class ItemRegistry {
     	        ConcordRarity.COMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
     	    0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -347,7 +344,7 @@ public class ItemRegistry {
     	        ConcordRarity.UNCOMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
     	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -365,7 +362,7 @@ public class ItemRegistry {
     	        ConcordRarity.RARE,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
     	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -383,7 +380,7 @@ public class ItemRegistry {
     	        ConcordRarity.RARE,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
     	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -401,7 +398,7 @@ public class ItemRegistry {
     	        ConcordRarity.EPIC,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
     	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -418,7 +415,7 @@ public class ItemRegistry {
     	        ConcordRarity.RARE,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
     	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -438,7 +435,7 @@ public class ItemRegistry {
     	        ConcordRarity.EPIC,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-1f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
     	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -455,7 +452,7 @@ public class ItemRegistry {
     	        ConcordRarity.COMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
     	    0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -474,7 +471,7 @@ public class ItemRegistry {
     	        ConcordRarity.UNCOMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
     	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -493,7 +490,7 @@ public class ItemRegistry {
     	        ConcordRarity.UNCOMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
     	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -511,7 +508,7 @@ public class ItemRegistry {
     	        ConcordRarity.RARE,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
     	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -530,7 +527,7 @@ public class ItemRegistry {
         	    ConcordRarity.COMMON,
         	    newRTSMComp()
         	.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
         	0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
         	)
         );
@@ -549,7 +546,7 @@ public class ItemRegistry {
     	        ConcordRarity.EPIC,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
     	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -569,7 +566,7 @@ public class ItemRegistry {
     	        ConcordRarity.RARE,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
     	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -587,7 +584,7 @@ public class ItemRegistry {
     	        ConcordRarity.EPIC,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
     	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -604,7 +601,7 @@ public class ItemRegistry {
     	        ConcordRarity.COMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
     	    0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -621,7 +618,7 @@ public class ItemRegistry {
     	        ConcordRarity.RARE,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
     	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -640,7 +637,7 @@ public class ItemRegistry {
     	        ConcordRarity.EPIC,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
     	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -657,7 +654,7 @@ public class ItemRegistry {
     	        ConcordRarity.COMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
     	    0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -675,7 +672,7 @@ public class ItemRegistry {
     	        ConcordRarity.UNCOMMON,
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-2f)),
+    	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
     	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
@@ -715,21 +712,15 @@ public class ItemRegistry {
     
     private static MatrixRTSBuilder newStandardArmorRenderMatrix() {
     	return newmatrix()
-    	    .setTranslateY(-1.54f)
+    	    .setTranslateY(1.54f)
     	    .setRotateZ(180f);
     }
     
     private static MatrixRTSBuilder newStandardWorkbenchRenderMatrix(float trY) {
     	return newmatrix()
-        	.setTranslateY(trY)
-        	.setScale(50f, -50f, 50f)
-        	.setRotateY(180);
-    }
-    
-    private static MatrixRTSBuilder newStandardFrontTorsoPatchMatrix(float absoluteTRZ) {
-    	return newmatrix()
-    			.setTranslate(-0.5f, 1.45f, -absoluteTRZ)
-    			.setScale(0.2f, 0.2f, 1f);
+    	    .setTranslateY(trY)
+    	    .setRotateY(180f)
+    	    .setScale(50f, -50f, 50f);
     }
     
     private static <T extends Item> Consumer<RegistryObject<T>>

@@ -71,7 +71,7 @@ public class CraftsManager {
 		
 		public Craft last() {
 			if (built == null) throw new IllegalStateException("Crafts have not been built yet");
-			return this.cached.isEmpty() ? null : this.cached.get(built.size()-1);
+			return this.cached.isEmpty() ? null : this.cached.get(this.cached.size()-1);
 		}
 		
 		public CraftSection section() {

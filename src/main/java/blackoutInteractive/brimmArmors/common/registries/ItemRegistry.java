@@ -114,7 +114,8 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
-    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
+    	    5f, 1f, 9, 240, patches(OverlayPos.HUMANOID_TORSO,
+							newmatrix().setTranslate(-0.07f,0.11f,-0.162f).setRotate(-22,0,0).setScale(0.15f,0.15f,1))
     	    )
     	);
     	
@@ -131,7 +132,8 @@ public class ItemRegistry {
         	    newRTSMComp()
         	.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
         	.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
-        	0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
+        	0f, 0f, 8, 240, patches(OverlayPos.HUMANOID_TORSO,
+							newmatrix().setTranslate(-0.07f,0.34f,-0.228f).setRotate(0,0,0).setScale(0.14f,0.136f,1))
         	)
         );
 
@@ -148,7 +150,8 @@ public class ItemRegistry {
         	    newRTSMComp()
         	.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
         	.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
-        	5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
+        	5f, 1f, 9, 240, patches(OverlayPos.HUMANOID_TORSO,
+							newmatrix().setTranslate(-0.07f,0.34f,-0.228f).setRotate(0,0,0).setScale(0.14f,0.136f,1))
         	)
         );
 
@@ -165,7 +168,8 @@ public class ItemRegistry {
         	    newRTSMComp()
         	.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
         	.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
-        	10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
+        	10f, 1f, 10, 240, patches(OverlayPos.HUMANOID_TORSO,
+							newmatrix().setTranslate(-0.07f,0.34f,-0.228f).setRotate(0,0,0).setScale(0.14f,0.136f,1))
         	)
         );
     
@@ -184,7 +188,8 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
-    	    0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
+    	    0f, 0f, 8, 240, patches(OverlayPos.HUMANOID_TORSO,
+							newmatrix().setTranslate(-0.1f,0.138f,-0.202f).setRotate(-12f,0,0).setScale(0.188f,0.185f,1))
     	    )
     	);
 
@@ -201,7 +206,8 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
-    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
+    	    5f, 1f, 9, 240, patches(OverlayPos.HUMANOID_TORSO,
+							newmatrix().setTranslate(-0.1f,0.138f,-0.202f).setRotate(-12f,0,0).setScale(0.188f,0.185f,1))
     	    )
     	);
 
@@ -219,7 +225,8 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
-    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
+    	    5f, 1f, 9, 240, patches(OverlayPos.HUMANOID_TORSO,
+							newmatrix().setTranslate(0.196f,0,-0.139f).setRotate(-11.1102f,4.5635f,16.0559f).setScale(0.1f,0.1f,1))
     	    )
     	);
 
@@ -237,7 +244,8 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
-    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
+    	    5f, 1f, 9, 240, patches(OverlayPos.HUMANOID_TORSO,
+							newmatrix().setTranslate(-0.07f,0.287f,-0.228f).setRotate(0,0,0).setScale(0.14f,0.1373f,1))
     	    )
     	);
 
@@ -345,7 +353,8 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
-    	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
+    	    5f, 1f, 9, 240, patches(OverlayPos.HUMANOID_TORSO,
+							newmatrix().setTranslate(-0.1435f,0.2209f,-0.3f).setRotate(-6,0,0).setScale(0.14f,0.136f,1))
     	    )
     	);
 
@@ -416,9 +425,10 @@ public class ItemRegistry {
     	        newRTSMComp()
     	    .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
     	    .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
-    	    10f, 1f, 10, 240, new ArrayList<>() //TODO missing patches
+    	    10f, 1f, 10, 240,  patches(OverlayPos.HUMANOID_TORSO,
+							newmatrix().setTranslate(0.196f,0,-0.139f).setRotate(-11.1102f,4.5635f,16.0559f).setScale(0.1f,0,0)
     	    )
-    	);
+			));
 
     	public static final RegistryObject<BrimmArmor> NYYYAAAA = registerItemAndExecute(
     	    addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
@@ -676,6 +686,86 @@ public class ItemRegistry {
     	    5f, 1f, 9, 240, new ArrayList<>() //TODO missing patches
     	    )
     	);
+	public static final RegistryObject<BrimmArmor> VETERAN_H = registerItemAndExecute(
+			addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
+					ig(Items.IRON_INGOT, 20),
+					ig(Items.LEATHER, 10)
+			),
+			"veteran_h",
+			generateArmorSupplier(
+					"veteran_h",
+					ArmorItem.Type.HELMET,
+					BrimmRarity.COMMON,
+					newRTSMComp()
+							.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+							.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
+					0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
+			)
+	);
+	public static final RegistryObject<BrimmArmor> PMC_H = registerItemAndExecute(
+			addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
+					ig(Items.IRON_INGOT, 20),
+					ig(Items.LEATHER, 10)
+			),
+			"pmc_h",
+			generateArmorSupplier(
+					"pmc_h",
+					ArmorItem.Type.HELMET,
+					BrimmRarity.COMMON,
+					newRTSMComp()
+							.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+							.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
+					0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
+			)
+	);
+	public static final RegistryObject<BrimmArmor> NATO_H = registerItemAndExecute(
+			addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
+					ig(Items.IRON_INGOT, 20),
+					ig(Items.LEATHER, 10)
+			),
+			"nato_h",
+			generateArmorSupplier(
+					"nato_h",
+					ArmorItem.Type.HELMET,
+					BrimmRarity.COMMON,
+					newRTSMComp()
+							.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+							.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
+					0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
+			)
+	);
+	public static final RegistryObject<BrimmArmor> SIX_B_FOUR_SEVEN_H = registerItemAndExecute(
+			addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
+					ig(Items.IRON_INGOT, 20),
+					ig(Items.LEATHER, 10)
+			),
+			"six_b_four_seven_h",
+			generateArmorSupplier(
+					"six_b_four_seven_h",
+					ArmorItem.Type.HELMET,
+					BrimmRarity.COMMON,
+					newRTSMComp()
+							.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+							.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
+					0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
+			)
+	);
+	public static final RegistryObject<BrimmArmor> SIX_B_FOUR_SEVEN_DARK_H = registerItemAndExecute(
+			addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
+					ig(Items.IRON_INGOT, 20),
+					ig(Items.LEATHER, 10)
+			),
+			"six_b_four_seven_dark_h",
+			generateArmorSupplier(
+					"six_b_four_seven_dark_h",
+					ArmorItem.Type.HELMET,
+					BrimmRarity.COMMON,
+					newRTSMComp()
+							.set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+							.set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
+					0f, 0f, 8, 240, new ArrayList<>() //TODO missing patches
+			)
+	);
     	
     	public static final RegistryObject<ArmorPatch> DEBUG_PATCH = registerItemAndExecute(
     		addTabAndSetCraft(misc_tab_content, CraftSection.PATCHES,

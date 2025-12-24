@@ -65,4 +65,5 @@ public record SimpleArmorMaterial(
     	if (type != t) throw new IllegalStateException("Unexpected armor type ("+t+") for this material");
         return durabilityValue;
     }
+    
 }

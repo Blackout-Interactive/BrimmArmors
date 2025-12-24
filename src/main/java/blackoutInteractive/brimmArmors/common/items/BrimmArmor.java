@@ -8,6 +8,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
@@ -119,6 +120,17 @@ public class BrimmArmor extends ArmorItem implements IDefaultObjModelProvider {
 	public RTSMatricesCompound getModelTransformations() {
 		return this.transformations;
 	}
+	
+    @Override
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+        return false;
+    }
+    
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+        return false;
+    }
+
 	
 	public Collection<OverlayLocation> patchesPositions(ItemStack is) {
 		if (is.hasTag() && is.getTag().contains("debug-patchPosOverride") && is.getTag().contains("debug-overlayPosOverride")) {

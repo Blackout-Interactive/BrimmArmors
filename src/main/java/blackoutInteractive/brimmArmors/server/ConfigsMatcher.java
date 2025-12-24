@@ -42,7 +42,7 @@ public class ConfigsMatcher {
                 ServerPlayer player = getPlayerByName(name);
                 if (player != null) {
                     player.connection.disconnect(Component.literal(ChatFormatting.RED+BrimmArmors.MOD_ID+": Config verification timed out."));
-                    BrimmArmors.LOGGER.warn("Config verification timed out for "+name+".");
+                    BrimmArmors.LOGGER.warn("Config verification timed out for {}.", name);
                 }
                 return true;
             }
@@ -54,15 +54,15 @@ public class ConfigsMatcher {
         String name = player.getName().getString();
         Long joinTime = pendingVerifications.get(name);
         if (joinTime == null) {
-        	BrimmArmors.LOGGER.warn("Attempted to verify "+name+"'s past the required time.");
+            BrimmArmors.LOGGER.warn("Attempted to verify {}'s past the required time.", name);
             return;
         }
         String serverHash = ConfigsManager.configHash();
         if (!serverHash.equals(clientHash)) {
             player.connection.disconnect(Component.literal(ChatFormatting.RED+BrimmArmors.MOD_ID+": Config verification failed."));
-            BrimmArmors.LOGGER.warn("Config verification failed for "+name+". Expected hash '"+serverHash+"', got '"+clientHash+"'.");
+            BrimmArmors.LOGGER.warn("Config verification failed for {}. Expected hash '{}', got '{}'.", name, serverHash, clientHash);
         } else {
-        	BrimmArmors.LOGGER.info("Verified config for "+name+".");
+            BrimmArmors.LOGGER.info("Verified config for {}.", name);
         }
         pendingVerifications.remove(name);
     }

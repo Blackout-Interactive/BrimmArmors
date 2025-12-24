@@ -1,5 +1,6 @@
 package blackoutInteractive.brimmArmors.client.screens;
 
+import org.jetbrains.annotations.NotNull;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 
@@ -46,7 +47,7 @@ public class PatchesAdjusterScreen extends Screen {
     private float translateY = 0f;
 
     private final float[] matrix = new float[9];
-    private EditBox[] matrixFields = new EditBox[9];
+    private final EditBox[] matrixFields = new EditBox[9];
 
     private boolean isMatrixUpToDate = true;
     private ColoredButton updateButton;
@@ -187,13 +188,13 @@ public class PatchesAdjusterScreen extends Screen {
         if (!this.dragging) return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
 
         if (button == 0) {
-            this.rotationY += dragX * 0.125f;
-            this.rotationX += dragY * 0.125f;
+            this.rotationY += (float) (dragX * 0.125f);
+            this.rotationX += (float) (dragY * 0.125f);
             this.rotationX = Mth.clamp(this.rotationX, -90, 90);
             return true;
         } else if (button == 1) {
-            this.translateX += dragX;
-            this.translateY += dragY;
+            this.translateX += (float) dragX;
+            this.translateY += (float) dragY;
             double bound = translBound();
             this.translateX = (float) Mth.clamp(this.translateX, -bound, bound);
             this.translateY = (float) Mth.clamp(this.translateY, -bound, bound);
@@ -214,7 +215,7 @@ public class PatchesAdjusterScreen extends Screen {
     // RENDER
 
     @Override
-    public void render(GuiGraphics guig, int mouseX, int mouseY, float partialTicks) {
+    public void render(@NotNull GuiGraphics guig, int mouseX, int mouseY, float partialTicks) {
 
         this.renderBackground(guig);
         guig.fill(0, 0, this.width, this.height, 0xC0101010);

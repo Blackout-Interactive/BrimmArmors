@@ -3,6 +3,7 @@ package blackoutInteractive.brimmArmors.common.items;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 public class BrimmPlate extends Item {
 
@@ -14,7 +15,7 @@ public class BrimmPlate extends Item {
     }
 
     @Override
-    public Component getName(ItemStack stack) {
+    public @NotNull Component getName(@NotNull ItemStack stack) {
         return Component.literal(rarity.applyFormatting(super.getName(stack).getString()));
     }
 

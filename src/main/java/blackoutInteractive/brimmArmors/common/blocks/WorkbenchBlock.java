@@ -28,6 +28,7 @@ import blackoutInteractive.brimmArmors.common.tile.WorkbenchTileEntity;
 import blackoutInteractive.ema_08_.rendering.geom.RTSMatricesCompound;
 import blackoutInteractive.ema_08_.rendering.obj.IDefaultObjModelProvider;
 import blackoutInteractive.ema_08_.rendering.obj.ModelType;
+import org.jetbrains.annotations.NotNull;
 
 public class WorkbenchBlock extends Block implements IDefaultObjModelProvider, EntityBlock {
 
@@ -45,7 +46,7 @@ public class WorkbenchBlock extends Block implements IDefaultObjModelProvider, E
     }
 
     @Override
-    public List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
+    public @NotNull List<ItemStack> getDrops(@NotNull BlockState state, LootParams.@NotNull Builder builder) {
         return List.of(new ItemStack(this));
     }
 
@@ -55,7 +56,7 @@ public class WorkbenchBlock extends Block implements IDefaultObjModelProvider, E
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    public @NotNull InteractionResult use(@NotNull BlockState state, Level world, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
     	if (world.isClientSide) {
     		openScreen();
     	    return InteractionResult.CONSUME;
@@ -85,7 +86,7 @@ public class WorkbenchBlock extends Block implements IDefaultObjModelProvider, E
     }
     
     @Override
-    public RenderShape getRenderShape(BlockState state) {
+    public @NotNull RenderShape getRenderShape(@NotNull BlockState state) {
         return RenderShape.INVISIBLE;
     }
 

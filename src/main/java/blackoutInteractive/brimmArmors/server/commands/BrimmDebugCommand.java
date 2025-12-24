@@ -34,20 +34,20 @@ public static final String LITERAL = "brimmDebug";
 					if (ctx.getSource().isPlayer()) {
 						String armorItemName = ctx.getArgument("armorItem", String.class);
 						String overlayPos = ctx.getArgument("overlayPos", String.class);
-						OverlayPos op = null;
+						OverlayPos op;
 						try {
 							op = OverlayPos.valueOf(overlayPos);
 						} catch (IllegalArgumentException e) {
 							ctx.getSource().sendFailure(Component.literal(
 									"Invalid overlay position "+overlayPos+" was specified: only acceptable positions are: "+
-									String.join(", ", Arrays.stream(
-											OverlayPos.values()).map(OverlayPos::name).collect(Collectors.toList()))+"."));
+                                            Arrays.stream(
+                                                    OverlayPos.values()).map(OverlayPos::name).collect(Collectors.joining(", ")) +"."));
 							return 0;
 						}
 						Item armor = ItemRegistry.get(armorItemName).orElse(null);
-						if (armor != null && armor instanceof BrimmArmor) {
+						if (armor instanceof BrimmArmor) {
 							ctx.getSource().sendSuccess(
-									()->Component.literal("Intialising patch adjuster for "+armorItemName+" armor."), false);
+									()->Component.literal("Initialising patch adjuster for "+armorItemName+" armor."), false);
 							BrimmArmors.network.sendTo(new PatchesAdjusterDebugPacket(armorItemName, op),
 									ctx.getSource().getPlayer());
 						} else {

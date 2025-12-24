@@ -36,9 +36,9 @@ public class ConfigsManager {
 			MessageDigest digest = sha256();
 			for (File file : configFolder.listFiles()) {
 				if (!file.isFile()) {
-					BrimmArmors.LOGGER.warn("Found unexpected subdir in configs folder ("+file.getName()+"), ignoring.");
+                    BrimmArmors.LOGGER.warn("Found unexpected subdir in configs folder ({}), ignoring.", file.getName());
 				} else if (!file.getName().endsWith(".xml")) {
-					BrimmArmors.LOGGER.warn("Found unexpected file in configs folder ("+file.getName()+"), ignoring.");
+                    BrimmArmors.LOGGER.warn("Found unexpected file in configs folder ({}), ignoring.", file.getName());
 				} else {
 					try {
 						TrivialDomReader xml = new TrivialDomReader(file);
@@ -61,14 +61,12 @@ public class ConfigsManager {
 							ArmorConfig config = new ArmorConfig(materialOverride, rarityOverride);
 							digest.update(hashTrailOf(config));
 							configs.put(name, config);
-							BrimmArmors.LOGGER.info("Loaded config file "+file.getName()+".");
+                            BrimmArmors.LOGGER.info("Loaded config file {}.", file.getName());
 						} else {
-							BrimmArmors.LOGGER.error("Failed to load config file "+file.getName()+": invalid document tag. "
-									+ "That configuration will not be loaded.");
+                            BrimmArmors.LOGGER.error("Failed to load config file {}: invalid document tag. That configuration will not be loaded.", file.getName());
 						}
 					} catch (Exception e) {
-						BrimmArmors.LOGGER.error("Failed to load config file "+file.getName()+" due to an exception. "
-								+ "That configuration will not be loaded.", e);
+                        BrimmArmors.LOGGER.error("Failed to load config file {} due to an exception. That configuration will not be loaded.", file.getName(), e);
 					}
 				}
 			}
@@ -94,8 +92,7 @@ public class ConfigsManager {
 			String value = xml.getElementValue(tagspath);
 			String error = tester.apply(value);
 			if (error != null) {
-				BrimmArmors.LOGGER.warn("Invalid "+last(tagspath)+" config value in "+filename(xml)+" config file: "+error+". "
-						+ "This config file's entry will be skipped, although the rest of the file will be parsed.");
+                BrimmArmors.LOGGER.warn("Invalid {} config value in {} config file: {}. This config file's entry will be skipped, although the rest of the file will be parsed.", last(tagspath), filename(xml), error);
 				return Optional.empty();
 			} else {
 				return Optional.of(value);
@@ -110,13 +107,11 @@ public class ConfigsManager {
 			if (xml.elementExists(tagspath)) {
 				int value = xml.getElementValueCastInt(tagspath);
 				if (exclusive ? (value <= min) : (value < min)) {
-					BrimmArmors.LOGGER.warn("Invalid "+last(tagspath)+" config value in "+filename(xml)+" config file: too little number. "
-							+ "This config file's entry will be skipped, although the rest of the file will be parsed.");
+                    BrimmArmors.LOGGER.warn("Invalid {} config value in {} config file: too little number. This config file's entry will be skipped, although the rest of the file will be parsed.", last(tagspath), filename(xml));
 					return Optional.empty();
 				}
 				if (exclusive ? (value >= max) : (value > max)) {
-					BrimmArmors.LOGGER.warn("Invalid "+last(tagspath)+" config value in "+filename(xml)+" config file: too large number. "
-							+ "This config file's entry will be skipped, although the rest of the file will be parsed.");
+                    BrimmArmors.LOGGER.warn("Invalid {} config value in {} config file: too large number. This config file's entry will be skipped, although the rest of the file will be parsed.", last(tagspath), filename(xml));
 					return Optional.empty();
 				}
 				return Optional.of(value);
@@ -124,8 +119,7 @@ public class ConfigsManager {
 				return Optional.empty();
 			}				
 		} catch (NumberFormatException e) {
-			BrimmArmors.LOGGER.warn("Invalid "+last(tagspath)+" config value in "+filename(xml)+" config file: not an integer. "
-					+ "This config file's entry will be skipped, although the rest of the file will be parsed.");
+            BrimmArmors.LOGGER.warn("Invalid {} config value in {} config file: not an integer. This config file's entry will be skipped, although the rest of the file will be parsed.", last(tagspath), filename(xml));
 			return Optional.empty();
 		}
 	}
@@ -135,13 +129,11 @@ public class ConfigsManager {
 			if (xml.elementExists(tagspath)) {
 				float value = (float)xml.getElementValueCastDouble(tagspath);
 				if (exclusive ? (value <= min) : (value < min)) {
-					BrimmArmors.LOGGER.warn("Invalid "+last(tagspath)+" config value in "+filename(xml)+" config file: too little number. "
-							+ "This config file's entry will be skipped, although the rest of the file will be parsed.");
+                    BrimmArmors.LOGGER.warn("Invalid {} config value in {} config file: too little number. This config file's entry will be skipped, although the rest of the file will be parsed.", last(tagspath), filename(xml));
 					return Optional.empty();
 				}
 				if (exclusive ? (value >= max) : (value > max)) {
-					BrimmArmors.LOGGER.warn("Invalid "+last(tagspath)+" config value in "+filename(xml)+" config file: too large number. "
-							+ "This config file's entry will be skipped, although the rest of the file will be parsed.");
+                    BrimmArmors.LOGGER.warn("Invalid {} config value in {} config file: too large number. This config file's entry will be skipped, although the rest of the file will be parsed.", last(tagspath), filename(xml));
 					return Optional.empty();
 				}
 				return Optional.of(value);
@@ -149,8 +141,7 @@ public class ConfigsManager {
 				return Optional.empty();
 			}				
 		} catch (NumberFormatException e) {
-			BrimmArmors.LOGGER.warn("Invalid "+last(tagspath)+" config value in "+filename(xml)+" config file: not a number. "
-					+ "This config file's entry will be skipped, although the rest of the file will be parsed.");
+            BrimmArmors.LOGGER.warn("Invalid {} config value in {} config file: not a number. This config file's entry will be skipped, although the rest of the file will be parsed.", last(tagspath), filename(xml));
 			return Optional.empty();
 		}
 	}

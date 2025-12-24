@@ -69,12 +69,12 @@ public class BrimmArmor extends ArmorItem implements IDefaultObjModelProvider {
     }
 
     @Override
-    public Component getName(ItemStack stack) {
+    public @NotNull Component getName(@NotNull ItemStack stack) {
         return Component.literal(rarity.applyFormatting(super.getName(stack).getString()));
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltipList, TooltipFlag flag) {
+    public void appendHoverText(@NotNull ItemStack stack, @Nullable Level world, @NotNull List<Component> tooltipList, @NotNull TooltipFlag flag) {
     	String tooltipRaw = I18n.get("tooltip." + BrimmArmors.MOD_ID + "." + unlocName);
     	if (!tooltipRaw.isBlank())
     		tooltipList.add(Component.literal(rarity.applyFormatting("\u00A7o" + tooltipRaw)));
@@ -147,8 +147,7 @@ public class BrimmArmor extends ArmorItem implements IDefaultObjModelProvider {
 		if (!tag.contains("patch")) return null;
 		var patch = patch_cache.computeIfAbsent(tag.getString("patch"), cache_computator);
 		if (patch == null) {
-			BrimmArmors.LOGGER.warn("Could not retrieve currently set patch named "+tag.getString("patch")+" for "+
-					ForgeRegistries.ITEMS.getKey(is.getItem())+", resetting patch tag.");
+            BrimmArmors.LOGGER.warn("Could not retrieve currently set patch named {} for {}, resetting patch tag.", tag.getString("patch"), ForgeRegistries.ITEMS.getKey(is.getItem()));
 			removePatch(is);
 			return null;
 		} else {

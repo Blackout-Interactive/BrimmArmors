@@ -210,8 +210,8 @@ public class WorkbenchScreen extends Screen {
     @Override
     public boolean mouseDragged(double mouseX, double mouseY, int button, double dx, double dy) {
         if (dragging) {
-            rotationY += dx * 0.03f;
-            rotationX += dy * 0.03f;
+            rotationY += (float) (dx * 0.03f);
+            rotationX += (float) (dy * 0.03f);
             return true;
         }
         return super.mouseDragged(mouseX, mouseY, button, dx, dy);

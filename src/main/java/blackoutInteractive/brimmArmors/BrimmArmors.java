@@ -13,7 +13,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -111,9 +110,9 @@ public class BrimmArmors
     @SubscribeEvent
     public void onRegisterCommands(RegisterCommandsEvent event) {
         CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
-        final List<IRegistrableCommand> COMMANDS = Arrays.asList(new IRegistrableCommand[] {
+        final IRegistrableCommand[] COMMANDS = new IRegistrableCommand[] {
         		new BrimmDebugCommand()
-    	});
+    	};
         for (IRegistrableCommand cmd : COMMANDS) {
         	dispatcher.register(CommandBuilder.build(cmd.getBuilt()));
         }

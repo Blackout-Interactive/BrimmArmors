@@ -20,7 +20,7 @@ public record SimpleArmorMaterial(
 	
 	public static SimpleArmorMaterial basic(String name, float toughness,
 			float knockbackResistance, int defenseValue, int durabilityValue, ArmorItem.Type type) {
-		return new SimpleArmorMaterial(name, 0, SoundEvents.ARMOR_EQUIP_GENERIC, null,
+		return new SimpleArmorMaterial(name, 0, SoundEvents.ARMOR_EQUIP_GENERIC, Ingredient.EMPTY,
 				toughness, knockbackResistance, defenseValue, durabilityValue, type);
 	}
 

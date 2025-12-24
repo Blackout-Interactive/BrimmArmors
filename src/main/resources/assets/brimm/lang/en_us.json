@@ -105,6 +105,24 @@
 
   "item.${mod_id}.saper_h": "Saper MK-2",
   "tooltip.${mod_id}.saper_h": "No smoking in the mines",
+
+  "item.${mod_id}.veteran_h": "Ratnik Veteran Helmet",
+  "tooltip.${mod_id}.veteran_h": "The helmet of someone who learned when to duck",
+
+  "item.${mod_id}.pmc_h": "PMC Helmet",
+  "tooltip.${mod_id}.pmc_h": "Reliable protection for wars that never make the news",
+
+  "item.${mod_id}.nato_h": "Combined Arms Helmet",
+  "tooltip.${mod_id}.nato_h": "Optimized for steel, glass, and asphalt",
+
+  "item.${mod_id}.six_b_four_seven_h": "Veteran 6B47 Helmet",
+  "tooltip.${mod_id}.six_b_four_seven_h": "Worn by someone who stopped counting deployments",
+
+  "item.${mod_id}.six_b_four_seven_dark_h": "6B47 Helmet",
+  "tooltip.${mod_id}.six_b_four_seven_dark_h": "",
+
+  "item.${mod_id}.ratnik_h": "Ratnik Helmet",
+  "tooltip.${mod_id}.ratnik_h": "",
   
   "block.${mod_id}.workbench": "Workbench",
   "screen.${mod_id}.workbench.title": "Brimm Workbench",

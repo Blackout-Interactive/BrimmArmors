@@ -1,0 +1,225 @@
+{
+	
+  "itemGroup.${mod_id}.armors": "Brimm Armors",
+  "itemGroup.${mod_id}.brimm_misc": "Brimm Misc",
+
+  "item.${mod_id}.iron_plate": "Iron Plate",
+  "item.${mod_id}.diamond_plate": "Diamond Plate",
+  "item.${mod_id}.nether_plate": "Netherite Plate",
+
+  "item.${mod_id}.nato": "Combined Arms Body Armor",
+  "tooltip.${mod_id}.nato": "You're in the army now",
+
+  "item.${mod_id}.nato_ii": "Assault Combined Arms Body Armor",
+  "tooltip.${mod_id}.nato_ii": "Johnny, get your gun",
+
+  "item.${mod_id}.marine": "MarineRaiders Body Armor",
+  "tooltip.${mod_id}.marine": "Gung-ho!",
+
+  "item.${mod_id}.guard": "Guard Body Armor",
+  "tooltip.${mod_id}.guard": "Always Ready, Always There!",
+
+  "item.${mod_id}.saper": "Saper Body Armor",
+  "tooltip.${mod_id}.saper": "The owner of this Body Armor vest really didn't like creepers.",
+
+  "item.${mod_id}.vanderer": "Vanderer Body Armor",
+  "tooltip.${mod_id}.vanderer": "Wandering in the desert...",
+
+  "item.${mod_id}.defender": "Defender Body Armor",
+  "tooltip.${mod_id}.defender": "",
+
+  "item.${mod_id}.defender_ii": "Assault defender Body Armor",
+  "tooltip.${mod_id}.defender_ii": "",
+
+  "item.${mod_id}.defender_iii": "Assault defender Body Armor 2",
+  "tooltip.${mod_id}.defender_iii": "",
+
+  "item.${mod_id}.concord": "Concord's Body Armor",
+  "tooltip.${mod_id}.concord": "",
+
+  "item.${mod_id}.medic": "Medic Body Armor",
+  "tooltip.${mod_id}.medic": "Heroes never die!",
+
+  "item.${mod_id}.pmc": "PMC Kinder Body Armor",
+  "tooltip.${mod_id}.pmc": "Temperature +50. Everything we love!",
+
+  "item.${mod_id}.assault": "Assault Body Armor",
+  "tooltip.${mod_id}.assault": "Stops small talk and small arms fire",
+
+  "item.${mod_id}.horse": "517 Body Armor",
+  "tooltip.${mod_id}.horse": "If you can still breathe, it’s working",
+
+  "item.${mod_id}.spn": "Jagdkommando Body Armor",
+  "tooltip.${mod_id}.spn": "Standard Issue",
+
+  "item.${mod_id}.atleti": "Atleti's Body Armor",
+  "tooltip.${mod_id}.atleti": "Simple Athletes from the Periphery",
+
+  "item.${mod_id}.ratnik": "Ratnik Body Armor",
+  "tooltip.${mod_id}.ratnik": "Here I am, hello troops",
+
+  "item.${mod_id}.ratnik_advance": "Ratnik 2 Body Armor",
+  "tooltip.${mod_id}.ratnik_advance": "Built-In Complaints Department",
+
+  "item.${mod_id}.veteran": "Ratnik Veteran Body Armor",
+  "tooltip.${mod_id}.veteran": "Shut up, I fought",
+
+  "item.${mod_id}.nyyyaaaa": "Housemaid Body Armor",
+  "tooltip.${mod_id}.nyyyaaaa": "Every militarist is a little girl at heart",
+
+  "item.${mod_id}.base_h": "Special Ops Core",
+  "tooltip.${mod_id}.base_h": "",
+
+  "item.${mod_id}.assault_h": "Assault Helmet",
+  "tooltip.${mod_id}.assault_h": "Brain Bucket Deluxe",
+
+  "item.${mod_id}.gasmask_h": "Gas Mask Helmet",
+  "tooltip.${mod_id}.gasmask_h": "Poisoning? What is that?",
+
+  "item.${mod_id}.medic_h": "Medic Helmet",
+  "tooltip.${mod_id}.medic_h": "This helmet makes you sexier and heals your allies",
+
+  "item.${mod_id}.concord_h": "Concord's Helmet",
+  "tooltip.${mod_id}.concord_h": "Specially tanked",
+
+  "item.${mod_id}.infantry_h": "Infantry Helmet",
+  "tooltip.${mod_id}.infantry_h": "",
+
+  "item.${mod_id}.gpnvg_h": "Black Ops Helmet",
+  "tooltip.${mod_id}.gpnvg_h": "I'm not afraid of the dark anymore!",
+
+  "item.${mod_id}.ghost_h": "Ghost's Helmet",
+  "tooltip.${mod_id}.ghost_h": "Show my face?",
+
+  "item.${mod_id}.zch_h": "ZSH12",
+  "tooltip.${mod_id}.zch_h": "",
+
+  "item.${mod_id}.zabralo_h": "ZSH12 w/ Visor",
+  "tooltip.${mod_id}.zabralo_h": "Special Forces. We are working!",
+
+  "item.${mod_id}.killa_h": "Killa's Helmet",
+  "tooltip.${mod_id}.killa_h": "Forged for endurance. Worn by madness",
+
+  "item.${mod_id}.mk_ii_h": "МК-2",
+  "tooltip.${mod_id}.mk_ii_h": "",
+
+  "item.${mod_id}.saper_h": "Saper MK-2",
+  "tooltip.${mod_id}.saper_h": "No smoking in the mines",
+
+  "item.${mod_id}.veteran_h": "Ratnik Veteran Helmet",
+  "tooltip.${mod_id}.veteran_h": "The helmet of someone who learned when to duck",
+
+  "item.${mod_id}.pmc_h": "PMC Helmet",
+  "tooltip.${mod_id}.pmc_h": "Reliable protection for wars that never make the news",
+
+  "item.${mod_id}.nato_h": "Combined Arms Helmet",
+  "tooltip.${mod_id}.nato_h": "Optimized for steel, glass, and asphalt",
+
+  "item.${mod_id}.six_b_four_seven_h": "Veteran 6B47 Helmet",
+  "tooltip.${mod_id}.six_b_four_seven_h": "Worn by someone who stopped counting deployments",
+
+  "item.${mod_id}.six_b_four_seven_dark_h": "6B47 Helmet",
+  "tooltip.${mod_id}.six_b_four_seven_dark_h": "",
+
+  "item.${mod_id}.ratnik_h": "Ratnik Helmet",
+  "tooltip.${mod_id}.ratnik_h": "",
+
+  "item.${mod_id}.new_york_patch": "27th Infantry Patch",
+  "tooltip.${mod_id}.new_york_patch": "",
+
+  "item.${mod_id}.american_flag_patch": "American Flag Patch",
+  "tooltip.${mod_id}.american_flag_patch": "",
+
+  "item.${mod_id}.austrian_flag_patch": "Austrian Flag Patch",
+  "tooltip.${mod_id}.austrian_flag_patch": "",
+
+  "item.${mod_id}.battle_scarred_patch": "Battle-Scarred Patch (CS2)",
+  "tooltip.${mod_id}.battle_scarred_patch": "",
+
+  "item.${mod_id}.belgian_flag_patch": "Belgian Flag Patch",
+  "tooltip.${mod_id}.belgian_flag_patch": "",
+
+  "item.${mod_id}.belorussian_flag_patch": "Belorussian Flag Patch",
+  "tooltip.${mod_id}.belorussian_flag_patch": "",
+
+  "item.${mod_id}.british_flag_patch": "British Flag Patch",
+  "tooltip.${mod_id}.british_flag_patch": "",
+
+  "item.${mod_id}.centurion_patch": "Centurion Patch",
+  "tooltip.${mod_id}.centurion_patch": "",
+
+  "item.${mod_id}.chinese_flag_patch": "Chinese Flag Patch",
+  "tooltip.${mod_id}.chinese_flag_patch": "",
+
+  "item.${mod_id}.covenant_patch": "Covenant Patch",
+  "tooltip.${mod_id}.covenant_patch": "",
+
+  "item.${mod_id}.crimson_patch": "Crimson Patch",
+  "tooltip.${mod_id}.crimson_patch": "",
+
+  "item.${mod_id}.crown_patch": "Crown Patch (CS2)",
+  "tooltip.${mod_id}.crown_patch": "",
+
+  "item.${mod_id}.egyptian_flag_patch": "Egyptian Flag Patch",
+  "tooltip.${mod_id}.egyptian_flag_patch": "",
+
+  "item.${mod_id}.french_flag_patch": "French Flag Patch",
+  "tooltip.${mod_id}.french_flag_patch": "",
+
+  "item.${mod_id}.italian_flag_patch": "Italian Flag Patch",
+  "tooltip.${mod_id}.italian_flag_patch": "",
+
+  "item.${mod_id}.german_flag_patch": "German Flag Patch",
+  "tooltip.${mod_id}.german_flag_patch": "",
+
+  "item.${mod_id}.japanese_flag_patch": "Japanese Flag Patch",
+  "tooltip.${mod_id}.japanese_flag_patch": "",
+
+  "item.${mod_id}.kill_joy_patch": "Kill Joy Patch (CS2)",
+  "tooltip.${mod_id}.kill_joy_patch": "",
+
+  "item.${mod_id}.omicron_patch": "Omicron Patch",
+  "tooltip.${mod_id}.omicron_patch": "",
+
+  "item.${mod_id}.operative_patch": "Operative Patch",
+  "tooltip.${mod_id}.operative_patch": "",
+
+  "item.${mod_id}.pakistani_flag_patch": "Pakistani Flag Patch",
+  "tooltip.${mod_id}.pakistani_flag_patch": "",
+
+  "item.${mod_id}.polish_flag_patch": "Polish Flag Patch",
+  "tooltip.${mod_id}.polish_flag_patch": "",
+
+  "item.${mod_id}.praetorian_patch": "Praetorian Patch",
+  "tooltip.${mod_id}.praetorian_patch": "",
+
+  "item.${mod_id}.russian_flag_patch": "Russian Flag Patch",
+  "tooltip.${mod_id}.russian_flag_patch": "",
+
+  "item.${mod_id}.stalwart_patch": "Stalwart Patch",
+  "tooltip.${mod_id}.stalwart_patch": "",
+
+  "item.${mod_id}.titan_patch": "Titan Patch (CS2)",
+  "tooltip.${mod_id}.titan_patch": "",
+
+  "item.${mod_id}.titan_ii_patch": "Titan Patch II (CS2)",
+  "tooltip.${mod_id}.titan_ii_patch": "",
+
+  "item.${mod_id}.urban_american_flag_patch": "Urban American Flag Patch",
+  "tooltip.${mod_id}.urban_american_flag_patch": "",
+
+  "block.${mod_id}.workbench": "Workbench",
+  "screen.${mod_id}.workbench.title": "Brimm Workbench",
+  "screen.${mod_id}.workbench.craft": "CRAFT",
+  "screen.${mod_id}.workbench.not_enough_items": "Not enough items.",
+  "screen.${mod_id}.workbench.tooltip": "Drag to move",
+  "screen.${mod_id}.workbench.section.plates": "Armor Plates",
+  "screen.${mod_id}.workbench.section.chestplates": "Chestplates",
+  "screen.${mod_id}.workbench.section.helmets": "Helmets",
+  "screen.${mod_id}.workbench.section.patches": "Patches",
+  
+  "tooltip.${mod_id}.armors.current_patch": "Current patch",
+  
+  "item.${mod_id}.patches_adjuster_debug_patch": "Debug Patch"
+  
+}

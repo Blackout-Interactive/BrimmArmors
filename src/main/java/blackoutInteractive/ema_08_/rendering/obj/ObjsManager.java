@@ -38,10 +38,6 @@ public class ObjsManager {
 	
 	public static final class BakedObjModel {
 		
-		public static CompositeRenderable getRaw(BakedObjModel model) {
-			return model.bakedModel;
-		}
-		
 		private static final ITextureRenderTypeLookup renderType = RenderType::entityTranslucent;
 		
 		private final CompositeRenderable bakedModel;

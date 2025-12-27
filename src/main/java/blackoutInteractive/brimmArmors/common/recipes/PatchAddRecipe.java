@@ -29,6 +29,7 @@ public class PatchAddRecipe extends CustomRecipe {
             if (stack.getItem() instanceof BrimmArmor basic) {
                 if (!armor.isEmpty()) return false;
                 if (basic.getPatch(stack) != null) return false;
+                if (basic.patchesPositions(stack) == null || basic.patchesPositions(stack).isEmpty()) return false;
                 armor = stack;
             } else if (stack.getItem() instanceof ArmorPatch) {
                 if (!patch.isEmpty()) return false;

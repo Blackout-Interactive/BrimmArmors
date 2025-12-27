@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "brimm:item/veteran"
+    "layer0": "brimm:item/kill_joy_patch"
   }
 }

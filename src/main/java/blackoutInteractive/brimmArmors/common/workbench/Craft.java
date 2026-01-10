@@ -8,18 +8,16 @@ import net.minecraft.world.item.Item;
 
 public final class Craft {
 	
-	private static int uidc = 1;
-
     private final Item result;
     private final int uid;
     private final Collection<Ingredient> ingredients;
 
-    public Craft(Item result, Collection<Ingredient> ingredients) {
+    protected Craft(Item result, Collection<Ingredient> ingredients, int uid) {
         this.result = Objects.requireNonNull(result, "Craft must have a result item");
         this.ingredients = Collections.unmodifiableCollection(
                 Objects.requireNonNull(ingredients, "Craft must have ingredients")
         );
-        this.uid = uidc++;
+        this.uid = uid;
     }
 
     public Item result() {

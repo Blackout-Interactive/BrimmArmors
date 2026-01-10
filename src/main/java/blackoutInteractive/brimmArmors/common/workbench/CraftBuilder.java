@@ -10,6 +10,8 @@ import blackoutInteractive.ema_08_.misc.IBuilder;
 import net.minecraft.world.item.Item;
 
 public class CraftBuilder implements IBuilder<Craft> {
+	
+	private volatile int uidgen = 0;
 
     private final Supplier<Item> resultSupp;
     private final Collection<IngredientBuilder> ingredients = new ArrayList<>();
@@ -28,6 +30,6 @@ public class CraftBuilder implements IBuilder<Craft> {
             throw new IllegalStateException("Craft must have at least one ingredient");
         }
         return new Craft(this.resultSupp.get(),
-        		this.ingredients.stream().map(IngredientBuilder::build).collect(Collectors.toList()));
+        		this.ingredients.stream().map(IngredientBuilder::build).collect(Collectors.toList()), uidgen++);
     }
 }

@@ -5,13 +5,16 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class CraftsManager {
 	
-	private static final Map<CraftSection, List<CraftBuilder>> builders = new HashMap<>();
+	/*
+	 * Remember: to match c-side and s-side craft unique IDs order-aware collections shall be used.
+	 */
+	
+	private static final Map<CraftSection, ArrayList<CraftBuilder>> builders = new HashMap<>();
 	private static final List<CraftSection> orderedSections = List.of(
 			CraftSection.PLATES, CraftSection.CHESTPLATES, CraftSection.HELMETS, CraftSection.PATCHES
 		);
@@ -32,9 +35,11 @@ public class CraftsManager {
 	public static void buildAll() {
 		if (built != null) throw new IllegalStateException("Crafts already built");
 		Map<CraftSection, List<Craft>> mutableBuilt = new HashMap<>();
-		for (Entry<CraftSection, List<CraftBuilder>> sectionData : builders.entrySet())
-			mutableBuilt.put(sectionData.getKey(),
-				sectionData.getValue().stream().map(CraftBuilder::build).collect(Collectors.toUnmodifiableList()));
+		for (CraftSection section : orderedSections) {
+			ArrayList<CraftBuilder> crafts = builders.get(section);
+			mutableBuilt.put(section,
+					crafts.stream().map(CraftBuilder::build).collect(Collectors.toUnmodifiableList()));
+		}
 		built = Collections.unmodifiableMap(mutableBuilt);
 		for (CraftSection section : built.keySet()) accessors.put(section, new CraftsSectionAccessor(section));
 		builders.clear();

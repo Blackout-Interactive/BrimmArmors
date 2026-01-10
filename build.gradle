@@ -37,7 +37,7 @@ minecraft {
         }
 
         server {
-            args '--nogui'
+            /*args '--nogui'*/
         }
 
         data {

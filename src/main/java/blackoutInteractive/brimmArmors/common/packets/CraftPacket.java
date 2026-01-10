@@ -11,7 +11,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
@@ -61,7 +60,7 @@ public class CraftPacket extends APacket.AC2SPacket {
         );
         if (!canCraft) {
             player.sendSystemMessage(
-            		Component.literal(I18n.get("screen." + BrimmArmors.MOD_ID + ".workbench.not_enough_items")));
+            		Component.translatable("screen." + BrimmArmors.MOD_ID + ".workbench.not_enough_items"));
             return;
         }
         for (var ing : craft.ingredients()) {

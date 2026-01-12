@@ -4,7 +4,7 @@ import java.util.Objects;
 
 import net.minecraft.world.item.Item;
 
-public record Ingredient(Item type, int amt) {
+public final record Ingredient(Item type, int amt) {
 	
 	public Ingredient {
 		Objects.requireNonNull(type, "An ingredient must declare a type");

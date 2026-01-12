@@ -8,11 +8,9 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import net.minecraft.resources.ResourceLocation;
+
 public class CraftsManager {
-	
-	/*
-	 * Remember: to match c-side and s-side craft unique IDs order-aware collections shall be used.
-	 */
 	
 	private static final Map<CraftSection, ArrayList<CraftBuilder>> builders = new HashMap<>();
 	private static final List<CraftSection> orderedSections = List.of(
@@ -85,10 +83,10 @@ public class CraftsManager {
 		
 	}
 	
-	public static Craft byUid(int uid) {
+	public static Craft byId(ResourceLocation id) {
 		if (built == null) throw new IllegalStateException("Crafts have not been built yet");
 		for (List<Craft> crafts : built.values()) {
-			Craft match = crafts.stream().filter((c)->uid == c.getUid()).findFirst().orElse(null);
+			Craft match = crafts.stream().filter((c)->c.id().equals(id)).findFirst().orElse(null);
 			if (match != null) return match;
 		}
 		return null;

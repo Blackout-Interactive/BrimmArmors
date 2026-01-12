@@ -7,14 +7,14 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import blackoutInteractive.ema_08_.misc.IBuilder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
 public class CraftBuilder implements IBuilder<Craft> {
 	
-	private volatile int uidgen = 0;
-
     private final Supplier<Item> resultSupp;
     private final Collection<IngredientBuilder> ingredients = new ArrayList<>();
+    private volatile ResourceLocation id;
 
     public CraftBuilder(Supplier<Item> resultSupp) {
         this.resultSupp = Objects.requireNonNull(resultSupp, "Craft builder must have a result supplier");
@@ -24,12 +24,17 @@ public class CraftBuilder implements IBuilder<Craft> {
         this.ingredients.add(builder);
         return this;
     }
+    
+    public CraftBuilder setId(ResourceLocation id) {
+    	this.id = id;
+    	return this;
+    }
 
     public Craft build() {
         if (this.ingredients.isEmpty()) {
             throw new IllegalStateException("Craft must have at least one ingredient");
         }
         return new Craft(this.resultSupp.get(),
-        		this.ingredients.stream().map(IngredientBuilder::build).collect(Collectors.toList()), uidgen++);
+        		this.ingredients.stream().map(IngredientBuilder::build).collect(Collectors.toList()), this.id);
     }
 }

@@ -4,31 +4,20 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Objects;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
-public final class Craft {
+public final record Craft(
+		Item result,
+		Collection<Ingredient> ingredients,
+		ResourceLocation id) {
 	
-    private final Item result;
-    private final int uid;
-    private final Collection<Ingredient> ingredients;
-
-    protected Craft(Item result, Collection<Ingredient> ingredients, int uid) {
+    public Craft(Item result, Collection<Ingredient> ingredients, ResourceLocation id) {
         this.result = Objects.requireNonNull(result, "Craft must have a result item");
         this.ingredients = Collections.unmodifiableCollection(
                 Objects.requireNonNull(ingredients, "Craft must have ingredients")
         );
-        this.uid = uid;
+        this.id = Objects.requireNonNull(id, "Craft must have an id");
     }
 
-    public Item result() {
-        return this.result;
-    }
-
-    public Collection<Ingredient> ingredients() {
-        return this.ingredients;
-    }
-    
-    public int getUid() {
-    	return this.uid;
-    }
 }

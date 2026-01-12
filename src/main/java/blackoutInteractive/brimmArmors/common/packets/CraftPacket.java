@@ -1,5 +1,7 @@
 package blackoutInteractive.brimmArmors.common.packets;
 
+import java.util.Objects;
+
 import blackoutInteractive.brimmArmors.BrimmArmors;
 import blackoutInteractive.brimmArmors.common.registries.BlockRegistry;
 import blackoutInteractive.brimmArmors.common.workbench.Craft;
@@ -14,22 +16,23 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 
 public class CraftPacket extends APacket.AC2SPacket {
 
-    private final int craftIndex;
+    private final ResourceLocation craftId;
 
-    public CraftPacket(int craftIndex) {
-        this.craftIndex = craftIndex;
+    public CraftPacket(ResourceLocation craftId) {
+        this.craftId = craftId;
     }
 
     private CraftPacket(FriendlyByteBuf buf) {
-        this.craftIndex = buf.readVarInt();
+        this.craftId = buf.readResourceLocation();
     }
 
     @PacketEncoder(implClassName = "blackoutInteractive.brimmArmors.common.packets.CraftPacket")
     private static void encode(CraftPacket msg, FriendlyByteBuf buf) {
-        buf.writeVarInt(msg.craftIndex);
+        buf.writeResourceLocation(msg.craftId);
     }
 
     @PacketDecoder(implClassName = "blackoutInteractive.brimmArmors.common.packets.CraftPacket")
@@ -49,9 +52,9 @@ public class CraftPacket extends APacket.AC2SPacket {
             return;
         }
 
-        Craft craft = CraftsManager.byUid(this.craftIndex);
+        Craft craft = CraftsManager.byId(this.craftId);
         if (craft == null) {
-        	BrimmArmors.LOGGER.warn("Received invalid craft id in craft packet sent by "+ctx.getSender()+" Invalid id: "+this.craftIndex+".");
+        	BrimmArmors.LOGGER.warn("Received invalid craft id in craft packet sent by "+ctx.getSender()+" Invalid id: "+Objects.toString(this.craftId)+".");
             player.sendSystemMessage(Component.literal(ChatFormatting.RED+"Invalid recipe index!"));
             return;
         }

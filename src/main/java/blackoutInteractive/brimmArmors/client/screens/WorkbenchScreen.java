@@ -63,7 +63,7 @@ public class WorkbenchScreen extends Screen {
         addRenderableWidget(Button.builder(
                 Component.literal(ChatFormatting.BOLD + I18n.get("screen." + BrimmArmors.MOD_ID + ".workbench.craft")),
                 button -> {
-                    BrimmArmors.network.sendToServer(new CraftPacket(currentReceipe.getUid()));
+                    BrimmArmors.network.sendToServer(new CraftPacket(currentReceipe.id()));
                 	mc.player.level().playSound(null, mc.player.blockPosition(),
                 		    SoundEvents.UI_BUTTON_CLICK.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
                 })

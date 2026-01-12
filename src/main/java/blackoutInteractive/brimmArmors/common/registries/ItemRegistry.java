@@ -3,7 +3,7 @@ package blackoutInteractive.brimmArmors.common.registries;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
-import java.util.function.Consumer;
+import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 import blackoutInteractive.brimmArmors.BrimmArmors;
@@ -26,6 +26,7 @@ import blackoutInteractive.ema_08_.rendering.overlay.OverlayLocation;
 import blackoutInteractive.ema_08_.rendering.overlay.OverlayPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -807,7 +808,7 @@ public class ItemRegistry {
     	    )
     	);
 
-		public static final RegistryObject<ArmorPatch> DEBUG_PATCH = registerItemAndExecute((p)->{},
+		public static final RegistryObject<ArmorPatch> DEBUG_PATCH = registerItemAndExecute((p, n)->{},
 			"patches_adjuster_debug_patch",
 			()->new ArmorPatch("patches_adjuster_debug_patch"));
 
@@ -1074,18 +1075,19 @@ public class ItemRegistry {
     	    .setScale(50f, -50f, 50f);
     }
     
-    private static <T extends Item> Consumer<RegistryObject<T>>
+    private static <T extends Item> BiConsumer<RegistryObject<T>, String>
 			addTabAndSetCraft(Collection<RegistryObject<? extends Item>> tabHolder, ArmorItem.Type type, IngredientBuilder... ingredients) {
     	return addTabAndSetCraft(tabHolder, CraftSection.ofArmor(type), ingredients);
     }
         
-    private static <T extends Item> Consumer<RegistryObject<T>>
+    private static <T extends Item> BiConsumer<RegistryObject<T>, String>
     		addTabAndSetCraft(Collection<RegistryObject<? extends Item>> tabHolder, CraftSection section, IngredientBuilder... ingredients) {
-    	return (obj)->{
+    	return (obj, name)->{
     		tabHolder.add(obj);
     		if (ingredients.length > 0) {
     			CraftBuilder craft = new CraftBuilder(obj::get);
         		for (IngredientBuilder ingredient : ingredients) craft.addIngredient(ingredient);
+        		craft.setId(new ResourceLocation(BrimmArmors.MOD_ID, "wbcraft_"+name));
         		CraftsManager.register(craft, section);
     		} else {
     			BrimmArmors.LOGGER.warn("Registering without workbench craft: "+obj.getKey().toString()+".");
@@ -1127,10 +1129,10 @@ public class ItemRegistry {
     	return ()->new BrimmArmor(unlocName, type, mergedRarity, material, transform, patchesPositions);
     }
     	
-    private static <T extends Item> RegistryObject<T> registerItemAndExecute(Consumer<RegistryObject<T>> consumer,
+    private static <T extends Item> RegistryObject<T> registerItemAndExecute(BiConsumer<RegistryObject<T>, String> consumer,
     		String name, Supplier <? extends T> sup) {
     	RegistryObject<T> registered = ITEMS.register(name, sup);
-    	consumer.accept(registered);
+    	consumer.accept(registered, name);
     	return registered;
     }
     

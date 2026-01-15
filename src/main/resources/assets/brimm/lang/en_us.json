@@ -20,7 +20,7 @@
   "tooltip.${mod_id}.guard": "Always Ready, Always There!",
 
   "item.${mod_id}.saper": "Saper Body Armor",
-  "tooltip.${mod_id}.saper": "The owner of this Body Armor vest really didn't like creepers.",
+  "tooltip.${mod_id}.saper": "Explosives don't forgive mistakes.",
 
   "item.${mod_id}.vanderer": "Vanderer Body Armor",
   "tooltip.${mod_id}.vanderer": "Wandering in the desert...",
@@ -40,7 +40,7 @@
   "item.${mod_id}.medic": "Medic Body Armor",
   "tooltip.${mod_id}.medic": "Heroes never die!",
 
-  "item.${mod_id}.pmc": "PMC Kinder Body Armor",
+  "item.${mod_id}.pmc": "PMC Body Armor",
   "tooltip.${mod_id}.pmc": "Temperature +50. Everything we love!",
 
   "item.${mod_id}.assault": "Assault Body Armor",
@@ -63,6 +63,9 @@
 
   "item.${mod_id}.veteran": "Ratnik Veteran Body Armor",
   "tooltip.${mod_id}.veteran": "Shut up, I fought",
+
+  "item.${mod_id}.ghost": "Ghost's Vest",
+  "tooltip.${mod_id}.ghost": "Bravo Six, going dark",
 
   "item.${mod_id}.nyyyaaaa": "Housemaid Body Armor",
   "tooltip.${mod_id}.nyyyaaaa": "Every militarist is a little girl at heart",
@@ -123,6 +126,22 @@
 
   "item.${mod_id}.ratnik_h": "Ratnik Helmet",
   "tooltip.${mod_id}.ratnik_h": "",
+
+  "item.${mod_id}.airframe_h": "Airframe Helmet",
+  "tooltip.${mod_id}.airframe_h": "Designed to keep you moving",
+
+  "item.${mod_id}.tshfour_h": "TSh-4 Ground Crew Helmet",
+  "tooltip.${mod_id}.tshfour_h": "Smells like oil, smells like diesel",
+
+  "item.${mod_id}.tshfour_green_h": "TSh-4 Forest Green Helmet",
+  "tooltip.${mod_id}.tshfour_green_h": "Camouflage for steel coffins",
+
+  "item.${mod_id}.press_h": "Press PASGT Helmet",
+  "tooltip.${mod_id}.press_h": "Journalism-grade protection",
+
+  "item.${mod_id}.press": "Press Body Armor",
+  "tooltip.${mod_id}.press": "You're here to document it, not survive it",
+
 
   "item.${mod_id}.new_york_patch": "27th Infantry Patch",
   "tooltip.${mod_id}.new_york_patch": "",

@@ -3,6 +3,7 @@ package blackoutInteractive.brimmArmors.common.items;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.resources.language.I18n;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorItem;
@@ -24,6 +25,9 @@ import blackoutInteractive.brimmArmors.BrimmArmors;
 import blackoutInteractive.brimmArmors.client.render.BrimmArmorRender;
 import blackoutInteractive.brimmArmors.common.registries.ItemRegistry;
 import blackoutInteractive.ema_08_.items.SimpleArmorMaterial;
+import blackoutInteractive.ema_08_.items.effectsProvidingArmors.IAmplifiableApplicableEffect;
+import blackoutInteractive.ema_08_.items.effectsProvidingArmors.IAuraEffect;
+import blackoutInteractive.ema_08_.items.effectsProvidingArmors.IEffectProvidingArmor;
 import blackoutInteractive.ema_08_.rendering.geom.MatrixRTS;
 import blackoutInteractive.ema_08_.rendering.geom.RTSMatricesCompound;
 import blackoutInteractive.ema_08_.rendering.obj.IDefaultObjModelProvider;
@@ -40,7 +44,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public class BrimmArmor extends ArmorItem implements IDefaultObjModelProvider {
+public class BrimmArmor extends ArmorItem implements IDefaultObjModelProvider, IEffectProvidingArmor {
 	
 	private static final ConcurrentHashMap<String, ArmorPatch> patch_cache = new ConcurrentHashMap<>();
 	private static final Function<String, ArmorPatch> cache_computator = (key) -> {
@@ -52,21 +56,32 @@ public class BrimmArmor extends ArmorItem implements IDefaultObjModelProvider {
 		else
 			return (ArmorPatch)item;
 	};
+	
+	private static final IAmplifiableApplicableEffect[] empty_addOnWear = new IAmplifiableApplicableEffect[0];
+	private static final MobEffect[] empty_preventOnWear = new MobEffect[0];
+	private static final IAuraEffect[] empty_auraEffects = new IAuraEffect[0];
 
     private final BrimmRarity rarity;
     private final String unlocName;
     private final ModelType modelType;
     private final RTSMatricesCompound transformations;
     private final Collection<OverlayLocation> patchesPositions;
+    private final IAmplifiableApplicableEffect[] addOnWear;
+    private final MobEffect[] preventOnWear;
+    private final IAuraEffect[] auraEffects;
 
     public BrimmArmor(String unlocName, ArmorItem.Type type, BrimmRarity rarity, SimpleArmorMaterial material,
-    		RTSMatricesCompound transformations, Collection<OverlayLocation> patchesPositions) {
+    		RTSMatricesCompound transformations, Collection<OverlayLocation> patchesPositions,
+    		IAmplifiableApplicableEffect[] addOnWear, MobEffect[] preventOnWear, IAuraEffect[] auraEffects) {
         super(material, type, new Properties().durability(material.durabilityValue()));
         this.rarity = rarity;
         this.unlocName = unlocName;
         this.modelType = ModelType.ofArmor(type);
         this.transformations = transformations;
         this.patchesPositions = Collections.unmodifiableCollection(patchesPositions);
+        this.addOnWear = addOnWear == null ? empty_addOnWear : addOnWear;
+        this.preventOnWear = preventOnWear == null ? empty_preventOnWear : preventOnWear;
+        this.auraEffects = auraEffects == null ? empty_auraEffects : auraEffects;
     }
 
     @Override
@@ -181,6 +196,21 @@ public class BrimmArmor extends ArmorItem implements IDefaultObjModelProvider {
 	public void removePatchesDebugOverride(ItemStack is) {
 		is.getOrCreateTag().remove("debug-patchPosOverride");
 		is.getOrCreateTag().remove("debug-overlayPosOverride");
+	}
+
+	@Override
+	public IAmplifiableApplicableEffect[] getAddedOnWear() {
+		return this.addOnWear;
+	}
+
+	@Override
+	public MobEffect[] getPreventedOnWear() {
+		return this.preventOnWear;
+	}
+
+	@Override
+	public IAuraEffect[] getAuraEffects() {
+		return this.auraEffects;
 	}
 	
 }

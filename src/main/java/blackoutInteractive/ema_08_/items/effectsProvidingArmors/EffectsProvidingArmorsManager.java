@@ -79,7 +79,7 @@ public class EffectsProvidingArmorsManager {
             }
             
             Set<IAuraEffect> auras = new HashSet<IAuraEffect>();
-            auras.addAll(bestAuraEffects.values()); /*Not holding reference to a complete map*/
+            auras.addAll(bestAuraEffects.values()); /*Not holding reference to a completely useless map*/
             return new EffectsSetup(added, prevented, auras, new AtomicReference<>(System.currentTimeMillis()));
         });
         

@@ -3,7 +3,7 @@ package blackoutInteractive.ema_08_.rendering.twoToThreeD;
 import blackoutInteractive.brimmArmors.BrimmArmors;
 import net.minecraft.resources.ResourceLocation;
 
-public interface IDefaultPatchesRenderablePngProvider  extends IRenderablePngProvider {
+public interface IDefaultPatchesRenderablePngProvider extends IRenderablePngProvider {
 	
 	@Override
 	default ResourceLocation getTexturePng() {

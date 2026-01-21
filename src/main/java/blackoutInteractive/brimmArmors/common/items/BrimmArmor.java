@@ -145,7 +145,6 @@ public class BrimmArmor extends ArmorItem implements IDefaultObjModelProvider, I
     public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
         return false;
     }
-
 	
 	public Collection<OverlayLocation> patchesPositions(ItemStack is) {
 		if (is.hasTag() && is.getTag().contains("debug-patchPosOverride") && is.getTag().contains("debug-overlayPosOverride")) {

@@ -4,6 +4,8 @@ public enum ModelType {
 	
 	  ARMOR_HELMET("armors/helmets"),
 	  ARMOR_CHESTPLATE("armors/chestplates"),
+	  ARMOR_LEGGINGS_RIGHT("armors/leggings"),
+	  ARMOR_LEGGINGS_LEFT("armors/leggings"),
 	  BLOCKS("blocks");
 	    
 	  public final String

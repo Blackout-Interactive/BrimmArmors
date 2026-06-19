@@ -53,6 +53,14 @@ public class BrimmArmorRender extends HumanoidModel<LivingEntity> {
         		this.body.translateAndRotate(poseStack);
         		break;
         	}
+        	case ARMOR_LEGGINGS_RIGHT: {
+        		this.rightLeg.translateAndRotate(poseStack);
+        		break;
+        	}
+        	case ARMOR_LEGGINGS_LEFT: {
+        		this.leftLeg.translateAndRotate(poseStack);
+        		break;
+        	}
         	default: throw new IllegalStateException("Invalid model type for armor "+armor.unlocName+": "+modelRef.modelType);
         	}
     		

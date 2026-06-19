@@ -18,7 +18,7 @@ public class ObjsManager {
 	
 	private static final ConcurrentHashMap<String, BakedObjModel> cache = new ConcurrentHashMap<>();
 	
-	private static String hash(ResourceLocation obj, ResourceLocation texture) {
+	protected static String hash(ResourceLocation obj, ResourceLocation texture) {
 		return obj+"@"+texture;
 	}
 	
@@ -28,12 +28,15 @@ public class ObjsManager {
 		return new BakedObjModel(bakedModel, modelName);
 	}
 	
+	@Deprecated /*Mainly here for testing. For the final distribution always prefer ObjModelReference*/
 	public static BakedObjModel getModel(String modelName, ResourceLocation obj, ResourceLocation mtl, ResourceLocation texture) {
 		return cache.computeIfAbsent(hash(obj, texture), (hash)->loadModel(modelName, obj, mtl, texture));
 	}
 	
 	public static BakedObjModel getModel(ObjModelReference reference) {
-		return getModel(reference.modelName, reference.objFile, reference.mtlFile, reference.pngFile);
+		return cache.computeIfAbsent(reference.cacheKey, (hash)->loadModel(
+				reference.modelName, reference.objFile, reference.mtlFile, reference.pngFile)
+			);
 	}
 	
 	public static final class BakedObjModel {

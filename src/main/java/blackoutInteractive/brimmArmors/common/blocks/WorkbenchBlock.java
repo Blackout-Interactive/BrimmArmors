@@ -26,22 +26,24 @@ import java.util.List;
 import blackoutInteractive.brimmArmors.client.screens.WorkbenchScreen;
 import blackoutInteractive.brimmArmors.common.tile.WorkbenchTileEntity;
 import blackoutInteractive.ema_08_.rendering.geom.RTSMatricesCompound;
-import blackoutInteractive.ema_08_.rendering.obj.IDefaultObjModelProvider;
+import blackoutInteractive.ema_08_.rendering.obj.ISingleObjModelProvider;
 import blackoutInteractive.ema_08_.rendering.obj.ModelType;
+import blackoutInteractive.ema_08_.rendering.obj.ObjModelReference;
+
 import org.jetbrains.annotations.NotNull;
 
-public class WorkbenchBlock extends Block implements IDefaultObjModelProvider, EntityBlock {
+public class WorkbenchBlock extends Block implements ISingleObjModelProvider, EntityBlock {
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     private final String unlocName;
-    private final RTSMatricesCompound transformations;
+    private final ObjModelReference modelRef;
 
     public WorkbenchBlock(String unlocName, int lightLevel,
     		RTSMatricesCompound transformations) {
         super(Properties.of().strength(3.5F).noOcclusion().lightLevel(state -> lightLevel));
         this.unlocName = unlocName;
-        this.transformations = transformations;
+        this.modelRef = new ObjModelReference(ModelType.BLOCKS, this.unlocName, transformations);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
@@ -89,25 +91,15 @@ public class WorkbenchBlock extends Block implements IDefaultObjModelProvider, E
     public @NotNull RenderShape getRenderShape(@NotNull BlockState state) {
         return RenderShape.INVISIBLE;
     }
-
-	@Override
-	public String getModelName() {
-		return this.unlocName;
-	}
-
-	@Override
-	public ModelType getModelType() {
-		return ModelType.BLOCKS;
-	}
-
-	@Override
-	public RTSMatricesCompound getModelTransformations() {
-		return this.transformations;
-	}
 	
 	@Override
 	public WorkbenchTileEntity newBlockEntity(BlockPos pos, BlockState state) {
 	    return new WorkbenchTileEntity(pos, state);
+	}
+
+	@Override
+	public ObjModelReference getModelRef() {
+		return this.modelRef;
 	}
 
 }

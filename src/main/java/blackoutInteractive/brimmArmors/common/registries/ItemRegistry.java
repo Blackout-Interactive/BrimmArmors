@@ -15,6 +15,8 @@ import blackoutInteractive.brimmArmors.common.workbench.*;
 import blackoutInteractive.ema_08_.items.SimpleArmorMaterial;
 import blackoutInteractive.ema_08_.items.effectsProvidingArmors.*;
 import blackoutInteractive.ema_08_.rendering.geom.*;
+import blackoutInteractive.ema_08_.rendering.obj.ModelType;
+import blackoutInteractive.ema_08_.rendering.obj.ObjModelReference;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -88,7 +90,7 @@ public class ItemRegistry {
                     ig(IRON_PLATE, 3),
                     ig(Items.LEATHER, 1)),
             "ratnik",
-            generateArmorSupplier("ratnik", ArmorItem.Type.CHESTPLATE, BrimmRarity.COMMON,
+            generateArmorSupplierChestplate("ratnik", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -104,7 +106,7 @@ public class ItemRegistry {
                     ig(RATNIK, 1),
                     ig(Items.LEATHER, 5)),
             "ratnik_advance",
-            generateArmorSupplier("ratnik_advance", ArmorItem.Type.CHESTPLATE, BrimmRarity.UNCOMMON,
+            generateArmorSupplierChestplate("ratnik_advance", BrimmRarity.UNCOMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -121,7 +123,7 @@ public class ItemRegistry {
                     ig(IRON_PLATE, 2),
                     ig(Items.LEATHER, 5)),
             "defender",
-            generateArmorSupplier("defender", ArmorItem.Type.CHESTPLATE, BrimmRarity.COMMON,
+            generateArmorSupplierChestplate("defender", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -138,7 +140,7 @@ public class ItemRegistry {
                     ig(DEFENDER, 1),
                     ig(Items.LEATHER, 5)),
             "defender_ii",
-            generateArmorSupplier("defender_ii", ArmorItem.Type.CHESTPLATE, BrimmRarity.UNCOMMON,
+            generateArmorSupplierChestplate("defender_ii", BrimmRarity.UNCOMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -155,7 +157,7 @@ public class ItemRegistry {
                     ig(DEFENDER_II, 1),
                     ig(Items.LEATHER, 5)),
             "defender_iii",
-            generateArmorSupplier("defender_iii", ArmorItem.Type.CHESTPLATE, BrimmRarity.RARE,
+            generateArmorSupplierChestplate("defender_iii", BrimmRarity.RARE,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -176,7 +178,7 @@ public class ItemRegistry {
                     ig(Items.LEATHER, 5),
                     ig(Items.WHITE_DYE, 5)),
             "nato",
-            generateArmorSupplier("nato", ArmorItem.Type.CHESTPLATE, BrimmRarity.COMMON,
+            generateArmorSupplierChestplate("nato", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -193,7 +195,7 @@ public class ItemRegistry {
                     ig(NATO, 1),
                     ig(Items.LEATHER, 5)),
             "nato_ii",
-            generateArmorSupplier("nato_ii", ArmorItem.Type.CHESTPLATE, BrimmRarity.UNCOMMON,
+            generateArmorSupplierChestplate("nato_ii", BrimmRarity.UNCOMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -211,7 +213,7 @@ public class ItemRegistry {
                     ig(Items.LEATHER, 5),
                     ig(Items.BLUE_DYE, 5)),
             "press",
-            generateArmorSupplier("press", ArmorItem.Type.CHESTPLATE, BrimmRarity.UNCOMMON,
+            generateArmorSupplierChestplate("press", BrimmRarity.UNCOMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -228,7 +230,7 @@ public class ItemRegistry {
                     ig(NETHER_PLATE, 3),
                     ig(Items.SALMON, 5)),
             "marine",
-            generateArmorSupplier("marine", ArmorItem.Type.CHESTPLATE, BrimmRarity.RARE,
+            generateArmorSupplierChestplate("marine", BrimmRarity.RARE,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -249,7 +251,7 @@ public class ItemRegistry {
                     ig(DIAMOND_PLATE, 2),
                     ig(Items.CACTUS, 3)),
             "vanderer",
-            generateArmorSupplier("vanderer", ArmorItem.Type.CHESTPLATE, BrimmRarity.EPIC,
+            generateArmorSupplierChestplate("vanderer", BrimmRarity.EPIC,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -267,7 +269,7 @@ public class ItemRegistry {
                     ig(NETHER_PLATE, 3),
                     ig(Items.LEATHER, 10)),
             "guard",
-            generateArmorSupplier("guard", ArmorItem.Type.CHESTPLATE, BrimmRarity.RARE,
+            generateArmorSupplierChestplate("guard", BrimmRarity.RARE,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -284,7 +286,7 @@ public class ItemRegistry {
                     ig(DIAMOND_PLATE, 2),
                     ig(Items.TNT, 3)),
             "saper",
-            generateArmorSupplier("saper", ArmorItem.Type.CHESTPLATE, BrimmRarity.EPIC,
+            generateArmorSupplierChestplate("saper", BrimmRarity.EPIC,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -301,7 +303,7 @@ public class ItemRegistry {
                     ig(NETHER_PLATE, 3),
                     ig(Items.TNT, 3)),
             "concord",
-            generateArmorSupplier("concord", ArmorItem.Type.CHESTPLATE, BrimmRarity.EPIC,
+            generateArmorSupplierChestplate("concord", BrimmRarity.EPIC,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -320,7 +322,7 @@ public class ItemRegistry {
                     ig(DIAMOND_PLATE, 2),
                     ig(Items.GOLDEN_APPLE, 2)),
             "medic",
-            generateArmorSupplier("medic", ArmorItem.Type.CHESTPLATE, BrimmRarity.EPIC,
+            generateArmorSupplierChestplate("medic", BrimmRarity.EPIC,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -339,7 +341,7 @@ public class ItemRegistry {
                     ig(DIAMOND_PLATE, 2),
                     ig(IRON_PLATE, 1)),
             "pmc",
-            generateArmorSupplier("pmc", ArmorItem.Type.CHESTPLATE, BrimmRarity.COMMON,
+            generateArmorSupplierChestplate("pmc", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -356,7 +358,7 @@ public class ItemRegistry {
                     ig(NETHER_PLATE, 2),
                     ig(Items.LEATHER, 15)),
             "assault",
-            generateArmorSupplier("assault", ArmorItem.Type.CHESTPLATE, BrimmRarity.UNCOMMON,
+            generateArmorSupplierChestplate("assault", BrimmRarity.UNCOMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -374,7 +376,7 @@ public class ItemRegistry {
                     ig(NETHER_PLATE, 2),
                     ig(Items.LEATHER, 15)),
             "spn",
-            generateArmorSupplier("spn", ArmorItem.Type.CHESTPLATE, BrimmRarity.RARE,
+            generateArmorSupplierChestplate("spn", BrimmRarity.RARE,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -394,7 +396,7 @@ public class ItemRegistry {
                     ig(NETHER_PLATE, 2),
                     ig(Items.LEATHER, 15)),
             "horse",
-            generateArmorSupplier("horse", ArmorItem.Type.CHESTPLATE, BrimmRarity.RARE,
+            generateArmorSupplierChestplate("horse", BrimmRarity.RARE,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -414,7 +416,7 @@ public class ItemRegistry {
                     ig(DIAMOND_PLATE, 1),
                     ig(IRON_PLATE, 3)),
             "atleti",
-            generateArmorSupplier("atleti", ArmorItem.Type.CHESTPLATE, BrimmRarity.EPIC,
+            generateArmorSupplierChestplate("atleti", BrimmRarity.EPIC,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -433,7 +435,7 @@ public class ItemRegistry {
                     ig(RATNIK_ADVANCE, 1),
                     ig(DIAMOND_PLATE, 2)),
             "veteran",
-            generateArmorSupplier("veteran", ArmorItem.Type.CHESTPLATE, BrimmRarity.RARE,
+            generateArmorSupplierChestplate("veteran", BrimmRarity.RARE,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -451,7 +453,7 @@ public class ItemRegistry {
                     ig(NETHER_PLATE, 2),
                     ig(Items.BLACK_DYE, 5)),
             "ghost",
-            generateArmorSupplier("ghost", ArmorItem.Type.CHESTPLATE, BrimmRarity.EPIC,
+            generateArmorSupplierChestplate("ghost", BrimmRarity.EPIC,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -470,7 +472,7 @@ public class ItemRegistry {
                     ig(Items.WHITE_DYE, 5),
                     ig(Items.WITHER_ROSE, 1)),
             "nyyyaaaa",
-            generateArmorSupplier("nyyyaaaa", ArmorItem.Type.CHESTPLATE, BrimmRarity.EPIC,
+            generateArmorSupplierChestplate("nyyyaaaa", BrimmRarity.EPIC,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -488,7 +490,7 @@ public class ItemRegistry {
                     ig(Items.IRON_INGOT, 20),
                     ig(Items.LEATHER, 10)),
             "base_h",
-            generateArmorSupplier("base_h", ArmorItem.Type.HELMET, BrimmRarity.COMMON,
+            generateArmorSupplierHelmet("base_h", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -506,7 +508,7 @@ public class ItemRegistry {
                     ig(Items.LEATHER, 10),
                     ig(Items.GREEN_DYE, 5)),
             "tshfour_green_h",
-            generateArmorSupplier("tshfour_green_h", ArmorItem.Type.HELMET, BrimmRarity.COMMON,
+            generateArmorSupplierHelmet("tshfour_green_h", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -524,7 +526,7 @@ public class ItemRegistry {
                     ig(Items.LEATHER, 10),
                     ig(Items.BLACK_DYE, 5)),
             "tshfour_h",
-            generateArmorSupplier("tshfour_h", ArmorItem.Type.HELMET, BrimmRarity.UNCOMMON,
+            generateArmorSupplierHelmet("tshfour_h", BrimmRarity.UNCOMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -541,7 +543,7 @@ public class ItemRegistry {
                     ig(Items.IRON_INGOT, 15),
                     ig(Items.GREEN_DYE, 5)),
             "ratnik_h",
-            generateArmorSupplier("ratnik_h", ArmorItem.Type.HELMET, BrimmRarity.UNCOMMON,
+            generateArmorSupplierHelmet("ratnik_h", BrimmRarity.UNCOMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -560,7 +562,7 @@ public class ItemRegistry {
                     ig(Items.COAL, 30),
                     ig(Items.GLASS, 15)),
             "gasmask_h",
-            generateArmorSupplier("gasmask_h", ArmorItem.Type.HELMET, BrimmRarity.UNCOMMON,
+            generateArmorSupplierHelmet("gasmask_h", BrimmRarity.UNCOMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -587,7 +589,7 @@ public class ItemRegistry {
                     ig(Items.LEATHER, 10),
                     ig(Items.PAPER, 10)),
             "infantry_h",
-            generateArmorSupplier("infantry_h", ArmorItem.Type.HELMET, BrimmRarity.COMMON,
+            generateArmorSupplierHelmet("infantry_h", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -606,7 +608,7 @@ public class ItemRegistry {
                     ig(Items.REDSTONE, 10),
                     ig(Items.LAPIS_LAZULI, 10)),
             "assault_h",
-            generateArmorSupplier("assault_h", ArmorItem.Type.HELMET, BrimmRarity.UNCOMMON,
+            generateArmorSupplierHelmet("assault_h", BrimmRarity.UNCOMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -624,7 +626,7 @@ public class ItemRegistry {
                     ig(Items.IRON_INGOT, 10),
                     ig(Items.RED_DYE, 5)),
             "pmc_h",
-            generateArmorSupplier("pmc_h", ArmorItem.Type.HELMET, BrimmRarity.UNCOMMON,
+            generateArmorSupplierHelmet("pmc_h", BrimmRarity.UNCOMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -642,7 +644,7 @@ public class ItemRegistry {
                     ig(Items.IRON_INGOT, 10),
                     ig(Items.LIGHT_GRAY_DYE, 5)),
             "nato_h",
-            generateArmorSupplier("nato_h", ArmorItem.Type.HELMET, BrimmRarity.UNCOMMON,
+            generateArmorSupplierHelmet("nato_h", BrimmRarity.UNCOMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -660,7 +662,7 @@ public class ItemRegistry {
                     ig(Items.LEATHER, 20),
                     ig(Items.BLUE_DYE, 5)),
             "press_h",
-            generateArmorSupplier("press_h", ArmorItem.Type.HELMET, BrimmRarity.UNCOMMON,
+            generateArmorSupplierHelmet("press_h", BrimmRarity.UNCOMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -677,7 +679,7 @@ public class ItemRegistry {
                     ig(Items.LEATHER, 5),
                     ig(Items.GOLDEN_APPLE, 1)),
             "medic_h",
-            generateArmorSupplier("medic_h", ArmorItem.Type.HELMET, BrimmRarity.RARE,
+            generateArmorSupplierHelmet("medic_h", BrimmRarity.RARE,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -699,7 +701,7 @@ public class ItemRegistry {
                     ig(Items.IRON_INGOT, 15),
                     ig(Items.DIAMOND, 10)),
             "veteran_h",
-            generateArmorSupplier("veteran_h", ArmorItem.Type.HELMET, BrimmRarity.RARE,
+            generateArmorSupplierHelmet("veteran_h", BrimmRarity.RARE,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -716,7 +718,7 @@ public class ItemRegistry {
                     ig(Items.IRON_INGOT, 25),
                     ig(Items.LEATHER, 5)),
             "six_b_four_seven_dark_h",
-            generateArmorSupplier("six_b_four_seven_dark_h", ArmorItem.Type.HELMET, BrimmRarity.COMMON,
+            generateArmorSupplierHelmet("six_b_four_seven_dark_h", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -734,7 +736,7 @@ public class ItemRegistry {
                     ig(Items.IRON_INGOT, 20),
                     ig(Items.DIAMOND, 10)),
             "six_b_four_seven_h",
-            generateArmorSupplier("six_b_four_seven_h", ArmorItem.Type.HELMET, BrimmRarity.RARE,
+            generateArmorSupplierHelmet("six_b_four_seven_h", BrimmRarity.RARE,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -751,7 +753,7 @@ public class ItemRegistry {
                     ig(Items.IRON_INGOT, 25),
                     ig(Items.LEATHER, 5)),
             "airframe_h",
-            generateArmorSupplier("airframe_h", ArmorItem.Type.HELMET, BrimmRarity.RARE,
+            generateArmorSupplierHelmet("airframe_h", BrimmRarity.RARE,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -770,7 +772,7 @@ public class ItemRegistry {
                     ig(Items.DIAMOND, 10),
                     ig(Items.BLAZE_ROD, 50)),
             "concord_h",
-            generateArmorSupplier("concord_h", ArmorItem.Type.HELMET, BrimmRarity.EPIC,
+            generateArmorSupplierHelmet("concord_h", BrimmRarity.EPIC,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -792,7 +794,7 @@ public class ItemRegistry {
                     ig(Items.SPIDER_EYE, 10),
                     ig(Items.DIAMOND, 10)),
             "gpnvg_h",
-            generateArmorSupplier("gpnvg_h", ArmorItem.Type.HELMET, BrimmRarity.RARE,
+            generateArmorSupplierHelmet("gpnvg_h", BrimmRarity.RARE,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -812,7 +814,7 @@ public class ItemRegistry {
                     ig(Items.SKELETON_SKULL, 1),
                     ig(Items.INK_SAC, 5)),
             "ghost_h",
-            generateArmorSupplier("ghost_h", ArmorItem.Type.HELMET, BrimmRarity.EPIC,
+            generateArmorSupplierHelmet("ghost_h", BrimmRarity.EPIC,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -831,7 +833,7 @@ public class ItemRegistry {
                     ig(Items.IRON_INGOT, 15),
                     ig(Items.LEATHER, 15)),
             "zch_h",
-            generateArmorSupplier("zch_h", ArmorItem.Type.HELMET, BrimmRarity.COMMON,
+            generateArmorSupplierHelmet("zch_h", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -847,7 +849,7 @@ public class ItemRegistry {
                     ig(ZCH_H, 1),
                     ig(Items.GLASS_PANE, 10)),
             "zabralo_h",
-            generateArmorSupplier("zabralo_h", ArmorItem.Type.HELMET, BrimmRarity.RARE,
+            generateArmorSupplierHelmet("zabralo_h", BrimmRarity.RARE,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -864,7 +866,7 @@ public class ItemRegistry {
                     ig(Items.GLASS_PANE, 5),
                     ig(Items.INK_SAC, 5)),
             "killa_h",
-            generateArmorSupplier("killa_h", ArmorItem.Type.HELMET, BrimmRarity.EPIC,
+            generateArmorSupplierHelmet("killa_h", BrimmRarity.EPIC,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -882,7 +884,7 @@ public class ItemRegistry {
                     ig(Items.IRON_INGOT, 15),
                     ig(Items.LEATHER, 5)),
             "mk_ii_h",
-            generateArmorSupplier("mk_ii_h", ArmorItem.Type.HELMET, BrimmRarity.COMMON,
+            generateArmorSupplierHelmet("mk_ii_h", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -899,7 +901,7 @@ public class ItemRegistry {
                     ig(Items.REDSTONE, 10),
                     ig(Items.LEATHER, 5)),
             "saper_h",
-            generateArmorSupplier("saper_h", ArmorItem.Type.HELMET, BrimmRarity.UNCOMMON,
+            generateArmorSupplierHelmet("saper_h", BrimmRarity.UNCOMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -1238,10 +1240,46 @@ public class ItemRegistry {
     }
 
     // --- ARMOR SUPPLIERS HELPER ---
+    
+    private static Supplier<BrimmArmor> generateArmorSupplierHelmet(
+            final String unlocName, final BrimmRarity rarity,
+            final RTSMatricesCompoundBuilder transform, final float toughness,
+            final float knockbackResistance, final int defenseValue, final int durabilityValue,
+            final Collection<OverlayLocation> patchesPositions, final Collection<IAmplifiableApplicableEffect> onWearEffects,
+            final Collection<MobEffect> preventOnWearEffects, final Collection<IAuraEffect> auraEffects) {
+    	final ObjModelReference[] models = new ObjModelReference[] {
+    			new ObjModelReference(ModelType.ARMOR_HELMET, unlocName, transform.build())
+    	};
+    	return generateArmorSupplier0(ArmorItem.Type.HELMET,
+    			unlocName, rarity,
+                models, toughness,
+                knockbackResistance, defenseValue, durabilityValue,
+                patchesPositions, onWearEffects,
+                preventOnWearEffects, auraEffects
+            );
+    }
+    
+    private static Supplier<BrimmArmor> generateArmorSupplierChestplate(
+            final String unlocName, final BrimmRarity rarity,
+            final RTSMatricesCompoundBuilder transform, final float toughness,
+            final float knockbackResistance, final int defenseValue, final int durabilityValue,
+            final Collection<OverlayLocation> patchesPositions, final Collection<IAmplifiableApplicableEffect> onWearEffects,
+            final Collection<MobEffect> preventOnWearEffects, final Collection<IAuraEffect> auraEffects) {
+    	final ObjModelReference[] models = new ObjModelReference[] {
+    			new ObjModelReference(ModelType.ARMOR_CHESTPLATE, unlocName, transform.build())
+    	};
+    	return generateArmorSupplier0(ArmorItem.Type.CHESTPLATE,
+    			unlocName, rarity,
+                models, toughness,
+                knockbackResistance, defenseValue, durabilityValue,
+                patchesPositions, onWearEffects,
+                preventOnWearEffects, auraEffects
+            );
+    }
 
-    private static Supplier<BrimmArmor> generateArmorSupplier(
-            final String unlocName, final ArmorItem.Type type, final BrimmRarity rarity,
-            final RTSMatricesCompoundBuilder transformB, final float toughness,
+    private static Supplier<BrimmArmor> generateArmorSupplier0(
+    		final ArmorItem.Type type, final String unlocName, final BrimmRarity rarity,
+            final ObjModelReference[] models, final float toughness,
             final float knockbackResistance, final int defenseValue, final int durabilityValue,
             final Collection<OverlayLocation> patchesPositions, final Collection<IAmplifiableApplicableEffect> onWearEffects,
             final Collection<MobEffect> preventOnWearEffects, final Collection<IAuraEffect> auraEffects) {
@@ -1250,14 +1288,13 @@ public class ItemRegistry {
                 toughness, knockbackResistance, defenseValue, durabilityValue,
                 type, cfg.materialOverrides());
         final BrimmRarity mergedRarity = ConfigMergers.mergeRarity(rarity, cfg.rarityOverride());
-        final RTSMatricesCompound transform = transformB.build();
         final IAmplifiableApplicableEffect[] onWearArr = (onWearEffects == null || onWearEffects.isEmpty()) ? null :
                 onWearEffects.toArray(IAmplifiableApplicableEffect[]::new);
         final MobEffect[] onWearPrevArr = (preventOnWearEffects == null || preventOnWearEffects.isEmpty()) ? null :
                 preventOnWearEffects.toArray(MobEffect[]::new);
         final IAuraEffect[] auraEffectsArr = (auraEffects == null || auraEffects.isEmpty()) ? null :
                 auraEffects.toArray(IAuraEffect[]::new);
-        return () -> new BrimmArmor(unlocName, type, mergedRarity, material, transform, patchesPositions, onWearArr, onWearPrevArr, auraEffectsArr);
+        return () -> new BrimmArmor(unlocName, type, mergedRarity, material, models, patchesPositions, onWearArr, onWearPrevArr, auraEffectsArr);
     }
 
     private static <T extends Item> RegistryObject<T> registerItemAndExecute(

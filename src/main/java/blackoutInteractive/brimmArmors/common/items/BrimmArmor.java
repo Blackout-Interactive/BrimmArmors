@@ -29,9 +29,8 @@ import blackoutInteractive.ema_08_.items.effectsProvidingArmors.IAmplifiableAppl
 import blackoutInteractive.ema_08_.items.effectsProvidingArmors.IAuraEffect;
 import blackoutInteractive.ema_08_.items.effectsProvidingArmors.IEffectProvidingArmor;
 import blackoutInteractive.ema_08_.rendering.geom.MatrixRTS;
-import blackoutInteractive.ema_08_.rendering.geom.RTSMatricesCompound;
-import blackoutInteractive.ema_08_.rendering.obj.IDefaultObjModelProvider;
-import blackoutInteractive.ema_08_.rendering.obj.ModelType;
+import blackoutInteractive.ema_08_.rendering.obj.IMultiObjModelProvider;
+import blackoutInteractive.ema_08_.rendering.obj.ObjModelReference;
 import blackoutInteractive.ema_08_.rendering.overlay.OverlayLocation;
 import blackoutInteractive.ema_08_.rendering.overlay.OverlayPos;
 
@@ -44,7 +43,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public class BrimmArmor extends ArmorItem implements IDefaultObjModelProvider, IEffectProvidingArmor {
+public class BrimmArmor extends ArmorItem implements IMultiObjModelProvider, IEffectProvidingArmor {
 	
 	private static final ConcurrentHashMap<String, ArmorPatch> patch_cache = new ConcurrentHashMap<>();
 	private static final Function<String, ArmorPatch> cache_computator = (key) -> {
@@ -61,23 +60,22 @@ public class BrimmArmor extends ArmorItem implements IDefaultObjModelProvider, I
 	private static final MobEffect[] empty_preventOnWear = new MobEffect[0];
 	private static final IAuraEffect[] empty_auraEffects = new IAuraEffect[0];
 
+	public final String unlocName;
+	
     private final BrimmRarity rarity;
-    private final String unlocName;
-    private final ModelType modelType;
-    private final RTSMatricesCompound transformations;
+    private final ObjModelReference[] models;
     private final Collection<OverlayLocation> patchesPositions;
     private final IAmplifiableApplicableEffect[] addOnWear;
     private final MobEffect[] preventOnWear;
     private final IAuraEffect[] auraEffects;
 
     public BrimmArmor(String unlocName, ArmorItem.Type type, BrimmRarity rarity, SimpleArmorMaterial material,
-    		RTSMatricesCompound transformations, Collection<OverlayLocation> patchesPositions,
+    		ObjModelReference[] models, Collection<OverlayLocation> patchesPositions,
     		IAmplifiableApplicableEffect[] addOnWear, MobEffect[] preventOnWear, IAuraEffect[] auraEffects) {
         super(material, type, new Properties().durability(material.durabilityValue()));
         this.rarity = rarity;
         this.unlocName = unlocName;
-        this.modelType = ModelType.ofArmor(type);
-        this.transformations = transformations;
+        this.models = models;
         this.patchesPositions = Collections.unmodifiableCollection(patchesPositions);
         this.addOnWear = addOnWear == null ? empty_addOnWear : addOnWear;
         this.preventOnWear = preventOnWear == null ? empty_preventOnWear : preventOnWear;
@@ -122,18 +120,8 @@ public class BrimmArmor extends ArmorItem implements IDefaultObjModelProvider, I
     }
 
 	@Override
-	public String getModelName() {
-		return this.unlocName;
-	}
-
-	@Override
-	public ModelType getModelType() {
-		return this.modelType;
-	}
-
-	@Override
-	public RTSMatricesCompound getModelTransformations() {
-		return this.transformations;
+	public ObjModelReference[] getModelRefs() {
+		return this.models;
 	}
 	
     @Override

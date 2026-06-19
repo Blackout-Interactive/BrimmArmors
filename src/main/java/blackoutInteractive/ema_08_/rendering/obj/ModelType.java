@@ -1,9 +1,5 @@
 package blackoutInteractive.ema_08_.rendering.obj;
 
-import java.util.Objects;
-
-import net.minecraft.world.item.ArmorItem;
-
 public enum ModelType {
 	
 	  ARMOR_HELMET("armors/helmets"),
@@ -19,17 +15,6 @@ public enum ModelType {
 	    this.non_namespaced_resloc_obj_base = "models/obj/" + typeLoc + "/";
 	    this.non_namespaced_resloc_mtl_base = "models/mtl/" + typeLoc + "/";
 	    this.non_namespaced_resloc_png_base = "textures/models/obj/" + typeLoc + "/";
-	  }
-	  
-	  public static ModelType ofArmor(ArmorItem.Type type) {
-		  Objects.requireNonNull(type);
-		  switch (type){
-		  case HELMET: return ARMOR_HELMET;
-		  case CHESTPLATE: return ARMOR_CHESTPLATE;
-		  default: {
-			  throw new IllegalArgumentException("Unexpected armor type "+type);
-		  }
-		  }
 	  }
 	  
 }

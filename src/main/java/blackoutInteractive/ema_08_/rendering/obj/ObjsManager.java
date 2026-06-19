@@ -32,8 +32,8 @@ public class ObjsManager {
 		return cache.computeIfAbsent(hash(obj, texture), (hash)->loadModel(modelName, obj, mtl, texture));
 	}
 	
-	public static BakedObjModel getModel(IObjModelProvider provider) {
-		return getModel(provider.getModelName(), provider.getObj(), provider.getMtl(), provider.getPng());
+	public static BakedObjModel getModel(ObjModelReference reference) {
+		return getModel(reference.modelName, reference.objFile, reference.mtlFile, reference.pngFile);
 	}
 	
 	public static final class BakedObjModel {

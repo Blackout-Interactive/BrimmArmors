@@ -37,7 +37,7 @@ public class WorkbenchRender implements BlockEntityRenderer<WorkbenchTileEntity>
             };
             if (yRot != 0) matrix.mulPose(Axis.YP.rotationDegrees(yRot));
 
-            ObjsManager.getModel(workbench).render(matrix, buffer, combinedLight, combinedOverlay, partialTicks);
+            ObjsManager.getModel(workbench.getModelRef()).render(matrix, buffer, combinedLight, combinedOverlay, partialTicks);
 
             matrix.popPose();
         }

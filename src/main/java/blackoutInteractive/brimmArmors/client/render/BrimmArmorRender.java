@@ -8,7 +8,7 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import blackoutInteractive.brimmArmors.common.items.ArmorPatch;
 import blackoutInteractive.brimmArmors.common.items.BrimmArmor;
 import blackoutInteractive.ema_08_.rendering.geom.RTSMatricesCompound;
-import blackoutInteractive.ema_08_.rendering.obj.ModelType;
+import blackoutInteractive.ema_08_.rendering.obj.ObjModelReference;
 import blackoutInteractive.ema_08_.rendering.obj.ObjsManager;
 import blackoutInteractive.ema_08_.rendering.overlay.OverlayLocation;
 import blackoutInteractive.ema_08_.rendering.overlay.OverlayPos;
@@ -38,26 +38,32 @@ public class BrimmArmorRender extends HumanoidModel<LivingEntity> {
     	var buff = Minecraft.getInstance().renderBuffers().bufferSource();
     	float ticks = Minecraft.getInstance().getPartialTick();
     	
-        poseStack.pushPose();
-        
-        ModelType mt = armor.getModelType();
-        switch(mt) {
-    	case ARMOR_HELMET: {
-    		this.head.translateAndRotate(poseStack);
-    		break;
-    	}
-    	case ARMOR_CHESTPLATE: {
-    		this.body.translateAndRotate(poseStack);
-    		break;
-    	}
-    	default: throw new IllegalStateException("Invalid model type for armor "+armor.getModelName()+": "+mt);
-    	}
-
-        armor.getModelTransformations().applyIfPresent(RTSMatricesCompound.key_armor_render, poseStack);
-        ObjsManager.getModel(armor)
-        	.render(poseStack, buff, packedLight, packedOverlay, ticks);
+    	ObjModelReference[] modelRefs = armor.getModelRefs();
+    	
+    	for (ObjModelReference modelRef : modelRefs) {
+    		
+    		poseStack.pushPose();
+    		
+    		switch(modelRef.modelType) {
+    		case ARMOR_HELMET: {
+        		this.head.translateAndRotate(poseStack);
+        		break;
+        	}
+        	case ARMOR_CHESTPLATE: {
+        		this.body.translateAndRotate(poseStack);
+        		break;
+        	}
+        	default: throw new IllegalStateException("Invalid model type for armor "+armor.unlocName+": "+modelRef.modelType);
+        	}
+    		
+    		modelRef.modelTransforms.applyIfPresent(RTSMatricesCompound.key_armor_render, poseStack);
+    		
+    		ObjsManager.getModel(modelRef)
+        		.render(poseStack, buff, packedLight, packedOverlay, ticks);
   
-        poseStack.popPose();
+    		poseStack.popPose();
+    		
+    	}
         
         ArmorPatch patch = armor.getPatch(is);
         Collection<OverlayLocation> locations = armor.patchesPositions(this.is);
@@ -76,7 +82,7 @@ public class BrimmArmorRender extends HumanoidModel<LivingEntity> {
         		this.body.translateAndRotate(poseStack);
         		break;
         	}
-        	default: throw new IllegalStateException("Invalid overlay position for armor "+armor.getModelName()+": "+pos);
+        	default: throw new IllegalStateException("Invalid overlay position for armor "+armor.unlocName+": "+pos);
         	}
         	loc.localTransform().apply(poseStack);
         	

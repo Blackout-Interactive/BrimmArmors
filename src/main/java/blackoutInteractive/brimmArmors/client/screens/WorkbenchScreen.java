@@ -14,7 +14,8 @@ import blackoutInteractive.brimmArmors.common.packets.CraftPacket;
 import blackoutInteractive.brimmArmors.common.workbench.Craft;
 import blackoutInteractive.brimmArmors.common.workbench.CraftsManager;
 import blackoutInteractive.ema_08_.rendering.geom.RTSMatricesCompound;
-import blackoutInteractive.ema_08_.rendering.obj.IObjModelProvider;
+import blackoutInteractive.ema_08_.rendering.obj.ISingleObjModelProvider;
+import blackoutInteractive.ema_08_.rendering.obj.IMultiObjModelProvider;
 import blackoutInteractive.ema_08_.rendering.obj.ObjsManager;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
@@ -164,7 +165,9 @@ public class WorkbenchScreen extends Screen {
             ingY += mc.font.lineHeight + 2;
         }
         
-        if (!dragging && this.currentReceipe.result() instanceof IObjModelProvider &&
+        if (!dragging &&
+        		(this.currentReceipe.result() instanceof ISingleObjModelProvider ||
+        				this.currentReceipe.result() instanceof IMultiObjModelProvider) &&
                 mouseX >= guiLeft && mouseX <= guiLeft + BG_XSIZE &&
                 mouseY >= guiTop && mouseY <= guiTop + BG_YSIZE) {
 
@@ -178,33 +181,52 @@ public class WorkbenchScreen extends Screen {
             }
         
     }
+    
+    private void setupObjRendering(PoseStack poseStack, int x, int y) {
+    	RenderSystem.enableBlend();
+    	RenderSystem.defaultBlendFunc();
+    	RenderSystem.enableDepthTest();
+    	RenderSystem.setShaderLights(lightDir, lightDir);
+        poseStack.translate(x, y, 150);
+        poseStack.mulPose(Axis.YP.rotation(rotationY));
+        poseStack.mulPose(Axis.XP.rotation(rotationX));
+    }
 
     private void renderItem(GuiGraphics guig, PoseStack poseStack, int x, int y) {
-        poseStack.pushPose();
+    	
+    	poseStack.pushPose();
         
         Item current = this.currentReceipe.result();
         
-        if (current instanceof IObjModelProvider model) {
-        	RenderSystem.enableBlend();
-        	RenderSystem.defaultBlendFunc();
-        	RenderSystem.enableDepthTest();
-        	RenderSystem.setShaderLights(lightDir, lightDir);
-            poseStack.translate(x, y, 150);
-            poseStack.mulPose(Axis.YP.rotation(rotationY));
-            poseStack.mulPose(Axis.XP.rotation(rotationX));
-            model.getModelTransformations().applyIfPresent(RTSMatricesCompound.key_workbench_render, poseStack);
-            ObjsManager.getModel(model).render(poseStack,
+        if (current instanceof ISingleObjModelProvider modelRefP) {
+        	setupObjRendering(poseStack, x, y);
+            var modelRef = modelRefP.getModelRef();
+            modelRef.modelTransforms.applyIfPresent(RTSMatricesCompound.key_workbench_render, poseStack);
+            ObjsManager.getModel(modelRef).render(poseStack,
                 Minecraft.getInstance().renderBuffers().bufferSource(),
                 LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, mc.getPartialTick()
             );
+        } else if (current instanceof IMultiObjModelProvider modelRefsP) {
+        	setupObjRendering(poseStack, x, y);
+        	var modelRefs = modelRefsP.getModelRefs();
+        	for (var modelRef : modelRefs) {
+        		poseStack.pushPose();
+        		modelRef.modelTransforms.applyIfPresent(RTSMatricesCompound.key_workbench_render, poseStack);
+                ObjsManager.getModel(modelRef).render(poseStack,
+                    Minecraft.getInstance().renderBuffers().bufferSource(),
+                    LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, mc.getPartialTick()
+                );
+        		poseStack.popPose();
+        	}
         } else {
             ItemStack itemStack = new ItemStack(current);
             poseStack.translate(x, y, 100);
             poseStack.scale(ITEMICONS_SCALE, ITEMICONS_SCALE, 1f); 
             guig.renderItem(itemStack, -8, -8);
         }
-
+        
         poseStack.popPose();
+
     }
 
     @Override

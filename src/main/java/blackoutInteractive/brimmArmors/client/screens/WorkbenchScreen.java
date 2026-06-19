@@ -160,7 +160,11 @@ public class WorkbenchScreen extends Screen {
         int ingX = guiLeft + BG_XSIZE + 10;
         int ingY = guiTop;
         for (var ing : currentReceipe.ingredients()) {
-            String ingText = "• " + ing.amt() + "x " + ing.type().getName(new ItemStack(ing.type())).getString();
+            int count = mc.player.getInventory().countItem(ing.type());
+            ChatFormatting materialColor = count >= ing.amt() ? ChatFormatting.GREEN : (count > 0 ? ChatFormatting.YELLOW : ChatFormatting.RED);
+            Component ingText = Component.literal("- ")
+                .append(Component.literal(ing.amt() + "x ").withStyle(materialColor))
+                .append(ing.type().getName(new ItemStack(ing.type())));
             guig.drawString(mc.font, ingText, ingX, ingY, 0xAAAAAA, false);
             ingY += mc.font.lineHeight + 2;
         }

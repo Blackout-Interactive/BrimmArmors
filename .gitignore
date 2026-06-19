@@ -5,6 +5,7 @@ bin
 .metadata
 .classpath
 .project
+ecl.lnk
 
 # idea
 out

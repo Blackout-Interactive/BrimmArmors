@@ -4,6 +4,8 @@ import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Optional;
@@ -34,7 +36,9 @@ public class ConfigsManager {
 			BrimmArmors.LOGGER.error("Failed to generate configs folder. No configurations will be loaded.");
 		} else {
 			MessageDigest digest = sha256();
-			for (File file : configFolder.listFiles()) {
+			File[] configFiles = configFolder.listFiles();
+			Arrays.sort(configFiles, Comparator.comparing(File::getName));
+			for (File file : configFiles) {
 				if (!file.isFile()) {
                     BrimmArmors.LOGGER.warn("Found unexpected subdir in configs folder ({}), ignoring.", file.getName());
 				} else if (!file.getName().endsWith(".xml")) {

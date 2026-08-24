@@ -239,6 +239,12 @@
   
   "tooltip.${mod_id}.armors.current_patch": "Current patch",
   
-  "item.${mod_id}.patches_adjuster_debug_patch": "Debug Patch"
+  "item.${mod_id}.patches_adjuster_debug_patch": "Debug Patch",
+  
+  "message.${mod_id}.version_check_outdated": "A new release of BRIMM is live, go check it out on CurseForge!",
+  "message.${mod_id}.version_check_error": "An error occurred while checking whether BRIMM is up to date.",
+  "message.${mod_id}.version_check_incomplete": "Failed to verify whether BRIMM is up to date (this is not an error).",
+  "message.${mod_id}.version_check_good": "BRIMM is up to date!",
+  "message.${mod_id}.version_check_overdated": "The BRIMM version is newer than expected. Please report this to the developers."
   
 }

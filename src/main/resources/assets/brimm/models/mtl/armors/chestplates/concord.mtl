@@ -1,12 +1,4 @@
-# Blender 4.4.3 MTL File: 'None'
-# www.blender.org
-
-newmtl m_ece17920-225a-3ce6-5968-f4225a3677aa
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
+# Made in Blockbench 5.1.6
+newmtl m_d47ed96a-c8ee-c1f0-618c-895a691ef895
 map_Kd brimm:models/obj/armors/chestplates/concord
+newmtl none

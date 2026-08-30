@@ -1,12 +1,4 @@
-# Blender 4.4.3 MTL File: 'None'
-# www.blender.org
-
-newmtl m_551e9e3f-318e-fdb3-d4d7-549abc671329
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 1
+# Made in Blockbench 5.1.6
+newmtl m_0b5062bd-a5e9-4453-415f-f415a372b3a6
 map_Kd brimm:models/obj/armors/helmets/concord_h
+newmtl none

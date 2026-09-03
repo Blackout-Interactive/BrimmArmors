@@ -15,7 +15,7 @@ public class CraftsManager {
 	private static final Map<CraftSection, ArrayList<CraftBuilder>> builders = new HashMap<>();
 	private static final List<CraftSection> orderedSections = List.of(
 			CraftSection.PLATES,
-			CraftSection.HELMETS, CraftSection.CHESTPLATES, CraftSection.LEGGINGS,
+			CraftSection.HELMETS, CraftSection.CHESTPLATES, CraftSection.LEGGINGS, CraftSection.BOOTS,
 			CraftSection.PATCHES
 		);
 	

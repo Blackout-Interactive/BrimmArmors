@@ -53,10 +53,12 @@ public class BrimmArmorRender extends HumanoidModel<LivingEntity> {
         		this.body.translateAndRotate(poseStack);
         		break;
         	}
+        	case ARMOR_BOOTS_RIGHT:
         	case ARMOR_LEGGINGS_RIGHT: {
         		this.rightLeg.translateAndRotate(poseStack);
         		break;
         	}
+        	case ARMOR_BOOTS_LEFT:
         	case ARMOR_LEGGINGS_LEFT: {
         		this.leftLeg.translateAndRotate(poseStack);
         		break;

@@ -235,6 +235,8 @@
   "screen.${mod_id}.workbench.section.plates": "Armor Plates",
   "screen.${mod_id}.workbench.section.chestplates": "Chestplates",
   "screen.${mod_id}.workbench.section.helmets": "Helmets",
+  "screen.${mod_id}.workbench.section.leggings": "Leggings",
+  "screen.${mod_id}.workbench.section.boots": "Boots",
   "screen.${mod_id}.workbench.section.patches": "Patches",
   
   "tooltip.${mod_id}.armors.current_patch": "Current patch",

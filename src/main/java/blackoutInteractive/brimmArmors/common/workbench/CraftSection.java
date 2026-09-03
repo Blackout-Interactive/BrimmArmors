@@ -17,6 +17,8 @@ public enum CraftSection {
 	
 	LEGGINGS("leggings"),
 	
+	BOOTS("boots"),
+	
 	PATCHES("patches");
 	
 	public static CraftSection ofArmor(ArmorItem.Type type) {
@@ -25,6 +27,7 @@ public enum CraftSection {
 		  case HELMET: return HELMETS;
 		  case CHESTPLATE: return CHESTPLATES;
 		  case LEGGINGS: return LEGGINGS;
+		  case BOOTS: return BOOTS;
 		  default: {
 			  throw new IllegalArgumentException("Unexpected armor type "+type);
 		  }

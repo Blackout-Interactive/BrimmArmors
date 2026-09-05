@@ -23,6 +23,10 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class EffectsProvidingArmorsManager {
 	
+	//TODO this completely sucks, i know that cause i made it. Need a more efficient flow (and why the f was i interning hash strings again ?)
+	//Could be useful a transient player property that describes their armor's final effects and is computed only when the player's armor change,
+	//plus still an onTick enforcer.
+	
 	private static final EquipmentSlot[] slots = new EquipmentSlot[]{
             EquipmentSlot.HEAD,
             EquipmentSlot.CHEST,
@@ -41,7 +45,6 @@ public class EffectsProvidingArmorsManager {
 	    }, 10, 10, TimeUnit.MINUTES);
 	}
 
-    @SuppressWarnings("resource")
 	@SubscribeEvent
     public void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.END) return;
@@ -91,8 +94,8 @@ public class EffectsProvidingArmorsManager {
         	MobEffect effect = addedEffect.effect();
         	int amplifier = addedEffect.amplifier();
         	MobEffectInstance current = player.getEffect(effect);
-        	if (current == null || current.getAmplifier() != amplifier || current.getDuration() < 5) {
-        	    player.addEffect(new MobEffectInstance(effect, 10, amplifier, false, false, true));
+        	if (current == null || current.getAmplifier() != amplifier || current.getDuration() < 30) {
+        	    player.addEffect(new MobEffectInstance(effect, 60, amplifier, false, false, true));
         	}
 
         }
@@ -105,8 +108,8 @@ public class EffectsProvidingArmorsManager {
             for (Player nearby : nearbyPlayers) {
                 if (nearby == player) continue;
                 MobEffectInstance current = nearby.getEffect(effect);
-                if (current == null || current.getAmplifier() < amplifier || current.getDuration() < 5) {
-                    nearby.addEffect(new MobEffectInstance(effect, 10, amplifier, false, false, true));
+                if (current == null || current.getAmplifier() < amplifier || current.getDuration() < 30) {
+                    nearby.addEffect(new MobEffectInstance(effect, 60, amplifier, false, false, true));
                 }
             }
         }

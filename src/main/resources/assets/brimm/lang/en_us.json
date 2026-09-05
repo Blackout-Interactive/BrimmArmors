@@ -240,6 +240,7 @@
   "screen.${mod_id}.workbench.section.patches": "Patches",
   
   "tooltip.${mod_id}.armors.current_patch": "Current patch",
+  "tooltip.${mod_id}.armors.no_patch_supported": "This armor does not support patches.",
   
   "item.${mod_id}.patches_adjuster_debug_patch": "Debug Patch",
   

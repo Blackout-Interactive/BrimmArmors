@@ -1,5 +1,6 @@
 package blackoutInteractive.brimmArmors.common.items;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.resources.language.I18n;
@@ -92,10 +93,22 @@ public class BrimmArmor extends ArmorItem implements IMultiObjModelProvider, IEf
     	String tooltipRaw = I18n.get("tooltip." + BrimmArmors.MOD_ID + "." + unlocName);
     	if (!tooltipRaw.isBlank())
     		tooltipList.add(Component.literal(rarity.applyFormatting("\u00A7o" + tooltipRaw)));
-        ArmorPatch patch = getPatch(stack);
-        if (patch != null)
-        	tooltipList.add(Component.literal(I18n.get("tooltip." + BrimmArmors.MOD_ID + ".armors.current_patch")+": "+
-        			I18n.get("item." + BrimmArmors.MOD_ID + "." + patch.getPatchName())));
+        if (this.patchesPositions.isEmpty()) {
+        	tooltipList.add(Component.translatable("tooltip." + BrimmArmors.MOD_ID + ".armors.no_patch_supported")
+        			.withStyle(ChatFormatting.RED));
+        } else {
+        	ArmorPatch patch = getPatch(stack);
+            if (patch != null)
+            	tooltipList.add( Component.translatable(
+            		        "tooltip." + BrimmArmors.MOD_ID + ".armors.current_patch"
+            		    ).append(": ")
+            		     .append( Component.translatable(
+            		             "item." + BrimmArmors.MOD_ID + "." + patch.getPatchName()
+            		         )
+            		     )
+            		);
+
+        }
     }
     
     @OnlyIn(Dist.CLIENT)

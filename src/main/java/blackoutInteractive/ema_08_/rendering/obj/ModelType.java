@@ -7,7 +7,7 @@ public enum ModelType {
 	  ARMOR_LEGGINGS_RIGHT("armors/leggings"),
 	  ARMOR_LEGGINGS_LEFT("armors/leggings"),
 	  ARMOR_BOOTS_RIGHT("armors/boots"),
-	  ARMOR_BOOTS_LEFT("armor/boots"),
+	  ARMOR_BOOTS_LEFT("armors/boots"),
 	  BLOCKS("blocks");
 	    
 	  public final String

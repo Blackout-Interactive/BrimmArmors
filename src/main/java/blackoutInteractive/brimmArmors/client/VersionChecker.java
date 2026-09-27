@@ -1,22 +1,18 @@
 package blackoutInteractive.brimmArmors.client;
 
-import java.io.InputStream;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
-
-import com.electronwill.nightconfig.core.UnmodifiableConfig;
-import com.electronwill.nightconfig.toml.TomlParser;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 
 import static blackoutInteractive.brimmArmors.BrimmArmors.*;
 
@@ -47,36 +43,17 @@ public final class VersionChecker {
 	}
 	
 	private static String getLocalVersion() {
-		try (InputStream stream = VersionChecker.class.getClassLoader().getResourceAsStream("META-INF/mods.toml")) {
-            if (stream == null) {
-            	LOGGER.error("Failed to retrieve local Brimm Armors version: META-INF/mods.toml is not present.");
-                return null;
-            }
-            UnmodifiableConfig config = new TomlParser().parse(stream);
-            List<UnmodifiableConfig> mods = config.get("mods");
-            if (mods != null) {
-                for (UnmodifiableConfig mod : mods) {
-                    String modId = mod.get("modId");
-                    if (MOD_ID.equals(modId)) {
-                        String version = mod.get("version");
-                        if (version != null) {
-                        	return version;
-                        } else {
-                        	LOGGER.error("Failed to retrieve local Brimm Armors version: the mod data don't have a 'version' field.");
-                            return null;
-                        }
-                    }
-                }
-                LOGGER.error("Failed to retrieve local Brimm Armors version: no mod with mod id '"+MOD_ID+"' could be found.");
-                return null;
-            } else {
-            	LOGGER.error("Failed to retrieve local Brimm Armors version: no mods list could be found.");
-            	return null;
-            }
-        } catch (Exception e) {
-        	LOGGER.error("Failed to retrieve local Brimm Armors version: an exception has occurred.", e);
-        	return null;
-        }
+		var container = ModList.get().getModContainerById(MOD_ID);
+		if (container.isEmpty()) {
+			LOGGER.error("Failed to retrieve local Brimm Armors version: no mod container found for mod id '"+MOD_ID+"'.");
+			return null;
+		}
+		String version = container.get().getModInfo().getVersion().toString();
+		if (version == null) {
+			LOGGER.error("Failed to retrieve local Brimm Armors version: the mod info doesn't have a version.");
+			return null;
+		}
+		return version;
 	}
 	
 	private static String getLatestVersion() {

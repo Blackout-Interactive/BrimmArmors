@@ -25,7 +25,7 @@ public final class VersionChecker {
 	private enum VersionComparison {
 		
 		OUTDATED("message."+MOD_ID+".version_check_outdated", ChatFormatting.YELLOW),
-		UP_TO_DATE("message."+MOD_ID+".version_check_good", ChatFormatting.GREEN),
+		UP_TO_DATE(null, null),
 		OVERDATED("message."+MOD_ID+".version_check_overdated", ChatFormatting.YELLOW),
 		FAILED("message."+MOD_ID+".version_check_error", ChatFormatting.DARK_RED);
 		
@@ -130,6 +130,8 @@ public final class VersionChecker {
         	if (result == null) {
         		player.sendSystemMessage(Component.translatable(NULL_CMP_MESS).withStyle(ChatFormatting.YELLOW));
         		checkVersionAsync();
+        	} else if (result == VersionComparison.UP_TO_DATE) {
+        		LOGGER.info("Brimm Armors is up to date.");
         	} else {
         		player.sendSystemMessage(Component.translatable(result.mess_translatable).withStyle(result.color));
         		if (result == VersionComparison.FAILED) checkVersionAsync();

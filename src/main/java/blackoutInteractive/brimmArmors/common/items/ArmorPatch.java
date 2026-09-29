@@ -8,7 +8,6 @@ import org.jetbrains.annotations.NotNull;
 
 import blackoutInteractive.brimmArmors.BrimmArmors;
 import blackoutInteractive.ema_08_.rendering.twoToThreeD.IDefaultPatchesRenderablePngProvider;
-import net.minecraft.ChatFormatting;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;

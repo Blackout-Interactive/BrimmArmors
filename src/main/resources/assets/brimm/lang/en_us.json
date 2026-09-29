@@ -16,8 +16,11 @@
   "item.${mod_id}.infantry": "TBD",
   "tooltip.${mod_id}.infantry": "",
 
-  "item.${mod_id}.ukrainian_basic": "Ukrainian Vest",
-  "tooltip.${mod_id}.ukrainian_basic": "",
+  "item.${mod_id}.us": "US Vest (Marine Corps)",
+  "tooltip.${mod_id}.us": "",
+
+  "item.${mod_id}.ukrainian": "Ukrainian Vest",
+  "tooltip.${mod_id}.ukrainian": "",
 
   "item.${mod_id}.osprey": "Osprey Body Armor",
   "tooltip.${mod_id}.osprey": "British armor, because tea won't stop bullets",
@@ -39,6 +42,9 @@
 
   "item.${mod_id}.defender_iii": "Mobilized Defender Body Armor",
   "tooltip.${mod_id}.defender_iii": "",
+
+  "item.${mod_id}.us_mobilized": "Mobilized US Vest (Army)",
+  "tooltip.${mod_id}.us_mobilized": "",
 
   "item.${mod_id}.nato": "US Urban Camouflage Vest",
   "tooltip.${mod_id}.nato": "Built for the concrete jungle",
@@ -69,6 +75,9 @@
 
   "item.${mod_id}.hazard_kit": "Hazard Suit Vest",
   "tooltip.${mod_id}.hazard_kit": "Safety first. Panic second.",
+
+  "item.${mod_id}.us_veteran": "Veteran US Vest (Marine Raiders)",
+  "tooltip.${mod_id}.us_veteran": "MARSOC Calls",
 
   "item.${mod_id}.ukrainian_veteran": "Veteran Ukrainian Vest",
   "tooltip.${mod_id}.ukrainian_veteran": "",
@@ -145,8 +154,11 @@
   "item.${mod_id}.infantry_h": "US Infantry Helmet",
   "tooltip.${mod_id}.infantry_h": "",
 
-  "item.${mod_id}.ukrainian_basic_h": "Ukrainian Helmet",
-  "tooltip.${mod_id}.ukrainian_basic_h": "",
+  "item.${mod_id}.us_h": "US Helmet (Marine Corps)",
+  "tooltip.${mod_id}.us_h": "",
+
+  "item.${mod_id}.ukrainian_h": "Ukrainian Helmet",
+  "tooltip.${mod_id}.ukrainian_h": "",
 
   "item.${mod_id}.osprey_h": "Osprey Helmet",
   "tooltip.${mod_id}.osprey_h": "For a proper British egghead.",
@@ -163,6 +175,12 @@
   "item.${mod_id}.tshfour_green_h": "TSh-4 Forest Green Helmet",
   "tooltip.${mod_id}.tshfour_green_h": "Camouflage for steel coffins",
 
+  "item.${mod_id}.cap_h": "Plain Cap",
+  "tooltip.${mod_id}.cap_h": "",
+
+  "item.${mod_id}.pakol_h": "Pakol Cap",
+  "tooltip.${mod_id}.pakol_h": "The Afghan classic",
+
   "item.${mod_id}.civilian_medic_h": "Civilian Medic Helmet",
   "tooltip.${mod_id}.civilian_medic_h": "Protect the Heavy!",
 
@@ -171,6 +189,9 @@
 
   "item.${mod_id}.zabralo_h": "ZSH12 Visor (Defender)",
   "tooltip.${mod_id}.zabralo_h": "",
+
+  "item.${mod_id}.us_mobilized_h": "Mobilized US Helmet (Army)",
+  "tooltip.${mod_id}.us_mobilized_h": "",
 
   "item.${mod_id}.a_police_h": "American Police Hat",
   "tooltip.${mod_id}.a_police_h": "Authority looks surprisingly wearable",
@@ -193,11 +214,20 @@
   "item.${mod_id}.tshfour_h": "TSh-4 Ground Crew Helmet",
   "tooltip.${mod_id}.tshfour_h": "Smells like oil, smells like diesel",
 
+  "item.${mod_id}.cossack_red_h": "Kubanka (Red)",
+  "tooltip.${mod_id}.cossack_red_h": "",
+
+  "item.${mod_id}.cossack_blue_h": "Kubanka (Blue)",
+  "tooltip.${mod_id}.cossack_blue_h": "",
+
   "item.${mod_id}.ratnik_veteran_h": "Veteran Ratnik Helmet",
   "tooltip.${mod_id}.ratnik_veteran_h": "",
 
   "item.${mod_id}.hazard_kit_h": "Hazard Suit Helmet",
   "tooltip.${mod_id}.hazard_kit_h": "",
+
+  "item.${mod_id}.us_veteran_h": "US Veteran Helmet (Marine Raiders)",
+  "tooltip.${mod_id}.us_veteran_h": "",
 
   "item.${mod_id}.ukrainian_veteran_h": "Veteran Ukrainian Helmet",
   "tooltip.${mod_id}.ukrainian_veteran_h": "",
@@ -216,6 +246,9 @@
 
   "item.${mod_id}.gasmask_h": "Gas Mask Helmet",
   "tooltip.${mod_id}.gasmask_h": "Poisoning? What is that?",
+
+  "item.${mod_id}.gasmask_alt_h": "Gas Mask (Alternate)",
+  "tooltip.${mod_id}.gasmask_alt_h": "Poisoning? What is that?",
 
   "item.${mod_id}.gpnvg_h": "Black Ops Helmet",
   "tooltip.${mod_id}.gpnvg_h": "A face only night vision could love",
@@ -259,89 +292,281 @@
   "item.${mod_id}.six_b_four_seven_h": "Veteran 6B47 Helmet",
   "tooltip.${mod_id}.six_b_four_seven_h": "Worn by someone who stopped counting deployments",
 
+  "item.${mod_id}.base_p": "Hardened Green Kneepads",
+  "tooltip.${mod_id}.base_p": "",
+
+  "item.${mod_id}.civilian_kneepads_p": "Civilian Kneepads",
+  "tooltip.${mod_id}.civilian_kneepads_p": "",
+
+  "item.${mod_id}.us_p": "US Kneepads (Marine Corps)",
+  "tooltip.${mod_id}.us_p": "",
+
+  "item.${mod_id}.osprey_p": "Osprey Kneepads",
+  "tooltip.${mod_id}.osprey_p": "",
+
+  "item.${mod_id}.ratnik_basic_p": "Ratnik Kneepads",
+  "tooltip.${mod_id}.ratnik_basic_p": "",
+
+  "item.${mod_id}.defender_p": "Defender Kneepads",
+  "tooltip.${mod_id}.defender_p": "",
+
+  "item.${mod_id}.ukrainian_p": "Ukrainian Kneepads",
+  "tooltip.${mod_id}.ukrainian_p": "",
+
+  "item.${mod_id}.civilian_medic_p": "Medic Kneepads",
+  "tooltip.${mod_id}.civilian_medic_p": "",
+
+  "item.${mod_id}.ukrainian_mobilized_p": "Mobilized Ukrainian Kneepads",
+  "tooltip.${mod_id}.ukrainian_mobilized_p": "",
+
+  "item.${mod_id}.defender_mobilized_p": "Mobilized Defender Kneepads",
+  "tooltip.${mod_id}.defender_mobilized_p": "",
+
+  "item.${mod_id}.us_mobilized_p": "Mobilized US Kneepads (Army)",
+  "tooltip.${mod_id}.us_mobilized_p": "",
+
+  "item.${mod_id}.a_police_p": "American Police Kneepads",
+  "tooltip.${mod_id}.a_police_p": "",
+
+  "item.${mod_id}.r_police_p": "Russian Police Kneepads",
+  "tooltip.${mod_id}.r_police_p": "",
+
+  "item.${mod_id}.ratnik_mobilized_p": "Mobilized Ratnik Kneepads",
+  "tooltip.${mod_id}.ratnik_mobilized_p": "",
+
+  "item.${mod_id}.generic_urban_p": "Generic Kneepads (Urban)",
+  "tooltip.${mod_id}.generic_urban_p": "",
+
+  "item.${mod_id}.generic_dark_tan_p": "Generic Kneepads (Dark Tan)",
+  "tooltip.${mod_id}.generic_dark_tan_p": "",
+
+  "item.${mod_id}.ratnik_veteran_p": "Veteran Ratnik Kneepads",
+  "tooltip.${mod_id}.ratnik_veteran_p": "",
+
+  "item.${mod_id}.hazard_kit_p": "Hazard Kit Kneepads",
+  "tooltip.${mod_id}.hazard_kit_p": "",
+
+  "item.${mod_id}.us_veteran_p": "Veteran US Kneepads (Marine Raiders)",
+  "tooltip.${mod_id}.us_veteran_p": "",
+
+  "item.${mod_id}.ukrainian_veteran_p": "Veteran Ukrainian Kneepads",
+  "tooltip.${mod_id}.ukrainian_veteran_p": "",
+
+  "item.${mod_id}.swat_kit_p": "SWAT Kit Kneepads",
+  "tooltip.${mod_id}.swat_kit_p": "",
+
+  "item.${mod_id}.sobr_kit_p": "SOBR Kit Kneepads",
+  "tooltip.${mod_id}.sobr_kit_p": "",
+
+  "item.${mod_id}.cqb_kit_p": "CQB Kit Kneepads",
+  "tooltip.${mod_id}.cqb_kit_p": "",
+
+  "item.${mod_id}.generic_brown_p": "Generic Kneepads (Brown)",
+  "tooltip.${mod_id}.generic_brown_p": "",
+
+  "item.${mod_id}.tmspmg_p": "TMSPMG Kneepads",
+  "tooltip.${mod_id}.tmspmg_p": "",
+
+  "item.${mod_id}.berserk_p": "Berserk Kneepads",
+  "tooltip.${mod_id}.berserk_p": "",
+
+  "item.${mod_id}.bydlovka_p": "Bydlovka Kneepads",
+  "tooltip.${mod_id}.bydlovka_p": "",
+
+  "item.${mod_id}.concord_p": "Concord's Kneepads",
+  "tooltip.${mod_id}.concord_p": "",
+
+  "item.${mod_id}.taro_p": "Taro's Kneepads",
+  "tooltip.${mod_id}.taro_p": "",
+
+  "item.${mod_id}.generic_light_tan_p": "Generic Kneepads (Light Tan)",
+  "tooltip.${mod_id}.generic_light_tan_p": "",
+
+  "item.${mod_id}.ghost_p": "Generic Kneepads (Black)",
+  "tooltip.${mod_id}.ghost_p": "",
+
+  "item.${mod_id}.base_b": "Base Green Boots",
+  "tooltip.${mod_id}.base_b": "",
+
+  "item.${mod_id}.civilian_b": "Civilian Boots",
+  "tooltip.${mod_id}.civilian_b": "",
+
+  "item.${mod_id}.us_b": "US Boots (Marine Corps)",
+  "tooltip.${mod_id}.us_b": "",
+
+  "item.${mod_id}.ukrainian_b": "Ukrainian Boots",
+  "tooltip.${mod_id}.ukrainian_b": "",
+
+  "item.${mod_id}.osprey_b": "Osprey Boots",
+  "tooltip.${mod_id}.osprey_b": "",
+
+  "item.${mod_id}.ratnik_b": "Ratnik Boots",
+  "tooltip.${mod_id}.ratnik_b": "",
+
+  "item.${mod_id}.defender_b": "Defender Boots",
+  "tooltip.${mod_id}.defender_b": "",
+
+  "item.${mod_id}.civilian_medic_b": "Medic Boots",
+  "tooltip.${mod_id}.civilian_medic_b": "",
+
+  "item.${mod_id}.ukrainian_mobilized_b": "Mobilized Ukrainian Boots",
+  "tooltip.${mod_id}.ukrainian_mobilized_b": "",
+
+  "item.${mod_id}.defender_mobilized_b": "Mobilized Defender Boots",
+  "tooltip.${mod_id}.defender_mobilized_b": "",
+
+  "item.${mod_id}.us_mobilized_b": "Mobilized US Boots (Army)",
+  "tooltip.${mod_id}.us_mobilized_b": "",
+
+  "item.${mod_id}.a_police_b": "American Police Boots",
+  "tooltip.${mod_id}.a_police_b": "",
+
+  "item.${mod_id}.r_police_b": "Russian Police Boots",
+  "tooltip.${mod_id}.r_police_b": "",
+
+  "item.${mod_id}.ratnik_mobilized_b": "Mobilized Ratnik Boots",
+  "tooltip.${mod_id}.ratnik_mobilized_b": "",
+
+  "item.${mod_id}.generic_urban_b": "Generic Boots (Urban)",
+  "tooltip.${mod_id}.generic_urban_b": "",
+
+  "item.${mod_id}.generic_dark_tan_b": "Generic Boots (Dark Tan)",
+  "tooltip.${mod_id}.generic_dark_tan_b": "",
+
+  "item.${mod_id}.ratnik_veteran_b": "Veteran Ratnik Boots",
+  "tooltip.${mod_id}.ratnik_veteran_b": "",
+
+  "item.${mod_id}.hazard_kit_b": "Hazard Kit Boots",
+  "tooltip.${mod_id}.hazard_kit_b": "",
+
+  "item.${mod_id}.us_veteran_b": "Veteran US Boots",
+  "tooltip.${mod_id}.us_veteran_b": "",
+
+  "item.${mod_id}.ukrainian_veteran_b": "Veteran Ukrainian Boots",
+  "tooltip.${mod_id}.ukrainian_veteran_b": "",
+
+  "item.${mod_id}.swat_kit_b": "SWAT Kit Boots",
+  "tooltip.${mod_id}.swat_kit_b": "",
+
+  "item.${mod_id}.sobr_kit_b": "SOBR Kit Boots",
+  "tooltip.${mod_id}.sobr_kit_b": "",
+
+  "item.${mod_id}.cqb_kit_b": "CQB Kit Boots",
+  "tooltip.${mod_id}.cqb_kit_b": "",
+
+  "item.${mod_id}.press_b": "Press Boots",
+  "tooltip.${mod_id}.press_b": "",
+
+  "item.${mod_id}.generic_brown_b": "Generic Boots (Brown)",
+  "tooltip.${mod_id}.generic_brown_b": "",
+
+  "item.${mod_id}.tmspmg_b": "TMSPMG Boots",
+  "tooltip.${mod_id}.tmspmg_b": "",
+
+  "item.${mod_id}.berserk_b": "Berserk Boots",
+  "tooltip.${mod_id}.berserk_b": "",
+
+  "item.${mod_id}.bydlovka_b": "Bydlovka Boots",
+  "tooltip.${mod_id}.bydlovka_b": "",
+
+  "item.${mod_id}.concord_b": "Concord's Boots",
+  "tooltip.${mod_id}.concord_b": "",
+
+  "item.${mod_id}.taro_b": "Taro's Boots",
+  "tooltip.${mod_id}.taro_b": "",
+
+  "item.${mod_id}.maid_b": "Housemaid Shoes",
+  "tooltip.${mod_id}.maid_b": "",
+
+  "item.${mod_id}.ghost_b": "Generic Boots (Black)",
+  "tooltip.${mod_id}.ghost_b": "",
+
+  "item.${mod_id}.generic_light_tan_b": "Generic Boots (Light Tan)",
+  "tooltip.${mod_id}.generic_light_tan_b": "",
+
   "item.${mod_id}.new_york_patch": "27th Infantry Patch",
-  "tooltip.${mod_id}.new_york_patch": "",
+  "tooltip.${mod_id}.new_york_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.american_flag_patch": "American Flag Patch",
-  "tooltip.${mod_id}.american_flag_patch": "",
+  "tooltip.${mod_id}.american_flag_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.austrian_flag_patch": "Austrian Flag Patch",
-  "tooltip.${mod_id}.austrian_flag_patch": "",
+  "tooltip.${mod_id}.austrian_flag_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.battle_scarred_patch": "Battle-Scarred Patch (CS2)",
-  "tooltip.${mod_id}.battle_scarred_patch": "",
+  "tooltip.${mod_id}.battle_scarred_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.belgian_flag_patch": "Belgian Flag Patch",
-  "tooltip.${mod_id}.belgian_flag_patch": "",
+  "tooltip.${mod_id}.belgian_flag_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.belorussian_flag_patch": "Belorussian Flag Patch",
-  "tooltip.${mod_id}.belorussian_flag_patch": "",
+  "tooltip.${mod_id}.belorussian_flag_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.british_flag_patch": "British Flag Patch",
-  "tooltip.${mod_id}.british_flag_patch": "",
+  "tooltip.${mod_id}.british_flag_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.centurion_patch": "Centurion Patch",
-  "tooltip.${mod_id}.centurion_patch": "",
+  "tooltip.${mod_id}.centurion_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.chinese_flag_patch": "Chinese Flag Patch",
-  "tooltip.${mod_id}.chinese_flag_patch": "",
+  "tooltip.${mod_id}.chinese_flag_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.covenant_patch": "Covenant Patch",
-  "tooltip.${mod_id}.covenant_patch": "",
+  "tooltip.${mod_id}.covenant_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.crimson_patch": "Crimson Patch",
-  "tooltip.${mod_id}.crimson_patch": "",
+  "tooltip.${mod_id}.crimson_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.crown_patch": "Crown Patch (CS2)",
-  "tooltip.${mod_id}.crown_patch": "",
+  "tooltip.${mod_id}.crown_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.egyptian_flag_patch": "Egyptian Flag Patch",
-  "tooltip.${mod_id}.egyptian_flag_patch": "",
+  "tooltip.${mod_id}.egyptian_flag_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.french_flag_patch": "French Flag Patch",
-  "tooltip.${mod_id}.french_flag_patch": "",
+  "tooltip.${mod_id}.french_flag_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.italian_flag_patch": "Italian Flag Patch",
-  "tooltip.${mod_id}.italian_flag_patch": "",
+  "tooltip.${mod_id}.italian_flag_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.german_flag_patch": "German Flag Patch",
-  "tooltip.${mod_id}.german_flag_patch": "",
+  "tooltip.${mod_id}.german_flag_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.japanese_flag_patch": "Japanese Flag Patch",
-  "tooltip.${mod_id}.japanese_flag_patch": "",
+  "tooltip.${mod_id}.japanese_flag_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.kill_joy_patch": "Kill Joy Patch (CS2)",
-  "tooltip.${mod_id}.kill_joy_patch": "",
+  "tooltip.${mod_id}.kill_joy_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.omicron_patch": "Omicron Patch",
-  "tooltip.${mod_id}.omicron_patch": "",
+  "tooltip.${mod_id}.omicron_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.operative_patch": "Operative Patch",
-  "tooltip.${mod_id}.operative_patch": "",
+  "tooltip.${mod_id}.operative_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.pakistani_flag_patch": "Pakistani Flag Patch",
-  "tooltip.${mod_id}.pakistani_flag_patch": "",
+  "tooltip.${mod_id}.pakistani_flag_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.polish_flag_patch": "Polish Flag Patch",
-  "tooltip.${mod_id}.polish_flag_patch": "",
+  "tooltip.${mod_id}.polish_flag_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.praetorian_patch": "Praetorian Patch",
-  "tooltip.${mod_id}.praetorian_patch": "",
+  "tooltip.${mod_id}.praetorian_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.russian_flag_patch": "Russian Flag Patch",
-  "tooltip.${mod_id}.russian_flag_patch": "",
+  "tooltip.${mod_id}.russian_flag_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.stalwart_patch": "Stalwart Patch",
-  "tooltip.${mod_id}.stalwart_patch": "",
+  "tooltip.${mod_id}.stalwart_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.titan_patch": "Titan Patch (CS2)",
-  "tooltip.${mod_id}.titan_patch": "",
+  "tooltip.${mod_id}.titan_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.titan_ii_patch": "Titan Patch II (CS2)",
-  "tooltip.${mod_id}.titan_ii_patch": "",
+  "tooltip.${mod_id}.titan_ii_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "item.${mod_id}.urban_american_flag_patch": "Urban American Flag Patch",
-  "tooltip.${mod_id}.urban_american_flag_patch": "",
+  "tooltip.${mod_id}.urban_american_flag_patch": "Add With Intended Vest/Helmet to Crafting Table to Apply",
 
   "block.${mod_id}.workbench": "Workbench",
   "screen.${mod_id}.workbench.title": "Brimm Workbench",
@@ -355,6 +580,10 @@
   
   "tooltip.${mod_id}.armors.current_patch": "Current patch",
   
-  "item.${mod_id}.patches_adjuster_debug_patch": "Debug Patch"
-  
+  "item.${mod_id}.patches_adjuster_debug_patch": "Debug Patch",
+
+  "message.${mod_id}.version_check_outdated": "A new version of Brimm Armors is available",
+  "message.${mod_id}.version_check_error": "An error occured while checking whether Brimm Armors is up to date",
+  "message.${mod_id}.version_check_incomplete": "Failed to verify whether Brimm Armors is up to date (this may be because you're offline)",
+  "message.${mod_id}.version_check_overdated": "This version of Brimm Armors is newer than expected. If this is a surprise, please report this to the developers"
 }

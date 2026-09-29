@@ -67,28 +67,26 @@ public class ItemRegistry {
     // --- PLATES ---
 
     public static final RegistryObject<BrimmPlate> IRON_PLATE = registerItemAndExecute(
-            addTabAndSetCraft(misc_tab_content, CraftSection.PLATES, ig(Items.IRON_INGOT, 5)),
+            addTabAndSetCraft(misc_tab_content, CraftSection.PLATES, ig(Items.IRON_INGOT, 12)),
             "iron_plate", () -> new BrimmPlate(BrimmRarity.COMMON));
 
     public static final RegistryObject<BrimmPlate> DIAMOND_PLATE = registerItemAndExecute(
             addTabAndSetCraft(misc_tab_content, CraftSection.PLATES,
-                    ig(Items.IRON_INGOT, 10),
-                    ig(Items.DIAMOND, 5)),
+                    ig(Items.DIAMOND, 8)),
             "diamond_plate", () -> new BrimmPlate(BrimmRarity.RARE));
 
     public static final RegistryObject<BrimmPlate> NETHER_PLATE = registerItemAndExecute(
             addTabAndSetCraft(misc_tab_content, CraftSection.PLATES,
-                    ig(Items.IRON_INGOT, 10),
-                    ig(Items.DIAMOND, 10),
-                    ig(Items.NETHERITE_INGOT, 1)),
+                    ig(Items.NETHERITE_INGOT, 3)),
             "nether_plate", () -> new BrimmPlate(BrimmRarity.EPIC));
 
     // --- CHESTPLATES ---
 
     public static final RegistryObject<BrimmArmor> BASE = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(IRON_PLATE, 3),
-                    ig(Items.LEATHER, 1)),
+                    ig(IRON_PLATE, 2),
+                    ig(Items.LEATHER, 10),
+                    ig(Items.GREEN_DYE, 5)),
             "base",
             generateArmorSupplierChestplate("base", BrimmRarity.COMMON,
                     newRTSMComp()
@@ -103,8 +101,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> CIVILIAN = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(IRON_PLATE, 3),
-                    ig(Items.LEATHER, 1)),
+                    ig(IRON_PLATE, 2),
+                    ig(Items.LEATHER, 10),
+                    ig(Items.GRAY_DYE, 5)),
             "civilian",
             generateArmorSupplierChestplate("civilian", BrimmRarity.COMMON,
                     newRTSMComp()
@@ -117,12 +116,13 @@ public class ItemRegistry {
                     noAuraEffects()
             ));
 
-    public static final RegistryObject<BrimmArmor> INFANTRY = registerItemAndExecute(
+    public static final RegistryObject<BrimmArmor> US = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(IRON_PLATE, 3),
-                    ig(Items.LEATHER, 1)),
-            "infantry",
-            generateArmorSupplierChestplate("infantry", BrimmRarity.COMMON,
+                    ig(IRON_PLATE, 2),
+                    ig(Items.LEATHER, 10),
+                    ig(Items.YELLOW_DYE, 5)),
+            "us",
+            generateArmorSupplierChestplate("us", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -133,12 +133,13 @@ public class ItemRegistry {
                     noAuraEffects()
             ));
 
-    public static final RegistryObject<BrimmArmor> UKRAINIAN_BASIC = registerItemAndExecute(
+    public static final RegistryObject<BrimmArmor> UKRAINIAN = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(IRON_PLATE, 3),
-                    ig(Items.LEATHER, 1)),
-            "ukrainian_basic",
-            generateArmorSupplierChestplate("ukrainian_basic", BrimmRarity.COMMON,
+                    ig(IRON_PLATE, 2),
+                    ig(Items.LEATHER, 10),
+                    ig(Items.YELLOW_DYE, 5)),
+            "ukrainian",
+            generateArmorSupplierChestplate("ukrainian", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
@@ -151,8 +152,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> OSPREY = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(IRON_PLATE, 3),
-                    ig(Items.LEATHER, 1)),
+                    ig(IRON_PLATE, 2),
+                    ig(Items.LEATHER, 10),
+                    ig(Items.LIME_DYE, 5)),
             "osprey",
             generateArmorSupplierChestplate("osprey", BrimmRarity.COMMON,
                     newRTSMComp()
@@ -167,8 +169,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> RATNIK = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(IRON_PLATE, 3),
-                    ig(Items.LEATHER, 1)),
+                    ig(IRON_PLATE, 2),
+                    ig(Items.LEATHER, 10),
+                    ig(Items.GREEN_DYE, 5)),
             "ratnik",
             generateArmorSupplierChestplate("ratnik", BrimmRarity.COMMON,
                     newRTSMComp()
@@ -183,8 +186,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> VIETNAMESE_BASIC = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(IRON_PLATE, 3),
-                    ig(Items.LEATHER, 1)),
+                    ig(IRON_PLATE, 2),
+                    ig(Items.LEATHER, 10),
+                    ig(Items.LIME_DYE, 5)),
             "vietnamese_basic",
             generateArmorSupplierChestplate("vietnamese_basic", BrimmRarity.COMMON,
                     newRTSMComp()
@@ -200,7 +204,8 @@ public class ItemRegistry {
     public static final RegistryObject<BrimmArmor> DEFENDER = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
                     ig(IRON_PLATE, 2),
-                    ig(Items.LEATHER, 5)),
+                    ig(Items.LEATHER, 10),
+                    ig(Items.GREEN_DYE, 5)),
             "defender",
             generateArmorSupplierChestplate("defender", BrimmRarity.COMMON,
                     newRTSMComp()
@@ -216,8 +221,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> CIVILIAN_MEDIC = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(RATNIK, 1),
-                    ig(Items.LEATHER, 5)),
+                    ig(CIVILIAN, 1),
+                    ig(IRON_PLATE, 3),
+                    ig(Items.GRAY_DYE, 5)),
             "civilian_medic",
             generateArmorSupplierChestplate("civilian_medic", BrimmRarity.UNCOMMON,
                     newRTSMComp()
@@ -233,8 +239,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> UKRAINIAN_MOBILIZED = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(RATNIK, 1),
-                    ig(Items.LEATHER, 5)),
+                    ig(UKRAINIAN, 1),
+                    ig(IRON_PLATE, 3),
+                    ig(Items.YELLOW_DYE, 5)),
             "ukrainian_mobilized",
             generateArmorSupplierChestplate("ukrainian_mobilized", BrimmRarity.UNCOMMON,
                     newRTSMComp()
@@ -251,7 +258,8 @@ public class ItemRegistry {
     public static final RegistryObject<BrimmArmor> DEFENDER_III = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
                     ig(DEFENDER, 1),
-                    ig(Items.LEATHER, 5)),
+                    ig(IRON_PLATE, 3),
+                    ig(Items.GREEN_DYE, 5)),
             "defender_iii",
             generateArmorSupplierChestplate("defender_iii", BrimmRarity.UNCOMMON,
                     newRTSMComp()
@@ -267,11 +275,30 @@ public class ItemRegistry {
                     noAuraEffects()
             ));
 
+    public static final RegistryObject<BrimmArmor> US_MOBILIZED = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
+                    ig(US, 1),
+                    ig(IRON_PLATE, 3),
+                    ig(Items.WHITE_DYE, 5)),
+            "us_mobilized",
+            generateArmorSupplierChestplate("us_mobilized", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
+                    10f, 1f, 10, 240,
+                    patches(OverlayPos.HUMANOID_TORSO,
+                            newmatrix().setTranslate(-0.07f, 0.34f, -0.228f).setRotate(0, 0, 0).setScale(0.14f, 0.136f, 1)),
+                    addEffects(
+                            stdEff(MobEffects.FIRE_RESISTANCE)
+                    ),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
     public static final RegistryObject<BrimmArmor> NATO = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(RATNIK, 1),
-                    ig(DIAMOND_PLATE, 2),
-                    ig(Items.LEATHER, 5),
+                    ig(US, 1),
+                    ig(IRON_PLATE, 3),
                     ig(Items.WHITE_DYE, 5)),
             "nato",
             generateArmorSupplierChestplate("nato", BrimmRarity.UNCOMMON,
@@ -288,8 +315,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> NATO_II = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(NATO, 1),
-                    ig(Items.LEATHER, 5)),
+                    ig(US, 1),
+                    ig(IRON_PLATE, 3),
+                    ig(Items.WHITE_DYE, 5)),
             "nato_ii",
             generateArmorSupplierChestplate("nato_ii", BrimmRarity.UNCOMMON,
                     newRTSMComp()
@@ -305,8 +333,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> A_POLICE = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(RATNIK, 1),
-                    ig(Items.LEATHER, 5)),
+                    ig(BASE, 1),
+                    ig(IRON_PLATE, 3),
+                    ig(Items.BLACK_DYE, 5)),
             "a_police",
             generateArmorSupplierChestplate("a_police", BrimmRarity.UNCOMMON,
                     newRTSMComp()
@@ -322,8 +351,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> R_POLICE = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(RATNIK, 1),
-                    ig(Items.LEATHER, 5)),
+                    ig(BASE, 1),
+                    ig(IRON_PLATE, 3),
+                    ig(Items.BLACK_DYE, 5)),
             "r_police",
             generateArmorSupplierChestplate("r_police", BrimmRarity.UNCOMMON,
                     newRTSMComp()
@@ -339,9 +369,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> ATLETI = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(RATNIK, 1),
-                    ig(DIAMOND_PLATE, 1),
-                    ig(IRON_PLATE, 3)),
+                    ig(IRON_PLATE, 5),
+                    ig(Items.LEATHER, 10),
+                    ig(Items.YELLOW_DYE, 5)),
             "atleti",
             generateArmorSupplierChestplate("atleti", BrimmRarity.UNCOMMON,
                     newRTSMComp()
@@ -359,9 +389,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> ASSAULT = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(ATLETI, 1),
-                    ig(NETHER_PLATE, 2),
-                    ig(Items.LEATHER, 15)),
+                    ig(IRON_PLATE, 5),
+                    ig(Items.LEATHER, 10),
+                    ig(Items.BROWN_DYE, 5)),
             "assault",
             generateArmorSupplierChestplate("assault", BrimmRarity.UNCOMMON,
                     newRTSMComp()
@@ -377,9 +407,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> PMC = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(RATNIK, 1),
-                    ig(DIAMOND_PLATE, 2),
-                    ig(IRON_PLATE, 1)),
+                    ig(BASE, 1),
+                    ig(IRON_PLATE, 3),
+                    ig(Items.YELLOW_DYE, 5)),
             "pmc",
             generateArmorSupplierChestplate("pmc", BrimmRarity.UNCOMMON,
                     newRTSMComp()
@@ -392,31 +422,11 @@ public class ItemRegistry {
                     noAuraEffects()
             ));
 
-    public static final RegistryObject<BrimmArmor> MARINE = registerItemAndExecute(
-            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(DEFENDER, 1),
-                    ig(NETHER_PLATE, 3),
-                    ig(Items.SALMON, 5)),
-            "marine",
-            generateArmorSupplierChestplate("marine", BrimmRarity.RARE,
-                    newRTSMComp()
-                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
-                    5f, 1f, 9, 240,
-                    patches(OverlayPos.HUMANOID_TORSO,
-                    		newmatrix().setTranslate(0.196f, 0, -0.139f).setRotate(-11.1102f, 4.5635f, 16.0559f).setScale(0.1f, 0.1f, 1)),
-                    addEffects(
-                    		stdEff(MobEffects.WATER_BREATHING),
-                    		stdEff(MobEffects.DOLPHINS_GRACE)
-                    		),
-                    noPreventEffects(),
-                    noAuraEffects()
-    ));
-
     public static final RegistryObject<BrimmArmor> RATNIK_MOBILIZED = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
                     ig(RATNIK, 1),
-                    ig(Items.LEATHER, 5)),
+                    ig(DIAMOND_PLATE, 2),
+                    ig(Items.RED_DYE, 5)),
             "ratnik_mobilized",
             generateArmorSupplierChestplate("ratnik_mobilized", BrimmRarity.RARE,
                     newRTSMComp()
@@ -432,9 +442,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> HAZARD_KIT = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(RATNIK, 1),
+                    ig(DEFENDER_III, 1),
                     ig(DIAMOND_PLATE, 2),
-                    ig(Items.TNT, 3)),
+                    ig(Items.GREEN_DYE, 5)),
             "hazard_kit",
             generateArmorSupplierChestplate("hazard_kit", BrimmRarity.RARE,
                     newRTSMComp()
@@ -447,11 +457,29 @@ public class ItemRegistry {
                     noAuraEffects()
             ));
 
+    public static final RegistryObject<BrimmArmor> US_VETERAN = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
+                    ig(US_MOBILIZED, 1),
+                    ig(DIAMOND_PLATE, 2),
+                    ig(Items.GREEN_DYE, 3),
+                    ig(Items.YELLOW_DYE, 2)),
+            "us_veteran",
+            generateArmorSupplierChestplate("us_veteran", BrimmRarity.RARE,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
+                    5f, 1f, 9, 240,
+                    nopatches(),
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
     public static final RegistryObject<BrimmArmor> SWAT_KIT = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(RATNIK, 1),
+                    ig(A_POLICE, 1),
                     ig(DIAMOND_PLATE, 2),
-                    ig(Items.TNT, 3)),
+                    ig(Items.BLACK_DYE, 5)),
             "swat_kit",
             generateArmorSupplierChestplate("swat_kit", BrimmRarity.RARE,
                     newRTSMComp()
@@ -466,9 +494,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> SOBR_KIT = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(RATNIK, 1),
+                    ig(R_POLICE, 1),
                     ig(DIAMOND_PLATE, 2),
-                    ig(Items.TNT, 3)),
+                    ig(Items.BLACK_DYE, 5)),
             "sobr_kit",
             generateArmorSupplierChestplate("sobr_kit", BrimmRarity.RARE,
                     newRTSMComp()
@@ -483,9 +511,10 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> CQB_KIT = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(RATNIK, 1),
+                    ig(BASE, 1),
                     ig(DIAMOND_PLATE, 2),
-                    ig(Items.TNT, 3)),
+                    ig(IRON_PLATE, 3),
+                    ig(Items.BLACK_DYE, 5)),
             "cqb_kit",
             generateArmorSupplierChestplate("cqb_kit", BrimmRarity.RARE,
                     newRTSMComp()
@@ -500,9 +529,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> UKRAINIAN_VETERAN = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(RATNIK, 1),
+                    ig(UKRAINIAN_MOBILIZED, 1),
                     ig(DIAMOND_PLATE, 2),
-                    ig(Items.TNT, 3)),
+                    ig(Items.YELLOW_DYE, 5)),
             "ukrainian_veteran",
             generateArmorSupplierChestplate("ukrainian_veteran", BrimmRarity.RARE,
                     newRTSMComp()
@@ -517,8 +546,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> PRESS = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(RATNIK, 1),
-                    ig(Items.LEATHER, 5),
+                    ig(CIVILIAN, 1),
+                    ig(DIAMOND_PLATE, 2),
+                    ig(IRON_PLATE, 3),
                     ig(Items.BLUE_DYE, 5)),
             "press",
             generateArmorSupplierChestplate("press", BrimmRarity.RARE,
@@ -534,9 +564,10 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> SPN = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(PMC, 1),
-                    ig(NETHER_PLATE, 2),
-                    ig(Items.LEATHER, 15)),
+                    ig(DIAMOND_PLATE, 2),
+                    ig(IRON_PLATE, 5),
+                    ig(Items.LEATHER, 10),
+                    ig(Items.BROWN_DYE, 5)),
             "spn",
             generateArmorSupplierChestplate("spn", BrimmRarity.RARE,
                     newRTSMComp()
@@ -554,9 +585,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> RATNIK_VETERAN = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(RATNIK, 1),
+                    ig(RATNIK_MOBILIZED, 1),
                     ig(DIAMOND_PLATE, 2),
-                    ig(Items.TNT, 3)),
+                    ig(Items.GREEN_DYE, 5)),
             "ratnik_veteran",
             generateArmorSupplierChestplate("ratnik_veteran", BrimmRarity.RARE,
                     newRTSMComp()
@@ -571,9 +602,10 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> HORSE = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(PMC, 1),
-                    ig(NETHER_PLATE, 2),
-                    ig(Items.LEATHER, 15)),
+                    ig(DIAMOND_PLATE, 2),
+                    ig(IRON_PLATE, 5),
+                    ig(Items.LEATHER, 10),
+                    ig(Items.BROWN_DYE, 5)),
             "horse",
             generateArmorSupplierChestplate("horse", BrimmRarity.RARE,
                     newRTSMComp()
@@ -591,9 +623,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> GUARD = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(DEFENDER, 1),
-                    ig(NETHER_PLATE, 3),
-                    ig(Items.LEATHER, 10)),
+                    ig(PMC, 1),
+                    ig(DIAMOND_PLATE, 2),
+                    ig(Items.YELLOW_DYE, 5)),
             "guard",
             generateArmorSupplierChestplate("guard", BrimmRarity.RARE,
                     newRTSMComp()
@@ -608,8 +640,10 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> TMSPMG = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(DEFENDER, 1),
+                    ig(CIVILIAN_MEDIC, 1),
+                    ig(NETHER_PLATE, 2),
                     ig(DIAMOND_PLATE, 2),
+                    ig(Items.YELLOW_DYE, 5),
                     ig(Items.CACTUS, 3)),
             "tmspmg",
             generateArmorSupplierChestplate("tmspmg", BrimmRarity.EPIC,
@@ -626,9 +660,11 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> BERSERK = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(DEFENDER, 1),
-                    ig(NETHER_PLATE, 3),
-                    ig(Items.TNT, 3)),
+                    ig(OSPREY, 1),
+                    ig(NETHER_PLATE, 2),
+                    ig(DIAMOND_PLATE, 2),
+                    ig(IRON_PLATE, 5),
+                    ig(Items.IRON_AXE, 1)),
             "berserk",
             generateArmorSupplierChestplate("berserk", BrimmRarity.EPIC,
                     newRTSMComp()
@@ -645,9 +681,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> VANDERER = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(DEFENDER, 1),
-                    ig(DIAMOND_PLATE, 2),
-                    ig(Items.CACTUS, 3)),
+                    ig(GUARD, 1),
+                    ig(NETHER_PLATE, 2),
+                    ig(Items.BLAZE_POWDER, 5)),
             "vanderer",
             generateArmorSupplierChestplate("vanderer", BrimmRarity.EPIC,
                     newRTSMComp()
@@ -663,9 +699,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> BYDLOVKA = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(DEFENDER, 1),
-                    ig(NETHER_PLATE, 3),
-                    ig(Items.TNT, 3)),
+                    ig(RATNIK_VETERAN, 1),
+                    ig(NETHER_PLATE, 2),
+                    ig(Items.RABBIT_FOOT, 1)),
             "bydlovka",
             generateArmorSupplierChestplate("bydlovka", BrimmRarity.EPIC,
                     newRTSMComp()
@@ -682,9 +718,11 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> CONCORD = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(DEFENDER, 1),
-                    ig(NETHER_PLATE, 3),
-                    ig(Items.TNT, 3)),
+                    ig(NETHER_PLATE, 2),
+                    ig(DIAMOND_PLATE, 2),
+                    ig(IRON_PLATE, 5),
+                    ig(Items.LEATHER, 10),
+                    ig(Items.TNT, 5)),
             "concord",
             generateArmorSupplierChestplate("concord", BrimmRarity.EPIC,
                     newRTSMComp()
@@ -701,7 +739,7 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> TARO = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(RATNIK, 1),
+                    ig(CQB_KIT, 1),
                     ig(NETHER_PLATE, 2),
                     ig(Items.BLACK_DYE, 5)),
             "taro",
@@ -718,9 +756,10 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> MEDIC = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(DEFENDER, 1),
+                    ig(CIVILIAN_MEDIC, 1),
+                    ig(NETHER_PLATE, 2),
                     ig(DIAMOND_PLATE, 2),
-                    ig(Items.GOLDEN_APPLE, 2)),
+                    ig(Items.GOLDEN_APPLE, 5)),
             "medic",
             generateArmorSupplierChestplate("medic", BrimmRarity.EPIC,
                     newRTSMComp()
@@ -737,11 +776,11 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> MAID = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(DEFENDER, 1),
-                    ig(NETHER_PLATE, 5),
-                    ig(Items.BLACK_DYE, 10),
-                    ig(Items.WHITE_DYE, 5),
-                    ig(Items.WITHER_ROSE, 1)),
+                    ig(CIVILIAN, 1),
+                    ig(NETHER_PLATE, 2),
+                    ig(DIAMOND_PLATE, 2),
+                    ig(IRON_PLATE, 3),
+                    ig(Items.MILK_BUCKET, 1)),
             "maid",
             generateArmorSupplierChestplate("maid", BrimmRarity.EPIC,
                     newRTSMComp()
@@ -756,11 +795,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> KILLA = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(DEFENDER, 1),
-                    ig(NETHER_PLATE, 5),
-                    ig(Items.BLACK_DYE, 10),
-                    ig(Items.WHITE_DYE, 5),
-                    ig(Items.WITHER_ROSE, 1)),
+                    ig(HAZARD_KIT, 1),
+                    ig(NETHER_PLATE, 2),
+                    ig(Items.FIRE_CHARGE, 1)),
             "killa",
             generateArmorSupplierChestplate("killa", BrimmRarity.EPIC,
                     newRTSMComp()
@@ -775,8 +812,10 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> SAPER = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(RATNIK, 1),
+                    ig(VIETNAMESE_BASIC, 1),
+                    ig(NETHER_PLATE, 2),
                     ig(DIAMOND_PLATE, 2),
+                    ig(IRON_PLATE, 3),
                     ig(Items.TNT, 3)),
             "saper",
             generateArmorSupplierChestplate("saper", BrimmRarity.EPIC,
@@ -792,8 +831,10 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> GHOST = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(RATNIK, 1),
+                    ig(OSPREY, 1),
                     ig(NETHER_PLATE, 2),
+                    ig(DIAMOND_PLATE, 2),
+                    ig(IRON_PLATE, 3),
                     ig(Items.BLACK_DYE, 5)),
             "ghost",
             generateArmorSupplierChestplate("ghost", BrimmRarity.EPIC,
@@ -811,8 +852,8 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> BASE_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(Items.IRON_INGOT, 20),
-                    ig(Items.LEATHER, 10)),
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 5)),
             "base_h",
             generateArmorSupplierHelmet("base_h", BrimmRarity.COMMON,
                     newRTSMComp()
@@ -828,8 +869,8 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> CIVILIAN_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(Items.IRON_INGOT, 20),
-                    ig(Items.LEATHER, 10)),
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 5)),
             "civilian_h",
             generateArmorSupplierHelmet("civilian_h", BrimmRarity.COMMON,
                     newRTSMComp()
@@ -843,14 +884,12 @@ public class ItemRegistry {
                     noAuraEffects()
             ));
 
-    public static final RegistryObject<BrimmArmor> INFANTRY_H = registerItemAndExecute(
+    public static final RegistryObject<BrimmArmor> US_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(BASE_H, 1),
-                    ig(Items.IRON_INGOT, 30),
-                    ig(Items.LEATHER, 10),
-                    ig(Items.PAPER, 10)),
-            "infantry_h",
-            generateArmorSupplierHelmet("infantry_h", BrimmRarity.COMMON,
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 5)),
+            "us_h",
+            generateArmorSupplierHelmet("us_h", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -862,12 +901,12 @@ public class ItemRegistry {
                     noAuraEffects()
             ));
 
-    public static final RegistryObject<BrimmArmor> UKRAINIAN_BASIC_H = registerItemAndExecute(
+    public static final RegistryObject<BrimmArmor> UKRAINIAN_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(Items.IRON_INGOT, 20),
-                    ig(Items.LEATHER, 10)),
-            "ukrainian_basic_h",
-            generateArmorSupplierHelmet("ukrainian_basic_h", BrimmRarity.COMMON,
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 5)),
+            "ukrainian_h",
+            generateArmorSupplierHelmet("ukrainian_h", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -881,16 +920,15 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> OSPREY_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(Items.IRON_INGOT, 20),
-                    ig(Items.LEATHER, 10)),
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 5)),
             "osprey_h",
             generateArmorSupplierHelmet("osprey_h", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     0f, 0f, 8, 240,
-                    patches(OverlayPos.HUMANOID_HEAD,
-                            newmatrix().setTranslate(0.3065f, -0.542f, -0.09f).setRotate(0, -90, -13).setScale(0.18f, 0.17f, 1)),
+                    nopatches(),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -898,7 +936,7 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> SIX_B_FOUR_SEVEN_DARK_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(Items.IRON_INGOT, 25),
+                    ig(Items.IRON_INGOT, 15),
                     ig(Items.LEATHER, 5)),
             "six_b_four_seven_dark_h",
             generateArmorSupplierHelmet("six_b_four_seven_dark_h", BrimmRarity.COMMON,
@@ -914,14 +952,14 @@ public class ItemRegistry {
             ));
 
     public static final RegistryObject<BrimmArmor> VIETNAMESE_BASIC_H = registerItemAndExecute(
-            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.CHESTPLATE,
-                    ig(IRON_PLATE, 3),
-                    ig(Items.LEATHER, 1)),
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 5)),
             "vietnamese_basic_h",
-            generateArmorSupplierChestplate("vietnamese_basic_h", BrimmRarity.COMMON,
+            generateArmorSupplierHelmet("vietnamese_basic_h", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     0f, 0f, 8, 240,
                     nopatches(),
                     noAddEffects(),
@@ -932,7 +970,7 @@ public class ItemRegistry {
     public static final RegistryObject<BrimmArmor> ZCH_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
                     ig(Items.IRON_INGOT, 15),
-                    ig(Items.LEATHER, 15)),
+                    ig(Items.LEATHER, 5)),
             "zch_h",
             generateArmorSupplierHelmet("zch_h", BrimmRarity.COMMON,
                     newRTSMComp()
@@ -948,8 +986,7 @@ public class ItemRegistry {
     public static final RegistryObject<BrimmArmor> TSHFOUR_GREEN_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
                     ig(Items.IRON_INGOT, 5),
-                    ig(Items.LEATHER, 10),
-                    ig(Items.GREEN_DYE, 5)),
+                    ig(Items.LEATHER, 10)),
             "tshfour_green_h",
             generateArmorSupplierHelmet("tshfour_green_h", BrimmRarity.COMMON,
                     newRTSMComp()
@@ -962,18 +999,50 @@ public class ItemRegistry {
                     noAuraEffects()
             ));
 
+    public static final RegistryObject<BrimmArmor> CAP_H = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
+                    ig(Items.IRON_INGOT, 5),
+                    ig(Items.LEATHER, 10)),
+            "cap_h",
+            generateArmorSupplierHelmet("cap_h", BrimmRarity.COMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
+                    0f, 0f, 8, 240,
+                    nopatches(),
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> PAKOL_H = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
+                    ig(Items.IRON_INGOT, 5),
+                    ig(Items.LEATHER, 10)),
+            "pakol_h",
+            generateArmorSupplierHelmet("pakol_h", BrimmRarity.COMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
+                    0f, 0f, 8, 240,
+                    nopatches(),
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
     public static final RegistryObject<BrimmArmor> CIVILIAN_MEDIC_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(Items.IRON_INGOT, 20),
-                    ig(Items.LEATHER, 10)),
+                    ig(CIVILIAN_H, 1),
+                    ig(Items.DIAMOND, 2),
+                    ig(Items.IRON_INGOT, 15)),
             "civilian_medic_h",
             generateArmorSupplierHelmet("civilian_medic_h", BrimmRarity.UNCOMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     0f, 0f, 8, 240,
-                    patches(OverlayPos.HUMANOID_HEAD,
-                            newmatrix().setTranslate(0.3065f, -0.542f, -0.09f).setRotate(0, -90, -13).setScale(0.18f, 0.17f, 1)),
+                    nopatches(),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -981,8 +1050,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> UKRAINIAN_MOBILIZED_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(Items.IRON_INGOT, 20),
-                    ig(Items.LEATHER, 10)),
+                    ig(UKRAINIAN_H, 1),
+                    ig(Items.DIAMOND, 2),
+                    ig(Items.IRON_INGOT, 15)),
             "ukrainian_mobilized_h",
             generateArmorSupplierHelmet("ukrainian_mobilized_h", BrimmRarity.UNCOMMON,
                     newRTSMComp()
@@ -999,7 +1069,8 @@ public class ItemRegistry {
     public static final RegistryObject<BrimmArmor> ZABRALO_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
                     ig(ZCH_H, 1),
-                    ig(Items.GLASS_PANE, 10)),
+                    ig(Items.DIAMOND, 2),
+                    ig(Items.IRON_INGOT, 15)),
             "zabralo_h",
             generateArmorSupplierHelmet("zabralo_h", BrimmRarity.UNCOMMON,
                     newRTSMComp()
@@ -1011,11 +1082,28 @@ public class ItemRegistry {
                     noPreventEffects(),noAuraEffects()
             ));
 
+    public static final RegistryObject<BrimmArmor> US_MOBILIZED_H = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
+                    ig(US_H, 1),
+                    ig(Items.DIAMOND, 2),
+                    ig(Items.IRON_INGOT, 15)),
+            "us_mobilized_h",
+            generateArmorSupplierHelmet("us_mobilized_h", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
+                    5f, 1f, 9, 240,
+                    patches(OverlayPos.HUMANOID_HEAD,
+                            newmatrix().setTranslate(0.288f, -0.544f, -0.097f).setRotate(0, -90, -16).setScale(0.19f, 0.17f, 1)),
+                    noAddEffects(),
+                    noPreventEffects(),noAuraEffects()
+            ));
+
     public static final RegistryObject<BrimmArmor> NATO_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(ZABRALO_H, 1),
-                    ig(Items.IRON_INGOT, 10),
-                    ig(Items.LIGHT_GRAY_DYE, 5)),
+                    ig(US_H, 1),
+                    ig(Items.DIAMOND, 2),
+                    ig(Items.IRON_INGOT, 15)),
             "nato_h",
             generateArmorSupplierHelmet("nato_h", BrimmRarity.UNCOMMON,
                     newRTSMComp()
@@ -1031,16 +1119,16 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> A_POLICE_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(Items.IRON_INGOT, 20),
-                    ig(Items.LEATHER, 10)),
+                    ig(CAP_H, 1),
+                    ig(Items.DIAMOND, 2),
+                    ig(Items.IRON_INGOT, 15)),
             "a_police_h",
             generateArmorSupplierHelmet("a_police_h", BrimmRarity.UNCOMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     0f, 0f, 8, 240,
-                    patches(OverlayPos.HUMANOID_HEAD,
-                            newmatrix().setTranslate(0.3065f, -0.542f, -0.09f).setRotate(0, -90, -13).setScale(0.18f, 0.17f, 1)),
+                    nopatches(),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -1048,16 +1136,16 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> R_POLICE_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(Items.IRON_INGOT, 20),
-                    ig(Items.LEATHER, 10)),
+                    ig(CAP_H, 1),
+                    ig(Items.DIAMOND, 2),
+                    ig(Items.IRON_INGOT, 15)),
             "r_police_h",
             generateArmorSupplierHelmet("r_police_h", BrimmRarity.UNCOMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     0f, 0f, 8, 240,
-                    patches(OverlayPos.HUMANOID_HEAD,
-                            newmatrix().setTranslate(0.3065f, -0.542f, -0.09f).setRotate(0, -90, -13).setScale(0.18f, 0.17f, 1)),
+                    noAddEffects(),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -1065,8 +1153,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> RATNIK_MOBILIZED_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(Items.IRON_INGOT, 20),
-                    ig(Items.LEATHER, 10)),
+                    ig(SIX_B_FOUR_SEVEN_DARK_H, 1),
+                    ig(Items.DIAMOND, 2),
+                    ig(Items.IRON_INGOT, 15)),
             "ratnik_mobilized_h",
             generateArmorSupplierHelmet("ratnik_mobilized_h", BrimmRarity.UNCOMMON,
                     newRTSMComp()
@@ -1074,7 +1163,7 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     0f, 0f, 8, 240,
                     patches(OverlayPos.HUMANOID_HEAD,
-                            newmatrix().setTranslate(0.3065f, -0.542f, -0.09f).setRotate(0, -90, -13).setScale(0.18f, 0.17f, 1)),
+                            newmatrix().setTranslate(0.288f, -0.544f, -0.097f).setRotate(0, -90, -16).setScale(0.19f, 0.17f, 1)),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -1082,7 +1171,8 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> AIRFRAME_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(Items.IRON_INGOT, 25),
+                    ig(Items.DIAMOND, 2),
+                    ig(Items.IRON_INGOT, 30),
                     ig(Items.LEATHER, 5)),
             "airframe_h",
             generateArmorSupplierHelmet("airframe_h", BrimmRarity.UNCOMMON,
@@ -1090,8 +1180,7 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     5f, 1f, 9, 240,
-                    patches(OverlayPos.HUMANOID_HEAD,
-                            newmatrix().setTranslate(0.3075f, -0.542f, -0.09f).setRotate(0, -90, -13).setScale(0.18f, 0.17f, 1)),
+                    nopatches(),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -1099,10 +1188,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> ASSAULT_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(BASE_H, 1),
+                    ig(Items.DIAMOND, 2),
                     ig(Items.IRON_INGOT, 30),
-                    ig(Items.REDSTONE, 10),
-                    ig(Items.LAPIS_LAZULI, 10)),
+                    ig(Items.LEATHER, 5)),
             "assault_h",
             generateArmorSupplierHelmet("assault_h", BrimmRarity.UNCOMMON,
                     newRTSMComp()
@@ -1118,9 +1206,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> PMC_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(ASSAULT_H, 1),
-                    ig(Items.IRON_INGOT, 10),
-                    ig(Items.RED_DYE, 5)),
+                    ig(BASE_H, 1),
+                    ig(Items.DIAMOND, 2),
+                    ig(Items.IRON_INGOT, 15)),
             "pmc_h",
             generateArmorSupplierHelmet("pmc_h", BrimmRarity.UNCOMMON,
                     newRTSMComp()
@@ -1137,9 +1225,8 @@ public class ItemRegistry {
     public static final RegistryObject<BrimmArmor> TSHFOUR_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
                     ig(TSHFOUR_GREEN_H, 1),
-                    ig(Items.IRON_INGOT, 5),
-                    ig(Items.LEATHER, 10),
-                    ig(Items.BLACK_DYE, 5)),
+                    ig(Items.DIAMOND, 2),
+                    ig(Items.IRON_INGOT, 15)),
             "tshfour_h",
             generateArmorSupplierHelmet("tshfour_h", BrimmRarity.UNCOMMON,
                     newRTSMComp()
@@ -1152,11 +1239,45 @@ public class ItemRegistry {
                     noAuraEffects()
             ));
 
+    public static final RegistryObject<BrimmArmor> COSSACK_RED_H = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
+                    ig(Items.DIAMOND, 2),
+                    ig(Items.IRON_INGOT, 30),
+                    ig(Items.LEATHER, 5)),
+            "cossack_red_h",
+            generateArmorSupplierHelmet("cossack_red_h", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
+                    5f, 1f, 9, 240,
+                    nopatches(),
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> COSSACK_BLUE_H = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
+                    ig(Items.DIAMOND, 2),
+                    ig(Items.IRON_INGOT, 30),
+                    ig(Items.LEATHER, 5)),
+            "cossack_blue_h",
+            generateArmorSupplierHelmet("cossack_blue_h", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
+                    5f, 1f, 9, 240,
+                    nopatches(),
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
     public static final RegistryObject<BrimmArmor> RATNIK_VETERAN_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(ASSAULT_H, 1),
-                    ig(Items.IRON_INGOT, 15),
-                    ig(Items.DIAMOND, 10)),
+                    ig(RATNIK_MOBILIZED_H, 1),
+                    ig(Items.DIAMOND, 8),
+                    ig(Items.IRON_INGOT, 5)),
             "ratnik_veteran_h",
             generateArmorSupplierHelmet("ratnik_veteran_h", BrimmRarity.RARE,
                     newRTSMComp()
@@ -1164,7 +1285,7 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     5f, 1f, 9, 240,
                     patches(OverlayPos.HUMANOID_HEAD,
-                            newmatrix().setTranslate(0.301f, -0.542f, -0.09f).setRotate(0, -90, -13).setScale(0.18f, 0.17f, 1)),
+                            newmatrix().setTranslate(0.288f, -0.544f, -0.097f).setRotate(0, -90, -16).setScale(0.19f, 0.17f, 1)),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -1172,9 +1293,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> HAZARD_KIT_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(ASSAULT_H, 1),
-                    ig(Items.IRON_INGOT, 15),
-                    ig(Items.DIAMOND, 10)),
+                    ig(ZABRALO_H, 1),
+                    ig(Items.DIAMOND, 8),
+                    ig(Items.IRON_INGOT, 5)),
             "hazard_kit_h",
             generateArmorSupplierHelmet("hazard_kit_h", BrimmRarity.RARE,
                     newRTSMComp()
@@ -1182,7 +1303,24 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     5f, 1f, 9, 240,
                     patches(OverlayPos.HUMANOID_HEAD,
-                            newmatrix().setTranslate(0.301f, -0.542f, -0.09f).setRotate(0, -90, -13).setScale(0.18f, 0.17f, 1)),
+                            newmatrix().setTranslate(0.288f, -0.544f, -0.097f).setRotate(0, -90, -16).setScale(0.19f, 0.17f, 1)),
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> US_VETERAN_H = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
+                    ig(US_MOBILIZED_H, 1),
+                    ig(Items.DIAMOND, 8),
+                    ig(Items.IRON_INGOT, 5)),
+            "us_veteran_h",
+            generateArmorSupplierHelmet("us_veteran_h", BrimmRarity.RARE,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
+                    5f, 1f, 9, 240,
+                    nopatches(),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -1190,9 +1328,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> UKRAINIAN_VETERAN_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(ASSAULT_H, 1),
-                    ig(Items.IRON_INGOT, 15),
-                    ig(Items.DIAMOND, 10)),
+                    ig(UKRAINIAN_MOBILIZED_H, 1),
+                    ig(Items.DIAMOND, 8),
+                    ig(Items.IRON_INGOT, 5)),
             "ukrainian_veteran_h",
             generateArmorSupplierHelmet("ukrainian_veteran_h", BrimmRarity.RARE,
                     newRTSMComp()
@@ -1200,7 +1338,7 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     5f, 1f, 9, 240,
                     patches(OverlayPos.HUMANOID_HEAD,
-                            newmatrix().setTranslate(0.301f, -0.542f, -0.09f).setRotate(0, -90, -13).setScale(0.18f, 0.17f, 1)),
+                            newmatrix().setTranslate(0.3065f, -0.542f, -0.09f).setRotate(0, -90, -13).setScale(0.18f, 0.17f, 1)),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -1208,9 +1346,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> SWAT_KIT_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(ASSAULT_H, 1),
-                    ig(Items.IRON_INGOT, 15),
-                    ig(Items.DIAMOND, 10)),
+                    ig(A_POLICE_H, 1),
+                    ig(Items.DIAMOND, 8),
+                    ig(Items.IRON_INGOT, 5)),
             "swat_kit_h",
             generateArmorSupplierHelmet("swat_kit_h", BrimmRarity.RARE,
                     newRTSMComp()
@@ -1218,7 +1356,7 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     5f, 1f, 9, 240,
                     patches(OverlayPos.HUMANOID_HEAD,
-                            newmatrix().setTranslate(0.301f, -0.542f, -0.09f).setRotate(0, -90, -13).setScale(0.18f, 0.17f, 1)),
+                            newmatrix().setTranslate(0.3065f, -0.542f, -0.09f).setRotate(0, -90, -13).setScale(0.18f, 0.17f, 1)),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -1226,17 +1364,16 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> SOBR_KIT_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(ASSAULT_H, 1),
-                    ig(Items.IRON_INGOT, 15),
-                    ig(Items.DIAMOND, 10)),
+                    ig(R_POLICE_H, 1),
+                    ig(Items.DIAMOND, 8),
+                    ig(Items.IRON_INGOT, 5)),
             "sobr_kit_h",
             generateArmorSupplierHelmet("sobr_kit_h", BrimmRarity.RARE,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     5f, 1f, 9, 240,
-                    patches(OverlayPos.HUMANOID_HEAD,
-                            newmatrix().setTranslate(0.301f, -0.542f, -0.09f).setRotate(0, -90, -13).setScale(0.18f, 0.17f, 1)),
+                    nopatches(),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -1244,9 +1381,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> CQB_KIT_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(ASSAULT_H, 1),
-                    ig(Items.IRON_INGOT, 15),
-                    ig(Items.DIAMOND, 10)),
+                    ig(BASE_H, 1),
+                    ig(Items.DIAMOND, 10),
+                    ig(Items.IRON_INGOT, 20)),
             "cqb_kit_h",
             generateArmorSupplierHelmet("cqb_kit_h", BrimmRarity.RARE,
                     newRTSMComp()
@@ -1254,7 +1391,7 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     5f, 1f, 9, 240,
                     patches(OverlayPos.HUMANOID_HEAD,
-                            newmatrix().setTranslate(0.301f, -0.542f, -0.09f).setRotate(0, -90, -13).setScale(0.18f, 0.17f, 1)),
+                            newmatrix().setTranslate(0.3065f, -0.542f, -0.09f).setRotate(0, -90, -13).setScale(0.18f, 0.17f, 1)),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -1262,9 +1399,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> PRESS_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(Items.IRON_INGOT, 40),
-                    ig(Items.LEATHER, 20),
-                    ig(Items.BLUE_DYE, 5)),
+                    ig(CIVILIAN_H, 1),
+                    ig(Items.DIAMOND, 10),
+                    ig(Items.IRON_INGOT, 15)),
             "press_h",
             generateArmorSupplierHelmet("press_h", BrimmRarity.RARE,
                     newRTSMComp()
@@ -1279,10 +1416,10 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> GASMASK_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(BASE_H, 1),
+                    ig(Items.DIAMOND, 10),
                     ig(Items.IRON_INGOT, 30),
-                    ig(Items.COAL, 30),
-                    ig(Items.GLASS, 15)),
+                    ig(Items.LEATHER, 5),
+                    ig(Items.SPONGE, 2)),
             "gasmask_h",
             generateArmorSupplierHelmet("gasmask_h", BrimmRarity.RARE,
                     newRTSMComp()
@@ -1304,13 +1441,38 @@ public class ItemRegistry {
                     noAuraEffects()
             ));
 
+    public static final RegistryObject<BrimmArmor> GASMASK_ALT_H = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
+                    ig(Items.DIAMOND, 10),
+                    ig(Items.IRON_INGOT, 30),
+                    ig(Items.LEATHER, 5),
+                    ig(Items.SPONGE, 2)),
+            "gasmask_alt_h",
+            generateArmorSupplierHelmet("gasmask_alt_h", BrimmRarity.RARE,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
+                    5f, 1f, 9, 240,
+                    nopatches(),
+                    noAddEffects(),
+                    preventEffects(
+                            MobEffects.POISON,
+                            MobEffects.BLINDNESS,
+                            MobEffects.HUNGER,
+                            MobEffects.CONFUSION,
+                            MobEffects.WITHER,
+                            MobEffects.MOVEMENT_SLOWDOWN,
+                            MobEffects.WEAKNESS
+                    ),
+                    noAuraEffects()
+            ));
+
     public static final RegistryObject<BrimmArmor> GPNVG_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(ASSAULT_H, 1),
-                    ig(Items.IRON_INGOT, 15),
-                    ig(Items.LEATHER, 10),
-                    ig(Items.SPIDER_EYE, 10),
-                    ig(Items.DIAMOND, 10)),
+                    ig(Items.DIAMOND, 10),
+                    ig(Items.IRON_INGOT, 30),
+                    ig(Items.LEATHER, 5),
+                    ig(Items.REDSTONE, 15)),
             "gpnvg_h",
             generateArmorSupplierHelmet("gpnvg_h", BrimmRarity.RARE,
                     newRTSMComp()
@@ -1328,10 +1490,10 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> TMSPMG_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(INFANTRY_H, 1),
-                    ig(Items.IRON_INGOT, 10),
-                    ig(Items.DIAMOND, 10),
-                    ig(Items.BLAZE_ROD, 50)),
+                    ig(CIVILIAN_MEDIC_H, 1),
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 13),
+                    ig(Items.IRON_INGOT, 5)),
             "tmspmg_h",
             generateArmorSupplierHelmet("tmspmg_h", BrimmRarity.EPIC,
                     newRTSMComp()
@@ -1339,20 +1501,17 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     10f, 1f, 10, 240,
                     nopatches(),
-                    addEffects(
-                            stdEff(MobEffects.FIRE_RESISTANCE),
-                            stdEff(MobEffects.REGENERATION, 2)
-                    ),
+                    noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
             ));
 
     public static final RegistryObject<BrimmArmor> BERSERK_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(INFANTRY_H, 1),
-                    ig(Items.IRON_INGOT, 10),
-                    ig(Items.DIAMOND, 10),
-                    ig(Items.BLAZE_ROD, 50)),
+                    ig(OSPREY_H, 1),
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 15),
+                    ig(Items.IRON_INGOT, 20)),
             "berserk_h",
             generateArmorSupplierHelmet("berserk_h", BrimmRarity.EPIC,
                     newRTSMComp()
@@ -1370,10 +1529,10 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> VANDERER_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(INFANTRY_H, 1),
-                    ig(Items.IRON_INGOT, 10),
-                    ig(Items.DIAMOND, 10),
-                    ig(Items.BLAZE_ROD, 50)),
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 15),
+                    ig(Items.IRON_INGOT, 35),
+                    ig(Items.LEATHER, 5)),
             "vanderer_h",
             generateArmorSupplierHelmet("vanderer_h", BrimmRarity.EPIC,
                     newRTSMComp()
@@ -1391,10 +1550,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> BYDLOVKA_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(INFANTRY_H, 1),
-                    ig(Items.IRON_INGOT, 10),
-                    ig(Items.DIAMOND, 10),
-                    ig(Items.BLAZE_ROD, 50)),
+                    ig(RATNIK_VETERAN_H, 1),
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 5)),
             "bydlovka_h",
             generateArmorSupplierHelmet("bydlovka_h", BrimmRarity.EPIC,
                     newRTSMComp()
@@ -1412,10 +1570,10 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> CONCORD_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(INFANTRY_H, 1),
-                    ig(Items.IRON_INGOT, 10),
-                    ig(Items.DIAMOND, 10),
-                    ig(Items.BLAZE_ROD, 50)),
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 13),
+                    ig(Items.IRON_INGOT, 35),
+                    ig(Items.LEATHER, 5)),
             "concord_h",
             generateArmorSupplierHelmet("concord_h", BrimmRarity.EPIC,
                     newRTSMComp()
@@ -1433,9 +1591,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> TARO_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(GPNVG_H, 1),
-                    ig(Items.SKELETON_SKULL, 1),
-                    ig(Items.INK_SAC, 5)),
+                    ig(CQB_KIT_H, 1),
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 5)),
             "taro_h",
             generateArmorSupplierHelmet("taro_h", BrimmRarity.EPIC,
                     newRTSMComp()
@@ -1453,11 +1611,12 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> MEDIC_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(ASSAULT_H, 1),
-                    ig(Items.LEATHER, 5),
-                    ig(Items.GOLDEN_APPLE, 1)),
+                    ig(CIVILIAN_MEDIC_H, 1),
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 13),
+                    ig(Items.IRON_INGOT, 5)),
             "medic_h",
-            generateArmorSupplierHelmet("medic_h", BrimmRarity.RARE,
+            generateArmorSupplierHelmet("medic_h", BrimmRarity.EPIC,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
@@ -1475,10 +1634,10 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> MAID_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(INFANTRY_H, 1),
-                    ig(Items.IRON_INGOT, 10),
-                    ig(Items.DIAMOND, 10),
-                    ig(Items.BLAZE_ROD, 50)),
+                    ig(CIVILIAN_H, 1),
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 13),
+                    ig(Items.IRON_INGOT, 20)),
             "maid_h",
             generateArmorSupplierHelmet("maid_h", BrimmRarity.EPIC,
                     newRTSMComp()
@@ -1496,10 +1655,10 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> KILLA_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(ZCH_H, 1),
-                    ig(Items.IRON_INGOT, 30),
-                    ig(Items.GLASS_PANE, 5),
-                    ig(Items.INK_SAC, 5)),
+                    ig(OSPREY_H, 1),
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 13),
+                    ig(Items.IRON_INGOT, 20)),
             "killa_h",
             generateArmorSupplierHelmet("killa_h", BrimmRarity.EPIC,
                     newRTSMComp()
@@ -1516,9 +1675,10 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> SAPER_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(NATO_H, 1),
-                    ig(Items.REDSTONE, 10),
-                    ig(Items.LEATHER, 5)),
+                    ig(VIETNAMESE_BASIC_H, 1),
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 13),
+                    ig(Items.IRON_INGOT, 20)),
             "saper_h",
             generateArmorSupplierHelmet("saper_h", BrimmRarity.UNCOMMON,
                     newRTSMComp()
@@ -1533,9 +1693,11 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> GHOST_H = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(GPNVG_H, 1),
-                    ig(Items.SKELETON_SKULL, 1),
-                    ig(Items.INK_SAC, 5)),
+                    ig(OSPREY_H, 1),
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 13),
+                    ig(Items.IRON_INGOT, 20),
+                    ig(Items.WITHER_SKELETON_SKULL, 1)),
             "ghost_h",
             generateArmorSupplierHelmet("ghost_h", BrimmRarity.EPIC,
                     newRTSMComp()
@@ -1550,40 +1712,21 @@ public class ItemRegistry {
                     noPreventEffects(),
                     noAuraEffects()
             ));
-
-    public static final RegistryObject<BrimmArmor> NOXUS_H = registerItemAndExecute(
-            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.HELMET,
-                    ig(GPNVG_H, 1),
-                    ig(Items.SKELETON_SKULL, 1),
-                    ig(Items.INK_SAC, 5)),
-            "noxus_h",
-            generateArmorSupplierHelmet("noxus_h", BrimmRarity.EPIC,
-                    newRTSMComp()
-                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
-                    10f, 1f, 10, 240,
-                    nopatches(),
-                    addEffects(
-                            stdEff(MobEffects.FIRE_RESISTANCE),
-                            stdEff(MobEffects.NIGHT_VISION)
-                    ),
-                    noPreventEffects(),
-                    noAuraEffects()
-            ));
     
     // --- LEGGINGS ---
 
-    public static final RegistryObject<BrimmArmor> GREEN_P = registerItemAndExecute(
+    public static final RegistryObject<BrimmArmor> BASE_P = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
-                    ig(Items.STONE_AXE, 9)),
-            "green_p",
-            generateArmorSupplierLeggings("green_p", BrimmRarity.COMMON,
-                    newRTSMComp()
-                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
-                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-100f)),
+                    ig(Items.IRON_INGOT, 4),
+                    ig(Items.LEATHER, 10)),
+            "base_p",
+            generateArmorSupplierLeggings("base_p", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
-                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
                     0f, 0f, 8, 240,
                     noAddEffects(),
                     noPreventEffects(),
@@ -1592,88 +1735,1203 @@ public class ItemRegistry {
 
     public static final RegistryObject<BrimmArmor> CIVILIAN_KNEEPADS_P = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
-                    ig(Items.STONE_AXE, 9)),
+                    ig(Items.IRON_INGOT, 4),
+                    ig(Items.LEATHER, 10)),
             "civilian_kneepads_p",
             generateArmorSupplierLeggings("civilian_kneepads_p", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
-                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-100f)),
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
-                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
                     0f, 0f, 8, 240,
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
             ));
 
-    public static final RegistryObject<BrimmArmor> OSPREY_KNEEPADS_P = registerItemAndExecute(
+    public static final RegistryObject<BrimmArmor> US_P = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
-                    ig(Items.STONE_AXE, 9)),
-            "osprey_kneepads_p",
-            generateArmorSupplierLeggings("osprey_kneepads_p", BrimmRarity.COMMON,
+                    ig(Items.IRON_INGOT, 4),
+                    ig(Items.LEATHER, 10)),
+            "us_p",
+            generateArmorSupplierLeggings("us_p", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
-                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-100f)),
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
-                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
                     0f, 0f, 8, 240,
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
             ));
 
-    public static final RegistryObject<BrimmArmor> RANTIK_KNEEPADS_P = registerItemAndExecute(
+    public static final RegistryObject<BrimmArmor> OSPREY_P = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
-                    ig(Items.STONE_AXE, 9)),
-            "ratnik_kneepads_p",
-            generateArmorSupplierLeggings("ratnik_kneepads_p", BrimmRarity.COMMON,
+                    ig(Items.IRON_INGOT, 4),
+                    ig(Items.LEATHER, 10)),
+            "osprey_p",
+            generateArmorSupplierLeggings("osprey_p", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
-                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-100f)),
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
-                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
                     0f, 0f, 8, 240,
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
             ));
 
-    public static final RegistryObject<BrimmArmor> UKRAINIAN_BASIC_KNEEPADS_P = registerItemAndExecute(
+    public static final RegistryObject<BrimmArmor> RANTIK_BASIC_P = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
-                    ig(Items.STONE_AXE, 9)),
-            "ukrainian_basic_kneepads_p",
-            generateArmorSupplierLeggings("ukrainian_basic_kneepads_p", BrimmRarity.COMMON,
+                    ig(Items.IRON_INGOT, 4),
+                    ig(Items.LEATHER, 10)),
+            "ratnik_basic_p",
+            generateArmorSupplierLeggings("ratnik_basic_p", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
-                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-100f)),
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
-                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
                     0f, 0f, 8, 240,
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
             ));
 
-    public static final RegistryObject<BrimmArmor> TAROS_KNEEGUARDS_P = registerItemAndExecute(
+    public static final RegistryObject<BrimmArmor> DEFENDER_P = registerItemAndExecute(
             addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
-                    ig(Items.STONE_AXE, 9)),
-            "taros_kneepads_p",
-            generateArmorSupplierLeggings("taros_kneeguards_p", BrimmRarity.COMMON,
+                    ig(Items.IRON_INGOT, 4),
+                    ig(Items.LEATHER, 10)),
+            "defender_p",
+            generateArmorSupplierLeggings("defender_p", BrimmRarity.COMMON,
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
-                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-100f)),
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
                     newRTSMComp()
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
-                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
                     0f, 0f, 8, 240,
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
             ));
+
+    public static final RegistryObject<BrimmArmor> UKRAINIAN_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(Items.IRON_INGOT, 4),
+                    ig(Items.LEATHER, 10)),
+            "ukrainian_p",
+            generateArmorSupplierLeggings("ukrainian_p", BrimmRarity.COMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> CIVILIAN_MEDIC_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(CIVILIAN_KNEEPADS_P, 1),
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 10)),
+            "civilian_medic_p",
+            generateArmorSupplierLeggings("civilian_medic_p", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> UKRAINIAN_MOBILIZED_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(UKRAINIAN_P, 1),
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 10)),
+            "ukrainian_mobilized_p",
+            generateArmorSupplierLeggings("ukrainian_mobilized_p", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> DEFENDER_MOBILIZED_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(DEFENDER_P, 1),
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 10)),
+            "defender_mobilized_p",
+            generateArmorSupplierLeggings("defender_mobilized_p", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> US_MOBILIZED_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(US_P, 1),
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 10)),
+            "us_mobilized_p",
+            generateArmorSupplierLeggings("us_mobilized_p", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> A_POLICE_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(BASE_P, 1),
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 10)),
+            "a_police_p",
+            generateArmorSupplierLeggings("a_police_p", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> R_POLICE_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(BASE_P, 1),
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 10)),
+            "r_police_p",
+            generateArmorSupplierLeggings("r_police_p", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> RATNIK_MOBILIZED_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(RANTIK_BASIC_P, 1),
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 10)),
+            "ratnik_mobilized_p",
+            generateArmorSupplierLeggings("ratnik_mobilized_p", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> GENERIC_URBAN_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(Items.IRON_INGOT, 19),
+                    ig(Items.LEATHER, 20)),
+            "generic_urban_p",
+            generateArmorSupplierLeggings("generic_urban_p", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> GENERIC_DARK_TAN_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(Items.IRON_INGOT, 19),
+                    ig(Items.LEATHER, 20)),
+            "generic_dark_tan_p",
+            generateArmorSupplierLeggings("generic_dark_tan_p", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> RATNIK_VETERAN_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(RATNIK_MOBILIZED_P, 1),
+                    ig(Items.DIAMOND, 5),
+                    ig(Items.IRON_INGOT, 5)),
+            "ratnik_veteran_p",
+            generateArmorSupplierLeggings("ratnik_veteran_p", BrimmRarity.RARE,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> HAZARD_KIT_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(DEFENDER_MOBILIZED_P, 1),
+                    ig(Items.DIAMOND, 5),
+                    ig(Items.IRON_INGOT, 5)),
+            "hazard_kit_p",
+            generateArmorSupplierLeggings("hazard_kit_p", BrimmRarity.RARE,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> US_VETERAN_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(US_MOBILIZED_P, 1),
+                    ig(Items.DIAMOND, 5),
+                    ig(Items.IRON_INGOT, 5)),
+            "us_veteran_p",
+            generateArmorSupplierLeggings("us_veteran_p", BrimmRarity.RARE,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> UKRAINIAN_VETERAN_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(UKRAINIAN_MOBILIZED_P, 1),
+                    ig(Items.DIAMOND, 5),
+                    ig(Items.IRON_INGOT, 5)),
+            "ukrainian_veteran_p",
+            generateArmorSupplierLeggings("ukrainian_veteran_p", BrimmRarity.RARE,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> SWAT_KIT_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(A_POLICE_P, 1),
+                    ig(Items.DIAMOND, 5),
+                    ig(Items.IRON_INGOT, 5)),
+            "swat_kit_p",
+            generateArmorSupplierLeggings("swat_kit_p", BrimmRarity.RARE,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> SOBR_KIT_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(R_POLICE_P, 1),
+                    ig(Items.DIAMOND, 5),
+                    ig(Items.IRON_INGOT, 5)),
+            "sobr_kit_p",
+            generateArmorSupplierLeggings("sobr_kit_p", BrimmRarity.RARE,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> CQB_KIT_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(RATNIK_MOBILIZED_P, 1),
+                    ig(Items.DIAMOND, 5),
+                    ig(Items.IRON_INGOT, 20),
+                    ig(Items.LEATHER, 10)),
+            "cqb_kit_p",
+            generateArmorSupplierLeggings("cqb_kit_p", BrimmRarity.RARE,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> GENERIC_BROWN_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(Items.DIAMOND, 5),
+                    ig(Items.IRON_INGOT, 24),
+                    ig(Items.LEATHER, 20)),
+            "generic_brown_p",
+            generateArmorSupplierLeggings("generic_brown_p", BrimmRarity.RARE,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> TMSPMG_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(CIVILIAN_MEDIC_P, 1),
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 10),
+                    ig(Items.IRON_INGOT, 5)),
+            "tmspmg_p",
+            generateArmorSupplierLeggings("tmspmg_p", BrimmRarity.EPIC,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> BERSERK_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(OSPREY_P, 1),
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 10),
+                    ig(Items.IRON_INGOT, 20),
+                    ig(Items.LEATHER, 10)),
+            "berserk_p",
+            generateArmorSupplierLeggings("berserk_p", BrimmRarity.EPIC,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> BYDLOVKA_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(RATNIK_VETERAN_P, 1),
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 5)),
+            "bydlovka_p",
+            generateArmorSupplierLeggings("bydlovka_p", BrimmRarity.EPIC,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> CONCORD_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 10),
+                    ig(Items.IRON_INGOT, 24),
+                    ig(Items.LEATHER, 20)),
+            "concord_p",
+            generateArmorSupplierLeggings("concord_p", BrimmRarity.EPIC,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> TARO_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(CQB_KIT_P, 1),
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 5)),
+            "taro_p",
+            generateArmorSupplierLeggings("taro_p", BrimmRarity.EPIC,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> GENERIC_LIGHT_TAN_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 10),
+                    ig(Items.IRON_INGOT, 24),
+                    ig(Items.LEATHER, 20)),
+            "generic_light_tan_p",
+            generateArmorSupplierLeggings("generic_light_tan_p", BrimmRarity.EPIC,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> GHOST_P = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.LEGGINGS,
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 10),
+                    ig(Items.IRON_INGOT, 24),
+                    ig(Items.LEATHER, 20)),
+            "ghost_p",
+            generateArmorSupplierLeggings("ghost_p", BrimmRarity.EPIC,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.14f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(20)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    // --- BOOTS ---
+
+    public static final RegistryObject<BrimmArmor> BASE_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(Items.IRON_INGOT, 5),
+                    ig(Items.LEATHER, 5)),
+            "base_b",
+            generateArmorSupplierBoots("base_b", BrimmRarity.COMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> CIVILIAN_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(Items.IRON_INGOT, 5),
+                    ig(Items.LEATHER, 5)),
+            "civilian_b",
+            generateArmorSupplierBoots("civilian_b", BrimmRarity.COMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> US_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(Items.IRON_INGOT, 5),
+                    ig(Items.LEATHER, 5)),
+            "us_b",
+            generateArmorSupplierBoots("us_b", BrimmRarity.COMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> UKRAINIAN_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(Items.IRON_INGOT, 5),
+                    ig(Items.LEATHER, 5)),
+            "ukrainian_b",
+            generateArmorSupplierBoots("ukrainian_b", BrimmRarity.COMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> OSPREY_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(Items.IRON_INGOT, 5),
+                    ig(Items.LEATHER, 5)),
+            "osprey_b",
+            generateArmorSupplierBoots("osprey_b", BrimmRarity.COMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> RATNIK_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(Items.IRON_INGOT, 5),
+                    ig(Items.LEATHER, 5)),
+            "ratnik_b",
+            generateArmorSupplierBoots("ratnik_b", BrimmRarity.COMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> DEFENDER_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(Items.IRON_INGOT, 5),
+                    ig(Items.LEATHER, 5)),
+            "defender_b",
+            generateArmorSupplierBoots("defender_b", BrimmRarity.COMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> CIVILIAN_MEDIC_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(CIVILIAN_B, 1),
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 20)),
+            "civilian_medic_b",
+            generateArmorSupplierBoots("civilian_medic_b", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> UKRAINIAN_MOBILIZED_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(UKRAINIAN_B, 1),
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 20)),
+            "ukrainian_mobilized_b",
+            generateArmorSupplierBoots("ukrainian_mobilized_b", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> DEFENDER_MOBILIZED_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(DEFENDER_B, 1),
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 20)),
+            "defender_mobilized_b",
+            generateArmorSupplierBoots("defender_mobilized_b", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> US_MOBILIZED_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(US_B, 1),
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 20)),
+            "us_mobilized_b",
+            generateArmorSupplierBoots("us_mobilized_b", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> A_POLICE_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(BASE_B, 1),
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 20)),
+            "a_police_b",
+            generateArmorSupplierBoots("a_police_b", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> R_POLICE_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(BASE_B, 1),
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 20)),
+            "r_police_b",
+            generateArmorSupplierBoots("r_police_b", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> RATNIK_MOBILIZED_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(RATNIK_B, 1),
+                    ig(Items.IRON_INGOT, 15),
+                    ig(Items.LEATHER, 20)),
+            "ratnik_mobilized_b",
+            generateArmorSupplierBoots("ratnik_mobilized_b", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> GENERIC_URBAN_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(Items.IRON_INGOT, 20),
+                    ig(Items.LEATHER, 25)),
+            "generic_urban_b",
+            generateArmorSupplierBoots("generic_urban_b", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> GENERIC_DARK_TAN_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(Items.IRON_INGOT, 20),
+                    ig(Items.LEATHER, 25)),
+            "generic_dark_tan_b",
+            generateArmorSupplierBoots("generic_dark_tan_b", BrimmRarity.UNCOMMON,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> RATNIK_VETERAN_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(RATNIK_MOBILIZED_B, 1),
+                    ig(Items.DIAMOND, 5),
+                    ig(Items.IRON_INGOT, 5)),
+            "ratnik_veteran_b",
+            generateArmorSupplierBoots("ratnik_veteran_b", BrimmRarity.RARE,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> HAZARD_KIT_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(DEFENDER_MOBILIZED_B, 1),
+                    ig(Items.DIAMOND, 5),
+                    ig(Items.IRON_INGOT, 5)),
+            "hazard_kit_b",
+            generateArmorSupplierBoots("hazard_kit_b", BrimmRarity.RARE,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> US_VETERAN_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(US_MOBILIZED_B, 1),
+                    ig(Items.DIAMOND, 5),
+                    ig(Items.IRON_INGOT, 5)),
+            "us_veteran_b",
+            generateArmorSupplierBoots("us_veteran_b", BrimmRarity.RARE,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> UKRAINIAN_VETERAN_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(UKRAINIAN_MOBILIZED_B, 1),
+                    ig(Items.DIAMOND, 5),
+                    ig(Items.IRON_INGOT, 5)),
+            "ukrainian_veteran_b",
+            generateArmorSupplierBoots("ukrainian_veteran_b", BrimmRarity.RARE,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> SWAT_KIT_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(A_POLICE_B, 1),
+                    ig(Items.DIAMOND, 5),
+                    ig(Items.IRON_INGOT, 5)),
+            "swat_kit_b",
+            generateArmorSupplierBoots("swat_kit_b", BrimmRarity.RARE,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> SOBR_KIT_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(R_POLICE_B, 1),
+                    ig(Items.DIAMOND, 5),
+                    ig(Items.IRON_INGOT, 5)),
+            "sobr_kit_b",
+            generateArmorSupplierBoots("sobr_kit_b", BrimmRarity.RARE,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> CQB_KIT_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(BASE_B, 1),
+                    ig(Items.DIAMOND, 5),
+                    ig(Items.IRON_INGOT, 20),
+                    ig(Items.LEATHER, 20)),
+            "cqb_kit_b",
+            generateArmorSupplierBoots("cqb_kit_b", BrimmRarity.RARE,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> PRESS_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(CIVILIAN_B, 1),
+                    ig(Items.DIAMOND, 5),
+                    ig(Items.IRON_INGOT, 20),
+                    ig(Items.LEATHER, 20)),
+            "press_b",
+            generateArmorSupplierBoots("press_b", BrimmRarity.RARE,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> GENERIC_BROWN_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(Items.DIAMOND, 5),
+                    ig(Items.IRON_INGOT, 25),
+                    ig(Items.LEATHER, 25)),
+            "generic_brown_b",
+            generateArmorSupplierBoots("generic_brown_b", BrimmRarity.RARE,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> TMSPMG_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(CIVILIAN_MEDIC_B, 1),
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 10),
+                    ig(Items.IRON_INGOT, 5)),
+            "tmspmg_b",
+            generateArmorSupplierBoots("tmspmg_b", BrimmRarity.EPIC,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> BERSERK_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(OSPREY_B, 1),
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 10),
+                    ig(Items.IRON_INGOT, 20),
+                    ig(Items.LEATHER, 20)),
+            "berserk_b",
+            generateArmorSupplierBoots("berserk_b", BrimmRarity.EPIC,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> BYDLOVKA_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(RATNIK_MOBILIZED_B, 1),
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 5)),
+            "bydlovka_b",
+            generateArmorSupplierBoots("bydlovka_b", BrimmRarity.EPIC,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> CONCORD_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 10),
+                    ig(Items.IRON_INGOT, 25),
+                    ig(Items.LEATHER, 25)),
+            "concord_b",
+            generateArmorSupplierBoots("concord_b", BrimmRarity.EPIC,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> TARO_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(CQB_KIT_B, 1),
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 5)),
+            "taro_b",
+            generateArmorSupplierBoots("taro_b", BrimmRarity.EPIC,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> MAID_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(CIVILIAN_B, 1),
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 10),
+                    ig(Items.IRON_INGOT, 20),
+                    ig(Items.LEATHER, 20)),
+            "maid_b",
+            generateArmorSupplierBoots("maid_b", BrimmRarity.EPIC,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> GHOST_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 10),
+                    ig(Items.IRON_INGOT, 25),
+                    ig(Items.LEATHER, 25)),
+            "ghost_b",
+            generateArmorSupplierBoots("ghost_b", BrimmRarity.EPIC,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
+    public static final RegistryObject<BrimmArmor> GENERIC_LIGHT_TAN_B = registerItemAndExecute(
+            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
+                    ig(Items.NETHERITE_INGOT, 1),
+                    ig(Items.DIAMOND, 10),
+                    ig(Items.IRON_INGOT, 25),
+                    ig(Items.LEATHER, 25)),
+            "generic_light_tan_b",
+            generateArmorSupplierBoots("generic_light_tan_b", BrimmRarity.EPIC,
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    newRTSMComp()
+                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix().setTranslate(-0.13f,0.75f,0))
+                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(10)),
+                    0f, 0f, 8, 240,
+                    noAddEffects(),
+                    noPreventEffects(),
+                    noAuraEffects()
+            ));
+
 
     // --- PATCHES ---
 
@@ -1828,6 +3086,13 @@ public class ItemRegistry {
             "pakistani_flag_patch", () -> new ArmorPatch("pakistani_flag_patch")
     );
 
+    public static final RegistryObject<ArmorPatch> UKRAINE_FLAG_PATCH = registerItemAndExecute(
+            addTabAndSetCraft(misc_tab_content, CraftSection.PATCHES,
+                    ig(Items.LEATHER, 1),
+                    ig(Items.PAPER, 5)),
+            "ukraine_flag_patch", () -> new ArmorPatch("ukraine_flag_patch")
+    );
+
     public static final RegistryObject<ArmorPatch> POLISH_FLAG_PATCH = registerItemAndExecute(
             addTabAndSetCraft(misc_tab_content, CraftSection.PATCHES,
             		ig(Items.LEATHER, 1),
@@ -1868,13 +3133,6 @@ public class ItemRegistry {
             		ig(Items.LEATHER, 1),
             		ig(Items.PAPER, 5)),
             "titan_ii_patch", () -> new ArmorPatch("titan_ii_patch")
-    );
-
-    public static final RegistryObject<ArmorPatch> UKRAINE_FLAG_PATCH = registerItemAndExecute(
-            addTabAndSetCraft(misc_tab_content, CraftSection.PATCHES,
-                    ig(Items.LEATHER, 1),
-                    ig(Items.PAPER, 5)),
-            "ukraine_flag_patch", () -> new ArmorPatch("ukraine_flag_patch")
     );
 
     public static final RegistryObject<ArmorPatch> URBAN_AMERICAN_FLAG_PATCH = registerItemAndExecute(

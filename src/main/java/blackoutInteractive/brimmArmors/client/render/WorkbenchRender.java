@@ -5,7 +5,7 @@ import com.mojang.math.Axis;
 
 import blackoutInteractive.brimmArmors.common.blocks.WorkbenchBlock;
 import blackoutInteractive.brimmArmors.common.tile.WorkbenchTileEntity;
-import blackoutInteractive.ema_08_.rendering.obj.ObjsManager;
+import blackoutInteractive.ema_08_.rendering.obj.ObjModelsManager;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.core.Direction;
@@ -37,7 +37,7 @@ public class WorkbenchRender implements BlockEntityRenderer<WorkbenchTileEntity>
             };
             if (yRot != 0) matrix.mulPose(Axis.YP.rotationDegrees(yRot));
 
-            ObjsManager.getModel(workbench.getModelRef()).render(matrix, buffer, combinedLight, combinedOverlay, partialTicks);
+            ObjModelsManager.get(workbench.getModelId()).render(matrix, buffer, combinedLight, combinedOverlay, partialTicks);
 
             matrix.popPose();
         }

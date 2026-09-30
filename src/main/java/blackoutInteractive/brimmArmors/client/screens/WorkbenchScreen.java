@@ -13,10 +13,10 @@ import blackoutInteractive.brimmArmors.BrimmArmors;
 import blackoutInteractive.brimmArmors.common.packets.CraftPacket;
 import blackoutInteractive.brimmArmors.common.workbench.Craft;
 import blackoutInteractive.brimmArmors.common.workbench.CraftsManager;
-import blackoutInteractive.ema_08_.rendering.geom.RTSMatricesCompound;
-import blackoutInteractive.ema_08_.rendering.obj.ISingleObjModelProvider;
-import blackoutInteractive.ema_08_.rendering.obj.IMultiObjModelProvider;
-import blackoutInteractive.ema_08_.rendering.obj.ObjsManager;
+import blackoutInteractive.ema_08_.rendering.obj.ObjModelsManager;
+import blackoutInteractive.ema_08_.rendering.obj.metadata.ArmorModelMetadata;
+import blackoutInteractive.ema_08_.rendering.obj.providers.IMultiObjModelsProvider;
+import blackoutInteractive.ema_08_.rendering.obj.providers.IObjModelProvider;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -170,8 +170,8 @@ public class WorkbenchScreen extends Screen {
         }
         
         if (!dragging &&
-        		(this.currentReceipe.result() instanceof ISingleObjModelProvider ||
-        				this.currentReceipe.result() instanceof IMultiObjModelProvider) &&
+        		(this.currentReceipe.result() instanceof IObjModelProvider ||
+        				this.currentReceipe.result() instanceof IMultiObjModelsProvider) &&
                 mouseX >= guiLeft && mouseX <= guiLeft + BG_XSIZE &&
                 mouseY >= guiTop && mouseY <= guiTop + BG_YSIZE) {
 
@@ -202,21 +202,22 @@ public class WorkbenchScreen extends Screen {
         
         Item current = this.currentReceipe.result();
         
-        if (current instanceof ISingleObjModelProvider modelRefP) {
+        if (current instanceof IObjModelProvider modelRefP) {
         	setupObjRendering(poseStack, x, y);
-            var modelRef = modelRefP.getModelRef();
-            modelRef.modelTransforms.applyIfPresent(RTSMatricesCompound.key_workbench_render, poseStack);
-            ObjsManager.getModel(modelRef).render(poseStack,
+            var model = ObjModelsManager.get(modelRefP.getModelId());
+            model.<ArmorModelMetadata>getMetadata().workbench_transform().apply(poseStack);
+            model.render(poseStack,
                 Minecraft.getInstance().renderBuffers().bufferSource(),
                 LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, mc.getPartialTick()
             );
-        } else if (current instanceof IMultiObjModelProvider modelRefsP) {
+        } else if (current instanceof IMultiObjModelsProvider modelRefsP) {
         	setupObjRendering(poseStack, x, y);
-        	var modelRefs = modelRefsP.getModelRefs();
-        	for (var modelRef : modelRefs) {
+        	var modelIds = modelRefsP.getModelIds();
+        	for (var modelId : modelIds) {
         		poseStack.pushPose();
-        		modelRef.modelTransforms.applyIfPresent(RTSMatricesCompound.key_workbench_render, poseStack);
-                ObjsManager.getModel(modelRef).render(poseStack,
+        		var model = ObjModelsManager.get(modelId);
+        		model.<ArmorModelMetadata>getMetadata().workbench_transform().apply(poseStack);
+                model.render(poseStack,
                     Minecraft.getInstance().renderBuffers().bufferSource(),
                     LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, mc.getPartialTick()
                 );

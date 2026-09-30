@@ -13,7 +13,8 @@ import javax.annotation.Nullable;
 
 import blackoutInteractive.brimmArmors.BrimmArmors;
 import blackoutInteractive.brimmArmors.common.blocks.WorkbenchBlock;
-import blackoutInteractive.ema_08_.rendering.geom.RTSMatricesCompound;
+import blackoutInteractive.ema_08_.rendering.obj.SideSafeModelDeclarator;
+import blackoutInteractive.ema_08_.rendering.obj.modelsHolders.ModelDeclaration;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -23,7 +24,7 @@ public class BlockRegistry {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BrimmArmors.MOD_ID);
 
     public static final RegistryObject<Block> workbench = register("workbench", () ->
-            new WorkbenchBlock("workbench", 0, RTSMatricesCompound.EMPTY), new Item.Properties());
+            new WorkbenchBlock(0, SideSafeModelDeclarator.decleare(ModelDeclaration.ofBlockEntity("workbench", false))), new Item.Properties());
 
     private static <T extends Block> RegistryObject<T> register(String id, Supplier<T> blockSupplier, Item.Properties properties) {
         return register(id, blockSupplier, block -> new BlockItem(block, properties));

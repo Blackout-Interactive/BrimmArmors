@@ -30,8 +30,7 @@ import blackoutInteractive.ema_08_.items.effectsProvidingArmors.IAmplifiableAppl
 import blackoutInteractive.ema_08_.items.effectsProvidingArmors.IAuraEffect;
 import blackoutInteractive.ema_08_.items.effectsProvidingArmors.IEffectProvidingArmor;
 import blackoutInteractive.ema_08_.rendering.geom.MatrixRTS;
-import blackoutInteractive.ema_08_.rendering.obj.IMultiObjModelProvider;
-import blackoutInteractive.ema_08_.rendering.obj.ObjModelReference;
+import blackoutInteractive.ema_08_.rendering.obj.providers.IMultiObjModelsProvider;
 import blackoutInteractive.ema_08_.rendering.overlay.OverlayLocation;
 import blackoutInteractive.ema_08_.rendering.overlay.OverlayPos;
 
@@ -44,7 +43,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public class BrimmArmor extends ArmorItem implements IMultiObjModelProvider, IEffectProvidingArmor {
+public class BrimmArmor extends ArmorItem implements IMultiObjModelsProvider, IEffectProvidingArmor {
 	
 	private static final ConcurrentHashMap<String, ArmorPatch> patch_cache = new ConcurrentHashMap<>();
 	private static final Function<String, ArmorPatch> cache_computator = (key) -> {
@@ -64,14 +63,14 @@ public class BrimmArmor extends ArmorItem implements IMultiObjModelProvider, IEf
 	public final String unlocName;
 	
     private final BrimmRarity rarity;
-    private final ObjModelReference[] models;
+    private final int[] models;
     private final Collection<OverlayLocation> patchesPositions;
     private final IAmplifiableApplicableEffect[] addOnWear;
     private final MobEffect[] preventOnWear;
     private final IAuraEffect[] auraEffects;
 
     public BrimmArmor(String unlocName, ArmorItem.Type type, BrimmRarity rarity, SimpleArmorMaterial material,
-    		ObjModelReference[] models, Collection<OverlayLocation> patchesPositions,
+    		int[] models, Collection<OverlayLocation> patchesPositions,
     		IAmplifiableApplicableEffect[] addOnWear, MobEffect[] preventOnWear, IAuraEffect[] auraEffects) {
         super(material, type, new Properties().durability(material.durabilityValue()));
         this.rarity = rarity;
@@ -133,7 +132,7 @@ public class BrimmArmor extends ArmorItem implements IMultiObjModelProvider, IEf
     }
 
 	@Override
-	public ObjModelReference[] getModelRefs() {
+	public int[] getModelIds() {
 		return this.models;
 	}
 	

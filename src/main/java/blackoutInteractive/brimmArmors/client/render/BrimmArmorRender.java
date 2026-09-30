@@ -7,9 +7,8 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 
 import blackoutInteractive.brimmArmors.common.items.ArmorPatch;
 import blackoutInteractive.brimmArmors.common.items.BrimmArmor;
-import blackoutInteractive.ema_08_.rendering.geom.RTSMatricesCompound;
-import blackoutInteractive.ema_08_.rendering.obj.ObjModelReference;
-import blackoutInteractive.ema_08_.rendering.obj.ObjsManager;
+import blackoutInteractive.ema_08_.rendering.obj.ObjModelsManager;
+import blackoutInteractive.ema_08_.rendering.obj.metadata.ArmorModelMetadata;
 import blackoutInteractive.ema_08_.rendering.overlay.OverlayLocation;
 import blackoutInteractive.ema_08_.rendering.overlay.OverlayPos;
 import blackoutInteractive.ema_08_.rendering.twoToThreeD.RenderablePngsManager;
@@ -38,38 +37,40 @@ public class BrimmArmorRender extends HumanoidModel<LivingEntity> {
     	var buff = Minecraft.getInstance().renderBuffers().bufferSource();
     	float ticks = Minecraft.getInstance().getPartialTick();
     	
-    	ObjModelReference[] modelRefs = armor.getModelRefs();
+    	int[] modelIds = armor.getModelIds();
     	
-    	for (ObjModelReference modelRef : modelRefs) {
+    	for (int modelId : modelIds) {
     		
     		poseStack.pushPose();
     		
-    		switch(modelRef.modelType) {
-    		case ARMOR_HELMET: {
+    		final var model = ObjModelsManager.get(modelId);
+    		final ArmorModelMetadata meta = model.getMetadata();
+    		
+    		switch(meta.type()) {
+    		case HELMET: {
         		this.head.translateAndRotate(poseStack);
         		break;
         	}
-        	case ARMOR_CHESTPLATE: {
+        	case CHESTPLATE: {
         		this.body.translateAndRotate(poseStack);
         		break;
         	}
-        	case ARMOR_BOOTS_RIGHT:
-        	case ARMOR_LEGGINGS_RIGHT: {
+        	case BOOTS_R:
+        	case LEGGINGS_R: {
         		this.rightLeg.translateAndRotate(poseStack);
         		break;
         	}
-        	case ARMOR_BOOTS_LEFT:
-        	case ARMOR_LEGGINGS_LEFT: {
+        	case BOOTS_L:
+        	case LEGGINGS_L: {
         		this.leftLeg.translateAndRotate(poseStack);
         		break;
         	}
-        	default: throw new IllegalStateException("Invalid model type for armor "+armor.unlocName+": "+modelRef.modelType);
+        	default: throw new IllegalStateException("Invalid model type for armor "+armor.unlocName+": "+meta.type());
         	}
     		
-    		modelRef.modelTransforms.applyIfPresent(RTSMatricesCompound.key_armor_render, poseStack);
+    		meta.wearing_transform().apply(poseStack);
     		
-    		ObjsManager.getModel(modelRef)
-        		.render(poseStack, buff, packedLight, packedOverlay, ticks);
+    		model.render(poseStack, buff, packedLight, packedOverlay, ticks);
   
     		poseStack.popPose();
     		

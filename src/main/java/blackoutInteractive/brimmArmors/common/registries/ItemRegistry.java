@@ -15,8 +15,9 @@ import blackoutInteractive.brimmArmors.common.workbench.*;
 import blackoutInteractive.ema_08_.items.SimpleArmorMaterial;
 import blackoutInteractive.ema_08_.items.effectsProvidingArmors.*;
 import blackoutInteractive.ema_08_.rendering.geom.*;
-import blackoutInteractive.ema_08_.rendering.obj.ModelType;
-import blackoutInteractive.ema_08_.rendering.obj.ObjModelReference;
+import blackoutInteractive.ema_08_.rendering.obj.ArmorModelType;
+import blackoutInteractive.ema_08_.rendering.obj.SideSafeModelDeclarator;
+import blackoutInteractive.ema_08_.rendering.obj.modelsHolders.ModelDeclaration;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -33,6 +34,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import blackoutInteractive.ema_08_.rendering.overlay.OverlayLocation;
 import blackoutInteractive.ema_08_.rendering.overlay.OverlayPos;
+
+//TODO eventually need to remove matrices compounds on building, as they're just a waste of ram on startup.
+// also use entity cutout when possible
 
 public class ItemRegistry {
 
@@ -3286,8 +3290,10 @@ public class ItemRegistry {
             final float knockbackResistance, final int defenseValue, final int durabilityValue,
             final Collection<OverlayLocation> patchesPositions, final Collection<IAmplifiableApplicableEffect> onWearEffects,
             final Collection<MobEffect> preventOnWearEffects, final Collection<IAuraEffect> auraEffects) {
-    	final ObjModelReference[] models = new ObjModelReference[] {
-    			new ObjModelReference(ModelType.ARMOR_HELMET, unlocName, transform.build())
+    	final RTSMatricesCompound cmp = transform.build();
+    	final int[] models = new int[] {
+    			SideSafeModelDeclarator.decleare(ModelDeclaration.ofArmor(unlocName, ArmorModelType.HELMET, true,
+    					cmp.get(RTSMatricesCompound.key_armor_render), cmp.get(RTSMatricesCompound.key_workbench_render)))
     	};
     	return generateArmorSupplier0(ArmorItem.Type.HELMET,
     			unlocName, rarity,
@@ -3304,8 +3310,10 @@ public class ItemRegistry {
             final float knockbackResistance, final int defenseValue, final int durabilityValue,
             final Collection<OverlayLocation> patchesPositions, final Collection<IAmplifiableApplicableEffect> onWearEffects,
             final Collection<MobEffect> preventOnWearEffects, final Collection<IAuraEffect> auraEffects) {
-    	final ObjModelReference[] models = new ObjModelReference[] {
-    			new ObjModelReference(ModelType.ARMOR_CHESTPLATE, unlocName, transform.build())
+    	final RTSMatricesCompound cmp = transform.build();
+    	final int[] models = new int[] {
+    			SideSafeModelDeclarator.decleare(ModelDeclaration.ofArmor(unlocName, ArmorModelType.CHESTPLATE, true,
+    					cmp.get(RTSMatricesCompound.key_armor_render), cmp.get(RTSMatricesCompound.key_workbench_render)))
     	};
     	return generateArmorSupplier0(ArmorItem.Type.CHESTPLATE,
     			unlocName, rarity,
@@ -3322,9 +3330,13 @@ public class ItemRegistry {
             final float knockbackResistance, final int defenseValue, final int durabilityValue,
             final Collection<IAmplifiableApplicableEffect> onWearEffects,
             final Collection<MobEffect> preventOnWearEffects, final Collection<IAuraEffect> auraEffects) {
-    	final ObjModelReference[] models = new ObjModelReference[] {
-    			new ObjModelReference(ModelType.ARMOR_LEGGINGS_RIGHT, unlocName+"_r", transformR.build()),
-    			new ObjModelReference(ModelType.ARMOR_LEGGINGS_LEFT, unlocName+"_l", transformL.build())
+    	final RTSMatricesCompound cmpR = transformR.build();
+    	final RTSMatricesCompound cmpL = transformL.build();
+    	final int[] models = new int[] {
+    			SideSafeModelDeclarator.decleare(ModelDeclaration.ofArmor(unlocName+"_r", ArmorModelType.LEGGINGS_R, true,
+    					cmpR.get(RTSMatricesCompound.key_armor_render), cmpR.get(RTSMatricesCompound.key_workbench_render))),
+    			SideSafeModelDeclarator.decleare(ModelDeclaration.ofArmor(unlocName+"_l", ArmorModelType.LEGGINGS_L, true,
+    					cmpL.get(RTSMatricesCompound.key_armor_render), cmpL.get(RTSMatricesCompound.key_workbench_render)))
     	};
     	return generateArmorSupplier0(ArmorItem.Type.LEGGINGS,
     			unlocName, rarity,
@@ -3342,10 +3354,14 @@ public class ItemRegistry {
             final float knockbackResistance, final int defenseValue, final int durabilityValue,
             final Collection<IAmplifiableApplicableEffect> onWearEffects,
             final Collection<MobEffect> preventOnWearEffects, final Collection<IAuraEffect> auraEffects) {
-        final ObjModelReference[] models = new ObjModelReference[] {
-                new ObjModelReference(ModelType.ARMOR_BOOTS_RIGHT, unlocName+"_r", transformR.build()),
-                new ObjModelReference(ModelType.ARMOR_BOOTS_LEFT, unlocName+"_l", transformL.build())
-        };
+    	final RTSMatricesCompound cmpR = transformR.build();
+    	final RTSMatricesCompound cmpL = transformL.build();
+    	final int[] models = new int[] {
+    			SideSafeModelDeclarator.decleare(ModelDeclaration.ofArmor(unlocName+"_r", ArmorModelType.BOOTS_R, true,
+    					cmpR.get(RTSMatricesCompound.key_armor_render), cmpR.get(RTSMatricesCompound.key_workbench_render))),
+    			SideSafeModelDeclarator.decleare(ModelDeclaration.ofArmor(unlocName+"_l", ArmorModelType.BOOTS_L, true,
+    					cmpL.get(RTSMatricesCompound.key_armor_render), cmpL.get(RTSMatricesCompound.key_workbench_render)))
+    	};
         return generateArmorSupplier0(ArmorItem.Type.BOOTS,
                 unlocName, rarity,
                 models, toughness,
@@ -3357,7 +3373,7 @@ public class ItemRegistry {
 
     private static Supplier<BrimmArmor> generateArmorSupplier0(
     		final ArmorItem.Type type, final String unlocName, final BrimmRarity rarity,
-            final ObjModelReference[] models, final float toughness,
+            final int[] models, final float toughness,
             final float knockbackResistance, final int defenseValue, final int durabilityValue,
             final Collection<OverlayLocation> patchesPositions, final Collection<IAmplifiableApplicableEffect> onWearEffects,
             final Collection<MobEffect> preventOnWearEffects, final Collection<IAuraEffect> auraEffects) {

@@ -25,25 +25,19 @@ import java.util.List;
 
 import blackoutInteractive.brimmArmors.client.screens.WorkbenchScreen;
 import blackoutInteractive.brimmArmors.common.tile.WorkbenchTileEntity;
-import blackoutInteractive.ema_08_.rendering.geom.RTSMatricesCompound;
-import blackoutInteractive.ema_08_.rendering.obj.ISingleObjModelProvider;
-import blackoutInteractive.ema_08_.rendering.obj.ModelType;
-import blackoutInteractive.ema_08_.rendering.obj.ObjModelReference;
+import blackoutInteractive.ema_08_.rendering.obj.providers.IObjModelProvider;
 
 import org.jetbrains.annotations.NotNull;
 
-public class WorkbenchBlock extends Block implements ISingleObjModelProvider, EntityBlock {
+public class WorkbenchBlock extends Block implements IObjModelProvider, EntityBlock {
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
-    private final String unlocName;
-    private final ObjModelReference modelRef;
+    private final int modelId;
 
-    public WorkbenchBlock(String unlocName, int lightLevel,
-    		RTSMatricesCompound transformations) {
+    public WorkbenchBlock(int lightLevel, int modelId) {
         super(Properties.of().strength(3.5F).noOcclusion().lightLevel(state -> lightLevel));
-        this.unlocName = unlocName;
-        this.modelRef = new ObjModelReference(ModelType.BLOCKS, this.unlocName, transformations);
+        this.modelId = modelId;
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
@@ -98,8 +92,8 @@ public class WorkbenchBlock extends Block implements ISingleObjModelProvider, En
 	}
 
 	@Override
-	public ObjModelReference getModelRef() {
-		return this.modelRef;
+	public int getModelId() {
+		return this.modelId;
 	}
 
 }

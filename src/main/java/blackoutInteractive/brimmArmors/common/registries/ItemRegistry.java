@@ -144,7 +144,8 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
                     0f, 0f, 8, 240,
-                    nopatches(),
+                    patches(OverlayPos.HUMANOID_TORSO,
+                            newmatrix().setTranslate(-0.07f, 0.162f, -0.218f).setRotate(-19, 0, 0).setScale(0.13f, 0.13f, 1)),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -230,8 +231,7 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
                     5f, 1f, 9, 240,
-                    patches(OverlayPos.HUMANOID_TORSO,
-                            newmatrix().setTranslate(-0.07f, 0.11f, -0.162f).setRotate(-22, 0, 0).setScale(0.15f, 0.15f, 1)),
+                    nopatches(),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -249,7 +249,7 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
                     5f, 1f, 9, 240,
                     patches(OverlayPos.HUMANOID_TORSO,
-                            newmatrix().setTranslate(-0.07f, 0.11f, -0.162f).setRotate(-22, 0, 0).setScale(0.15f, 0.15f, 1)),
+                            newmatrix().setTranslate(-0.07f, 0.162f, -0.218f).setRotate(-19, 0, 0).setScale(0.13f, 0.13f, 1)),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -287,7 +287,7 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
                     10f, 1f, 10, 240,
                     patches(OverlayPos.HUMANOID_TORSO,
-                            newmatrix().setTranslate(-0.07f, 0.34f, -0.228f).setRotate(0, 0, 0).setScale(0.14f, 0.136f, 1)),
+                            newmatrix().setTranslate(-0.07f, 0.162f, -0.218f).setRotate(-19, 0, 0).setScale(0.13f, 0.13f, 1)),
                     addEffects(
                             stdEff(MobEffects.FIRE_RESISTANCE)
                     ),
@@ -342,8 +342,7 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
                     5f, 1f, 9, 240,
-                    patches(OverlayPos.HUMANOID_TORSO,
-                            newmatrix().setTranslate(-0.07f, 0.11f, -0.162f).setRotate(-22, 0, 0).setScale(0.15f, 0.15f, 1)),
+                    nopatches(),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -360,8 +359,7 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
                     5f, 1f, 9, 240,
-                    patches(OverlayPos.HUMANOID_TORSO,
-                            newmatrix().setTranslate(-0.07f, 0.11f, -0.162f).setRotate(-22, 0, 0).setScale(0.15f, 0.15f, 1)),
+                    nopatches(),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -433,8 +431,7 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
                     5f, 1f, 9, 240,
-                    patches(OverlayPos.HUMANOID_TORSO,
-                            newmatrix().setTranslate(-0.07f, 0.11f, -0.162f).setRotate(-22, 0, 0).setScale(0.15f, 0.15f, 1)),
+                    nopatches(),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -538,7 +535,8 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
                     5f, 1f, 9, 240,
-                    nopatches(),
+                    patches(OverlayPos.HUMANOID_TORSO,
+                            newmatrix().setTranslate(-0.07f, 0.162f, -0.218f).setRotate(-19, 0, 0).setScale(0.13f, 0.13f, 1)),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -651,8 +649,7 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
                     5f, 1f, 9, 240,
-                    patches(OverlayPos.HUMANOID_TORSO,
-                            newmatrix().setTranslate(-0.07f, 0.287f, -0.228f).setRotate(0, 0, 0).setScale(0.14f, 0.1373f, 1)),
+                    nopatches(),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -708,7 +705,8 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(50f)),
                     10f, 1f, 10, 240,
-                    nopatches(),
+                    patches(OverlayPos.HUMANOID_TORSO,
+                            newmatrix().setTranslate(-0.07f, 0.162f, -0.218f).setRotate(-19, 0, 0).setScale(0.13f, 0.13f, 1)),
                     addEffects(
                             stdEff(MobEffects.FIRE_RESISTANCE)
                     ),
@@ -1145,7 +1143,7 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     0f, 0f, 8, 240,
-                    noAddEffects(),
+                    nopatches(),
                     noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
@@ -1305,7 +1303,15 @@ public class ItemRegistry {
                     patches(OverlayPos.HUMANOID_HEAD,
                             newmatrix().setTranslate(0.288f, -0.544f, -0.097f).setRotate(0, -90, -16).setScale(0.19f, 0.17f, 1)),
                     noAddEffects(),
-                    noPreventEffects(),
+                    preventEffects(
+                            MobEffects.POISON,
+                            MobEffects.BLINDNESS,
+                            MobEffects.HUNGER,
+                            MobEffects.CONFUSION,
+                            MobEffects.WITHER,
+                            MobEffects.MOVEMENT_SLOWDOWN,
+                            MobEffects.WEAKNESS
+                    ),
                     noAuraEffects()
             ));
 
@@ -1393,7 +1399,15 @@ public class ItemRegistry {
                     patches(OverlayPos.HUMANOID_HEAD,
                             newmatrix().setTranslate(0.3065f, -0.542f, -0.09f).setRotate(0, -90, -13).setScale(0.18f, 0.17f, 1)),
                     noAddEffects(),
-                    noPreventEffects(),
+                    preventEffects(
+                            MobEffects.POISON,
+                            MobEffects.BLINDNESS,
+                            MobEffects.HUNGER,
+                            MobEffects.CONFUSION,
+                            MobEffects.WITHER,
+                            MobEffects.MOVEMENT_SLOWDOWN,
+                            MobEffects.WEAKNESS
+                    ),
                     noAuraEffects()
             ));
 
@@ -1519,10 +1533,7 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     10f, 1f, 10, 240,
                     nopatches(),
-                    addEffects(
-                            stdEff(MobEffects.FIRE_RESISTANCE),
-                            stdEff(MobEffects.REGENERATION, 2)
-                    ),
+                    noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
             ));
@@ -1540,10 +1551,7 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     10f, 1f, 10, 240,
                     nopatches(),
-                    addEffects(
-                            stdEff(MobEffects.FIRE_RESISTANCE),
-                            stdEff(MobEffects.REGENERATION, 2)
-                    ),
+                    noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
             ));
@@ -1559,11 +1567,9 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     10f, 1f, 10, 240,
-                    nopatches(),
-                    addEffects(
-                            stdEff(MobEffects.FIRE_RESISTANCE),
-                            stdEff(MobEffects.REGENERATION, 2)
-                    ),
+                    patches(OverlayPos.HUMANOID_HEAD,
+                            newmatrix().setTranslate(0.288f, -0.544f, -0.097f).setRotate(0, -90, -16).setScale(0.19f, 0.17f, 1)),
+                    noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
             ));
@@ -1600,12 +1606,21 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     10f, 1f, 10, 240,
-                    nopatches(),
+                    patches(OverlayPos.HUMANOID_HEAD,
+                            newmatrix().setTranslate(0.3075f, -0.542f, -0.09f).setRotate(0, -90, -13).setScale(0.18f, 0.17f, 1)),
                     addEffects(
                             stdEff(MobEffects.FIRE_RESISTANCE),
                             stdEff(MobEffects.NIGHT_VISION)
                     ),
-                    noPreventEffects(),
+                    preventEffects(
+                            MobEffects.POISON,
+                            MobEffects.BLINDNESS,
+                            MobEffects.HUNGER,
+                            MobEffects.CONFUSION,
+                            MobEffects.WITHER,
+                            MobEffects.MOVEMENT_SLOWDOWN,
+                            MobEffects.WEAKNESS
+                    ),
                     noAuraEffects()
             ));
 
@@ -1644,11 +1659,9 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     10f, 1f, 10, 240,
-                    nopatches(),
-                    addEffects(
-                            stdEff(MobEffects.FIRE_RESISTANCE),
-                            stdEff(MobEffects.REGENERATION, 2)
-                    ),
+                    patches(OverlayPos.HUMANOID_HEAD,
+                            newmatrix().setTranslate(0.3075f, -0.542f, -0.09f).setRotate(0, -90, -13).setScale(0.18f, 0.17f, 1)),
+                    noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
             ));
@@ -1666,9 +1679,7 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     10f, 1f, 10, 240,
                     nopatches(),
-                    addEffects(
-                            stdEff(MobEffects.FIRE_RESISTANCE)
-                    ),
+                    noAddEffects(),
                     noPreventEffects(),
                     noAuraEffects()
             ));
@@ -1704,9 +1715,9 @@ public class ItemRegistry {
                             .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
                             .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
                     10f, 1f, 10, 240,
-                    nopatches(),
+                    patches(OverlayPos.HUMANOID_HEAD,
+                            newmatrix().setTranslate(0.3075f, -0.542f, -0.09f).setRotate(0, -90, -13).setScale(0.18f, 0.17f, 1)),
                     addEffects(
-                    		stdEff(MobEffects.FIRE_RESISTANCE),
                     		stdEff(MobEffects.NIGHT_VISION)
                     		),
                     noPreventEffects(),

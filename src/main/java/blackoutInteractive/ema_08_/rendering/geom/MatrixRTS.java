@@ -7,7 +7,10 @@ import org.joml.Quaternionf;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
-public abstract class MatrixRTS {
+public sealed abstract class MatrixRTS permits
+		MatrixRTS.M_ABS_R, MatrixRTS.M_ID,
+		MatrixRTS.M_TS, MatrixRTS.M_S, MatrixRTS.M_T
+	{
 	
 	/*
 	 * Note:
@@ -26,8 +29,12 @@ public abstract class MatrixRTS {
 	 * previous matrices should have been adjusted properly.
 	 */
 	
-	public static final MatrixRTS IDENTITY =
-			new MatrixRTS(0, 0, 0, 0, 0, 0, 1, 1, 1) {@Override public void apply(@NonNull PoseStack poseStack) {}};
+	public static final MatrixRTS IDENTITY = new M_ID();
+			
+	private static final class M_ID extends MatrixRTS {
+		    protected M_ID() { super(0, 0, 0, 0, 0, 0, 1, 1, 1); if (IDENTITY != null) throw new IllegalStateException(); }
+		    @Override public void apply(@NonNull PoseStack poseStack) {}	
+		}
 	
 	public static MatrixRTS getMatrix(float translateX, float translateY, float translateZ,
     			float rotateX, float rotateY, float rotateZ, float scaleX, float scaleY, float scaleZ,
@@ -107,7 +114,9 @@ public abstract class MatrixRTS {
     	return sb.toString();
     }
     
-    private static abstract class M_ABS_R extends MatrixRTS {
+    private static sealed abstract class M_ABS_R extends MatrixRTS permits
+    		MatrixRTS.M_RTS, MatrixRTS.M_RS, MatrixRTS.M_RT, MatrixRTS.M_R
+    	{
     	
         protected final Quaternionf rot;
 
@@ -122,7 +131,7 @@ public abstract class MatrixRTS {
     }
 
     
-    private static class M_RTS extends M_ABS_R {
+    private static final class M_RTS extends M_ABS_R {
     	
     	protected M_RTS(float translateX, float translateY, float translateZ,
     			float rotateX, float rotateY, float rotateZ, float scaleX, float scaleY, float scaleZ,
@@ -139,7 +148,7 @@ public abstract class MatrixRTS {
     	
     }
     
-    private static class M_TS extends MatrixRTS {
+    private static final class M_TS extends MatrixRTS {
     	
     	protected M_TS(float translateX, float translateY, float translateZ,
     			float scaleX, float scaleY, float scaleZ) {
@@ -154,7 +163,7 @@ public abstract class MatrixRTS {
     	
     }
     
-    private static class M_RS extends M_ABS_R {
+    private static final class M_RS extends M_ABS_R {
     	
     	protected M_RS(float rotateX, float rotateY, float rotateZ, float scaleX,
     			float scaleY, float scaleZ, boolean pooled) {
@@ -169,7 +178,7 @@ public abstract class MatrixRTS {
     	
     }
     
-    private static class M_RT extends M_ABS_R {
+    private static final class M_RT extends M_ABS_R {
     	
     	protected M_RT(float translateX, float translateY, float translateZ,
     			float rotateX, float rotateY, float rotateZ, boolean pooled) {
@@ -184,7 +193,7 @@ public abstract class MatrixRTS {
     	
     }
     
-    private static class M_S extends MatrixRTS {
+    private static final class M_S extends MatrixRTS {
     	
     	protected M_S(float scaleX, float scaleY, float scaleZ) {
     		super(0, 0, 0, 0, 0, 0, scaleX, scaleY, scaleZ);
@@ -197,7 +206,7 @@ public abstract class MatrixRTS {
     	
     }
     
-    private static class M_T extends MatrixRTS {
+    private static final class M_T extends MatrixRTS {
     	
     	protected M_T(float translateX, float translateY, float translateZ) {
     		super(translateX, translateY, translateZ, 0, 0, 0, 1, 1, 1);
@@ -210,7 +219,7 @@ public abstract class MatrixRTS {
     	
     }
     
-    private static class M_R extends M_ABS_R {
+    private static final class M_R extends M_ABS_R {
     	
     	protected M_R(float rotateX, float rotateY, float rotateZ, boolean pooled) {
     		super(0, 0, 0, rotateX, rotateY, rotateZ, 1, 1, 1, pooled);

@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import blackoutInteractive.ema_08_.misc.IBuilder;
 
+@Deprecated
 public final class RTSMatricesCompoundBuilder implements IBuilder<RTSMatricesCompound> {
 	
 	private final HashMap<String, MatrixRTS> matrices = new HashMap<>();

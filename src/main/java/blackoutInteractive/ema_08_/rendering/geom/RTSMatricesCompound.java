@@ -4,6 +4,7 @@ import java.util.*;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
+@Deprecated
 public final class RTSMatricesCompound {
 	
 	public static final RTSMatricesCompound EMPTY = new RTSMatricesCompound(new HashMap<>());

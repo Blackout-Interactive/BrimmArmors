@@ -7,10 +7,7 @@ import org.joml.Quaternionf;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
-public sealed abstract class MatrixRTS permits
-		MatrixRTS.M_ABS_R, MatrixRTS.M_ID,
-		MatrixRTS.M_TS, MatrixRTS.M_S, MatrixRTS.M_T
-	{
+public sealed abstract class MatrixRTS {
 	
 	/*
 	 * Note:
@@ -114,9 +111,7 @@ public sealed abstract class MatrixRTS permits
     	return sb.toString();
     }
     
-    private static sealed abstract class M_ABS_R extends MatrixRTS permits
-    		MatrixRTS.M_RTS, MatrixRTS.M_RS, MatrixRTS.M_RT, MatrixRTS.M_R
-    	{
+    private static sealed abstract class M_ABS_R extends MatrixRTS {
     	
         protected final Quaternionf rot;
 

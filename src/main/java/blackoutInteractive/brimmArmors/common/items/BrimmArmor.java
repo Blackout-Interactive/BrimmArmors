@@ -4,7 +4,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.resources.language.I18n;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorItem;
@@ -26,9 +25,8 @@ import blackoutInteractive.brimmArmors.BrimmArmors;
 import blackoutInteractive.brimmArmors.client.render.BrimmArmorRender;
 import blackoutInteractive.brimmArmors.common.registries.ItemRegistry;
 import blackoutInteractive.ema_08_.items.SimpleArmorMaterial;
-import blackoutInteractive.ema_08_.items.effectsProvidingArmors.IAmplifiableApplicableEffect;
-import blackoutInteractive.ema_08_.items.effectsProvidingArmors.IAuraEffect;
-import blackoutInteractive.ema_08_.items.effectsProvidingArmors.IEffectProvidingArmor;
+import blackoutInteractive.ema_08_.items.effectsProvidingArmors.v2.ArmorEffectsSetup;
+import blackoutInteractive.ema_08_.items.effectsProvidingArmors.v2.IEffectsProvider;
 import blackoutInteractive.ema_08_.rendering.geom.MatrixRTS;
 import blackoutInteractive.ema_08_.rendering.obj.providers.IMultiObjModelsProvider;
 import blackoutInteractive.ema_08_.rendering.overlay.OverlayLocation;
@@ -43,7 +41,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public class BrimmArmor extends ArmorItem implements IMultiObjModelsProvider, IEffectProvidingArmor {
+public class BrimmArmor extends ArmorItem implements IMultiObjModelsProvider, IEffectsProvider {
 	
 	private static final ConcurrentHashMap<String, ArmorPatch> patch_cache = new ConcurrentHashMap<>();
 	private static final Function<String, ArmorPatch> cache_computator = (key) -> {
@@ -55,31 +53,22 @@ public class BrimmArmor extends ArmorItem implements IMultiObjModelsProvider, IE
 		else
 			return (ArmorPatch)item;
 	};
-	
-	private static final IAmplifiableApplicableEffect[] empty_addOnWear = new IAmplifiableApplicableEffect[0];
-	private static final MobEffect[] empty_preventOnWear = new MobEffect[0];
-	private static final IAuraEffect[] empty_auraEffects = new IAuraEffect[0];
 
 	public final String unlocName;
 	
     private final BrimmRarity rarity;
     private final int[] models;
     private final Collection<OverlayLocation> patchesPositions;
-    private final IAmplifiableApplicableEffect[] addOnWear;
-    private final MobEffect[] preventOnWear;
-    private final IAuraEffect[] auraEffects;
+    private final ArmorEffectsSetup effects;
 
     public BrimmArmor(String unlocName, ArmorItem.Type type, BrimmRarity rarity, SimpleArmorMaterial material,
-    		int[] models, Collection<OverlayLocation> patchesPositions,
-    		IAmplifiableApplicableEffect[] addOnWear, MobEffect[] preventOnWear, IAuraEffect[] auraEffects) {
+    		int[] models, Collection<OverlayLocation> patchesPositions, ArmorEffectsSetup effects) {
         super(material, type, new Properties().durability(material.durabilityValue()));
         this.rarity = rarity;
         this.unlocName = unlocName;
         this.models = models;
         this.patchesPositions = Collections.unmodifiableCollection(patchesPositions);
-        this.addOnWear = addOnWear == null ? empty_addOnWear : addOnWear;
-        this.preventOnWear = preventOnWear == null ? empty_preventOnWear : preventOnWear;
-        this.auraEffects = auraEffects == null ? empty_auraEffects : auraEffects;
+        this.effects = effects == null ? ArmorEffectsSetup.EMPTY : effects;
     }
 
     @Override
@@ -198,18 +187,8 @@ public class BrimmArmor extends ArmorItem implements IMultiObjModelsProvider, IE
 	}
 
 	@Override
-	public IAmplifiableApplicableEffect[] getAddedOnWear() {
-		return this.addOnWear;
-	}
-
-	@Override
-	public MobEffect[] getPreventedOnWear() {
-		return this.preventOnWear;
-	}
-
-	@Override
-	public IAuraEffect[] getAuraEffects() {
-		return this.auraEffects;
+	public ArmorEffectsSetup getEffectsSetup() {
+		return this.effects;
 	}
 	
 }

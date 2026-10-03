@@ -35,7 +35,7 @@ import blackoutInteractive.brimmArmors.server.ServerProxy;
 import blackoutInteractive.brimmArmors.server.commands.BrimmDebugCommand;
 import blackoutInteractive.ema_08_.birgadierWrapper.CommandBuilder;
 import blackoutInteractive.ema_08_.birgadierWrapper.IRegistrableCommand;
-import blackoutInteractive.ema_08_.items.effectsProvidingArmors.EffectsProvidingArmorsManager;
+import blackoutInteractive.ema_08_.items.effectsProvidingArmors.v2.ArmorEffectsManager;
 import blackoutInteractive.ema_08_.rendering.geom.RotQuaternionPool;
 import blackoutInteractive.ema_08_.simpleNet.SimpleChannelHandler;
 
@@ -79,15 +79,13 @@ public class BrimmArmors
         
         RecipeSerializersRegistry.register(eventBus);
         
-        EffectsProvidingArmorsManager.init();
-
         eventBus.addListener(this::preInit);
         eventBus.addListener(this::init);
         eventBus.addListener(this::server);
         eventBus.addListener(this::client);
 
         MinecraftForge.EVENT_BUS.register(this);
-        MinecraftForge.EVENT_BUS.register(new EffectsProvidingArmorsManager());
+        MinecraftForge.EVENT_BUS.register(ArmorEffectsManager.class);
     }
 
 	private void preInit(final FMLCommonSetupEvent event) {

@@ -3,10 +3,12 @@ package blackoutInteractive.brimmArmors.common.registries;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 import blackoutInteractive.brimmArmors.BrimmArmors;
 import blackoutInteractive.brimmArmors.common.configurations.*;
@@ -14,6 +16,8 @@ import blackoutInteractive.brimmArmors.common.items.*;
 import blackoutInteractive.brimmArmors.common.workbench.*;
 import blackoutInteractive.ema_08_.items.SimpleArmorMaterial;
 import blackoutInteractive.ema_08_.items.effectsProvidingArmors.*;
+import blackoutInteractive.ema_08_.items.effectsProvidingArmors.v2.ArmorEffectsSetup;
+import blackoutInteractive.ema_08_.misc.ReadonlySetView;
 import blackoutInteractive.ema_08_.rendering.geom.*;
 import blackoutInteractive.ema_08_.rendering.obj.ArmorModelType;
 import blackoutInteractive.ema_08_.rendering.obj.SideSafeModelDeclarator;
@@ -1646,9 +1650,7 @@ public class ItemRegistry {
                     		stdEff(MobEffects.REGENERATION, 3)
                     		),
                     noPreventEffects(),
-                    auraEffects(
-                    		stdAura(MobEffects.REGENERATION, 5, 3)
-                    		)
+                    noAuraEffects()
             ));
 
     public static final RegistryObject<BrimmArmor> MAID_H = registerItemAndExecute(
@@ -3254,7 +3256,8 @@ public class ItemRegistry {
         return new ArrayList<>();
     }
 
-    private static ArrayList<IAuraEffect> noAuraEffects() {
+    // virtually always used as aura effects are no longer a thing
+    private static ArrayList<?> noAuraEffects() {
         return new ArrayList<>();
     }
 
@@ -3264,14 +3267,6 @@ public class ItemRegistry {
 
     private static List<MobEffect> preventEffects(MobEffect... effects) {
         return Arrays.asList(effects);
-    }
-
-    private static List<IAuraEffect> auraEffects(IAuraEffect... effects) {
-        return Arrays.asList(effects);
-    }
-
-    private static IAuraEffect stdAura(MobEffect effect, int range, int amplifier) {
-        return new StandardAuraEffect(range, amplifier, effect);
     }
 
     private static IAmplifiableApplicableEffect stdEff(MobEffect effect) {
@@ -3289,7 +3284,7 @@ public class ItemRegistry {
             final RTSMatricesCompoundBuilder transform, final float toughness,
             final float knockbackResistance, final int defenseValue, final int durabilityValue,
             final Collection<OverlayLocation> patchesPositions, final Collection<IAmplifiableApplicableEffect> onWearEffects,
-            final Collection<MobEffect> preventOnWearEffects, final Collection<IAuraEffect> auraEffects) {
+            final Collection<MobEffect> preventOnWearEffects, final Collection<?> auraEffects) {
     	final RTSMatricesCompound cmp = transform.build();
     	final int[] models = new int[] {
     			SideSafeModelDeclarator.decleare(ModelDeclaration.ofArmor(unlocName, ArmorModelType.HELMET, true,
@@ -3309,7 +3304,7 @@ public class ItemRegistry {
             final RTSMatricesCompoundBuilder transform, final float toughness,
             final float knockbackResistance, final int defenseValue, final int durabilityValue,
             final Collection<OverlayLocation> patchesPositions, final Collection<IAmplifiableApplicableEffect> onWearEffects,
-            final Collection<MobEffect> preventOnWearEffects, final Collection<IAuraEffect> auraEffects) {
+            final Collection<MobEffect> preventOnWearEffects, final Collection<?> auraEffects) {
     	final RTSMatricesCompound cmp = transform.build();
     	final int[] models = new int[] {
     			SideSafeModelDeclarator.decleare(ModelDeclaration.ofArmor(unlocName, ArmorModelType.CHESTPLATE, true,
@@ -3329,7 +3324,7 @@ public class ItemRegistry {
             final RTSMatricesCompoundBuilder transformR, final RTSMatricesCompoundBuilder transformL, final float toughness,
             final float knockbackResistance, final int defenseValue, final int durabilityValue,
             final Collection<IAmplifiableApplicableEffect> onWearEffects,
-            final Collection<MobEffect> preventOnWearEffects, final Collection<IAuraEffect> auraEffects) {
+            final Collection<MobEffect> preventOnWearEffects, final Collection<?> auraEffects) {
     	final RTSMatricesCompound cmpR = transformR.build();
     	final RTSMatricesCompound cmpL = transformL.build();
     	final int[] models = new int[] {
@@ -3353,7 +3348,7 @@ public class ItemRegistry {
             final RTSMatricesCompoundBuilder transformR, final RTSMatricesCompoundBuilder transformL, final float toughness,
             final float knockbackResistance, final int defenseValue, final int durabilityValue,
             final Collection<IAmplifiableApplicableEffect> onWearEffects,
-            final Collection<MobEffect> preventOnWearEffects, final Collection<IAuraEffect> auraEffects) {
+            final Collection<MobEffect> preventOnWearEffects, final Collection<?> auraEffects) {
     	final RTSMatricesCompound cmpR = transformR.build();
     	final RTSMatricesCompound cmpL = transformL.build();
     	final int[] models = new int[] {
@@ -3376,19 +3371,18 @@ public class ItemRegistry {
             final int[] models, final float toughness,
             final float knockbackResistance, final int defenseValue, final int durabilityValue,
             final Collection<OverlayLocation> patchesPositions, final Collection<IAmplifiableApplicableEffect> onWearEffects,
-            final Collection<MobEffect> preventOnWearEffects, final Collection<IAuraEffect> auraEffects) {
+            final Collection<MobEffect> preventOnWearEffects, final Collection<?> auraEffects) {
         ArmorConfig cfg = Optional.ofNullable(ConfigsManager.getAndEvict(unlocName)).orElse(ArmorConfig.EMPTY);
         final SimpleArmorMaterial material = ConfigMergers.mergeBasicMaterial("brimm_armor_material",
                 toughness, knockbackResistance, defenseValue, durabilityValue,
                 type, cfg.materialOverrides());
         final BrimmRarity mergedRarity = ConfigMergers.mergeRarity(rarity, cfg.rarityOverride());
-        final IAmplifiableApplicableEffect[] onWearArr = (onWearEffects == null || onWearEffects.isEmpty()) ? null :
-                onWearEffects.toArray(IAmplifiableApplicableEffect[]::new);
-        final MobEffect[] onWearPrevArr = (preventOnWearEffects == null || preventOnWearEffects.isEmpty()) ? null :
-                preventOnWearEffects.toArray(MobEffect[]::new);
-        final IAuraEffect[] auraEffectsArr = (auraEffects == null || auraEffects.isEmpty()) ? null :
-                auraEffects.toArray(IAuraEffect[]::new);
-        return () -> new BrimmArmor(unlocName, type, mergedRarity, material, models, patchesPositions, onWearArr, onWearPrevArr, auraEffectsArr);
+        if (auraEffects != null && !auraEffects.isEmpty()) throw new AssertionError("No longer supported");
+        // extremely inefficient, will do properly once i remove migration from deprecated interfaces
+        final ArmorEffectsSetup effects = new ArmorEffectsSetup(
+        		ReadonlySetView.of(onWearEffects.stream().map((oldInterface)->new ArmorEffectsSetup.AmplifiedEffect(oldInterface.effect(), oldInterface.amplifier())).collect(Collectors.toSet())),
+        		ReadonlySetView.of(new HashSet<>(preventOnWearEffects)));
+        return () -> new BrimmArmor(unlocName, type, mergedRarity, material, models, patchesPositions, effects);
     }
 
     private static <T extends Item> RegistryObject<T> registerItemAndExecute(

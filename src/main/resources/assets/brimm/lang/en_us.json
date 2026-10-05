@@ -588,8 +588,8 @@
   "item.${mod_id}.patches_adjuster_debug_patch": "Debug Patch",
 
   "message.${mod_id}.version_check_outdated": "A new version of Brimm Armors is available",
-  "message.${mod_id}.version_check_error": "An error occured while checking whether Brimm Armors is up to date",
-  "message.${mod_id}.version_check_incomplete": "Failed to verify whether Brimm Armors is up to date (this may be because you're offline)",
-  "message.${mod_id}.version_check_overdated": "This version of Brimm Armors is newer than expected. If this is a surprise, please report this to the developers",
+  "message.${mod_id}.version_check_error": "An error occured while checking whether Brimm Armors is up to date (this may be because you're offline)",
+  "message.${mod_id}.version_check_incomplete": "Failed to verify whether Brimm Armors is up to date",
+  "message.${mod_id}.version_check_overdated": "This version of Brimm Armors is newer than expected, please report this to the developers",
   "tooltip.${mod_id}.armors.no_patch_supported": "This armor does not support patches."
 }

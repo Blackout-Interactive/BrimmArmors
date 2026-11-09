@@ -21,6 +21,7 @@ import org.apache.logging.log4j.Logger;
 import com.mojang.brigadier.CommandDispatcher;
 
 import blackoutInteractive.brimmArmors.client.ClientProxy;
+import blackoutInteractive.brimmArmors.client.compat.Compatibilities;
 import blackoutInteractive.brimmArmors.common.CommonProxy;
 import blackoutInteractive.brimmArmors.common.configurations.ConfigsManager;
 import blackoutInteractive.brimmArmors.common.packets.ConfigCheckPacket;
@@ -56,6 +57,8 @@ public class BrimmArmors
     		proxy = new ServerProxy();
     	}
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        
+        Compatibilities.init(eventBus);
         
         /*
          * Requires: N/A.

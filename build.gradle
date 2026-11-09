@@ -53,16 +53,21 @@ repositories {
     flatDir {
         dir 'libs'
     }
+    repositories {
+        exclusiveContent {
+            forRepository { maven { name = "Modrinth"; url = "https://api.modrinth.com/maven" } }
+            forRepositories(fg.repository)
+            filter { includeGroup "maven.modrinth" }
+        }
+    }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-
-    // ItemNBTViewer is a 1.16.5 mod, likely incompatible with 1.20.1 unless you have a ported version.
-    // Check if you have an updated build for 1.20.1
-    // implementation fg.deobf("xaero:ItemNBTViewer-Forge-1.16.5:1.0")
-
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+    
+    // epicFigth vers. 20.14.17 from ModRinth
+    compileOnly "maven.modrinth:vu3NZ5Ma:KEBfkBat"
 }
 
 tasks.named('processResources', ProcessResources).configure {

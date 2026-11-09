@@ -22,3 +22,10 @@ mandatory=true
 versionRange="${minecraft_version_range}"
 ordering="NONE"
 side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="epicfight"
+mandatory=false
+versionRange="[20.14,)"
+ordering="AFTER"
+side="CLIENT"

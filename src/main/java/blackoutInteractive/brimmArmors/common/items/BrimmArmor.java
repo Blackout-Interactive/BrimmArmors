@@ -2,7 +2,6 @@ package blackoutInteractive.brimmArmors.common.items;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.model.HumanoidModel;
-import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -32,11 +31,9 @@ import blackoutInteractive.ema_08_.rendering.obj.providers.IMultiObjModelsProvid
 import blackoutInteractive.ema_08_.rendering.overlay.OverlayLocation;
 import blackoutInteractive.ema_08_.rendering.overlay.OverlayPos;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -106,15 +103,7 @@ public class BrimmArmor extends ArmorItem implements IMultiObjModelsProvider, IE
             @NotNull
             public HumanoidModel<?> getHumanoidArmorModel(
             		LivingEntity living, ItemStack stack, EquipmentSlot slot, HumanoidModel<?> defaultModel) {
-              ModelPart root = new ModelPart(new ArrayList<>(),
-            		  Map.of("head", defaultModel.head,
-            				 "hat", defaultModel.hat,
-            				 "body", defaultModel.body,
-            				 "right_arm", defaultModel.rightArm,
-            				 "left_arm", defaultModel.leftArm,
-            				 "right_leg", defaultModel.rightLeg,
-            				 "left_leg", defaultModel.leftLeg));
-              return new BrimmArmorRender(root, stack);
+            	return BrimmArmorRender.create(stack);
             }
           }
       );

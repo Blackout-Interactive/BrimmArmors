@@ -8,9 +8,10 @@ import blackoutInteractive.brimmArmors.common.items.BrimmRarity;
 
 public record ArmorConfig(
 		@Nullable MaterialOverrides materialOverrides,
-		@Nullable Optional<BrimmRarity> rarityOverride
+		@Nullable Optional<BrimmRarity> rarityOverride,
+		@Nullable Optional<Boolean> disableEffects
 		) {
 	
-	public static final ArmorConfig EMPTY = new ArmorConfig(null, null);
+	public static final ArmorConfig EMPTY = new ArmorConfig(null, null, null);
 	
 }

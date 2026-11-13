@@ -3379,9 +3379,9 @@ public class ItemRegistry {
         final BrimmRarity mergedRarity = ConfigMergers.mergeRarity(rarity, cfg.rarityOverride());
         if (auraEffects != null && !auraEffects.isEmpty()) throw new AssertionError("No longer supported");
         // extremely inefficient, will do properly once i remove migration from deprecated interfaces
-        final ArmorEffectsSetup effects = new ArmorEffectsSetup(
+        final ArmorEffectsSetup effects = ConfigMergers.checkEffects(new ArmorEffectsSetup(
         		ReadonlySetView.of(onWearEffects.stream().map((oldInterface)->new ArmorEffectsSetup.AmplifiedEffect(oldInterface.effect(), oldInterface.amplifier())).collect(Collectors.toSet())),
-        		ReadonlySetView.of(new HashSet<>(preventOnWearEffects)));
+        		ReadonlySetView.of(new HashSet<>(preventOnWearEffects))), cfg.disableEffects());
         return () -> new BrimmArmor(unlocName, type, mergedRarity, material, models, patchesPositions, effects);
     }
 

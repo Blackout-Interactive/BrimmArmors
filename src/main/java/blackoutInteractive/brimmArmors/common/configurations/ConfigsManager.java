@@ -27,7 +27,8 @@ public class ConfigsManager {
 			TAGS_KNOCKBACK_RESISTANCE = new String[] {"config", "knockback-resistance"},
 			TAGS_DEFENSE = new String[] {"config", "defense"},
 			TAGS_DURABILITY = new String[] {"config", "durability"},
-			TAGS_RARITY = new String[] {"config", "rarity"};
+			TAGS_RARITY = new String[] {"config", "rarity"},
+			TAGS_DISABLE_EFFECTS = new String[] {"config", "disable-effects"};
 	
 	public static void init() {
 		if (hash != null) throw new IllegalStateException("Configs manager already initialised");
@@ -61,8 +62,16 @@ public class ConfigsManager {
 											return null;
 									}),
 									BrimmRarity::fromName);
+							Optional<Boolean> disableEffects = mapOptional(
+									parseStringFromXml(xml, TAGS_DISABLE_EFFECTS, (s)->{
+										if (!"true".equalsIgnoreCase(s) && !"false".equalsIgnoreCase(s))
+											return "'"+s+"' is not a valid boolean literal";
+										else
+											return null;
+									}),
+									Boolean::valueOf);
 							String name = file.getName().replace(".xml", "");
-							ArmorConfig config = new ArmorConfig(materialOverride, rarityOverride);
+							ArmorConfig config = new ArmorConfig(materialOverride, rarityOverride, disableEffects);
 							digest.update(hashTrailOf(config));
 							configs.put(name, config);
                             BrimmArmors.LOGGER.info("Loaded config file {}.", file.getName());
@@ -180,9 +189,15 @@ public class ConfigsManager {
 	    }
 	    Optional<BrimmRarity> rarityOpt = config.rarityOverride();
 	    if (rarityOpt == null || rarityOpt.isEmpty()) {
+	        sb.append("null|");
+	    } else {
+	        sb.append(rarityOpt.get().name()).append("|");
+	    }
+	    Optional<Boolean> disableEffects  = config.disableEffects();
+	    if (disableEffects == null || disableEffects.isEmpty()) {
 	        sb.append("null");
 	    } else {
-	        sb.append(rarityOpt.get().name());
+	        sb.append(disableEffects.get().booleanValue());
 	    }
 	    return sb.toString().getBytes(StandardCharsets.UTF_8);
 	}

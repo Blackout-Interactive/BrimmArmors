@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import blackoutInteractive.brimmArmors.common.items.BrimmRarity;
 import blackoutInteractive.ema_08_.items.SimpleArmorMaterial;
+import blackoutInteractive.ema_08_.items.effectsProvidingArmors.v2.ArmorEffectsSetup;
 import net.minecraft.world.item.ArmorItem;
 
 public class ConfigMergers {
@@ -26,6 +27,11 @@ public class ConfigMergers {
 	public static BrimmRarity mergeRarity(BrimmRarity rarity, Optional<BrimmRarity> override) {
 		override = override == null ? Optional.empty() : override;
 		return override.orElse(rarity);
+	}
+	
+	public static ArmorEffectsSetup checkEffects(ArmorEffectsSetup effects, Optional<Boolean> disable) {
+		if (disable == null || disable.isEmpty() || !disable.get().booleanValue()) return effects;
+		else return ArmorEffectsSetup.EMPTY;
 	}
 
 }

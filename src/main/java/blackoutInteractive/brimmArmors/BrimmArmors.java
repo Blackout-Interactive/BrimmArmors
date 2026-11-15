@@ -71,7 +71,9 @@ public class BrimmArmors
         ItemRegistry.register(eventBus);
         
         /*
-         * Requires: N/A.
+         * Requires: ItemRegistry.register being called.
+         * It's not a hard requirement, it is put only as this call will cause <clinit> of ItemRegistry to fire, so calling
+         * this before ItemRegistry.register will run ItemRegistry.<clinit> at an unexpected time (not necessarily wrong).
          */
         BlockRegistry.register(eventBus);
 
